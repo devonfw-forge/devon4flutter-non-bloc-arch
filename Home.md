@@ -1,1 +1,18 @@
-Welcome to the flutter-guide wiki.
+# Rough Outline
+- Intro
+    - who i this for?
+    - why did I write it?
+    - which exact topics will I cover
+- Basic Architecture of Flutter
+    - Widget Tree
+    - Mostly idempotent _App = buildMethods(state)_
+- State
+    - What is it?
+    - Where is it?
+    - How to best distribute it within the App
+        - Provider
+    - Current Problems with State
+- Communication with the Web
+- Keeping things Pretty
+    - Mastering the Widget Tree
+    - naming conventions
