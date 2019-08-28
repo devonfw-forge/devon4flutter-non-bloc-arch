@@ -40,3 +40,5 @@ Vinoski, Steve. ‘Demystifying RESTful Data Coupling’. IEEE Internet Computin
 Xinyang Feng, Jianjing Shen, and Ying Fan. ‘REST - An Alternative to RPC for Web Services Architecture’. In 2009 First International Conference on Future Information Networks, 7–10. Beijing, China: IEEE, 2009. https://doi.org/10.1109/ICFIN.2009.5339611.
 
 Zuzak, Ivan, and Silvia Schreier. ‘ArRESTed Development: Guidelines for Designing REST Frameworks’. IEEE Internet Computing 16, no. 4 (July 2012): 26–35. https://doi.org/10.1109/MIC.2012.60.
+
+> All References here a fake at the moment, this is just what it will _look_ like in the end
