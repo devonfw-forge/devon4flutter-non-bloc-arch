@@ -16,8 +16,9 @@
         - Provider
     - Current Problems with State
 - Communication with the Web
-- Architecture Guid for building a Flutter App 
+- Architecture Guide for building a Flutter App 
     - (more research on this)
+- Unit-Tests
 - Keeping things Pretty
     - Mastering the Widget Tree
     - naming conventions
