@@ -1,7 +1,16 @@
-- Following Googles Tut
-- How to set-up Android VD
-  - AVD without booting Android studio
-- Why VS Code?
-  - Extensions
-- How to use Hot Reload
-- dev Cycle
+# Setting up Flutter
+- Follow Google Tut
+
+# Android Virtual Device
+- How to Open it without opening Android Studio
+  
+# IDE
+- Why VSC
+- Extensions
+- Dec Cycle
+  - Hot Reload
+  - Release
+  - ...
+
+---
+# References 

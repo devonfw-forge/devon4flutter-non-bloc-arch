@@ -1,3 +1,5 @@
-- Keeping things Pretty
-    - Mastering the Widget Tree
-    - naming conventions
+# Mastering the Widget Tree
+# Naming conventions
+
+---
+# References 
