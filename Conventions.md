@@ -1,1 +1,3 @@
-Keeping things Pretty
+- Keeping things Pretty
+    - Mastering the Widget Tree
+    - naming conventions

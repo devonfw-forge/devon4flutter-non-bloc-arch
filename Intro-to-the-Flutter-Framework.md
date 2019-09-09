@@ -1,1 +1,10 @@
-.
+- Basic Architecture of Flutter Framework
+  - Widget Tree
+  - Mostly idempotent 
+  - _App = buildMethods(state)_
+- Dart 
+  - Language Features
+- State
+  - What is it?
+  - Where is it?
+- Communication with the Web
