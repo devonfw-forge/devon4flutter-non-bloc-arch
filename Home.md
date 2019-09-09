@@ -1,8 +1,3 @@
-<head>
-<meta http-equiv="refresh" content="0; url=http://example.com/" />
-</head>
-
-
 - who i this for? (Devs with basic Knowledge of Flutter)
 - why did I write it?
 - which exact topics will I cover
