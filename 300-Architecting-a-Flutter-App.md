@@ -3,10 +3,11 @@
   - Which one will I focus on and Why?
   - Google went bach and forth on this as well.
 
-# Bloc
-  - On an Abstract Level, What is it?
-  - How to think of your App (Pub/Sub)
-  - How it looks in code
-  - How to find my BLOCs
+# Provider Package 
+  - UI only publishes and subscribes
+  - Every UI element that has logic, has a dedicated logic class
+  - Global services are provided on root
+  - Only one possible option. This one has the smallest overhead and is a great start for beginners.
+  - Bloc would be my second choice
 ---
 # References 
