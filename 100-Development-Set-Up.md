@@ -1,1 +1,7 @@
-IDE, Android VD, Extensions
+- Following Googles Tut
+- How to set-up Android VD
+  - AVD without booting Android studio
+- Why VS Code?
+  - Extensions
+- How to use Hot Reload
+- dev Cycle
