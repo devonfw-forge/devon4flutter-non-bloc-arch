@@ -1,6 +1,6 @@
 # Mastering the Widget Tree
 # Naming conventions
-# File structure with Provider Package Pattern
+# File structure with BLoC
 
 ---
 # References 
