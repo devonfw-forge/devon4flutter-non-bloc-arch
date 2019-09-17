@@ -20,13 +20,13 @@
   - If you do have Platform Branching, It should be dependent on a single BLoC bool output
   
 ### Bloc Architecture
-![Bloc Architecture](/.images/bloc_1.png)
+![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/bloc_1.png)
 ### Bloc Architecture with Layers
-![Bloc Architecture with Layers](/.images/bloc_2.png)
+![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//.images/bloc_2.png)
 ### Wisgen Component Dependencies
-![Bloc Architecture with Layers](/.images/depencies_wisgen.png)
+![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//.images/depencies_wisgen.png)
 ### Wisgen DataFlow
-![Bloc Architecture with Layers](/.images/data_flow_wisgen.png)
+![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//.images/data_flow_wisgen.png)
 
 ---
 # References 
