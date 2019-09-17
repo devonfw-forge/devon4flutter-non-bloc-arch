@@ -8,16 +8,25 @@
 - Origin
 - UI only publishes and subscribes
 - **Build Interface code how you want it to look like -> then make it work**
-- 4 Rules for BLoCs
+- **4 Rules for BLoCs**
   - Only Sinks In & Streams out
   - Dependencies Injectable
-  - No Plattform Branching
+  - No Platform Branching
   - Implementation can be whatever you want
-- 4 Rules for UI Classes
+- **4 Rules for UI Classes**
   - "Complex Enough" views have a BLoC
   - Components do not format the inputs they send to the BLoC
   - Output are formated as little as possible
   - If you do have Platform Branching, It should be dependent on a single BLoC bool output
- 
+  
+### Bloc Architecture
+![Bloc Architecture](/.images/bloc_1.png)
+### Bloc Architecture with Layers
+![Bloc Architecture with Layers](/.images/bloc_2.png)
+### Wisgen Component Dependencies
+![Bloc Architecture with Layers](/.images/depencies_wisgen.png)
+### Wisgen DataFlow
+![Bloc Architecture with Layers](/.images/data_flow_wisgen.png)
+
 ---
 # References 
