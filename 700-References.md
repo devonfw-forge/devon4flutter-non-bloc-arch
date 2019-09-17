@@ -1,20 +1,36 @@
 # References 
+Angelov, Felix, and Contributors. ‘Bloc Library for Dart’. Software Library Documentation, 2019. https://felangel.github.io/bloc/#/.
+
+———. ‘Flutter Infinite List BLoC Tutorial’. Tutorial, 2019. https://felangel.github.io/bloc/#/flutterinfinitelisttutorial.
+
 Biørn-Hansen, Andreas, Tor-Morten Grønli, and Gheorghita Ghinea. ‘A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development’. ACM Comput. Surv. 51, no. 5 (November 2018): 108:1–108:34. https://doi.org/10.1145/3241739.
 
-Chioino, Jamil, Ivan Contreras, Alfredo Barrientos, and Luis Vives. ‘Designing a Decision Tree for Cross-Device Communication Technology Aimed at IOS and Android Developers’. In Proceedings of the 2Nd International Conference on Information System and Data Mining, 81–87. ICISDM ’18. New York, NY, USA: ACM, 2018. https://doi.org/10.1145/3206098.3206103.
+Boelens, Didier. ‘Flutter - Reactive Programming - Streams - BLoC’. Guide. Didier Boelens (blog), 2018. https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/.
 
-Ebone, A., Y. Tan, and X. Jia. ‘A Performance Evaluation of Cross-Platform Mobile Application Development Approaches’. In 2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft), 92–93, 2018.
+Doughtie, Gavin. ‘Architecting the Reactive Flutter App’. Conference Talk presented at the ReactiveConf 2017, Bratislava, Slovakia, 20 November 2017. https://www.youtube.com/watch?v=n_5JULTrstU&feature=youtu.be.
 
-Ferreira, C. M. S., M. J. P. Peixoto, P. A. S. Duarte, A. B. B. Torres, M. L. Silva Junior, L. S. Rocha, and W. Viana. ‘An Evaluation of Cross-Platform Frameworks for Multimedia Mobile Applications Development’. IEEE Latin America Transactions 16, no. 4 (April 2018): 1206–12. https://doi.org/10.1109/TLA.2018.8362158.
+Egan, Brian. ‘Keep It Simple, State: Architecture for Flutter Apps’. Conference Talk presented at the DartConf 2018, Google Campus, LA, 25 January 2018. https://www.youtube.com/watch?v=zKXz3pUkw9A.
 
-Google LLC. ‘Flutter Framework’. Accessed 28 August 2019. https://flutter.dev/.
+Egan, Brian, and Contributors. ‘Flutter Architecture Samples’. Architecture Samples. fluttersamples, 2017. https://fluttersamples.com/.
 
-———. ‘State Management’. Accessed 28 August 2019. https://flutter.dev/docs/development/data-and-backend/state-mgmt.
+Mackier, Dane. ‘Flutter Provider v3 Architecture’. Guide. filledstacks, 2019. https://www.filledstacks.com/post/flutter-provider-v3-architecture/.
 
-Nunkesser, R. ‘Beyond Web/Native/Hybrid: A New Taxonomy for Mobile App Development’. In 2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft), 214–18, 2018.
+Martin, Bob. ‘The Principles of Clean Architecture’. Meet Up Talk presented at the Uncle Bob Martin: The Principles of Clean Architecture, King Street, Norwich, 2015. https://www.youtube.com/watch?v=o_TH-Y78tt4.
 
-Pinto, C. M., and C. Coutinho. ‘From Native to Cross-Platform Hybrid Development’. In 2018 International Conference on Intelligent Systems (IS), 669–76, 2018. https://doi.org/10.1109/IS.2018.8710545.
+Moore, Kevin, and Bob Nystrom. ‘Dart: Productive, Fast, Multi-Platform - Pick 3’. Conference Talk presented at the Google I/O’19, Mountain View, CA, 9 May 2019. https://www.youtube.com/watch?v=J5DQRPRBiFI.
 
-Santos, Denisson Santana dos, Hugo Dória Nunes, Hendrik Teixeira Macedo, and Alberto Costa Neto. ‘Recommendation System for Cross-Platform Mobile Development Framework’. In Proceedings of the XV Brazilian Symposium on Information Systems, 69:1–69:8. SBSI’19. New York, NY, USA: ACM, 2019. https://doi.org/10.1145/3330204.3330279.
+Nunkesser, Robin. ‘Beyond Web/Native/Hybrid: A New Taxonomy for Mobile App Development’. In 2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft), 214–18. IEEE, 2018.
 
-> All References here a fake at the moment, this is just what it will _look_ like in the end
+Soares, Paolo. ‘Flutter / AngularDart – Code Sharing, Better Together’. Conference Talk presented at the DartConf 2018, Google Campus, LA, 25 January 2018. https://www.youtube.com/watch?v=PLHln7wHgPE.
+
+Staltz, Andre. ‘Reactive Programming: Why It Matters’. Conference Talk presented at the PolyConf 16, Poznan, Poland, 26 November 2017. https://www.youtube.com/watch?v=49dMGC1hM1o.
+
+Sullivan, Matt, and Filip Hracek. ‘Build Reactive Mobile Apps with Flutter’. Conference Talk presented at the Google I/O ’18, Mountain View, CA, 10 May 2018. https://www.youtube.com/watch?v=RS36gBEp8OI.
+
+———. ‘Pragmatic State Management in Flutter’. Conference Talk presented at the Google I/O’19, Mountain View, CA, 9 May 2019. https://www.youtube.com/watch?v=d_m5csmrf7I.
+
+———. ‘Pragmatic State Management Using Provider’. The Boring Flutter Development Show. Accessed 9 September 2019. https://www.youtube.com/watch?v=HrBiNHEqSYU.
+
+———. ‘Technical Debt and Streams/BLoC’. The Boring Flutter Development Show. Accessed 9 September 2019. https://www.youtube.com/watch?v=fahC3ky_zW0.
+
+Suri, Sagar. ‘Architect Your Flutter Project Using BLOC Pattern’. Guide. Medium (blog), 22 July 2019. https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1.
