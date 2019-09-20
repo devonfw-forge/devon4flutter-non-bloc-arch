@@ -1,9 +1,10 @@
 Page Table of Contents
+- [Under the Hood](#under-the-hood)
 - [Widget Tree](#widget-tree)
 - [State](#state)
-- [The Dart Language](#the-dart-language)
-- [Communication with the Web](#communication-with-the-web)
 - [References](#references)
+
+## Under the Hood
 
 ## Widget Tree
 - Mostly idempotent 
@@ -12,11 +13,6 @@ Page Table of Contents
 ## State
 - What is it?
 - Where is it?
-
-## The Dart Language
-- Language Features
-
-## Communication with the Web
 
 <p align="center"><a href="#">Back to Top</a></center></p>
 

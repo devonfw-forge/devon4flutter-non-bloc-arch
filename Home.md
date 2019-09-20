@@ -11,16 +11,16 @@ Page Table of Contents
 
 
 ## The Goal of this Guide
-This guide aims to bridge the gap between the absolute [Flutter](https://flutter.dev/) basics and clean, structured flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it properly. Or at least show you one possible way to it properly.
+This guide aims to bridge the gap between the absolute [Flutter](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it properly. Or at least show you one possible way to do it properly.
 
 ## Who is this Guide for?
 For people with a basic knowledge of the Flutter Framework. I recommend following this [tutorial by the Flutter team](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the [Dart](https://dart.dev/) programming language. No worries, it is very similar to Java, Kotlin and JavaScript. So if you know 1 or 2 of those languages you should be fine. Lastly, for the Architecture chapter, you should have a basic understanding of  [Data Streams](https://dart.dev/tutorials/language/streams).
 
 ## Topics that will be covered 
 - A recommendation for one possible Flutter-Development-Setup
-- A brief introduction to the Flutter in general. How it work _under the hood_ and it's underlying structure.
+- A brief introduction to the Flutter Framework in general. How it work _under the hood_ and it's underlying structure.
 - One possible architecture for your Flutter app and how to implement it ([BLoC](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/))
-- How to test you app
+- How to test your app
 - Some conventions and best practices for Dart, BLoC and the Flutter Framework
 - My personal opinion of the framework
 
