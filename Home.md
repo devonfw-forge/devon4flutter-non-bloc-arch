@@ -38,7 +38,7 @@ Boelens, Didier. ‘Flutter - Reactive Programming - Streams - BLoC’. Guide. D
 
 Capgemini. ‘Capgemini - Home Page’. Home Page, 2019. https://www.capgemini.com/us-en/.
 
-Faust, Sebastian. Wisgen. Cross-platform, Dart. 2019. Reprint, Germany, 2019. https://github.com/Fasust/wisgen.
+Faust, Sebastian. Wisgen. Cross-platform, Dart. Germany, 2019. https://github.com/Fasust/wisgen.
 
 Flutter Dev Team. The Flutter Framework (version 1.9). Cross-platform, Angular. Google LLC, 2018. https://flutter.dev/.
 
