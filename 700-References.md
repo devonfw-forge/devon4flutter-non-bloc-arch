@@ -34,3 +34,5 @@ Sullivan, Matt, and Filip Hracek. ‘Build Reactive Mobile Apps with Flutter’.
 ———. ‘Technical Debt and Streams/BLoC’. The Boring Flutter Development Show. Accessed 9 September 2019. https://www.youtube.com/watch?v=fahC3ky_zW0.
 
 Suri, Sagar. ‘Architect Your Flutter Project Using BLOC Pattern’. Guide. Medium (blog), 22 July 2019. https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1.
+
+<p align="center"><a href="#">Back to Top</a></center></p>
