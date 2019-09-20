@@ -31,7 +31,7 @@ This Guide was written by a student in the Bachelor of Science Program “Comput
 ## Structure of the Guide
 The Guide is designed to be read in order, from Chapter 1 to Chapter 6. Code examples throughout the chapters will  be take from _Wisgen_, an example Flutter Application that was specifically built for the purposes of this Guide.
 
-<center><a href="#">Back to Top</a></center>
+<p align="justify"><a href="#">Back to Top</a></center></p>
 
 ---
 ## References
