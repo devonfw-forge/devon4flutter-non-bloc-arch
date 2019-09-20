@@ -1,4 +1,3 @@
-# References 
 Angelov, Felix, and Contributors. ‘Bloc Library for Dart’. Software Library Documentation, 2019. https://felangel.github.io/bloc/#/.
 
 ———. ‘Flutter Infinite List BLoC Tutorial’. Tutorial, 2019. https://felangel.github.io/bloc/#/flutterinfinitelisttutorial.

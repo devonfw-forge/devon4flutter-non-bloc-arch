@@ -1,9 +1,18 @@
-# What options are there? 
+Page Table of Contents
+- [What options are there?](#what-options-are-there)
+- [BLoC](#bloc)
+  - [Bloc Architecture](#bloc-architecture)
+  - [Bloc Architecture with Layers](#bloc-architecture-with-layers)
+  - [Wisgen Component Dependencies](#wisgen-component-dependencies)
+  - [Wisgen DataFlow](#wisgen-dataflow)
+- [References](#references)
+
+## What options are there? 
   - Vanilla, Redux, Bloc, Provide/Scoped Model
   - Which one will I focus on and Why?
   - Google went bach and forth on this as well.
 
-# BLoC
+## BLoC
 - Why this one?
 - Origin
 - UI only publishes and subscribes
@@ -31,4 +40,4 @@
 <p align="center"><a href="#">Back to Top</a></center></p>
 
 ---
-# References 
+## References 
