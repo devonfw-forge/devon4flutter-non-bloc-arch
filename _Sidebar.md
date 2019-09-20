@@ -1,6 +1,7 @@
 * [Introduction](https://github.com/Fasust/flutter-guide/wiki)
 * [Development Set-Up](https://github.com/Fasust/flutter-guide/wiki/100-Development-Set-Up)
 * [Intro to the Flutter Framework](https://github.com/Fasust/flutter-guide/wiki/200-Intro-to-the-Flutter-Framework)
+   * [Communication with the Web](https://github.com/Fasust/flutter-guide/wiki/https://github.com/Fasust/flutter-guide/wiki/210-Communication-with-the-Web)
 * [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/300-Architecting-a-Flutter-App)
 * [Testing](https://github.com/Fasust/flutter-guide/wiki/400-Testing)
 * [Conventions](https://github.com/Fasust/flutter-guide/wiki/500-Conventions)
