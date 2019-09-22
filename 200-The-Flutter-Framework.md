@@ -53,6 +53,15 @@ You might think that keeping an entire rendering engine inside your app would le
 
 _Figure 5: [Flutter Framework Architecture](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
+One additional advantage of Flutter, is that is comes with two different compilers. A JIT Compiler (Just in time) and a AOT Compiler (Ahead of Time). The following table will showcase the advantage of each:
+
+| Compiler      | What is does                                                                                         | When it's used     |
+| :------------ | :--------------------------------------------------------------------------------------------------- | :----------------- |
+| Just in Time  | Only re-compiles files that have changed. Preserves App-State during rebuilds. Enables _Hot-reload_. | During Development |
+| Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                   | For Release        |
+
+_Table 1: Flutters 2 Compliers_
+
 | TLDR; | Flutter uses it's own engine instead of using the native one. The native environment only renders the finished frames. |
 | :---- | :--------------------------------------------------------------------------------------------------------------------- |
 
