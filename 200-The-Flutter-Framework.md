@@ -1,11 +1,12 @@
 Page Table of Contents
 - [Introduction](#introduction)
 - [Under the Hood](#under-the-hood)
-  - [Full Native](#full-native)
-  - [Embedded WebApps](#embedded-webapps)
+  - [Full Native Approach](#full-native-approach)
+  - [Embedded WebApp Approach](#embedded-webapp-approach)
     - [Bridges](#bridges)
-  - [Reactive Views](#reactive-views)
-  - [Flutter](#flutter)
+  - [Reactive View Approach](#reactive-view-approach)
+  - [Flutters Approach](#flutters-approach)
+- [Flutter Compiler](#flutter-compiler)
 - [The Widget Tree](#the-widget-tree)
 - [Stateless vs. Stateful](#stateless-vs-stateful)
 - [[TEMP] Requirements for this Chapter](#temp-requirements-for-this-chapter)
@@ -17,14 +18,14 @@ This Chapter will give you a basic understanding of how the Flutter Framework wo
 ## Under the Hood
 Flutter is a framework for cross-plattform native development. But what exactly does that mean? It means that it promises Native App performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how flutter achieves this, is to compare it to other mobile development approaches.
 
-### Full Native 
+### Full Native Approach
 ![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/native-rendering.png)
 
 _Figure 1: [Native app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 The classic way to build a mobile app, would be to write native code for each plattform you want to support. I.E. One for IOS, one for Android and so on. In this approach your app will be written in a plattform specific language and render through plattform specific widgets and a plattform specific engine. During the development you have direct access to Platform specific services and sensors.
 
-### Embedded WebApps
+### Embedded WebApp Approach
 ![Embedded Web App rendering](https://github.com/Fasust/flutter-guide/wiki//.images/webview-rendering.png)
 
 _Figure 2: [Embedded WebApp rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
@@ -34,14 +35,14 @@ Embedded WebApps where the first approach to cross-plattform development. You wo
 #### Bridges
 Bridges connect components with one another. These components can be build in the same or different programming languages.
 
-### Reactive Views 
+### Reactive View Approach
 ![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/reactive-rendering.png)
 
 _Figure 3: [Reactive app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 Apps build with reactive Frameworks (like React Native) are mostly written in a plattform independent language like JavaScript. The JavaScript code then sends information on how UI components should be displayed to the native environment. This communication runs through a _bridge_. So we end up with native widgets that are controller through JavaScript. The main problem here, is that the communication through the _bridge_ is a bottleneck which can lead to performance issus.
 
-### Flutter
+### Flutters Approach
 ![Flutter app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-rendering.png)
 
 _Figure 4: [Flutter app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
@@ -53,6 +54,10 @@ You might think that keeping an entire rendering engine inside your app would le
 
 _Figure 5: [Flutter Framework Architecture](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
+| TLDR; | Flutter uses it's own engine instead of using the native one. The native environment only renders the finished frames. |
+| :---- | :--------------------------------------------------------------------------------------------------------------------- |
+
+## Flutter Compiler
 One additional advantage of Flutter, is that is comes with two different compilers. A JIT Compiler (Just in time) and a AOT Compiler (Ahead of Time). The following table will showcase the advantage of each:
 
 | Compiler      | What is does                                                                                         | When it's used     |
@@ -61,9 +66,6 @@ One additional advantage of Flutter, is that is comes with two different compile
 | Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                   | For Release        |
 
 _Table 1: Flutters 2 Compliers_
-
-| TLDR; | Flutter uses it's own engine instead of using the native one. The native environment only renders the finished frames. |
-| :---- | :--------------------------------------------------------------------------------------------------------------------- |
 
 ## The Widget Tree
 - Mostly idempotent 
