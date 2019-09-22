@@ -7,6 +7,7 @@ Page Table of Contents
   - [Reactive View Approach](#reactive-view-approach)
   - [Flutters Approach](#flutters-approach)
 - [Flutter Compiler](#flutter-compiler)
+- [Hot Reload](#hot-reload)
 - [The Widget Tree](#the-widget-tree)
 - [Stateless vs. Stateful](#stateless-vs-stateful)
 - [[TEMP] Requirements for this Chapter](#temp-requirements-for-this-chapter)
@@ -66,6 +67,11 @@ One additional advantage of Flutter, is that is comes with two different compile
 | Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                   | For Release        |
 
 _Table 1: Flutters 2 Compliers_
+## Hot Reload
+
+![Hot Reload](https://github.com/Fasust/flutter-guide/wiki//.images/hot-reload.gif)
+
+_Figure 6: [Hot Reload](https://flutter.dev/docs/development/tools/hot-reload)_
 
 ## The Widget Tree
 - Mostly idempotent 
