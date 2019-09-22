@@ -12,7 +12,8 @@ Page Table of Contents
 - Idempotent
   
 ## Under the Hood
-
+![Flutter Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-architecture.png)
+_Figure 1: [The Flutter Architecture](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a)_
 
 ## Widget Tree
 - Mostly idempotent 
