@@ -68,3 +68,12 @@ _Figure 5: [The Flutter Architecture](https://hackernoon.com/whats-revolutionary
 
 ---
 ## References 
+How Is Flutter Different for App Development. Google Developers Official Youtube Channel, 2019. https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be.
+
+Kol, Tal. “Performance Limitations of React Native and How to Overcome Them.” Conference Talk presented at the React Amsterdam, Amsterdam, 2017. https://www.youtube.com/watch?v=psZLAHQXRsI.
+
+Leler, Wm. “What’s Revolutionary about Flutter.” Blog. hackernoon, 2017. https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514.
+
+Moore, Kevin, and Bob Nystrom. “Dart: Productive, Fast, Multi-Platform - Pick 3.” Conference Talk presented at the Google I/O’19, Mountain View, CA, May 9, 2019. https://www.youtube.com/watch?v=J5DQRPRBiFI.
+
+Stoll, Scott. “In Plain English: So What the Heck Is Flutter and Why Is It a Big Deal?” Blog. Medium, 2018. https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a.
