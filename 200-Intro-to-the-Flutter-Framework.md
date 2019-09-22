@@ -1,16 +1,24 @@
 Page Table of Contents
+- [[TEMP] Requirements for this Chapter](#temp-requirements-for-this-chapter)
 - [Under the Hood](#under-the-hood)
 - [Widget Tree](#widget-tree)
-- [State](#state)
+- [Stateless vs. Stateful](#stateless-vs-stateful)
 - [References](#references)
 
+## [TEMP] Requirements for this Chapter
+- Widget Tree
+- Stateless vs. Stateful
+- State
+- Idempotent
+  
 ## Under the Hood
+
 
 ## Widget Tree
 - Mostly idempotent 
 - _App = buildMethods(state)_
   
-## State
+## Stateless vs. Stateful
 - What is it?
 - Where is it?
 

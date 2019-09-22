@@ -25,7 +25,7 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 - My personal opinion of the framework
 
 ## Creation Context
-This Guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at [Technical University Cologne](https://www.th-koeln.de/en/homepage_26.php). It was created for one of the modules in that Bachelor. In addition to this, the Guide was written in collaboration with [Capgemini Cologne](https://www.capgemini.com/us-en/). Capgemini released a [Guide on building an application in Angular](https://github.com/devonfw/devon4ng) in May of 2019, this Guide is mend to be the the flutter version of that.
+This Guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at [Technical University Cologne](https://www.th-koeln.de/en/homepage_26.php). It was created for one of the modules in that Bachelor. In addition to this, the Guide was written in collaboration with [Capgemini Cologne][Capgemini]. Capgemini released a [Guide on building an application in Angular](https://github.com/devonfw/devon4ng) in May of 2019, this Guide is mend to be the the flutter version of that.
 
 ## Structure of the Guide
 The Guide is designed to be read in order, from Chapter 1 to Chapter 6. Code examples throughout the chapters will  be take from [Wisgen](https://github.com/Fasust/wisgen), an example Flutter Application that was specifically built for the purposes of this Guide.
@@ -36,7 +36,7 @@ The Guide is designed to be read in order, from Chapter 1 to Chapter 6. Code exa
 ## References
 Boelens, Didier. ‘Flutter - Reactive Programming - Streams - BLoC’. Guide. Didier Boelens (blog), 2018. https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/.
 
-Capgemini. ‘Capgemini - Home Page’. Home Page, 2019. https://www.capgemini.com/us-en/.
+[Capgemini]: Capgemini. ‘Capgemini - Home Page’. Home Page, 2019. https://www.capgemini.com/us-en/.
 
 Faust, Sebastian. Wisgen. Cross-platform, Dart. Germany, 2019. https://github.com/Fasust/wisgen.
 
