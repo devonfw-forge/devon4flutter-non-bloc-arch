@@ -68,6 +68,7 @@ One additional advantage of Flutter, is that is comes with two different compile
 
 _Table 1: Flutters 2 Compliers_
 ## Hot Reload
+Hot Reload is a feature Web Developers are already very familiar with. It essentially means, that your changes in the code are displayed in the running application near instantaneously. Thanks to Flutters JIT Complier, it is also able to provide this feature.
 
 ![Hot Reload](https://github.com/Fasust/flutter-guide/wiki//.images/hot-reload.gif)
 
