@@ -1,5 +1,4 @@
 Page Table of Contents
-- [[TEMP] Requirements for this Chapter](#temp-requirements-for-this-chapter)
 - [Introduction](#introduction)
 - [Under the Hood](#under-the-hood)
   - [Full Native](#full-native)
@@ -9,14 +8,8 @@ Page Table of Contents
   - [Flutter](#flutter)
 - [The Widget Tree](#the-widget-tree)
 - [Stateless vs. Stateful](#stateless-vs-stateful)
+- [[TEMP] Requirements for this Chapter](#temp-requirements-for-this-chapter)
 - [References](#references)
-
-## [TEMP] Requirements for this Chapter
-- Flutter Architecture
-- Widget Tree
-- Stateless vs. Stateful
-- State
-- Idempotent
 
 ## Introduction
 This Chapter will give you a basic understanding of how the Flutter Framework works as a whole. I will showcase the difference of Flutter to other Cross-Platform approaches and how Flutter works _under the hood_. You will also be introduced to the concepts of _state_ and flutters way of rendering an app as a tree of _widgets_.
@@ -60,6 +53,8 @@ You might think that keeping an entire rendering engine inside your app would le
 
 _Figure 5: [Flutter Framework Architecture](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
+| TLDR; | Flutter uses it's own engine instead of using the native one. The native environment only renders the finished frames. |
+| ----- | --------------------------------------------------------------------------------------------------------------------- |
 
 ## The Widget Tree
 - Mostly idempotent 
@@ -70,6 +65,13 @@ _Figure 5: [Flutter Framework Architecture](https://hackernoon.com/whats-revolut
 - Where is it?
 
 <p align="center"><a href="#">Back to Top</a></center></p>
+
+## [TEMP] Requirements for this Chapter
+- Flutter Architecture
+- Widget Tree
+- Stateless vs. Stateful
+- State
+- Idempotent
 
 ---
 ## References 
