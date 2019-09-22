@@ -54,7 +54,7 @@ You might think that keeping an entire rendering engine inside your app would le
 _Figure 5: [Flutter Framework Architecture](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 | TLDR; | Flutter uses it's own engine instead of using the native one. The native environment only renders the finished frames. |
-| ----- | --------------------------------------------------------------------------------------------------------------------- |
+| :---- | :--------------------------------------------------------------------------------------------------------------------- |
 
 ## The Widget Tree
 - Mostly idempotent 
