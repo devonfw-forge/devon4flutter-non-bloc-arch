@@ -1,6 +1,5 @@
 Page Table of Contents
 - [Introduction](#introduction)
-- [Under the Hood](#under-the-hood)
   - [Full Native Approach](#full-native-approach)
   - [Embedded WebApp Approach](#embedded-webapp-approach)
     - [Bridges](#bridges)
@@ -8,15 +7,9 @@ Page Table of Contents
   - [Flutters Approach](#flutters-approach)
 - [Flutter Compiler](#flutter-compiler)
 - [Hot Reload](#hot-reload)
-- [The Widget Tree](#the-widget-tree)
-- [Stateless vs. Stateful](#stateless-vs-stateful)
-- [[TEMP] Requirements for this Chapter](#temp-requirements-for-this-chapter)
 - [References](#references)
 
 ## Introduction
-This Chapter will give you a basic understanding of how the Flutter Framework works as a whole. I will showcase the difference of Flutter to other Cross-Platform approaches and how Flutter works _under the hood_. You will also be introduced to the concepts of _state_ and flutters way of rendering an app as a tree of _widgets_.
-  
-## Under the Hood
 Flutter is a framework for cross-plattform native development. But what exactly does that mean? It means that it promises Native App performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how flutter achieves this, is to compare it to other mobile development approaches.
 
 ### Full Native Approach
@@ -75,22 +68,7 @@ _Hot Reload_ is a feature Web Developers are already very familiar with. It esse
 
 _Figure 6: [Hot Reload](https://flutter.dev/docs/development/tools/hot-reload)_
 
-## The Widget Tree
-- Mostly idempotent 
-- _App = buildMethods(state)_
-  
-## Stateless vs. Stateful
-- What is it?
-- Where is it?
-
 <p align="center"><a href="#">Back to Top</a></center></p>
-
-## [TEMP] Requirements for this Chapter
-- Flutter Architecture
-- Widget Tree
-- Stateless vs. Stateful
-- State
-- Idempotent
 
 ---
 ## References 
