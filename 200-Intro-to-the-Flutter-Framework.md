@@ -3,7 +3,7 @@ Page Table of Contents
 - [Introduction](#introduction)
 - [Under the Hood](#under-the-hood)
   - [Full Native](#full-native)
-  - [Embedded Web apps](#embedded-web-apps)
+  - [Embedded WebApps](#embedded-webapps)
   - [Reactive Views](#reactive-views)
   - [Flutter](#flutter)
 - [The Widget Tree](#the-widget-tree)
@@ -30,26 +30,30 @@ _Figure 1: [Native app rendering](https://hackernoon.com/whats-revolutionary-abo
 
 The classic way to build a mobile app, would be to write native code for each plattform you want to support. I.E. One for IOS, one for Android and so on. In this approach your app will be written in a plattform specific language and render through plattform specific widgets and a plattform specific engine. During the development you have direct access to Platform specific services and sensors.
 
-### Embedded Web apps
-![Embedded Web app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/webview-rendering.png)
+### Embedded WebApps
+![Embedded Web App rendering](https://github.com/Fasust/flutter-guide/wiki//.images/webview-rendering.png)
 
-_Figure 1: [Embedded Web app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
+_Figure 2: [Embedded WebApp rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
+
+Embedded WebApps where the first approach to cross-plattform development. You would simply build your application with HTML, CSS and JS and then have it render through a Native WebView. The Problem here is, that developers are limited to the Web Technology Stack and that communication between the app and native services would always have to run through a _bridge_. Bridges connect components build in one programming language to components build in another. So here it _bridges_ the JavaScript code to the native plattform code.
 
 ### Reactive Views 
 ![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/reactive-rendering.png)
 
-_Figure 1: [Reactive app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
+_Figure 3: [Reactive app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
+
+Apps build with reactive Frameworks (like React Native) are mostly written in a plattform independent language like JavaScript. This code is then transformed to native plattform specific UI components. This transformation always to runs through a _bridge_ which can lead to performance problems.
 
 ### Flutter
 ![Flutter app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-rendering.png)
 
-_Figure 2: [Flutter app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
+_Figure 4: [Flutter app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
-Flutters approach is to move the entire rendering into your app. This way it does not relay on plattform specific widgets. It only needs a canvas to display the rendered frames on and system events/input it can then forward to your app. The framework also provides a way to access services and Sensors through platform independent interfaces.
+Flutters approach is to move the entire rendering process into the app. This way it does not relay on plattform specific widgets. It only needs a canvas to display the rendered frames on and system events/input it can then forward to your app. The framework also provides a way to access services and Sensors through platform independent interfaces.
 
 ![Flutter Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-architecture.png)
 
-_Figure 1: [The Flutter Architecture](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
+_Figure 5: [The Flutter Architecture](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 
 ## The Widget Tree
