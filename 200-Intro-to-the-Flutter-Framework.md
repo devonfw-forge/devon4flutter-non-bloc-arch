@@ -21,8 +21,6 @@ _Figure 2: [Flutter app rendering](https://medium.com/flutter-community/in-plain
 ![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/native-rendering.png)
 _Figure 2: [Native app rendering](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a)_
 
-| ![Flutter Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-architecture.png)_Figure 2: [Flutter app rendering](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a)_ | ![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/native-rendering.png)_Figure 2: [Native app rendering](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a)_ |
-| ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 
 ## Widget Tree
 - Mostly idempotent 
