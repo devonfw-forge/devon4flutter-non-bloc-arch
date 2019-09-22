@@ -25,25 +25,30 @@ Flutter is a framework for cross-plattform native development. But what exactly 
 
 ### Full Native 
 ![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/native-rendering.png)
+
 _Figure 1: [Native app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 The classic way to build a mobile app, would be to write native code for each plattform you want to support. I.E. One for IOS, one for Android and so on. In this approach your app will be written in a plattform specific language and render through plattform specific widgets and a plattform specific engine. During the development you have direct access to Platform specific services and sensors.
 
 ### Embedded Web apps
 ![Embedded Web app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/webview-rendering.png)
+
 _Figure 1: [Embedded Web app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 ### Reactive Views 
 ![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/reactive-rendering.png)
+
 _Figure 1: [Reactive app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 ### Flutter
 ![Flutter app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-rendering.png)
+
 _Figure 2: [Flutter app rendering](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 Flutters approach is to move the entire rendering into your app. This way it does not relay on plattform specific widgets. It only needs a canvas to display the rendered frames on and system events/input it can then forward to your app. The framework also provides a way to access services and Sensors through platform independent interfaces.
 
 ![Flutter Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-architecture.png)
+
 _Figure 1: [The Flutter Architecture](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 
