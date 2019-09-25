@@ -9,4 +9,3 @@
 * [Conventions](https://github.com/Fasust/flutter-guide/wiki/400-Conventions)
 * [Conclusion](https://github.com/Fasust/flutter-guide/wiki/500-Conclusion)
 * [References](https://github.com/Fasust/flutter-guide/wiki/600-References)
-  * [Citation Example](https://github.com/Fasust/flutter-guide/wiki/610-Citation-Example)
