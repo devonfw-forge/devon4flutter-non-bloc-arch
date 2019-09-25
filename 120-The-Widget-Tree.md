@@ -40,7 +40,7 @@ _Code Snippet 1: Red button in Android (Imperative)_
 
 In Flutter on the other hand, we never call the UI element directly, we instead change the App-Sate (here the bool "pressed") and trigger a rebuild of the button with the function setSate(). The Color of the Button is _declared_ to depend on the bool pressed:
 
-```java
+```dart
 bool pressed = false;
 
 @override
