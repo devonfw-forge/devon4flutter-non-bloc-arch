@@ -11,10 +11,10 @@ Page Table of Contents
 
 
 ## The Goal of this Guide
-This guide aims to bridge the gap between the absolute [Flutter (Flutter Dev Team, _The Flutter Framework_, 2018)](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it properly. Or at least show you one possible way to do it properly.
+This guide aims to bridge the gap between the absolute [Flutter (Flutter Dev Team 2018a)](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it properly. Or at least show you one possible way to do it properly.
 
 ## Who is this Guide for?
-For people with a basic knowledge of the Flutter Framework. I recommend following this [tutorial by the Flutter team (Flutter Dev Team, _Write Your First Flutter App_, 2018)](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the [Dart (Google LLC, _Dart Programming Language_, 2019)](https://dart.dev/) programming language. No worries, it is very similar to Java, Kotlin and JavaScript. So if you know 1 or 2 of those languages you should be fine. Lastly, for the Architecture chapter, you should have a basic understanding of  [Data Streams (Google LLC, _Dart Streams_, 2019)](https://dart.dev/tutorials/language/streams).
+For people with a basic knowledge of the Flutter Framework. I recommend following this [tutorial by the Flutter team (Flutter Dev Team 2018b)](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the [Dart (Google LLC 2019a)](https://dart.dev/) programming language. No worries, it is very similar to Java, Kotlin and JavaScript. So if you know 1 or 2 of those languages you should be fine. Lastly, for the Architecture chapter, you should have a basic understanding of  [Data Streams (Google LLC 2019b)](https://dart.dev/tutorials/language/streams).
 
 ## Topics that will be covered 
 - A recommendation for one possible Flutter-Development-Setup
