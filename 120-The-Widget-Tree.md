@@ -11,9 +11,11 @@ Page Table of Contents
 - [References](#references)
 
 ## Introduction
-- Whats this section about
+This section will give you a better understanding of how programming in Flutter actually works. You will learn how a Declarative framework like Flutter differs form an Imperative Framework like Android or IOS. And lastly, you will be introduced to two of the most central topics of Flutter: The _Widget Tree_ and _Sate_.
+
 ## Thinking Declaratively
 - Declecraive vs. Imperative
+  
 ## The Widget Tree
 - the tree
 - Buildcontext
@@ -23,7 +25,6 @@ Page Table of Contents
 
 ### Stateless Widgets
 #### Lifecycle
-
 ### Stateful Widgets
 - what is state 
   - mutable
@@ -34,6 +35,7 @@ Page Table of Contents
 #### Lifecycle
 
 ## When to use Stateful/Stateful Widgets
+
 ## How to access State
 - Lifting up
 - Inherited Widget
