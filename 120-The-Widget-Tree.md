@@ -16,37 +16,46 @@ This section will give you a better understanding of how programming in [Flutter
 ## Thinking Declaratively
 If you come from the native mobile world and frameworks like IOS and Android, developing with flutter can take while to get used to. Flutter, other then those frameworks mentioned above, is a _Declarative_ Framework. 
 
-> Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app [(Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
+> "Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app" [(Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
 ![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//.images/ui-equals-function-of-state.png)
 
 _Figure 1: [UI = f(State) (Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
 
+This means that you never _imperatively_ or explicably call an UI element to change it. you rather change the state of you application and the UI change is implicit. For Example, let's say we want to build a Button that changes it's color to red when it is pressed. In an imperative framework like Android, we have to call the UI element and tell it to change it's color:
 
 ```java
 Button button = findViewById(R.id.button_id);
-button.setBackground(red);
+boolean pressed = false;
+
 button.setOnClickListener(new View.OnClickListener() { 
     @Override
     public void onClick(View view) 
     { 
-        // Do Something
+        button.setBackground(pressed ? red : blue);
     } 
 }); 
 ```
 _Code Snippet 1: Red button in Android (Imperative)_
 
-```dart
-return FlatButton(
-  color: Colors.red,
-  onPressed: () {
-    // Do Something
-  }
-)
+In Flutter on the other hand, we never call the UI element directly, we instead change the App-Sate (here the bool "pressed") and trigger a rebuild of the button with the function setSate(). The Color of the Button is _declared_ to depend on the bool pressed:
+
+```java
+bool pressed = false;
+
+@override
+Widget build(BuildContext context) {
+    return FlatButton(
+        color: pressed ? Colors.red : Colors.blue,
+        onPressed: () {
+            setState(){ // trigger re-build of the button
+                pressed = !pressed;
+            } 
+        }
+    );
+}
 ```
 _Code Snippet 2: Red button in Flutter (Declarative)_
-
-In Code Snippet 1, we get the button by it's ID and then we specifically tell the button that he should be red and what happens when it is pressed. In Code Snippet 2, we return the button and _declare_ that the button should be red and what happens when it is pressed.
 
 ## The Widget Tree
 - the tree
