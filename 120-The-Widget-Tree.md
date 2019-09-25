@@ -16,13 +16,37 @@ This section will give you a better understanding of how programming in [Flutter
 ## Thinking Declaratively
 If you come from the native mobile world and frameworks like IOS and Android, developing with flutter can take while to get used to. Flutter, other then those frameworks mentioned above, is a _Declarative_ Framework. 
 
+But what exactly is the difference between _Declarative_ and _Imperative_? An imperative approach is telling the framework **exactly** what you want to happen. "Imperium" (Latin) means "to command". A declarative approach is describing the to the framework what kind of result you want to get. "Declaro" (Latin) means "to explain". Let's look at an example:
+
+```dart
+List numbers = [1,2,3,4,5]
+for(int i = 0; i < numbers.length; i++){
+    if(numbers[i]>3){
+        print(numbers[i]);
+    }   
+}
+```
+_Code Snippet 1: Number List (Imperative)_
+
+Here we search for ever entry in the list that is bigger the 3. We explicitly tell the framework to go through the List and check each value.
+
+```dart
+List numbers = [1,2,3,4,5]
+print(numbers.where((num) => num > 5));
+```
+_Code Snippet 2: Number List (Declarative)_
+
+In the Declarative version, we simply state how our result should look like, but not how to achieve it.
+
+Okay, that's all well but let's get back to Flutter:
+
 > "Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app" [(Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
 ![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//.images/ui-equals-function-of-state.png)
 
 _Figure 1: [UI = f(State) (Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
 
-This means that you never _imperatively_ or explicitly call an UI element to change it. you rather change the state of you application and the UI change is implicit. For Example, let's say we want to build a Button that changes it's color to red when it is pressed. In an imperative framework like Android, we have to call the UI element and tell it to change it's color:
+This means that you never _imperatively_ or explicitly call an UI element to change it. You rather change the state of you application and the UI change is implicit. For Example, let's say we want to build a button that changes it's color to red when it is pressed. In an imperative framework like Android, we have to call the UI element and tell it to change it's color:
 
 ```java
 Button button = findViewById(R.id.button_id);
@@ -36,7 +60,7 @@ button.setOnClickListener(new View.OnClickListener() {
     } 
 }); 
 ```
-_Code Snippet 1: Red button in Android (Imperative)_
+_Code Snippet 3: Red button in Android (Imperative)_
 
 In Flutter on the other hand, we never call the UI element directly, we instead change the App-Sate (here the bool "pressed") and trigger a rebuild of the button with the function setSate(). The Color of the Button is _declared_ to depend on the bool "pressed":
 
@@ -55,7 +79,7 @@ Widget build(BuildContext context) {
     );
 }
 ```
-_Code Snippet 2: Red button in Flutter (Declarative)_
+_Code Snippet 4: Red button in Flutter (Declarative)_
 
 ## The Widget Tree
 - the tree
