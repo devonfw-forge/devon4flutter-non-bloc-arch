@@ -43,7 +43,7 @@ _Figure 4: [Flutter app rendering (Leler 2017)](https://hackernoon.com/whats-rev
 
 Flutters approach is to move the entire rendering process into the app. The rendering runs through Flutters own engine and uses flutters own widgets. It only needs a canvas to display the rendered frames on and system events/input it can then forward to your app. The framework also provides a way to access services and sensors through platform independent interfaces. This way the _bridging_ between the app and the native environment is kept to a minimum which removes that bottleneck (Google LLC 2019; Leler 2017; Stoll 2018).
 
-You might think that keeping an entire rendering engine inside your app would lead to huge APKs, but as of 2019 the compressed framework is only 4.3MB ([Flutter FAQ (Flutter Dev Team 2019a)](https://flutter.dev/docs/resources/faq)). 
+You might think that keeping an entire rendering engine inside your app would lead to huge APKs, but as of 2019 the compressed framework is only 4.3MB [(Flutter Dev Team 2019a)](https://flutter.dev/docs/resources/faq). 
 
 ![Flutter Framework Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-architecture.png)
 
@@ -55,10 +55,10 @@ _Figure 5: [Flutter Framework Architecture (Leler 2017)](https://hackernoon.com/
 ## Flutter Compiler
 One additional advantage of Flutter, is that is comes with two different compilers. A JIT Compiler (Just in time) and a AOT Compiler (Ahead of Time). The following table will showcase the advantage of each:
 
-| Compiler      | What is does                                                                                         | When it's used     |
-| :------------ | :--------------------------------------------------------------------------------------------------- | :----------------- |
+| Compiler      | What is does                                                                                                                                                                                                                                                                        | When it's used     |
+| :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- |
 | Just in Time  | Only re-compiles files that have changed. Preserves [App-State (Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables [_Hot Reload_ (Flutter Dev Team 2019c)](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
-| Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                   | For Release        |
+| Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                                                  | For Release        |
 
 _Table 1: [Flutters 2 Compliers (Google LLC 2019; Moore and Nystrom 2019)](https://www.youtube.com/watch?v=J5DQRPRBiFI)_
 
