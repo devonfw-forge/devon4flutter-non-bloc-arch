@@ -22,7 +22,7 @@ If you come from the native mobile world and frameworks like IOS and Android, de
 
 _Figure 1: [UI = f(State) (Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
 
-This means that you never _imperatively_ or explicably call an UI element to change it. you rather change the state of you application and the UI change is implicit. For Example, let's say we want to build a Button that changes it's color to red when it is pressed. In an imperative framework like Android, we have to call the UI element and tell it to change it's color:
+This means that you never _imperatively_ or explicitly call an UI element to change it. you rather change the state of you application and the UI change is implicit. For Example, let's say we want to build a Button that changes it's color to red when it is pressed. In an imperative framework like Android, we have to call the UI element and tell it to change it's color:
 
 ```java
 Button button = findViewById(R.id.button_id);
