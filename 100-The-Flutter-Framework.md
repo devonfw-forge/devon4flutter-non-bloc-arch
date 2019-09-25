@@ -3,8 +3,9 @@ This Chapter will give you a basic understanding of how the [Flutter Framework (
   
 ## Contents of the Chapter
 * [Under The Hood](https://github.com/Fasust/flutter-guide/wiki/110-Under-the-Hood)
-* [The Widget Tree](https://github.com/Fasust/flutter-guide/wiki/120-The-Widget-Tree)
-* [Communication with the Web](https://github.com/Fasust/flutter-guide/wiki/130-Communication-with-the-Web)
+* [Thinking Declaratively](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively)
+* [The Widget Tree](https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree)
+* [Communication with the Web](https://github.com/Fasust/flutter-guide/wiki/140-Communication-with-the-Web)
 
 ## [TEMP] Requirements for this Chapter
 - Flutter Architecture
