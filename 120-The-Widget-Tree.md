@@ -14,7 +14,14 @@ Page Table of Contents
 This section will give you a better understanding of how programming in [Flutter (Flutter Dev Team 2018)](https://flutter.dev/) actually works. You will learn how a Declarative framework like Flutter differs form an Imperative Framework like Android or IOS. And lastly, you will be introduced to two of the most central topics of Flutter: The [_Widget Tree_ (Flutter Dev Team 2019)](https://flutter.dev/docs/development/ui/widgets-intro) and [_Sate_ (Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 
 ## Thinking Declaratively
-If you come from the native mobile world and frameworks like IOS and Android, developing with flutter can take while to get used to. Flutter, other then those frameworks mentioned above, is a _Declarative_ Framework. The difference becomes clear with some code:
+If you come from the native mobile world and frameworks like IOS and Android, developing with flutter can take while to get used to. Flutter, other then those frameworks mentioned above, is a _Declarative_ Framework. 
+
+> Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app [(Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
+
+![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//.images/ui-equals-function-of-state.png)
+
+_Figure 1: [UI = f(State) (Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
+
 
 ```java
 Button button = findViewById(R.id.button_id);
