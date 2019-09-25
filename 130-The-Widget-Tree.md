@@ -1,5 +1,6 @@
 Page Table of Contents
 - [Introduction](#introduction)
+- [What are Widgets?](#what-are-widgets)
 - [The Widget Tree](#the-widget-tree)
   - [Stateless Widgets](#stateless-widgets)
     - [Lifecycle](#lifecycle)
@@ -12,12 +13,14 @@ Page Table of Contents
 ## Introduction
 This section will give you a better understanding of how programming in [Flutter (Flutter Dev Team 2018)](https://flutter.dev/) actually works. You will be introduced the two of the most central topics of Flutter: The [_Widget Tree_ (Flutter Dev Team 2019)](https://flutter.dev/docs/development/ui/widgets-intro) and [_Sate_ (Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 
-## The Widget Tree
-- the tree
-- Buildcontext
+## What are Widgets?
 - Widgets in General
   - Imutable
   - Each widget does one specific thing
+
+## The Widget Tree
+- the tree
+- Buildcontext
 
 ### Stateless Widgets
 #### Lifecycle

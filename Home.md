@@ -28,7 +28,7 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 This Guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at [Technical University Cologne (Technical University Cologne 2019)](https://www.th-koeln.de/en/homepage_26.php). It was created for one of the modules in that Bachelor. In addition to this, the Guide was written in collaboration with [Capgemini Cologne (Capgemini 2019)](https://www.capgemini.com/us-en/). Capgemini released a [Guide on building an application in Angular (Soares 2018)](https://github.com/devonfw/devon4ng) in May of 2019, this Guide is mend to be the the flutter version of that.
 
 ## Structure of the Guide
-The Guide is designed to be read in order, from Chapter 1 to Chapter 6. Code examples throughout the chapters will  be take from [Wisgen (Faust 2019)](https://github.com/Fasust/wisgen), an example Flutter Application that was specifically built for the purposes of this Guide.
+The Guide is designed to be read in order, from Chapter 0 (this one) to Chapter 6. Code examples throughout the chapters will manly be take from [Wisgen (Faust 2019)](https://github.com/Fasust/wisgen), an example Flutter Application that was specifically built for the purposes of this Guide.
 
 <p align="center"><a href="#">Back to Top</a></center></p>
 
