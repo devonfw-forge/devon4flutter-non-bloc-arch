@@ -26,7 +26,7 @@ for(int i = 0; i < numbers.length; i++){
 ```
 _Code Snippet 1: Number List (Imperative)_
 
-Here we search for ever entry in the list that is bigger the 3. We explicitly tell the framework to go through the List and check each value.
+Here we search for ever entry in the list that is bigger then 3. We explicitly tell the framework to go through the List and check each value.
 
 ```dart
 List numbers = [1,2,3,4,5]
