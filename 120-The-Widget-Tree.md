@@ -21,9 +21,7 @@ But what exactly is the difference between _Declarative_ and _Imperative_? An im
 ```dart
 List numbers = [1,2,3,4,5]
 for(int i = 0; i < numbers.length; i++){
-    if(numbers[i]>3){
-        print(numbers[i]);
-    }   
+    if(numbers[i] > 3 ) print(numbers[i]);     
 }
 ```
 _Code Snippet 1: Number List (Imperative)_
@@ -32,7 +30,7 @@ Here we search for ever entry in the list that is bigger the 3. We explicitly te
 
 ```dart
 List numbers = [1,2,3,4,5]
-print(numbers.where((num) => num > 5));
+print(numbers.where((num) => num > 3));
 ```
 _Code Snippet 2: Number List (Declarative)_
 
