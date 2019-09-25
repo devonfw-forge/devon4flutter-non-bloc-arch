@@ -11,7 +11,7 @@ Page Table of Contents
 - [References](#references)
 
 ## Introduction
-This section will give you a better understanding of how programming in Flutter actually works. You will learn how a Declarative framework like Flutter differs form an Imperative Framework like Android or IOS. And lastly, you will be introduced to two of the most central topics of Flutter: The _Widget Tree_ and _Sate_.
+This section will give you a better understanding of how programming in [Flutter (Flutter Dev Team 2018)](https://flutter.dev/) actually works. You will learn how a Declarative framework like Flutter differs form an Imperative Framework like Android or IOS. And lastly, you will be introduced to two of the most central topics of Flutter: The [_Widget Tree_ (Flutter Dev Team 2019)](https://flutter.dev/docs/development/ui/widgets-intro) and [_Sate_ (Flutter Dev Team 2019)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 
 ## Thinking Declaratively
 - Declecraive vs. Imperative
