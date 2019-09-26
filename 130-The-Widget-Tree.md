@@ -6,10 +6,11 @@ Page Table of Contents
 - [3 types of Widgets](#3-types-of-widgets)
   - [Stateless Widgets](#stateless-widgets)
     - [Lifecycle](#lifecycle)
+    - [When to use](#when-to-use)
   - [Stateful Widgets](#stateful-widgets)
     - [Lifecycle](#lifecycle-1)
+    - [When to use](#when-to-use-1)
   - [Inherited Widgets](#inherited-widgets)
-  - [When to use Stateful/Stateful Widgets](#when-to-use-statefulstateful-widgets)
 - [How to access State](#how-to-access-state)
 - [References](#references)
 
@@ -75,9 +76,12 @@ Card.of(context);
 Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree, **downwards**. You want to place information that is required by multiple widgets above them in the tree, so they can both easily access it through there BuildContext. Keep this in mind for now, I will explain this in more detail in the chapter [Architekting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
 ## 3 types of Widgets
+There are 3 types of Widgets in the Flutter framework. I will now showcase there differences and their respective usecases.
 
 ### Stateless Widgets
 #### Lifecycle
+#### When to use
+
 ### Stateful Widgets
 - what is state 
   - mutable
@@ -86,10 +90,10 @@ Alright, but what does that mean for me as a Flutter developer? It is important 
   - sticks around
 - why 2 party
 #### Lifecycle
+#### When to use
+
 ### Inherited Widgets
 I will not go in detail on Inherited Widgets here. When using the BLoC pattern, which I will teach you in the next chapter, you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all there descendance. And they are used as the underlying technologie of the BLoC library.
-
-### When to use Stateful/Stateful Widgets
 
 ## How to access State
 - Lifting up
