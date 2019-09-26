@@ -23,7 +23,28 @@ But that is not really helpful, is it? I would rephrase that and say, you can th
 
 _Figure 1: [Wisgen Widgets (Faust 2019)](https://github.com/Fasust/wisgen)_
 
-As you can see, all UI-Components of the app are widgets. From high level stuff like the App-Bar and ListView down to to the granular things like texts and buttons (I did not highlight every widget on screen keep the figure from becoming to crowded).
+As you can see, all UI-Components of the app are widgets. From high level stuff like the App-Bar and ListView down to to the granular things like texts and buttons (I did not highlight every widget on screen keep the figure from becoming to crowded). In code, the build method of a card Widget would look something like this:
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return Card(
+    shape: RoundedRectangleBorder( //Declare corners to be rounded
+      borderRadius: BorderRadius.circular(7),
+    ),
+    elevation: 2, //Declare shadow drop
+    child: Column( //The child of the card should be displayed in a column Widget
+      children: <Widget>[ //The card contains an image and some content
+        _image(context),
+        _content(context),
+      ],
+    ),
+  );
+}
+```
+_Codesnippt 1: [Wisgen Card Widget (Faust 2019)](https://github.com/Fasust/wisgen)_
+
+The functions _image() generates an the stock image. The function _content() generate the wisdom text and the buttons on the card. 
 
 - Widgets in General
   - Imutable
