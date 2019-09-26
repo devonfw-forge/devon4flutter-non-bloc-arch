@@ -56,11 +56,14 @@ The build method of any given Widget can be called multiple times a second. And 
 ## The Widget Tree
 I have used the term _Widget Tree_ a few times now, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested widgets. Let's have a look of the widget tree for our previous example screen: 
 
-![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
+![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
 
 _Figure 2: [Wisgen Widget Tree (Faust 2019)](https://github.com/Fasust/wisgen)_
 
 ## Buildcontext
+![Wisgen Build Context](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-build-context.PNG)
+
+_Figure 2: [Wisgen Build Context (Faust 2019)](https://github.com/Fasust/wisgen)_
 
 ### Stateless Widgets
 #### Lifecycle
