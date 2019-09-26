@@ -54,7 +54,7 @@ Another important thing to note, is that:
 The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework. This also means that all variables in a Widget have to be final, because they can not change over time. But your app never consists out of exclusively immutable parts, does it? How flutter handles mutable _state_ will be covered in the section [Stateful Widgets](#stateful-widgets).
 
 ## The Widget Tree
-I have used the term _Widget Tree_ a few times now, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested widgets. Let's have a look of the widget tree for our previous example screen: 
+I have used the term _Widget Tree_ a few times now, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested widgets. Let's have a look of the widget tree for our example in Figure 1. Note the card Widgets on the right hand side of the diagram. Here you can see how the code from Snippet 1 translates to Widgets in the Widget Tree.
 
 ![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
 
