@@ -23,7 +23,7 @@ But that is not really helpful, is it? I would rephrase that and say, you can th
 
 _Figure 1: [Wisgen Widgets (Faust 2019)](https://github.com/Fasust/wisgen)_
 
-As you can see, all UI-Components of the app are widgets. From high level stuff like the App-Bar and ListView down to to the granular things like texts and buttons (I did not highlight every widget on screen keep the figure from becoming to crowded). In code, the build method of a card Widget would look something like this:
+As you can see, all UI-Components of the app are widgets. From high level stuff like the App-Bar and ListView down to to the granular things like texts and buttons (I did not highlight every widget on screen to keep the figure from becoming over crowded). In code, the build method of a card Widget would look something like this:
 
 ```dart
 @override
@@ -44,7 +44,7 @@ Widget build(BuildContext context) {
 ```
 _Codesnippt 1: [Wisgen Card Widget (Faust 2019)](https://github.com/Fasust/wisgen)_
 
-The functions _image() generates an the stock image. The function _content() generate the wisdom text and the buttons on the card. 
+The functions _image() generates the stock image. The function _content() generate the wisdom text and the buttons on the card. 
 
 - Widgets in General
   - Imutable
