@@ -48,13 +48,13 @@ _Codesnippt 1: [Wisgen Card Widget (Faust 2019)](https://github.com/Fasust/wisge
 The functions _image() generates the stock image. The function _content() generate the wisdom text and the buttons on the card. 
 Another important thing to note, is that:
 
-| ⚠   | Widgets in Flutter are **always** immutable |
+| ⚠   | Widgets in Flutter are always immutable |
 | --- | :------------------------------------------ |
 
-The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework. This also means that all variables in a Widget have to be final, because they can not change over time. But your app never contains out of exclusively immutable parts, does it? How flutter handles mutable _state_ will be covered in the section [Stateful Widgets](#stateful-widgets).
+The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework. This also means that all variables in a Widget have to be final, because they can not change over time. But your app never consists out of exclusively immutable parts, does it? How flutter handles mutable _state_ will be covered in the section [Stateful Widgets](#stateful-widgets).
 
 ## The Widget Tree
-I have used the phrase Widget Tree a few times now, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested widgets. Let's have a look of the widget tree for our previous example screen: 
+I have used the term _Widget Tree_ a few times now, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested widgets. Let's have a look of the widget tree for our previous example screen: 
 
 ![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
 
