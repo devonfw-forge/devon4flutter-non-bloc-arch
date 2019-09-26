@@ -9,7 +9,7 @@ Page Table of Contents
 If you come from the native mobile world and _imperative_ frameworks like [IOS (Apple 2010)](https://developer.apple.com/ios/) and [Android (Google LLC 2008)](https://developer.android.com/), developing with [Flutter (Flutter Dev Team 2018)](https://flutter.dev/) can take while to get used to. Flutter, other then those frameworks mentioned above, is a _declarative_ Framework. 
 
 ## Declarative vs Imperative
-But what exactly is the difference between _declarative_ and _imperative_? I will try to explain this using a metaphor: For a second, Let's think of programming as _talking_ to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. "Imperium" (Latin) means "to command". A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and letting the framework decide on how to achieve that result. "Declaro" (Latin) means "to explain" (Bezerra 2018; Flutter Dev Team 2019a; 2019c). Let's look at an example:
+But what exactly is the difference between _declarative_ and _imperative_? I will try to explain this using a metaphor: For a second, let's think of programming as _talking_ to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. "Imperium" (Latin) means "to command". A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and letting the framework decide on how to achieve that result. "Declaro" (Latin) means "to explain" (Bezerra 2018; Flutter Dev Team 2019a; 2019c). Let's look at an example:
 
 ```dart
 List numbers = [1,2,3,4,5]
@@ -27,10 +27,10 @@ print(numbers.where((num) => num > 3));
 ```
 _Code Snippet 2: Number List (Declarative)_
 
-One Important thing to note here is, that the difference between Imperative and Declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit mor declarative [(Computerphile 2016)](https://www.youtube.com/watch?v=4A2mWqLUpzw).
+One important thing to note here is, that the difference between imperative and declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit mor declarative. This is because you are then using functions that _describe_ what they do and you no longer care how they do it [(Computerphile 2016)](https://www.youtube.com/watch?v=4A2mWqLUpzw).
 
 ## Declarative Flutter
-Okay, now that we understand what a declarative means, let's take a look at Flutter specifically. This is a quote from Flutters official documentation:
+Okay, now that we understand what declarative means, let's take a look at Flutter specifically. This is a quote from Flutters official documentation:
 
 > "Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app" [(Flutter Dev Team 2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
