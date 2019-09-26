@@ -62,9 +62,15 @@ I have used the term _Widget Tree_ a few times now, but what exactly does it mea
 _Figure 2: [Wisgen Widget Tree (Faust 2019)](https://github.com/Fasust/wisgen)_
 
 ### Buildcontext
-![Wisgen Build Context](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-build-context.PNG)
+If you have previously build an App with Flutter, you have definitely encountered _BuildContext_. It is passed in as a variable in every Widget build methode in Flutter. But what exactly is _BuildContext_? As X puts it:
+> "A BuildContext is nothing else but a reference to the location of a Widget within the tree structure of all the Widgets which are built."
 
-_Figure 2: [Wisgen Build Context (Faust 2019)](https://github.com/Fasust/wisgen)_
+The BuildContext contain information about each *ancestor* leading down to the widget that the context belongs to. So it is an easy way for a widget to access all its ancestors in the widget tree. accessing the *descendance* through the BuildContext is possible, but not advices and inefficient. So in short: For a widget at the bottom of the tree, it is very easy to get information from widgets at the top of the tree but not visversa. For example, the image Widget from Figure 2 could access it's ancestor card Widget like this:
+```dart
+//going up the widget tree: (Image [me]) -> (Column) -> (Card)
+Card.of(context); 
+```
+Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree, **downward**. You want to place information that is required by multiple widgets above them in the tree, so they can both easily access it through there BuildContext. Keep this in mind for now, I will explain this in more detail in the chapter [Architekting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
 ## 2 types of Widgets
 ### Stateless Widgets
