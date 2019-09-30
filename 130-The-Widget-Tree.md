@@ -3,7 +3,7 @@ Page Table of Contents
 - [Widgets in General](#widgets-in-general)
   - [The Widget Tree](#the-widget-tree)
   - [Buildcontext](#buildcontext)
-- [3 types of Widgets](#3-types-of-widgets)
+- [The three types of Widgets](#the-three-types-of-widgets)
   - [Stateless Widgets](#stateless-widgets)
     - [Lifecycle](#lifecycle)
     - [When to use](#when-to-use)
@@ -75,8 +75,8 @@ Card.of(context);
 ```
 Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree, **downwards**. You want to place information that is required by multiple widgets above them in the tree, so they can both easily access it through there BuildContext. Keep this in mind for now, I will explain this in more detail in the chapter [Architekting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
-## 3 types of Widgets
-There are 3 types of Widgets in the Flutter framework. I will now showcase there differences and their respective usecases.
+## The three types of Widgets
+There are 3 types of Widgets in the Flutter framework. I will now showcase there differences, there lifecycles and their respective usecases.
 
 ### Stateless Widgets
 #### Lifecycle
