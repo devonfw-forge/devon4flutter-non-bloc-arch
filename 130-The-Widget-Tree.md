@@ -21,7 +21,7 @@ This section will give you a better understanding of how programming in [Flutter
 One sentence you can simply not avoid when researching Flutter is:
 > "In Flutter, everything is a Widget."
 
-But that is not really helpful, is it? Personally, I like Didier Boelens definition Flutter Widgets better:
+But that is not really helpful, is it? Personally, I like Didier Boelens definition of Flutter Widgets better:
 > Think of a Widget as a visual component (or a component that interacts with the visual aspect of an application).
 
 Let's have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought provoking stock images:
