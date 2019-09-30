@@ -84,6 +84,8 @@ Widget build(BuildContext context) {
   );
 }
 ```
+_Codesnippt 2: [Wisgen Image Widget (Faust 2019)](https://github.com/Fasust/wisgen)_
+
 Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree: **Downwards**. You want to place information that is required by multiple Widgets above them in the tree, so they can both easily access it through their BuildContext. Keep this in mind for now, I will explain this in more detail in the chapter [Architekting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
 ## The three types of Widgets
