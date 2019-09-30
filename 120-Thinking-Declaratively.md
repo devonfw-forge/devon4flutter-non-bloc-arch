@@ -1,14 +1,14 @@
 Page Table of Contents
 - [Introduction](#introduction)
-- [Declarative vs Imperative](#declarative-vs-imperative)
-- [Declarative Flutter](#declarative-flutter)
-- [Efficiency](#efficiency)
+- [Declarative Programming vs Imperative Programming](#declarative-programming-vs-imperative-programming)
+- [Declarative Programming in Flutter](#declarative-programming-in-flutter)
+- [Efficiency of Re-Builds](#efficiency-of-re-builds)
 - [References](#references)
 
 ## Introduction
 If you come from the native mobile world and _imperative_ frameworks like [IOS (Apple 2010)](https://developer.apple.com/ios/) and [Android (Google LLC 2008)](https://developer.android.com/), developing with [Flutter (Flutter Dev Team 2018)](https://flutter.dev/) can take while to get used to. Flutter, other then those frameworks mentioned above, is a _declarative_ Framework. 
 
-## Declarative vs Imperative
+## Declarative Programming vs Imperative Programming
 But what exactly is the difference between _declarative_ and _imperative_? I will try to explain this using a metaphor: For a second, let's think of programming as _talking_ to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. "Imperium" (Latin) means "to command". A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and letting the framework decide on how to achieve that result. "Declaro" (Latin) means "to explain" (Bezerra 2018; Flutter Dev Team 2019a; 2019c). Let's look at an example:
 
 ```dart
@@ -32,7 +32,7 @@ One important thing to note here is, that the difference between imperative and 
 | 🕐 TLDR | Imperative Programming is telling the framework **exactly** what you want it to do. Declarative Programming is describing to the framework what kind of result you want to get and letting the framework decide on how to achieve that result. |
 | ------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-## Declarative Flutter
+## Declarative Programming in Flutter
 Okay, now that we understand what declarative means, let's take a look at Flutter specifically. This is a quote from Flutters official documentation:
 
 > "Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app" [(Flutter Dev Team 2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
@@ -77,7 +77,7 @@ Widget build(BuildContext context) {
 ```
 _Code Snippet 4: Red button in Flutter (Declarative)_
 
-## Efficiency 
+## Efficiency of Re-Builds
 Is it not very inefficient to re-render the entire Widget every time we change the state? That was the first questions I had when learning about this topic. But I was pleased to learn, that Flutter uses something called "RenderObjects" to improve performance similar to [Reacts (Facebook 2015)](https://facebook.github.io/react-native/) virtual DOM.
 > "RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between states. The Flutter framework handles the rest." [(Flutter Dev Team 2019c)](https://flutter.dev/docs/get-started/flutter-for/declarative)
 
