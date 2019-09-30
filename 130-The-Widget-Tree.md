@@ -55,7 +55,7 @@ The functions _image() generates a Widget that contains the stock image. The fun
 Another important thing to note is that:
 
 | ⚠   | Widgets in Flutter are always immutable |
-| --- | :------------------------------------------ |
+| --- | :-------------------------------------- |
 
 The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework. To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods light weight by making all Widgets immutable. This means that all variables in a Widget have to be declared as _final_. Which means they are initialized once and can not change over time. 
 But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. In Flutter such mutable data is called _state_. No worries, how Flutter handles mutable _state_ will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.

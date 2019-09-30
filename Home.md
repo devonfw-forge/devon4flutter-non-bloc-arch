@@ -31,7 +31,8 @@ The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 
 ## My Sources 
 I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, official documentaions, scientific papers that cover cross-platform mobile development in gerneral and many other sources. To better understand all the theory, I also developed the [Wisgen app (Faust 2019)](https://github.com/Fasust/wisgen) using the Flutter Framework and the [BLoC Pattern (Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE). Every page in this guide has all the references I used for that specific page listed at the very bottom under the heading "References". I also listed all sources used in the entire guide in chapter [6 "References"](https://github.com/Fasust/flutter-guide/wiki/600-References).
 
-<p align="center"><a href="#">Back to Top</a></center></p>
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
+<p align="center"><a href="#">Back to Top</a></p>
 
 ---
 ## References
