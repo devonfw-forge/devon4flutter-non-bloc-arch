@@ -115,6 +115,7 @@ I will not go in detail on Inherited Widgets here. When using the BLoC pattern, 
   - local and global
   - more in architecture
 
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/140-Communication-with-the-Web">Next Chapter: Communication with the Web ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
 
 ---

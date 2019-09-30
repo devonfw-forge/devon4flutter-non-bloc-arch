@@ -8,6 +8,7 @@ Page Table of Contents
 ## Naming conventions
 ## File structure with BLoC
 
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/500-Conclusion">Next Chapter: Conclusion ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
 
 ---

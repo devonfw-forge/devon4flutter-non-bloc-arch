@@ -69,6 +69,7 @@ _Table 1: [Flutters 2 Compliers (Google LLC 2019; Moore and Nystrom 2019)](https
 
 _Figure 6: [Hot Reload (Flutter Dev Team 2019c)](https://flutter.dev/docs/development/tools/hot-reload)_
 
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively">Next Chapter: Thinking Declaratively ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
 
 ---

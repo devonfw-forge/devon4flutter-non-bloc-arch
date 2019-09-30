@@ -81,6 +81,7 @@ _Code Snippet 4: Red button in Flutter (Declarative)_
 Is it not very inefficient to re-render the entire Widget every time we change the state? That was the first questions I had when learning about this topic. But I was pleased to learn, that Flutter uses something called "RenderObjects" to improve performance similar to [Reacts (Facebook 2015)](https://facebook.github.io/react-native/) virtual DOM.
 > "RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between states. The Flutter framework handles the rest." [(Flutter Dev Team 2019c)](https://flutter.dev/docs/get-started/flutter-for/declarative)
 
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree">Next Chapter: The Widget Tree ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
 
 ---
