@@ -7,13 +7,6 @@ This Chapter will give you a basic understanding of how the [Flutter Framework (
 * [The Widget Tree](https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree)
 * [Communication with the Web](https://github.com/Fasust/flutter-guide/wiki/140-Communication-with-the-Web)
 
-## [TEMP] Requirements for this Chapter
-- Flutter Architecture
-- Widget Tree
-- Stateless vs. Stateful
-- State
-- Idempotent
-
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/110-Under-the-Hood">Next Chapter: Under the Hood ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
 
