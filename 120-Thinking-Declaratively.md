@@ -6,7 +6,7 @@ Page Table of Contents
 - [References](#references)
 
 ## Introduction
-If you come from the native mobile world and _imperative_ frameworks like [IOS (Apple 2010)](https://developer.apple.com/ios/) and [Android (Google LLC 2008)](https://developer.android.com/), developing with [Flutter (Flutter Dev Team 2018)](https://flutter.dev/) can take while to get used to. Flutter, other then those frameworks mentioned above, is a _declarative_ Framework. 
+If you come from the native mobile world and _imperative_ frameworks like [IOS (Apple 2010)](https://developer.apple.com/ios/) and [Android (Google LLC 2008)](https://developer.android.com/), developing with [Flutter (Flutter Dev Team 2018)](https://flutter.dev/) can take while to get used to. Flutter, other then those frameworks mentioned above, is a _declarative_ Framework. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: [_state_ (Flutter Dev Team 2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 
 ## Declarative Programming vs Imperative Programming
 But what exactly is the difference between _declarative_ and _imperative_? I will try to explain this using a metaphor: For a second, let's think of programming as _talking_ to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. "Imperium" (Latin) means "to command". A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and letting the framework decide on how to achieve that result. "Declaro" (Latin) means "to explain" (Bezerra 2018; Flutter Dev Team 2019a; 2019c). Let's look at an example:
@@ -41,7 +41,14 @@ Okay, now that we understand what declarative means, let's take a look at Flutte
 
 _Figure 1: [UI = f(State) (Flutter Dev Team 2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
 
-This means that you never imperatively or explicitly call an UI element to change it. You rather _declare_ that the UI should look a certain way, given a certain [_state_ (Flutter Dev Team 2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). For Example, let's say we want to build a button that changes it's color to red when it is pressed. In an imperative framework like Android, we find the button by it's ID, attach a listener and tell that listener to change the background color when the button is clicked:
+This means that you never imperatively or explicitly call an UI element to change it. You rather _declare_ that the UI should look a certain way, given a certain [_state_ (Flutter Dev Team 2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). But what exactly is _state_? 
+
+| ⚠   | State in Flutter is any data that can change over time |
+| --- | :----------------------------------------------------- |
+
+Typical State examples: User Data, the position of a scroll bar, a favorite List
+
+Let's have a look at a classic UI problem and how we would solve it imperatively in Android and compare it to Flutters declarative approach. let's say we want to build a button that changes it's color to red when it is pressed. In Android we find the button by it's ID, attach a listener and tell that listener to change the background color when the button is pressed:
 
 ```java
 Button button = findViewById(R.id.button_id);
@@ -61,7 +68,7 @@ _Code Snippet 3: Red button in Android (Imperative)_
 In Flutter on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool "pressed"). We then declare that the onPressed function should update the app state and re-build the button:
 
 ```dart
-bool pressed = false;
+bool pressed = false; //State
 
 @override
 Widget build(BuildContext context) {
