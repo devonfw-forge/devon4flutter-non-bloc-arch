@@ -4,10 +4,10 @@ Page Table of Contents
 - [References](#references)
 
 ## Introduction
-In this chapter I will briefly show you how to communicate with the Web in [Flutter (Flutter Dev Team 2018)](https://flutter.dev/). I think most large scale application are dependant on th Web in one way or another, so it felt important to cover it.
+In this chapter I will briefly show you how to communicate with the Web in [Flutter (Flutter Dev Team 2018)](https://flutter.dev/). I think most large scale application are dependant on the Web in one way or another, so it felt important to cover this topic.
 
 ## The HTTP Package
-Communicating with the Web is very easy in Flutter. The Dart Team maintains an external package called [http (Dart Team 2019b)](https://pub.dev/packages/http) which takes care of most of the work for you. [Dart (Dart Team 2019a)](https://dart.dev/) also offers very good integration of [asynchrones programming (Dart Team 2018)](https://dart.dev/codelabs/async-await), which should look very familiar if you have ever worked with async/await in [JavaScript (ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). Let's look at an example, this is a simplified version is Wisgens Api Repository. It can make a request the [AdviceSlip API (Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice texts.
+Communicating with the Web is very easy in Flutter. The Dart Team maintains an external package called [http (Dart Team 2019b)](https://pub.dev/packages/http) which takes care of most of the work for you. [Dart (Dart Team 2019a)](https://dart.dev/) also offers very good integration of [asynchrones programming (Dart Team 2018)](https://dart.dev/codelabs/async-await), which I covered in the [last chapter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter). Let's look at an example, this is a simplified version is Wisgens Api Repository. It can make a request the [AdviceSlip API (Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ```dart
 import 'package:http/http.dart' as http;
@@ -106,8 +106,6 @@ Dart Team. 2018. “Asynchronous Programming in Dart.” Documentation. 2018. ht
 ———. 2019a. “Dart Programming Language.” Documentation. 2019. https://dart.dev/.
 
 ———. 2019b. “Http | Dart Package.” Dart Packages. 2019. https://pub.dev/packages/http.
-
-ECMA. 1997. JavaScript ECMA Standard (version 10). Cross-platform. JavaScript. ECMA. https://www.ecma-international.org/publications/standards/Ecma-262.htm.
 
 Faust, Sebastian. 2019. Wisgen. Cross-platform. Dart. Germany. https://github.com/Fasust/wisgen.
 
