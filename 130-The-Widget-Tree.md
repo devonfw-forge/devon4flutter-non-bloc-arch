@@ -5,11 +5,8 @@ Page Table of Contents
   - [Buildcontext](#buildcontext)
 - [The three types of Widgets](#the-three-types-of-widgets)
   - [Stateless Widgets](#stateless-widgets)
-    - [Lifecycle](#lifecycle)
-    - [When to use](#when-to-use)
   - [Stateful Widgets](#stateful-widgets)
-    - [Lifecycle](#lifecycle-1)
-    - [When to use](#when-to-use-1)
+  - [When to use Stateless & When to use Statefull](#when-to-use-stateless--when-to-use-statefull)
   - [Inherited Widgets](#inherited-widgets)
 - [How to access State](#how-to-access-state)
 - [References](#references)
@@ -58,10 +55,10 @@ Another important thing to note is that:
 | --- | :-------------------------------------- |
 
 The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework. To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods light weight by making all Widgets immutable. This means that all variables in a Widget have to be declared as _final_. Which means they are initialized once and can not change over time. 
-But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. In Flutter such mutable data is called _state_. No worries, how Flutter handles mutable _state_ will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
+But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. In Flutter such data is called _state_. No worries, how Flutter handles mutable _state_ will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
 
 ### The Widget Tree
-I have used the term _Widget Tree_ a few times now, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let's have a look at the Widget Tree for our example in Figure 1. Note the card Widgets on the right hand side of the diagram. You can see how the code from Snippet 1 translates to Widgets in the Widget Tree.
+When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let's have a look at the Widget Tree for our example from Figure 1. Note the card Widgets on the right hand side of the diagram. You can see how the code from Snippet 1 translates to Widgets in the Widget Tree.
 
 ![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
 
@@ -71,7 +68,7 @@ _Figure 2: [Wisgen Widget Tree (Faust 2019)](https://github.com/Fasust/wisgen)_
 If you have previously build an App with Flutter, you have definitely encountered _BuildContext_. It is passed in as a variable in every Widget build methode in Flutter. But what exactly is _BuildContext_? As Didier Boelens puts it:
 > "A BuildContext is nothing else but a reference to the location of a Widget within the tree structure of all the Widgets which are built."
 
-The BuildContext contain information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget tree. Accessing the *descendance* through the BuildContext is possible, but not advices and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but not visversa. For example, the image Widget from Figure 2 could access it's ancestor card Widget like this:
+The BuildContext contain information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget tree. Accessing a Widgets *descendance* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** visversa. For example, the image Widget from Figure 2 could access it's ancestor card Widget like this:
 ```dart
 Widget build(BuildContext context) {
 
@@ -92,8 +89,50 @@ Alright, but what does that mean for me as a Flutter developer? It is important 
 There are 3 types of Widgets in the Flutter framework. I will now showcase there differences, there lifecycles and their respective usecases.
 
 ### Stateless Widgets
-#### Lifecycle
-#### When to use
+This is the most basic of the Three an likely the one you'll use the most when developing an app with Flutter. Stateless Widgets are initialized once with a set of parameters and those parameters will never change from there on out. Let's have a look at an example. This is the class of the card Widget from figure 1:
+
+```dart
+class WisdomCard extends StatelessWidget {
+  static const double _smallPadding = 4;
+  static const double _largePadding = 8;
+  static const double _imageHeight = 300;
+  static const double _cardElevation = 2;
+  static const double _cardBorderRadius = 7;
+
+  final Wisdom wisdom;
+
+  WisdomCard({Key key, this.wisdom}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    ...
+  }
+}
+```
+_Codesnippt 3: [Wisgen Card Widget Class (Faust 2019)](https://github.com/Fasust/wisgen)_
+
+As you can see, it has some const values for styling, a Wisdom object that is passed into the constructor and a build methode. The Wisdom object contains the wisdom text and the hyperlink for the stock image.
+
+One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays are able to change.
+
+The Lifecycle of Stateless Widgets is very straight forward:
+```dart
+class MyClass extends StatelessWidget {
+
+  //Called first
+  //Use for initialization if needed
+  MyClass({ Key key }) : super(key: key);
+
+  //Called multiple times a second
+  //Keep lightweight
+  //This is where the actual UI is build
+  @override
+  Widget build(BuildContext context) {
+    ...
+  }
+}
+```
+_Codesnippt 4: Stateless Widget Lifecycle_
 
 ### Stateful Widgets
 - what is state 
@@ -102,9 +141,7 @@ There are 3 types of Widgets in the Flutter framework. I will now showcase there
   - long life span
   - sticks around
 - why 2 party
-#### Lifecycle
-#### When to use
-
+### When to use Stateless & When to use Statefull
 ### Inherited Widgets
 I will not go in detail on Inherited Widgets here. When using the BLoC pattern, which I will teach you in the next chapter, you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all there descendance. And they are used as the underlying technologie of the BLoC library.
 
