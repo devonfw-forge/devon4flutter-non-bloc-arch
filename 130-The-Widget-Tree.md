@@ -8,7 +8,6 @@ Page Table of Contents
   - [Stateful Widgets](#stateful-widgets)
   - [When to use Stateless & When to use Stateful](#when-to-use-stateless--when-to-use-stateful)
   - [Inherited Widgets](#inherited-widgets)
-- [How to access State](#how-to-access-state)
 - [References](#references)
 
 ## Introduction
@@ -83,7 +82,7 @@ Widget build(BuildContext context) {
 ```
 _Codesnippt 2: [Hypothetical Wisgen Image Widget (Faust 2019)](https://github.com/Fasust/wisgen)_
 
-Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree: **Downwards**. You want to place information that is required by multiple Widgets above them in the tree, so they can both easily access it through their BuildContext. Keep this in mind for now, I will explain this in more detail in the chapter [Architekting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
+Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree: **Downwards**. You want to place information that is required by multiple Widgets above them in the tree, so they can both easily access it through their BuildContext. Keep this in mind for now, I will explain this in more detail in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
 ## The three types of Widgets
 There are 3 types of Widgets in the Flutter framework. I will now showcase there differences, there lifecycles and their respective usecases.
@@ -141,7 +140,7 @@ I have explained what State is in the Chapter [Thinking Declaratively](https://g
 | ⚠   | State in Flutter is any data that can change over time |
 | --- | :----------------------------------------------------- |
 
-A Stateful Widget always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget. Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 1. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architekting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
+A Stateful Widget always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget. Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 1. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
 ```dart
 //Immutable Widget
@@ -200,15 +199,13 @@ class MySate extends State<MyWidget>{
 _Codesnippt 6: State Objects/StatefulWidgets Lifecycle_
 
 ### When to use Stateless & When to use Stateful
-### Inherited Widgets
-I will not go in detail on Inherited Widgets here. When using the BLoC pattern, which I will teach you in the next chapter, you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all there descendance. And they are used as the underlying technologie of the BLoC library.
+Keep in mind, to improve performance, you always want to rely on as few Stateful widgets as possible.
+But There is essentially two reasons to choose a Stateful Widget over a Stateless one: 
+1. The Widget needs to hold any kind of data that has to change during its lifetime.
+2. The Widget needs to dispose of anything or cleanup after it self at the end of it's lifetime.
 
-## How to access State
-- Lifting up
-- Inherited Widget
-- 2 types of state
-  - local and global
-  - more in architecture
+### Inherited Widgets
+I will not go in detail on Inherited Widgets here. When using the BLoC library, which I will teach you in the chatper [Architecting a Flutter-App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App), you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all their descendance. And they are used as the underlying technologie of the BLoC library.
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/140-Communication-with-the-Web">Next Chapter: Communication with the Web ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
