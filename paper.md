@@ -44,18 +44,8 @@ Team
     Framework
   - My personal opinion of the framework
 
-<p align="right">
-
-<a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next
-Chapter: The Flutter Framework \></a>
-
-</p>
-
-<p align="center">
-
-<a href="#">Back to Top</a>
-
-</p>
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">NextChapter: The Flutter Framework \></a></p>
+<p align="center"><a href="#">Back to Top</a></p>
 
 ## References
 
