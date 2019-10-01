@@ -13,7 +13,7 @@ Page Table of Contents
 This guide aims to bridge the gap between the absolute [Flutter (Flutter Dev Team 2018a)](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it _properly_. Or at least show you one possible way to make large scale Flutter projects clean and manageable.
 
 ## Who is this Guide for?
-For people with a basic knowledge of the Flutter Framework. I recommend following this [tutorial by the Flutter team (Flutter Dev Team 2018b)](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the [Dart programming language (Google LLC 2019a)](https://dart.dev/). No worries, it is very similar to [Java (Oracle 1996)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), [Kotlin (Jet Brains 2017)](https://kotlinlang.org/) and [JavaScript (ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine. Lastly, for the Architecture chapter, you should have a basic understanding of [Data Streams (Google LLC 2019b)](https://dart.dev/tutorials/language/streams).
+For people with a basic knowledge of the Flutter Framework. I recommend following this [tutorial by the Flutter team (Flutter Dev Team 2018b)](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the [Dart programming language (Dart Team 2019a)](https://dart.dev/). No worries, it is very similar to [Java (Oracle 1996)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), [Kotlin (Jet Brains 2017)](https://kotlinlang.org/) and [JavaScript (ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine. Lastly, for the Architecture chapter, you should have a basic understanding of [Data Streams (Dart Team 2019b)](https://dart.dev/tutorials/language/streams).
 
 ## Topics that will be covered 
 - A brief introduction to the Flutter Framework in general. How it works _under the hood_ and its underlying structure.
@@ -40,6 +40,10 @@ Ambuludi, Juan Andrés, Santos Jiménez Linares, and Contributors. 2019. “Capg
 
 Capgemini. 2019. “Capgemini - Home Page.” Home Page. 2019. https://www.capgemini.com/us-en/.
 
+Dart Team. 2019a. “Dart Programming Language.” Documentation. 2019. https://dart.dev/.
+
+———. 2019b. “Dart Streams.” Documentation. 2019. https://dart.dev/tutorials/language/streams.
+
 ECMA. 1997. JavaScript ECMA Standard (version 10). Cross-platform. JavaScript. ECMA. https://www.ecma-international.org/publications/standards/Ecma-262.htm.
 
 Faust, Sebastian. 2019. Wisgen. Cross-platform. Dart. Germany. https://github.com/Fasust/wisgen.
@@ -48,10 +52,6 @@ Flutter Dev Team. 2018a. The Flutter Framework (version 1.9). Cross-platform. Da
 
 ———. 2018b. “Write Your First Flutter App.” Guide. 2018. https://flutter.dev/docs/get-started/codelab.
 
-Google LLC. 2019a. “Dart Programming Language.” Documentation. 2019. https://dart.dev/.
-
-———. 2019b. “Dart Streams.” Documentation. 2019. https://dart.dev/tutorials/language/streams.
-
 Jet Brains. 2017. Kotlin SDK (version 1.3). Cross-paltform. Kotlin. Jet Brains. https://kotlinlang.org/.
 
 Oracle. 1996. Java JDK (version 8). Cross-platform. Java. Oracle. https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html.
@@ -59,4 +59,5 @@ Oracle. 1996. Java JDK (version 8). Cross-platform. Java. Oracle. https://www.or
 Soares, Paolo. 2018. “Flutter / AngularDart – Code Sharing, Better Together.” Conference Talk presented at the DartConf 2018, Google Campus, LA, January 25. https://www.youtube.com/watch?v=PLHln7wHgPE.
 
 Technical University Cologne. 2019. “Technical University Cologne.” Home Page. 2019. https://www.th-koeln.de/en/homepage_26.php.
+
 
