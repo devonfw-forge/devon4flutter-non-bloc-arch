@@ -9,7 +9,7 @@ covered](#topics-that-will-be-covered) - [References](#references)
 
 This guide aims to bridge the gap between the absolute Flutter (Flutter
 Dev Team
-<a href="#ref-flutterdevteamFlutterFramework2018">2018a</a>
+[2018](#ref-flutterdevteamFlutterFramework2018)[a](#ref-flutterdevteamFlutterFramework2018))
 basics and clean, structured Flutter development. It should bring you
 from the basics of knowing how to build an app with Flutter to an
 understanding of how to do it *properly*. Or at least show you one
@@ -59,7 +59,7 @@ Chapter: The Flutter Framework \></a>
 
 ## References
 
-<div id="refs" class="references">
+<div name="refs" class="references">
 
 <div name="ref-dartteamDartProgrammingLanguage2019">
 
