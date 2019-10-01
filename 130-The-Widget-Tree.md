@@ -136,9 +136,10 @@ class MyClass extends StatelessWidget {
 _Codesnippt 4: Stateless Widget Lifecycle_
 
 ### Stateful Widgets
-I have explained what State is in the Chapter [120 Thinking Declaratively](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively#declarative-programming-in-flutter). But here is a quick re-cap
+I have explained what State is in the Chapter [120 Thinking Declaratively](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively#declarative-programming-in-flutter). But just as a reminder:
 
-State is 
+| ⚠   | State in Flutter is any data that can change over time |
+| --- | :----------------------------------------------------- |
 
 A Stateful Widget always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget. Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 1:
 
@@ -151,7 +152,7 @@ class WisdomFeed extends StatefulWidget {
 
 //Mutable State
 class WisdomFeedState extends State<WisdomFeed>{
-  WisdomBloc _wisdomBloc; //not final
+  WisdomBloc _wisdomBloc; //not final (!)
 
   @override
   Widget build(BuildContext context) {
