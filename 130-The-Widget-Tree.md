@@ -6,7 +6,7 @@ Page Table of Contents
 - [The three types of Widgets](#the-three-types-of-widgets)
   - [Stateless Widgets](#stateless-widgets)
   - [Stateful Widgets](#stateful-widgets)
-  - [When to use Stateless & When to use Statefull](#when-to-use-stateless--when-to-use-statefull)
+  - [When to use Stateless & When to use Stateful](#when-to-use-stateless--when-to-use-stateful)
   - [Inherited Widgets](#inherited-widgets)
 - [How to access State](#how-to-access-state)
 - [References](#references)
@@ -55,7 +55,7 @@ Another important thing to note is that:
 | --- | :-------------------------------------- |
 
 The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework. To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods light weight by making all Widgets immutable. This means that all variables in a Widget have to be declared as _final_. Which means they are initialized once and can not change over time. 
-But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. As mentioned in the previous chapter, in Flutter such data is called _state_. No worries, how Flutter handles mutable _state_ will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
+But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. As mentioned in the [previous chapter](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively), in Flutter such data is called _state_. No worries, how Flutter handles mutable _state_ will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
 
 ### The Widget Tree
 When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let's have a look at the Widget Tree for our example from Figure 1. Note the card Widgets on the right hand side of the diagram. You can see how the code from Snippet 1 translates to Widgets in the Widget Tree.
@@ -118,7 +118,7 @@ One thing I want to point out here is that even if all fields are final in a Sta
 The Lifecycle of Stateless Widgets is very straight forward:
 
 ```dart
-class MyClass extends StatelessWidget {
+class MyWidget extends StatelessWidget {
 
   //Called first
   //Use for initialization if needed
@@ -136,12 +136,12 @@ class MyClass extends StatelessWidget {
 _Codesnippt 4: Stateless Widget Lifecycle_
 
 ### Stateful Widgets
-I have explained what State is in the Chapter [120 Thinking Declaratively](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively#declarative-programming-in-flutter). But just as a reminder:
+I have explained what State is in the Chapter [Thinking Declaratively](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively#declarative-programming-in-flutter). But just as a reminder:
 
 | ⚠   | State in Flutter is any data that can change over time |
 | --- | :----------------------------------------------------- |
 
-A Stateful Widget always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget. Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 1:
+A Stateful Widget always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget. Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 1. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architekting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
 ```dart
 //Immutable Widget
@@ -152,7 +152,7 @@ class WisdomFeed extends StatefulWidget {
 
 //Mutable State
 class WisdomFeedState extends State<WisdomFeed>{
-  WisdomBloc _wisdomBloc; //not final (!)
+  WisdomBloc _wisdomBloc; //mutable/not final (!)
 
   @override
   Widget build(BuildContext context) {
@@ -163,14 +163,43 @@ class WisdomFeedState extends State<WisdomFeed>{
 ```
 _Codesnippt 5: [Wisgen WisdomFeed (Faust 2019)](https://github.com/Fasust/wisgen)_
 
-- what is state 
-  - mutable
-  - "n properties that change over time"
-  - long life span
-  - sticks around
-- why 2 party
-- Lifecycle
-### When to use Stateless & When to use Statefull
+If you are anything like me, you will ask yourself: "why is this split into 2 parts? The StatefulWidget is not really doing anything." Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true, is to have the StatefulWidget hold onto the State but not actually be the State.
+
+State objects have a long lifespan in Flutter. This means that they will stick around during rebuilds or even if the widget that they are linked to gets replaced. So in this example, no matter how often the WisdomFeed gets rebuild and no matter if the user switches pages, the cashed list of wisdoms (WisdomBloc) will stay the same until the app is shut down.
+
+The Lifecycle of State Objects/StatefulWidgets is a little bit more complex, here is a boiled down version of it with all the methods you'll need for this guide. You can read the full Lifecycle here XXX.
+
+```dart
+class MyWidget extends StatefulWidget {
+
+  //Called Immediately when first building the StatefulWidget
+  @override
+  State<StatefulWidget> createState() => MySate();
+}
+
+class MySate extends State<MyWidget>{
+  
+  //Called after constructor
+  //Called exactly once
+  //Use this to subscribe to streams or for any initialization
+  @override
+  initState(){...}
+
+  //Called multiple times a second
+  //Keep lightweight
+  //This is where the actual UI is build
+  @override
+  Widget build(BuildContext context){...}
+
+  //Called once before the State is disposed (app shut down)
+  //Use this for clean up and to unsubscribe from streams
+  @override
+  dispose(){...}
+}
+```
+_Codesnippt 6: State Objects/StatefulWidgets Lifecycle_
+
+### When to use Stateless & When to use Stateful
 ### Inherited Widgets
 I will not go in detail on Inherited Widgets here. When using the BLoC pattern, which I will teach you in the next chapter, you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all there descendance. And they are used as the underlying technologie of the BLoC library.
 
