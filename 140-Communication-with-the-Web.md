@@ -4,6 +4,8 @@ Page Table of Contents
 - [References](#references)
 
 ## Introduction
+In this chapter I will briefly show you how to communicate with the Web in Flutter. I think most large scale application are dependant on th Web in one way or another, so it felt important to cover it.
+
 ## The HTTP Package
 - Code snip bit from Wisgen
 
