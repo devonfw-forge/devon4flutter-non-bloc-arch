@@ -207,7 +207,7 @@ But There is essentially two reasons to choose a Stateful Widget over a Stateles
 ### Inherited Widgets
 I will not go in detail on [Inherited Widgets (Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) here. When using the [BLoC library (Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/), which I will teach you in the chatper [Architecting a Flutter-App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App), you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all their descendance. And they are used as the underlying technologie of the BLoC library.
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/140-Communication-with-the-Web">Next Chapter: Communication with the Web ></a></p>
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter">Next Chapter: Asynchronous Flutter ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
 
 ---
