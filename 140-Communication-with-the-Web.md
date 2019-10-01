@@ -4,10 +4,10 @@ Page Table of Contents
 - [References](#references)
 
 ## Introduction
-In this chapter I will briefly show you how to communicate with the Web in Flutter. I think most large scale application are dependant on th Web in one way or another, so it felt important to cover it.
+In this chapter I will briefly show you how to communicate with the Web in [Flutter (Flutter Dev Team 2018)](https://flutter.dev/). I think most large scale application are dependant on th Web in one way or another, so it felt important to cover it.
 
 ## The HTTP Package
-Communicating with the Web is very easy in Flutter. The Dart Team maintains an external package called http which takes care of most of the work for you. Dart also offers very good integration of asynchrones programming, which should look very familiar if you have ever worked with async/await in JavaScript. Let's look at an example, this is a simplified version is Wisgens Api Repository. It can make a request the AdviceSlip API to fetch some new advice texts.
+Communicating with the Web is very easy in Flutter. The Dart Team maintains an external package called [http (Dart Team 2019b)](https://pub.dev/packages/http) which takes care of most of the work for you. [Dart (Dart Team 2019a)](https://dart.dev/) also offers very good integration of [asynchrones programming (Dart Team 2018)](https://dart.dev/codelabs/async-await), which should look very familiar if you have ever worked with async/await in [JavaScript (ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). Let's look at an example, this is a simplified version is Wisgens Api Repository. It can make a request the [AdviceSlip API (Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ```dart
 import 'package:http/http.dart' as http;
@@ -33,7 +33,7 @@ _Codesnippt 1: [Wisgen API Repository (Faust 2019)](https://github.com/Fasust/wi
 
 As you can see, you simply call _get()_ on the HTTP module and give it the URL it should request. This is an asynchronous call, so you can use the _await_ keyword to wait till the request is complete. Once the request is finished, you can read out headers and the body from the http.Response object. 
 
-The AdviceSlips class, is generated with a JSON to Dart converter. The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
+The AdviceSlips class, is generated with a [JSON to Dart converter (Lecuona 2019)](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
 
 ```dart
 class AdviceSlips {
@@ -101,3 +101,18 @@ _Codesnippt 2: [Wisgen AdviceSlips Class (Faust 2019)](https://github.com/Fasust
 
 ---
 ## References 
+Dart Team. 2018. “Asynchronous Programming in Dart.” Documentation. 2018. https://dart.dev/codelabs/async-await.
+
+———. 2019a. “Dart Programming Language.” Documentation. 2019. https://dart.dev/.
+
+———. 2019b. “Http | Dart Package.” Dart Packages. 2019. https://pub.dev/packages/http.
+
+ECMA. 1997. JavaScript ECMA Standard (version 10). Cross-platform. JavaScript. ECMA. https://www.ecma-international.org/publications/standards/Ecma-262.htm.
+
+Faust, Sebastian. 2019. Wisgen. Cross-platform. Dart. Germany. https://github.com/Fasust/wisgen.
+
+Flutter Dev Team. 2018. The Flutter Framework (version 1.9). Cross-platform. Dart. Google LLC. https://flutter.dev/.
+
+Kiss, Tom. 2019. “Advice Slip API.” Documentation. 2019. https://api.adviceslip.com/.
+
+Lecuona, Javier. 2019. JSON to Dart Converter (version 1). WebApp. Dart. Buenos Aires, Argentina. https://javiercbk.github.io/json_to_dart/.
