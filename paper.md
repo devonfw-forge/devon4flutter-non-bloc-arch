@@ -61,56 +61,56 @@ Chapter: The Flutter Framework \></a>
 
 <div id="refs" class="references">
 
-<div id="ref-dartteamDartProgrammingLanguage2019">
+<div name="ref-dartteamDartProgrammingLanguage2019">
 
 Dart Team. 2019a. “Dart Programming Language.” Documentation. 2019.
 <https://dart.dev/>.
 
 </div>
 
-<div id="ref-dartteamDartStreams2019">
+<div name="ref-dartteamDartStreams2019">
 
 ———. 2019b. “Dart Streams.” Documentation. 2019.
 <https://dart.dev/tutorials/language/streams>.
 
 </div>
 
-<div id="ref-ecmaJavaScriptECMAStandard1997">
+<div name="ref-ecmaJavaScriptECMAStandard1997">
 
 ECMA. 1997. *JavaScript ECMA Standard* (version 10). ECMA.
 <https://www.ecma-international.org/publications/standards/Ecma-262.htm>.
 
 </div>
 
-<div id="ref-flutterdevteamFlutterFramework2018">
+<div name="ref-flutterdevteamFlutterFramework2018">
 
 Flutter Dev Team. 2018a. *The Flutter Framework* (version 1.9). Google
 LLC. <https://flutter.dev/>.
 
 </div>
 
-<div id="ref-flutterdevteamWriteYourFirst2018">
+<div name="ref-flutterdevteamWriteYourFirst2018">
 
 ———. 2018b. “Write Your First Flutter App.” Guide. 2018.
 <https://flutter.dev/docs/get-started/codelab>.
 
 </div>
 
-<div id="ref-jetbrainsKotlinSDK2017">
+<div name="ref-jetbrainsKotlinSDK2017">
 
 Jet Brains. 2017. *Kotlin SDK* (version 1.3). Jet Brains.
 <https://kotlinlang.org/>.
 
 </div>
 
-<div id="ref-oracleJavaJDK1996">
+<div name="ref-oracleJavaJDK1996">
 
 Oracle. 1996. *Java JDK* (version 8). Oracle.
 <https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>.
 
 </div>
 
-<div id="ref-soaresFlutterAngularDartCode2018">
+<div name="ref-soaresFlutterAngularDartCode2018">
 
 Soares, Paolo. 2018. “Flutter / AngularDart – Code Sharing, Better
 Together.” Conference Talk presented at the DartConf 2018, Google
