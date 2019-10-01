@@ -1,15 +1,3 @@
----
-title:  'This is the title: it contains a colon'
-link-citations: true
-author:
-- Author One
-- Author Two
-keywords: [nothing, nothingness]
-abstract: |
-  This is the abstract.
-
-  It consists of two paragraphs.
----
 # Introduction
 Page Table of Contents
 - [Introduction](#introduction)
