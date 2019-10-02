@@ -26,11 +26,11 @@ The classic way to build a mobile app, would be to write native code for each pl
 
 *Figure 2: Embedded WebApp rendering [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-Embedded WebApps where the first approach to cross-platform development. You would simply build your application with HTML, CSS and JavaScript and then have it render through a native WebView(Google LLC 2019; Leler 2017). The Problem here is, that developers are limited to the web technology stack and that communication between the app and native services would always have to run through a *bridge* (Stoll 2018).
+Embedded WebApps where the first approach to cross-platform development. You would simply build your application with HTML, CSS and JavaScript and then have it render through a native WebView(Google LLC 2019; Leler 2017). The Problem here is, that developers are limited to the web technology stack and that communication between the app and native services would always have to run through a *bridge* [(Stoll 2018)](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a).
 
 #### Bridges
 
-Bridges connect components with one another. These components can be build in the same or different programming languages (Adinugroho, Reina, and Gautama 2015).
+Bridges connect components with one another. These components can be build in the same or different programming languages [(Adinugroho, Reina, and Gautama 2015)](http://www.sciencedirect.com/science/article/pii/S1877050915020979).
 
 ### Reactive View Approach
 

@@ -124,9 +124,9 @@ class WisdomCard extends StatelessWidget {
 
 As you can see, it has some const values for styling, a Wisdom object that is passed into the constructor and a build methode. The Wisdom object contains the wisdom text and the hyperlink for the stock image.
 
-One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays are able to change (LLC 2018).
+One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays are able to change [(LLC 2018)](https://www.youtube.com/watch?v=wE7khGHVkYY).
 
-The Lifecycle of Stateless Widgets is very straight forward (Boelens n.d.):
+The Lifecycle of Stateless Widgets is very straight forward [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956):
 
 ``` dart
 class MyWidget extends StatelessWidget {
