@@ -203,7 +203,8 @@ Widget build(BuildContext context) {
 ## Efficiency of Re-Builds
 
 Is it not very inefficient to re-render the entire Widget every time we change the state? That was the first questions I had when learning about this topic. But I was pleased to learn, that Flutter uses something called “RenderObjects” to improve performance similar to Reacts [(Facebook 2015)](https://facebook.github.io/react-native/) virtual DOM.
-\> “RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between states. The Flutter framework handles the rest.” [(Flutter Dev Team 2019e)](https://flutter.dev/docs/get-started/flutter-for/declarative)
+
+> “RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between states. The Flutter framework handles the rest.” [(Flutter Dev Team 2019e)](https://flutter.dev/docs/get-started/flutter-for/declarative)
 
 # The Widget Tree
 
@@ -214,10 +215,12 @@ This section will give you a better understanding of how programming in Flutter 
 ## Widgets in General
 
 One sentence you can simply not avoid when researching Flutter is:
-\> “In Flutter, everything is a Widget.” [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro)
+
+> “In Flutter, everything is a Widget.” [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro)
 
 But that is not really helpful, is it? Personally, I like Didier Boelens definition of Flutter Widgets better:
-\> “Think of a Widget as a visual component (or a component that interacts with the visual aspect of an application).” [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
+
+> “Think of a Widget as a visual component (or a component that interacts with the visual aspect of an application).” [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
 
 Let’s have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought provoking stock images:
 
@@ -267,7 +270,8 @@ When working with Flutter, you will inevitably stumble over the term *Widget Tre
 ### Buildcontext
 
 If you have previously build an App with Flutter, you have definitely encountered *BuildContext* [(Flutter Dev Team 2018a)](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build methode in Flutter. But what exactly is *BuildContext*? As Didier Boelens puts it:
-\> “A BuildContext is nothing else but a reference to the location of a Widget within the tree structure of all the Widgets which are built.” [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
+
+> “A BuildContext is nothing else but a reference to the location of a Widget within the tree structure of all the Widgets which are built.” [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
 
 The BuildContext contain information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget tree. Accessing a Widgets *descendance* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** visversa [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 2 could access it’s ancestor card Widget like this:
 
