@@ -1,6 +1,6 @@
-# 000 Introduction
+# Introduction
 Page Table of Contents
-- [000 Introduction](#000-introduction)
+- [Introduction](#introduction)
   - [The Goal of this Guide](#the-goal-of-this-guide)
   - [Who is this Guide for?](#who-is-this-guide-for)
   - [Topics that will be covered](#topics-that-will-be-covered)
