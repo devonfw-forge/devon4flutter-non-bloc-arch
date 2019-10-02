@@ -69,10 +69,10 @@ The classic way to build a mobile app, would be to write native code for each pl
 
 _Figure 2: Embedded WebApp rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
-Embedded WebApps where the first approach to cross-platform development. You would simply build your application with HTML, CSS and JavaScript and then have it render through a native WebView[@googlellcHowFlutterDifferent2019; @lelerWhatRevolutionaryFlutter2017]. The Problem here is, that developers are limited to the web technology stack and that communication between the app and native services would always have to run through a _bridge_ [@stollPlainEnglishWhat2018].
+Embedded WebApps where the first approach to cross-platform development. You would simply build your application with HTML, CSS and JavaScript and then have it render through a native WebView[@googlellcHowFlutterDifferent2019; @lelerWhatRevolutionaryFlutter2017]. The Problem here is, that developers are limited to the web technology stack and that communication between the app and native services would always have to run through a _bridge_ [[@stollPlainEnglishWhat2018]](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a).
 
 #### Bridges
-Bridges connect components with one another. These components can be build in the same or different programming languages [@adinugrohoReviewMultiplatformMobile2015].
+Bridges connect components with one another. These components can be build in the same or different programming languages [[@adinugrohoReviewMultiplatformMobile2015]](http://www.sciencedirect.com/science/article/pii/S1877050915020979).
 
 ### Reactive View Approach
 ![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/reactive-rendering.png)
@@ -306,9 +306,9 @@ _Codesnippt 7: Wisgen Card Widget Class [[@faustWisgen2019]](https://github.com/
 
 As you can see, it has some const values for styling, a Wisdom object that is passed into the constructor and a build methode. The Wisdom object contains the wisdom text and the hyperlink for the stock image.
 
-One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays are able to change [@googlellcHowCreateStateless2018].
+One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays are able to change [[@googlellcHowCreateStateless2018]](https://www.youtube.com/watch?v=wE7khGHVkYY).
 
-The Lifecycle of Stateless Widgets is very straight forward [@boelensWidgetStateBuildContext2018]:
+The Lifecycle of Stateless Widgets is very straight forward [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956):
 
 ```dart
 class MyWidget extends StatelessWidget {
