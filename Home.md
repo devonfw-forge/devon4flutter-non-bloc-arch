@@ -1,6 +1,5 @@
-# Introduction
+# 000 Introduction
 Page Table of Contents
-- [Introduction](#introduction)
 - [000 Introduction](#000-introduction)
   - [The Goal of this Guide](#the-goal-of-this-guide)
   - [Who is this Guide for?](#who-is-this-guide-for)
@@ -8,8 +7,6 @@ Page Table of Contents
   - [Creation Context](#creation-context)
   - [Structure](#structure)
   - [My Sources](#my-sources)
-
-# 000 Introduction
 
 ## The Goal of this Guide
 
