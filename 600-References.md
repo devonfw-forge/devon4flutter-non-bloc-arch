@@ -248,5 +248,4 @@ Windmill, Eric, and Contributors. 2019. “Stateful Widget Lifecycle.” Blog. F
 </div>
 
 </div>
-
 <p align="center"><a href="#">Back to Top</a></center></p>

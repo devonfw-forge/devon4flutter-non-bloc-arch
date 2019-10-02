@@ -96,6 +96,5 @@ Is it not very inefficient to re-render the entire Widget every time we change t
 
 > “RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between states. The Flutter framework handles the rest.” [(Flutter Dev Team 2019e)](https://flutter.dev/docs/get-started/flutter-for/declarative)
 
-
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree">Next Chapter: The Widget Tree ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
