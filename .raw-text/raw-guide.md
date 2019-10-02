@@ -481,6 +481,7 @@ class Api {
 }
 ```
 _Codesnippt 14: Wisgen API Repository (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
 ## Streams
 
 ### Yield

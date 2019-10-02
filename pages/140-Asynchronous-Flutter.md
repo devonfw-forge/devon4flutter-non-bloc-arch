@@ -1,9 +1,9 @@
 Page Table of Contents
 - [Introduction](#introduction)
 - [Futures](#futures)
-- [Async & Await](#async--await)
-- [FutureBuilder](#futurebuilder)
-- [Yield](#yield)
+  - [Async & Await](#async--await)
+- [Streams](#streams)
+  - [Yield](#yield)
 
 ## Introduction
 
@@ -86,7 +86,8 @@ class Api {
 ```
 
 *Codesnippt 14: Wisgen API Repository (Async with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
-\#\# Streams
+
+## Streams
 
 ### Yield
 
