@@ -11,7 +11,7 @@ main(List<String> arguments) async {
 
   for (int i = 0; i < headers.length; i++) {
     await writeFile(headers[i], sections[i], outputPrefix);
-    print('printed:\t' + headers[i]);
+    print('Updated:\t' + headers[i]);
   }
 }
 
@@ -58,7 +58,7 @@ writeFile(String header, String section, String outputPrefix) async {
     bool lastLine = (i == lines.length - 1);
     if (lines[i].startsWith('## ')) inHeader = false;
     if (lines[i].startsWith('<p align=')) firstPTag = true;
-    if(inRefs) inHeader = false;
+    if (inRefs) inHeader = false;
 
     if (!lastLine) {
       if (lines[i + 1].startsWith('## ') && inHeader) lastLineOfHeader = true;
