@@ -397,10 +397,10 @@ I will not go in detail on Inherited Widgets [[@flutterdevteamInheritedWidgetCla
 
 # Communication with the Web
 ## Introduction
-In this chapter I will briefly show you how to communicate with the Web in [Flutter (Flutter Dev Team 2018)](https://flutter.dev/). I think most large scale application are dependant on the Web in one way or another, so it felt important to cover this topic.
+In this chapter I will briefly show you how to communicate with the Web in Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/). I think most large scale application are dependant on the Web in one way or another, so it felt important to cover this topic.
 
 ## The HTTP Package
-Communicating with the Web is very easy in Flutter. The Dart Team maintains an external package called [http (Dart Team 2019b)](https://pub.dev/packages/http) which takes care of most of the work for you. [Dart (Dart Team 2019a)](https://dart.dev/) also offers very good integration of [asynchrones programming (Dart Team 2018)](https://dart.dev/codelabs/async-await), which I covered in the [last chapter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter). Let's look at an example, this is a simplified version is Wisgens Api Repository. It can make a request the [AdviceSlip API (Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice texts.
+Communicating with the Web is very easy in Flutter. The Dart Team maintains an external package called _http_ [[@dartteamHttpDartPackage2019]](https://pub.dev/packages/http) which takes care of most of the work for you. Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) also offers very good integration of asynchrones programming [[@dartteamAsynchronousProgrammingDart2018]](https://dart.dev/codelabs/async-await), which I covered in the [last chapter][async]. Let's look at an example, this is a simplified version is Wisgens Api Repository. It can make a request the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ```dart
 import 'package:http/http.dart' as http;
@@ -422,11 +422,11 @@ class Api implements Repository<Wisdom> {
   }
 }
 ```
-_Codesnippt 1: [Wisgen API Repository (Faust 2019)](https://github.com/Fasust/wisgen)_
+_Codesnippt 1: Wisgen API Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 As you can see, you simply call _get()_ on the HTTP module and give it the URL it should request. This is an asynchronous call, so you can use the _await_ keyword to wait till the request is complete. Once the request is finished, you can read out headers and the body from the http.Response object. 
 
-The AdviceSlips class, is generated with a [JSON to Dart converter (Lecuona 2019)](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
+The AdviceSlips class, is generated with a JSON to Dart converter [[@lecuonaJSONDartConverter2019]](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
 
 ```dart
 class AdviceSlips {
