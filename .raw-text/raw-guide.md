@@ -300,7 +300,7 @@ class WisdomCard extends StatelessWidget {
   }
 }
 ```
-_Codesnippt 7: Wisgen Card Widget Class [(Faust 2019)](https://github.com/Fasust/wisgen)_
+_Codesnippt 7: Wisgen Card Widget Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 As you can see, it has some const values for styling, a Wisdom object that is passed into the constructor and a build methode. The Wisdom object contains the wisdom text and the hyperlink for the stock image.
 
@@ -352,7 +352,7 @@ class WisdomFeedState extends State<WisdomFeed>{
   }
 }
 ```
-_Codesnippt 9: Wisgen WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)_
+_Codesnippt 9: Wisgen WisdomFeed [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 If you are anything like me, you will ask yourself: "why is this split into 2 parts? The StatefulWidget is not really doing anything." Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true, is to have the StatefulWidget hold onto the State but not actually be the State [@googlellcHowStatefulWidgets2018; @windmillStatefulWidgetLifecycle2019].
 
@@ -493,7 +493,7 @@ class Slips {
   }
 }
 ```
-_Codesnippt 12: [Wisgen AdviceSlips Class (Faust 2019)](https://github.com/Fasust/wisgen)_
+_Codesnippt 12: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 # 200 Architecting a Flutter App
 # 300 Testing
