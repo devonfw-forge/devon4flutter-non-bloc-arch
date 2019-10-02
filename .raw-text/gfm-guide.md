@@ -1,4 +1,4 @@
-# 000 Introduction
+# 000-Introduction
 
 ## The Goal of this Guide
 
@@ -28,7 +28,7 @@ The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 
 
 I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, official documentaions, scientific papers that cover cross-platform mobile development in gerneral and many other sources. All sources used in the guide are listed in the chapter [*References*](https://github.com/Fasust/flutter-guide/wiki/600-References). To better understand all the theory, I also developed the Wisgen app [(Faust 2019)](https://github.com/Fasust/wisgen) using the Flutter Framework and the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
-# 100 The Flutter Framework
+# 100-The-Flutter-Framework
 
 ## Introduction
 
@@ -42,7 +42,7 @@ This Chapter will give you a basic understanding of how the Flutter Framework [(
   - [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter)
   - [Communication with the Web](https://github.com/Fasust/flutter-guide/wiki/150-Communication-with-the-Web)
 
-# 110 Under The Hood
+# 110-Under-The-Hood
 
 ## Introduction
 
@@ -112,7 +112,7 @@ One additional advantage of Flutter, is that is comes with two different compile
 
 *Figure 6: Hot Reload [(Flutter Dev Team 2019d)](https://flutter.dev/docs/development/tools/hot-reload)*
 
-# 120 Thinking Declaratively
+# 120-Thinking-Declaratively
 
 ## Introduction
 
@@ -206,7 +206,7 @@ Is it not very inefficient to re-render the entire Widget every time we change t
 
 > “RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between states. The Flutter framework handles the rest.” [(Flutter Dev Team 2019e)](https://flutter.dev/docs/get-started/flutter-for/declarative)
 
-# 130 The Widget Tree
+# 130-The-Widget-Tree
 
 ## Introduction
 
@@ -424,7 +424,7 @@ But There is essentially two reasons to choose a Stateful Widget over a Stateles
 
 I will not go in detail on Inherited Widgets [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) here. When using the BLoC library [(Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/), which I will teach you in the chatper [Architecting a Flutter-App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App), you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all their descendance. And they are used as the underlying technologie of the BLoC library.
 
-# 140 Asynchronous Flutter
+# 140-Asynchronous-Flutter
 
 ## Introduction
 
@@ -436,7 +436,7 @@ I will not go in detail on Inherited Widgets [(Flutter Dev Team 2018b)](https://
 
 ## Yield
 
-# 150 Communication with the Web
+# 150-Communication-with-the-Web
 
 ## Introduction
 
@@ -535,15 +535,66 @@ class Slips {
 
 *Codesnippt 12: Wisgen AdviceSlips Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-# 200 Architecting a Flutter App
+# 200-Architecting-a-Flutter-App
 
-# 300 Testing
+## What options are there?
 
-# 400 Conventions
+  - Vanilla, Redux, Bloc, Provide/Scoped Model
+  - Which one will I focus on and Why?
+  - Google went bach and forth on this as well.
 
-# 500 Conclusion
+## BLoC
 
-# 600 References
+  - Why this one?
+  - Origin
+  - UI only publishes and subscribes
+  - **Build Interface code how you want it to look like -\> then make it work**
+  - **4 Rules for BLoCs**
+      - Only Sinks In & Streams out
+      - Dependencies Injectable
+      - No Platform Branching
+      - Implementation can be whatever you want
+  - **4 Rules for UI Classes**
+      - “Complex Enough” views have a BLoC
+      - Components do not format the inputs they send to the BLoC
+      - Output are formated as little as possible
+      - If you do have Platform Branching, It should be dependent on a single BLoC bool output
+
+### Bloc Architecture
+
+![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/bloc-architecture.png)
+
+### Bloc Architecture with Layers
+
+![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//.images/bloc-layers.png)
+
+### Wisgen Component Dependencies
+
+![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-dependencies.png)
+
+### Wisgen DataFlow
+
+![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-dataflow.png)
+
+# 300-Testing
+
+## Unit Tests in Dart using the BLoC Pattern
+
+# 400-Conventions
+
+## Mastering the Widget Tree
+
+## Naming conventions
+
+## File structure with BLoC
+
+# 500-Conclusion
+
+## My Opinion of Flutter
+
+## Should you use it?
+
+# 600-References
 
 <div id="refs" class="references">
 
