@@ -91,5 +91,126 @@ class Api {
 
 ### Yield
 
+## Side Note on Communication with the Web
+
+I just wanted to end this chapter with showing you how the API Repository of Wisgen actually looks like and give some input of why it looks the way it does:
+
+``` dart
+import 'dart:convert';
+import 'dart:math';
+
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:wisgen/models/advice_slips.dart';
+import 'package:wisgen/models/wisdom.dart';
+import 'package:wisgen/repositories/repository.dart';
+import 'package:http/http.dart' as http;
+
+///Repository that cashes data it fetches from an API and
+///then Provides a given amount of random entries.
+class Api implements Repository<Wisdom> {
+  ///Advice SLip API Query that requests all (~213) Text Entries from the API.
+  ///We fetch all entries ad once and cash them locally to minimize network traffic.
+  ///The Advice Slip API also does not provide the option to request a selected amount of entries.
+  ///That's why I think this is the best approach.
+
+  ///Delivers all entries of the AdviceSlip API
+  static const _adviceURI = 'https://api.adviceslip.com/advice/search/%20';
+  List<Wisdom> _cash;
+  final Random _random = new Random();
+
+  @override
+  Future<List<Wisdom>> fetch(int amount, BuildContext context) async {
+    //if the Cash is empty, request data from the API
+    if (_cash == null) _cash = await _loadData();
+
+    //return requested amount of random Wisdoms
+    List<Wisdom> res = new List();
+    for (int i = 0; i < amount; i++) {
+      res.add(_cash[_random.nextInt(_cash.length)]);
+    }
+    return res;
+  }
+
+  ///Fetches Data from API and coverts it to Wisdoms
+  Future<List<Wisdom>> _loadData() async {
+    http.Response response = await http.get(_adviceURI);
+    AdviceSlips adviceSlips = AdviceSlips.fromJson(json.decode(response.body));
+
+    List<Wisdom> wisdoms = new List();
+    adviceSlips.slips.forEach((slip) {
+      wisdoms.add(slip.toWisdom());
+    });
+
+    return wisdoms;
+  }
+}
+```
+
+*Codesnippt XXX: Actual Wisgen API Repository [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
+The AdviceSlips class, is generated with a JSON to Dart converter [(Lecuona 2019)](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it’s data fields with the JSON response. I used this class instead of implementing a method in the Wisdom class, because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don’t need to read it all, I just want to give you an idea of how it looks like:
+
+``` dart
+class AdviceSlips {
+  String totalResults;
+  String query;
+  List<Slips> slips;
+
+  AdviceSlips({this.totalResults, this.query, this.slips});
+
+  AdviceSlips.fromJson(Map<String, dynamic> json) {
+    totalResults = json['total_results'];
+    query = json['query'];
+    if (json['slips'] != null) {
+      slips = new List<Slips>();
+      json['slips'].forEach((v) {
+        slips.add(new Slips.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['total_results'] = this.totalResults;
+    data['query'] = this.query;
+    if (this.slips != null) {
+      data['slips'] = this.slips.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Slips {
+  String advice;
+  String slipId;
+
+  Slips({this.advice, this.slipId});
+
+  Slips.fromJson(Map<String, dynamic> json) {
+    advice = json['advice'];
+    slipId = json['slip_id'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['advice'] = this.advice;
+    data['slip_id'] = this.slipId;
+    return data;
+  }
+
+  //I wrote this function myself to make it easy to cast 
+  //slips into my own Wisdom data structure.
+  Wisdom toWisdom() {
+    return new Wisdom(
+      id: int.parse(slipId),
+      text: advice,
+      type: "Advice Slip",
+    );
+  }
+}
+```
+
+*Codesnippt XXX: Wisgen AdviceSlips Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/150-Communication-with-the-Web">Next Chapter: Architecting a Flutter App ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
