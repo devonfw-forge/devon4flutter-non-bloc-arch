@@ -1,4 +1,4 @@
-[//]: # (pandoc --toc --filter pandoc-citeproc --bibliography=guide.bib -f markdown -t gfm .raw-text/raw-guide.md --reference-links -o .raw-text/gfm-guide.md)
+[//]: # (pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=guide.bib -f markdown -t gfm .raw-text/raw-guide.md --reference-links -o .raw-text/gfm-guide.md)
 
 [intro]: https://github.com/Fasust/flutter-guide/wiki
 [framework]: https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework
