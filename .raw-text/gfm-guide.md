@@ -471,7 +471,7 @@ class Api {
 
 ### Async & Await
 
-If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks in callbacks in callbacks. Luckily Dart supports the Async & Await keywords, which give us the ability to structure our asynchrones code the same way we would if it was synchronous. Let’s take the same example as in
+If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks in callbacks in callbacks. Luckily Dart supports the Async & Await keywords (Dart Team 2018), which give us the ability to structure our asynchrones code the same way we would if it was synchronous. Let’s take the same example as in
 Snippet 11.
 
 ``` dart
@@ -488,7 +488,7 @@ class Api {
 
 *Codesnippt 13: Wisgen API Repository (Async) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark it as *async*. This forces the return type to be a Future. Because if we wait during the function, the function will never return instantly, thus it **has** to return a Future. Error handling in async function can be done with try / catch:
+We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark it as *async*. This forces the return type to be a Future. Because if we wait during the function, the function will never return instantly, thus it **has** to return a Future (Google LLC 2019e). Error handling in async function can be done with try / catch:
 
 ``` dart
 class Api {
@@ -510,11 +510,13 @@ class Api {
 
 ## Streams
 
+Streams (Dart Team 2019b) are to Future what Iterables are to synchronous data types (Google LLC 2019d).
+
 ### Yield
 
 ## Side Note on Communication with the Web
 
-I just wanted to end this chapter with showing you how the API Repository of Wisgen actually looks like and give some input of why it looks the way it does:
+I just wanted to end this chapter with showing you how the API Repository of Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
 
 ``` dart
 import 'dart:convert';
@@ -978,6 +980,18 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 <div id="ref-googlellcDartFutures2019">
 
 ———, dir. 2019c. *Dart Futures*. Vol. Ep. 2. Flutter in Focus. <https://www.youtube.com/watch?v=OTS-ap9_aXc>.
+
+</div>
+
+<div id="ref-googlellcDartStreams2019">
+
+———, dir. 2019d. *Dart Streams*. Vol. Ep. 3. Flutter in Focus. <https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s>.
+
+</div>
+
+<div id="ref-googlellcAsyncAwait2019">
+
+———, dir. 2019e. *Async/Await*. Vol. Ep. 4. Flutter in Focus. <https://www.youtube.com/watch?v=SmTCmDMi4BY>.
 
 </div>
 

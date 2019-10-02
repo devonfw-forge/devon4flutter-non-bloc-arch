@@ -187,6 +187,18 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 
 </div>
 
+<div id="ref-googlellcDartStreams2019">
+
+———, dir. 2019d. *Dart Streams*. Vol. Ep. 3. Flutter in Focus. <https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s>.
+
+</div>
+
+<div id="ref-googlellcAsyncAwait2019">
+
+———, dir. 2019e. *Async/Await*. Vol. Ep. 4. Flutter in Focus. <https://www.youtube.com/watch?v=SmTCmDMi4BY>.
+
+</div>
+
 <div id="ref-jetbrainsKotlinSDK2017">
 
 Jet Brains. 2017. *Kotlin SDK* (version 1.3). Jet Brains. <https://kotlinlang.org/>.

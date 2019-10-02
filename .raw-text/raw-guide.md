@@ -447,7 +447,7 @@ class Api {
 _Codesnippt 12: Wisgen API Repository (Futures with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Async & Await
-If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks in callbacks in callbacks. Luckily Dart supports the Async & Await keywords, which give us the ability to structure our asynchrones code the same way we would if it was synchronous. Let's take the same example as in 
+If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks in callbacks in callbacks. Luckily Dart supports the Async & Await keywords [@dartteamAsynchronousProgrammingDart2018], which give us the ability to structure our asynchrones code the same way we would if it was synchronous. Let's take the same example as in 
 Snippet 11.
 
 ```dart
@@ -463,7 +463,7 @@ class Api {
 ```
 _Codesnippt 13: Wisgen API Repository (Async) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-We can use the _await_ keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the _http.Response_ has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark it as _async_. This forces the return type to be a Future. Because if we wait during the function, the function will never return instantly, thus it **has** to return a Future. Error handling in async function can be done with try / catch:
+We can use the _await_ keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the _http.Response_ has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark it as _async_. This forces the return type to be a Future. Because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [@googlellcAsyncAwait2019]. Error handling in async function can be done with try / catch:
 
 ```dart
 class Api {
@@ -483,11 +483,12 @@ class Api {
 _Codesnippt 14: Wisgen API Repository (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Streams
+Streams [@dartteamDartStreams2019] are to Future what Iterables are to synchronous data types [@googlellcDartStreams2019].
 
 ### Yield
 
 ## Side Note on Communication with the Web
-I just wanted to end this chapter with showing you how the API Repository of Wisgen actually looks like and give some input of why it looks the way it does:
+I just wanted to end this chapter with showing you how the API Repository of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
 
 ```dart
 import 'dart:convert';
