@@ -483,8 +483,6 @@ _Codesnippt 14: Wisgen API Repository (Async with Error) [[@faustWisgen2019]](ht
 ## Streams
 Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s).
 
-### Yield
-
 ## Side Note on Communication with the Web
 I just wanted to end this chapter with showing you how the API Repository of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
 
@@ -503,7 +501,8 @@ import 'package:http/http.dart' as http;
 class Api implements Repository<Wisdom> {
   ///Advice SLip API Query that requests all (~213) Text Entries from the API.
   ///We fetch all entries ad once and cash them locally to minimize network traffic.
-  ///The Advice Slip API also does not provide the option to request a selected amount of entries.
+  ///The Advice Slip API also does not provide the option to request a 
+  ///selected amount of entries.
   ///That's why I think this is the best approach.
 
   ///Delivers all entries of the AdviceSlip API
@@ -524,6 +523,7 @@ class Api implements Repository<Wisdom> {
     return res;
   }
 
+  ///I changed this function for the Snippets in the Guide
   ///Fetches Data from API and coverts it to Wisdoms
   Future<List<Wisdom>> _loadData() async {
     http.Response response = await http.get(_adviceURI);
