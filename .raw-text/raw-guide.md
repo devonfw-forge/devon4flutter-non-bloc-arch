@@ -1,4 +1,6 @@
-[//]: # (pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=guide.bib -f markdown -t gfm .raw-text/raw-guide.md --reference-links -o .raw-text/gfm-guide.md)
+[//Build GFM]: # (pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md)
+
+[//Build PDF]: # (pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=guide.bib --pdf-engine=xelatex --variable papersize=a4paper -s .raw-text/raw-guide.md -o paper.pdf)
 
 [intro]: https://github.com/Fasust/flutter-guide/wiki
 [framework]: https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework
