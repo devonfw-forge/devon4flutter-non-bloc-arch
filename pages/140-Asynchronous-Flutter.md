@@ -8,11 +8,11 @@ Page Table of Contents
 
 ## Introduction
 
-Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart (Dart Team 2019a) and Flutter (Flutter Dev Team 2018e) have a very good integration for Asynchronous Programming. This chapter will teach you the basics of Futures, async/await(Dart Team 2019a) and Streams (Dart Team 2019b). Throughout this chapter I will be using the *http* package [(Dart Team 2019c)](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common usecases for Asynchronous Programming, so I though it would only be fitting.
+Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart [(Dart Team 2019a)](https://dart.dev/) and Flutter (Flutter Dev Team 2018e) have a very good integration for Asynchronous Programming. This chapter will teach you the basics of Futures, async/await [(Dart Team 2019a)](https://dart.dev/) and Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams). Throughout this chapter I will be using the *http* package [(Dart Team 2019c)](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common usecases for Asynchronous Programming, so I though it would only be fitting.
 
 ## Futures
 
-Futures (Dart Team 2019a) are the most basic way of dealing with asynchronous code. If you have ever worked with JavaScripts (ECMA 1997) Promises before, they are basically the exact same thing. Here is a small example, this is a simplified version is Wisgens Api Repository. It can make a request to the AdviceSlip API [(Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice texts.
+Futures [(Dart Team 2019a)](https://dart.dev/) are the most basic way of dealing with asynchronous code. If you have ever worked with JavaScripts [(ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example, this is a simplified version is Wisgens Api Repository. It can make a request to the AdviceSlip API [(Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ``` dart
 class Api {
@@ -68,7 +68,7 @@ class Api {
 
 *Codesnippt 13: Wisgen API Repository (Async) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark it as *async*. This forces the return type to be a Future. Because if we wait during the function, the function will never return instantly, thus it **has** to return a Future (Google LLC 2019e). Error handling in async function can be done with try / catch:
+We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark it as *async*. This forces the return type to be a Future. Because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [(Google LLC 2019e)](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with try / catch:
 
 ``` dart
 class Api {
@@ -90,7 +90,7 @@ class Api {
 
 ## Streams
 
-Streams (Dart Team 2019b) are to Future what Iterables are to synchronous data types (Google LLC 2019d).
+Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams) are to Future what Iterables are to synchronous data types [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s).
 
 ### Yield
 
