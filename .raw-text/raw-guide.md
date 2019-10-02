@@ -124,7 +124,7 @@ for(int i = 0; i < numbers.length; i++){
     if(numbers[i] > 3 ) print(numbers[i]);     
 }
 ```
-_Code Snippet 1: Number List (Imperative)_
+_Codesnippt 1: Number List (Imperative)_
 
 Here we want to print every entry in the list that is bigger then 3. We explicitly tell the framework to go through the List one by one and check each value. In the declarative version, we simply state how our result should look like, but not how to reach it:
 
@@ -132,7 +132,7 @@ Here we want to print every entry in the list that is bigger then 3. We explicit
 List numbers = [1,2,3,4,5]
 print(numbers.where((num) => num > 3));
 ```
-_Code Snippet 2: Number List (Declarative)_
+_Codesnippt 2: Number List (Declarative)_
 
 One important thing to note here is, that the difference between imperative and declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit mor declarative. This is because you are then using functions that _describe_ what they do and you no longer care how they do it [[@computerphileHTMLProgrammingLanguage2016]](https://www.youtube.com/watch?v=4A2mWqLUpzw).
 
@@ -146,7 +146,7 @@ Okay, now that we understand what declarative means, let's take a look at Flutte
 
 ![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//.images/ui-equals-function-of-state.png)
 
-_Figure 1: UI = f(State) [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
+_Figure 7: UI = f(State) [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
 
 This means that you never imperatively or explicitly call an UI element to change it. You rather _declare_ that the UI should look a certain way, given a certain _state_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). But what exactly is _state_? 
 
@@ -170,7 +170,7 @@ button.setOnClickListener(new View.OnClickListener() {
     } 
 }); 
 ```
-_Code Snippet 3: Red button in Android (Imperative)_
+_Codesnippt 3: Red button in Android (Imperative)_
 
 In Flutter on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool "pressed"). We then declare that the onPressed function should update the app state and re-build the button:
 
@@ -189,7 +189,7 @@ Widget build(BuildContext context) {
     );
 }
 ```
-_Code Snippet 4: Red button in Flutter (Declarative)_
+_Codesnippt 4: Red button in Flutter (Declarative)_
 
 ## Efficiency of Re-Builds
 Is it not very inefficient to re-render the entire Widget every time we change the state? That was the first questions I had when learning about this topic. But I was pleased to learn, that Flutter uses something called "RenderObjects" to improve performance similar to Reacts [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) virtual DOM.
@@ -231,7 +231,7 @@ Widget build(BuildContext context) {
   );
 }
 ```
-_Codesnippt 1: Wisgen Card Widget [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Codesnippt 5: Wisgen Card Widget [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 The functions _image() generates a Widget that contains the stock image. The function _content() generate a Widget that displays the wisdom text and the buttons on the card. 
 Another important thing to note is that:
@@ -243,7 +243,7 @@ The build method of any given Widget can be called multiple times a second. And 
 But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. As mentioned in the [previous chapter][declarative], in Flutter such data is called _state_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). No worries, how Flutter handles mutable state will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
 
 ### The Widget Tree
-When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let's have a look at the Widget Tree for our example from Figure 1. Note the card Widgets on the right hand side of the diagram. You can see how the code from Snippet 1 translates to Widgets in the Widget Tree.
+When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let's have a look at the Widget Tree for our example from Figure 1. Note the card Widgets on the right hand side of the diagram. You can see how the code from Codesnippt 5 translates to Widgets in the Widget Tree.
 
 ![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
 
@@ -266,7 +266,7 @@ Widget build(BuildContext context) {
   );
 }
 ```
-_Codesnippt 2: Hypothetical Wisgen Image Widget [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Codesnippt 6: Hypothetical Wisgen Image Widget [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree: **Downwards**. You want to place information that is required by multiple Widgets above them in the tree, so they can both easily access it through their BuildContext. Keep this in mind for now, I will explain this in more detail in the chapter [Architecting a Flutter App][architecture].
 
@@ -294,7 +294,7 @@ class WisdomCard extends StatelessWidget {
   }
 }
 ```
-_Codesnippt 3: Wisgen Card Widget Class [(Faust 2019)](https://github.com/Fasust/wisgen)_
+_Codesnippt 7: Wisgen Card Widget Class [(Faust 2019)](https://github.com/Fasust/wisgen)_
 
 As you can see, it has some const values for styling, a Wisdom object that is passed into the constructor and a build methode. The Wisdom object contains the wisdom text and the hyperlink for the stock image.
 
@@ -318,7 +318,7 @@ class MyWidget extends StatelessWidget {
   }
 }
 ```
-_Codesnippt 4: Stateless Widget Lifecycle_
+_Codesnippt 8: Stateless Widget Lifecycle_
 
 ### Stateful Widgets
 I have explained what State is in the Chapter [Thinking Declaratively][declarative]. But just as a reminder:
@@ -346,7 +346,7 @@ class WisdomFeedState extends State<WisdomFeed>{
   }
 }
 ```
-_Codesnippt 5: Wisgen WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)_
+_Codesnippt 9: Wisgen WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)_
 
 If you are anything like me, you will ask yourself: "why is this split into 2 parts? The StatefulWidget is not really doing anything." Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true, is to have the StatefulWidget hold onto the State but not actually be the State [@googlellcHowStatefulWidgets2018; @windmillStatefulWidgetLifecycle2019].
 
@@ -382,7 +382,7 @@ class MySate extends State<MyWidget>{
   dispose(){...}
 }
 ```
-_Codesnippt 6: State Objects/StatefulWidgets Lifecycle_
+_Codesnippt 10: State Objects/StatefulWidgets Lifecycle_
 
 ### When to use Stateless & When to use Stateful
 Keep in mind, to improve performance, you always want to rely on as few Stateful widgets as possible.
@@ -422,7 +422,7 @@ class Api implements Repository<Wisdom> {
   }
 }
 ```
-_Codesnippt 1: Wisgen API Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Codesnippt 11: Wisgen API Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 As you can see, you simply call _get()_ on the HTTP module and give it the URL it should request. This is an asynchronous call, so you can use the _await_ keyword to wait till the request is complete. Once the request is finished, you can read out headers and the body from the http.Response object. 
 
@@ -487,6 +487,6 @@ class Slips {
   }
 }
 ```
-_Codesnippt 2: [Wisgen AdviceSlips Class (Faust 2019)](https://github.com/Fasust/wisgen)_
+_Codesnippt 12: [Wisgen AdviceSlips Class (Faust 2019)](https://github.com/Fasust/wisgen)_
 
 # References
