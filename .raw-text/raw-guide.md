@@ -1,8 +1,8 @@
-[//Build GFM]: # (pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=.sources/guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md)
+[//Build GFM]: # (pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md)
 
-[//Build PDF]: # (pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=.sources/guide.bib --pdf-engine=xelatex --variable papersize=a4paper -s .raw-text/raw-guide.md -o paper.pdf)
+[//Split GFM]: # (dart .\tools\splitter.dart .\.raw-text\gfm-guide.md .\pages)
 
-[//Split GFM]: # (dart .\.tools\splitter.dart .\.raw-text\gfm-guide.md .\)
+[//Build PDF]: # (pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib --pdf-engine=xelatex --variable papersize=a4paper -s .raw-text/raw-guide.md -o paper.pdf)
 
 [intro]: https://github.com/Fasust/flutter-guide/wiki
 [framework]: https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework
@@ -58,14 +58,14 @@ This Chapter will give you a basic understanding of how the Flutter Framework [[
 Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) is a framework for cross-platform native development. But what exactly does that mean? It means that it promises Native App performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how flutter achieves this, is to compare it to other mobile development approaches.
 
 ### Full Native Approach
-![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/native-rendering.png)
+![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//images/native-rendering.png)
 
 _Figure 1: Native app rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 The classic way to build a mobile app, would be to write native code for each platform you want to support. I.E. One for IOS [[@appleIOSSDK2010]](https://developer.apple.com/ios/), one for Android [[@googlellcAndroidSDK2008]](https://developer.android.com/) and so on. In this approach your app will be written in a platform specific language and render through platform specific widgets and a platform specific engine. During the development you have direct access to platform specific services and sensors [@googlellcHowFlutterDifferent2019; @stollPlainEnglishWhat2018; @lelerWhatRevolutionaryFlutter2017]. But you will have to build the same app multiple times, which effectively doubles your workload.
 
 ### Embedded WebApp Approach
-![Embedded Web App rendering](https://github.com/Fasust/flutter-guide/wiki//.images/webview-rendering.png)
+![Embedded Web App rendering](https://github.com/Fasust/flutter-guide/wiki//images/webview-rendering.png)
 
 _Figure 2: Embedded WebApp rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
@@ -75,14 +75,14 @@ Embedded WebApps where the first approach to cross-platform development. You wou
 Bridges connect components with one another. These components can be build in the same or different programming languages [[@adinugrohoReviewMultiplatformMobile2015]](http://www.sciencedirect.com/science/article/pii/S1877050915020979).
 
 ### Reactive View Approach
-![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/reactive-rendering.png)
+![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//images/reactive-rendering.png)
 
 _Figure 3: Reactive app rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 Apps build with reactive frameworks (like React Native [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/)) are mostly written in a platform independent language like JavaScript [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm). The JavaScript code then sends information on how UI components should be displayed to the native environment. This communication always runs through a _bridge_. So we end up with native widgets that are controller through JavaScript. The main problem here, is that the communication through the _bridge_ is a bottleneck which can lead to performance issus [@googlellcHowFlutterDifferent2019; @stollPlainEnglishWhat2018; @lelerWhatRevolutionaryFlutter2017; @kolPerformanceLimitationsReact2017].
 
 ### Flutters Approach
-![Flutter app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-rendering.png)
+![Flutter app rendering](https://github.com/Fasust/flutter-guide/wiki//images/flutter-rendering.png)
 
 _Figure 4: Flutter app rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
@@ -90,7 +90,7 @@ Flutters approach is to move the entire rendering process into the app. The rend
 
 You might think that keeping an entire rendering engine inside your app would lead to huge APKs, but as of 2019 the compressed framework is only 4.3MB [[@flutterdevteamFAQFlutter2019]](https://flutter.dev/docs/resources/faq). 
 
-![Flutter Framework Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-architecture.png)
+![Flutter Framework Architecture](https://github.com/Fasust/flutter-guide/wiki//images/flutter-architecture.png)
 
 _Figure 5: Flutter Framework Architecture [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
@@ -110,7 +110,7 @@ _Table 1: Flutters 2 Compliers [@mooreDartProductiveFast2019; @googlellcHowFlutt
 ## Hot Reload
 _Hot Reload_ [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload) is a feature web developers are already very familiar with. It essentially means, that your changes in the code are displayed in the running application near instantaneously. Thanks to Flutters JIT Complier, it is also able to provide this feature.
 
-![Hot Reload](https://github.com/Fasust/flutter-guide/wiki//.images/hot-reload.gif)
+![Hot Reload](https://github.com/Fasust/flutter-guide/wiki//images/hot-reload.gif)
 
 _Figure 6: Hot Reload [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload)_
 
@@ -148,7 +148,7 @@ Okay, now that we understand what declarative means, let's take a look at Flutte
 
 > "Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app" [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
-![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//.images/ui-equals-function-of-state.png)
+![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//images/ui-equals-function-of-state.png)
 
 _Figure 7: UI = f(State) [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
 
@@ -215,7 +215,7 @@ But that is not really helpful, is it? Personally, I like Didier Boelens definit
 
 Let's have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought provoking stock images:
 
-![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widgets.png)
+![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widgets.png)
 
 _Figure 1: Wisgen Widgets [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -252,7 +252,7 @@ But your app never consists out of exclusively immutable parts, does it? Variabl
 ### The Widget Tree
 When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let's have a look at the Widget Tree for our example from Figure 1. Note the card Widgets on the right hand side of the diagram. You can see how the code from Codesnippt 5 translates to Widgets in the Widget Tree.
 
-![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
+![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widget-tree.PNG)
 
 _Figure 2: Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -525,16 +525,16 @@ _Codesnippt 12: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com
   - If you do have Platform Branching, It should be dependent on a single BLoC bool output
   
 ### Bloc Architecture
-![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/bloc-architecture.png)
+![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
 ### Bloc Architecture with Layers
-![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//.images/bloc-layers.png)
+![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
 ### Wisgen Component Dependencies
-![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-dependencies.png)
+![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 
 ### Wisgen DataFlow
-![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-dataflow.png)
+![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
 # 300-Testing
 ## Unit Tests in Dart using the BLoC Pattern

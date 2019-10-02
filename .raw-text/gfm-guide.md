@@ -50,7 +50,7 @@ Flutter [(Flutter Dev Team 2018e)](https://flutter.dev/) is a framework for cros
 
 ### Full Native Approach
 
-![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/native-rendering.png)
+![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//images/native-rendering.png)
 
 *Figure 1: Native app rendering [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -58,7 +58,7 @@ The classic way to build a mobile app, would be to write native code for each pl
 
 ### Embedded WebApp Approach
 
-![Embedded Web App rendering](https://github.com/Fasust/flutter-guide/wiki//.images/webview-rendering.png)
+![Embedded Web App rendering](https://github.com/Fasust/flutter-guide/wiki//images/webview-rendering.png)
 
 *Figure 2: Embedded WebApp rendering [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -70,7 +70,7 @@ Bridges connect components with one another. These components can be build in th
 
 ### Reactive View Approach
 
-![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/reactive-rendering.png)
+![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//images/reactive-rendering.png)
 
 *Figure 3: Reactive app rendering [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -78,7 +78,7 @@ Apps build with reactive frameworks (like React Native [(Facebook 2015)](https:/
 
 ### Flutters Approach
 
-![Flutter app rendering](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-rendering.png)
+![Flutter app rendering](https://github.com/Fasust/flutter-guide/wiki//images/flutter-rendering.png)
 
 *Figure 4: Flutter app rendering [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -86,7 +86,7 @@ Flutters approach is to move the entire rendering process into the app. The rend
 
 You might think that keeping an entire rendering engine inside your app would lead to huge APKs, but as of 2019 the compressed framework is only 4.3MB [(Flutter Dev Team 2019a)](https://flutter.dev/docs/resources/faq).
 
-![Flutter Framework Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/flutter-architecture.png)
+![Flutter Framework Architecture](https://github.com/Fasust/flutter-guide/wiki//images/flutter-architecture.png)
 
 *Figure 5: Flutter Framework Architecture [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -108,7 +108,7 @@ One additional advantage of Flutter, is that is comes with two different compile
 
 *Hot Reload* [(Flutter Dev Team 2019d)](https://flutter.dev/docs/development/tools/hot-reload) is a feature web developers are already very familiar with. It essentially means, that your changes in the code are displayed in the running application near instantaneously. Thanks to Flutters JIT Complier, it is also able to provide this feature.
 
-![Hot Reload](https://github.com/Fasust/flutter-guide/wiki//.images/hot-reload.gif)
+![Hot Reload](https://github.com/Fasust/flutter-guide/wiki//images/hot-reload.gif)
 
 *Figure 6: Hot Reload [(Flutter Dev Team 2019d)](https://flutter.dev/docs/development/tools/hot-reload)*
 
@@ -151,7 +151,7 @@ Okay, now that we understand what declarative means, let’s take a look at Flut
 
 > “Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app” [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
-![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//.images/ui-equals-function-of-state.png)
+![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//images/ui-equals-function-of-state.png)
 
 *Figure 7: UI = f(State) [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)*
 
@@ -224,7 +224,7 @@ But that is not really helpful, is it? Personally, I like Didier Boelens definit
 
 Let’s have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought provoking stock images:
 
-![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widgets.png)
+![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widgets.png)
 
 *Figure 1: Wisgen Widgets [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
@@ -263,7 +263,7 @@ But your app never consists out of exclusively immutable parts, does it? Variabl
 
 When working with Flutter, you will inevitably stumble over the term *Widget Tree*, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let’s have a look at the Widget Tree for our example from Figure 1. Note the card Widgets on the right hand side of the diagram. You can see how the code from Codesnippt 5 translates to Widgets in the Widget Tree.
 
-![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
+![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widget-tree.PNG)
 
 *Figure 2: Wisgen Widget Tree [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
@@ -562,19 +562,19 @@ class Slips {
 
 ### Bloc Architecture
 
-![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/bloc-architecture.png)
+![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
 ### Bloc Architecture with Layers
 
-![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//.images/bloc-layers.png)
+![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
 ### Wisgen Component Dependencies
 
-![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-dependencies.png)
+![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 
 ### Wisgen DataFlow
 
-![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-dataflow.png)
+![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
 # 300-Testing
 

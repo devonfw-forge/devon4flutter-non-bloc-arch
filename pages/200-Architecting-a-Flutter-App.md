@@ -31,19 +31,19 @@ Page Table of Contents
 
 ### Bloc Architecture
 
-![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/bloc-architecture.png)
+![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
 ### Bloc Architecture with Layers
 
-![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//.images/bloc-layers.png)
+![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
 ### Wisgen Component Dependencies
 
-![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-dependencies.png)
+![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 
 ### Wisgen DataFlow
 
-![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-dataflow.png)
+![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/300-Testing">Next Chapter: Testing ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

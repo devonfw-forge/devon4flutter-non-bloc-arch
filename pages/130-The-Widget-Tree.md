@@ -25,7 +25,7 @@ But that is not really helpful, is it? Personally, I like Didier Boelens definit
 
 Let’s have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought provoking stock images:
 
-![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widgets.png)
+![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widgets.png)
 
 *Figure 1: Wisgen Widgets [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
@@ -64,7 +64,7 @@ But your app never consists out of exclusively immutable parts, does it? Variabl
 
 When working with Flutter, you will inevitably stumble over the term *Widget Tree*, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let’s have a look at the Widget Tree for our example from Figure 1. Note the card Widgets on the right hand side of the diagram. You can see how the code from Codesnippt 5 translates to Widgets in the Widget Tree.
 
-![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
+![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widget-tree.PNG)
 
 *Figure 2: Wisgen Widget Tree [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
