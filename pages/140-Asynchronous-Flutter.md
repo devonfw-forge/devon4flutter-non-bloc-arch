@@ -92,6 +92,17 @@ class Api {
 
 Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams) are to Future what Iterables are to synchronous data types [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s).
 
+  - Concept
+  - Importance
+  - Example pub/sub (wisdom BLoC)
+      - Very Simplified
+      - Screens sub
+      - Screens ask for more
+      - BLoC pubs
+  - Explain Implementation
+  - yield example (Wisdom BLoC)
+  - mainpultion options (brief)
+
 ## Side Note on Communication with the Web
 
 I just wanted to end this chapter with showing you how the API Repository of Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:

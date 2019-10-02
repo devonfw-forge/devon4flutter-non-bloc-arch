@@ -27,7 +27,7 @@ Build PDF: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=source
 This guide aims to bridge the gap between the absolute Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it _properly_. Or at least show you one possible way to make large scale Flutter projects clean and manageable.
 
 ## Who is this Guide for?
-For people with a basic knowledge of the Flutter Framework. I recommend following this tutorial by the Flutter team [[@flutterdevteamWriteYourFirst2018]](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the Dart programming language [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/). No worries, it is very similar to Java [[@oracleJavaJDK1996]](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), Kotlin [[@jetbrainsKotlinSDK2017]](https://kotlinlang.org/) and JavaScript [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine. Lastly, for the Architecture chapter, you should have a basic understanding of Data Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams).
+For people with a basic knowledge of the Flutter Framework. I recommend following this tutorial by the Flutter team [[@flutterdevteamWriteYourFirst2018]](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the Dart programming language [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/). No worries, it is very similar to Java [[@oracleJavaJDK1996]](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), Kotlin [[@jetbrainsKotlinSDK2017]](https://kotlinlang.org/) and JavaScript [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine.
 
 ## Topics that will be covered 
 - A brief introduction to the Flutter Framework in general. How it works _under the hood_ and its underlying structure.
@@ -482,6 +482,17 @@ _Codesnippt 14: Wisgen API Repository (Async with Error) [[@faustWisgen2019]](ht
 
 ## Streams
 Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s).
+
+- Concept
+- Importance
+- Example pub/sub (wisdom BLoC)
+  - Very Simplified
+  - Screens sub
+  - Screens ask for more
+  - BLoC pubs
+- Explain Implementation 
+- yield example (Wisdom BLoC)
+- mainpultion options (brief)
 
 ## Side Note on Communication with the Web
 I just wanted to end this chapter with showing you how the API Repository of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
