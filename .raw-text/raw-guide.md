@@ -101,7 +101,7 @@ One additional advantage of Flutter, is that is comes with two different compile
 | Just in Time  | Only re-compiles files that have changed. Preserves App State [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables _Hot Reload_ [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
 | Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                                                                        | For Release        |
 
-_Table 1: Flutters 2 Compliers [[@mooreDartProductiveFast2019; @googlellcHowFlutterDifferent2019]](https://www.youtube.com/watch?v=J5DQRPRBiFI)_
+_Table 1: Flutters 2 Compliers [@mooreDartProductiveFast2019; @googlellcHowFlutterDifferent2019]_
 
 ## Hot Reload
 _Hot Reload_ [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload) is a feature web developers are already very familiar with. It essentially means, that your changes in the code are displayed in the running application near instantaneously. Thanks to Flutters JIT Complier, it is also able to provide this feature.

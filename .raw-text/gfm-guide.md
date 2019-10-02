@@ -211,8 +211,7 @@ Time). The following table will showcase the advantage of each:
 | Just in Time  | Only re-compiles files that have changed. Preserves App State [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables *Hot Reload* [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
 | Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                                                  | For Release        |
 
-*Table 1: Flutters 2 Compliers [(Moore and Nystrom 2019;
-LLC 2019)](https://www.youtube.com/watch?v=J5DQRPRBiFI)*
+*Table 1: Flutters 2 Compliers (Moore and Nystrom 2019; LLC 2019)*
 
 ## Hot Reload
 
