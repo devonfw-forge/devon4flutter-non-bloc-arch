@@ -2,6 +2,8 @@
 
 [//Build PDF]: # (pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=guide.bib --pdf-engine=xelatex --variable papersize=a4paper -s .raw-text/raw-guide.md -o paper.pdf)
 
+[//Split GFM]: # (dart ..\flutter-guide.wiki.tool\main.dart .\.raw-text\gfm-guide.md .\)
+
 [intro]: https://github.com/Fasust/flutter-guide/wiki
 [framework]: https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework
 [under-hood]: https://github.com/Fasust/flutter-guide/wiki/110-Under-the-Hood
