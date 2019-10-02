@@ -15,7 +15,7 @@
 [conclusion]: https://github.com/Fasust/flutter-guide/wiki/500-Conclusion
 [refs]: https://github.com/Fasust/flutter-guide/wiki/600-References
 
-# Introduction
+# 000 Introduction
 
 ## The Goal of this Guide
 This guide aims to bridge the gap between the absolute Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it _properly_. Or at least show you one possible way to make large scale Flutter projects clean and manageable.
@@ -39,7 +39,7 @@ The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 
 ## My Sources 
 I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, official documentaions, scientific papers that cover cross-platform mobile development in gerneral and many other sources. All sources used in the guide are listed in the chapter [_References_][refs]. To better understand all the theory, I also developed the Wisgen app [[@faustWisgen2019]](https://github.com/Fasust/wisgen) using the Flutter Framework and the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
-# The Flutter Framework
+# 100 The Flutter Framework
 ## Introduction
 This Chapter will give you a basic understanding of how the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) works as a whole. I will showcase the difference of Flutter to other Cross-Platform approaches and how Flutter works _under the hood_. You will also be introduced to the concepts of _state_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) and flutters way of rendering an app as a tree of _widgets_. In addition to this, You will gain an understanding of how Flutter Handels Asynchronous Programming. And Lastly, you will learn how to communicate with the Web within the Flutter Framework.
 
@@ -50,7 +50,7 @@ This Chapter will give you a basic understanding of how the Flutter Framework [[
 * [Asynchronous Flutter][async]
 * [Communication with the Web][web]
 
-# Under The Hood
+# 110 Under The Hood
 
 ## Introduction
 Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) is a framework for cross-platform native development. But what exactly does that mean? It means that it promises Native App performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how flutter achieves this, is to compare it to other mobile development approaches.
@@ -112,7 +112,7 @@ _Hot Reload_ [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/de
 
 _Figure 6: Hot Reload [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload)_
 
-# Thinking Declaratively
+# 120 Thinking Declaratively
 
 ## Introduction
 If you come from the native mobile world and _imperative_ frameworks like IOS [[@appleIOSSDK2010]](https://developer.apple.com/ios/) and Android [[@googlellcAndroidSDK2008]](https://developer.android.com/), developing with Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) can take while to get used to. Flutter, other then those frameworks mentioned above, is a _declarative_ Framework. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: _state_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
@@ -198,7 +198,7 @@ Is it not very inefficient to re-render the entire Widget every time we change t
 
 > "RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between states. The Flutter framework handles the rest." [[@flutterdevteamIntroductionDeclarativeUI2019]](https://flutter.dev/docs/get-started/flutter-for/declarative)
 
-# The Widget Tree
+# 130 The Widget Tree
 ## Introduction
 This section will give you a better understanding of how programming in Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) actually works. You will learn what Widgets [[@flutterdevteamFlutterWidgets2019]](https://flutter.dev/docs/development/ui/widgets-intro) are, what types of Widgets Flutter has and lastly what exactly the _Widget Tree_ is.
 
@@ -399,9 +399,9 @@ But There is essentially two reasons to choose a Stateful Widget over a Stateles
 ### Inherited Widgets
 I will not go in detail on Inherited Widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) here. When using the BLoC library [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/), which I will teach you in the chatper [Architecting a Flutter-App][architecture], you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all their descendance. And they are used as the underlying technologie of the BLoC library.
 
-# Asynchronous Flutter
+# 140 Asynchronous Flutter
 
-# Communication with the Web
+# 150 Communication with the Web
 ## Introduction
 In this chapter I will briefly show you how to communicate with the Web in Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/). I think most large scale application are dependant on the Web in one way or another, so it felt important to cover this topic.
 
@@ -495,4 +495,8 @@ class Slips {
 ```
 _Codesnippt 12: [Wisgen AdviceSlips Class (Faust 2019)](https://github.com/Fasust/wisgen)_
 
-# References
+# 200 Architecting a Flutter App
+# 300 Testing
+# 400 Conventions
+# 500 Conclusion
+# 600 References
