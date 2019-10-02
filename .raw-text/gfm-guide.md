@@ -125,9 +125,9 @@ each platform you want to support. I.E. One for IOS
 approach your app will be written in a platform specific language and
 render through platform specific widgets and a platform specific engine.
 During the development you have direct access to platform specific
-services and sensors (LLC 2019; Stoll 2018; Leler 2017). But you will
-have to build the same app multiple times, which effectively doubles
-your workload.
+services and sensors (Google LLC 2019; Stoll 2018; Leler 2017). But you
+will have to build the same app multiple times, which effectively
+doubles your workload.
 
 ### Embedded WebApp Approach
 
@@ -139,10 +139,10 @@ rendering](https://github.com/Fasust/flutter-guide/wiki//.images/webview-renderi
 
 Embedded WebApps where the first approach to cross-platform development.
 You would simply build your application with HTML, CSS and JavaScript
-and then have it render through a native WebView(LLC 2019; Leler 2017).
-The Problem here is, that developers are limited to the web technology
-stack and that communication between the app and native services would
-always have to run through a *bridge* (Stoll 2018).
+and then have it render through a native WebView(Google LLC 2019; Leler
+2017). The Problem here is, that developers are limited to the web
+technology stack and that communication between the app and native
+services would always have to run through a *bridge* (Stoll 2018).
 
 #### Bridges
 
@@ -167,7 +167,7 @@ be displayed to the native environment. This communication always runs
 through a *bridge*. So we end up with native widgets that are controller
 through JavaScript. The main problem here, is that the communication
 through the *bridge* is a bottleneck which can lead to performance issus
-(LLC 2019; Stoll 2018; Leler 2017; Kol 2017).
+(Google LLC 2019; Stoll 2018; Leler 2017; Kol 2017).
 
 ### Flutters Approach
 
@@ -184,7 +184,7 @@ system events/input it can then forward to your app. The framework also
 provides a way to access services and sensors through platform
 independent interfaces. This way the *bridging* between the app and the
 native environment is kept to a minimum which removes that bottleneck
-(LLC 2019; Stoll 2018; Leler 2017).
+(Google LLC 2019; Stoll 2018; Leler 2017).
 
 You might think that keeping an entire rendering engine inside your app
 would lead to huge APKs, but as of 2019 the compressed framework is only
@@ -211,7 +211,8 @@ Time). The following table will showcase the advantage of each:
 | Just in Time  | Only re-compiles files that have changed. Preserves App State [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables *Hot Reload* [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
 | Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                                                  | For Release        |
 
-*Table 1: Flutters 2 Compliers (Moore and Nystrom 2019; LLC 2019)*
+*Table 1: Flutters 2 Compliers (Moore and Nystrom 2019; Google LLC
+2019)*
 
 ## Hot Reload
 
@@ -950,6 +951,14 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC.
 
 </div>
 
+<div id="ref-googlellcHowFlutterDifferent2019">
+
+———, dir. 2019. *How Is Flutter Different for App Development*. Google
+Developers Official Youtube Channel.
+<https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be>.
+
+</div>
+
 <div id="ref-jetbrainsKotlinSDK2017">
 
 Jet Brains. 2017. *Kotlin SDK* (version 1.3). Jet Brains.
@@ -970,14 +979,6 @@ Amsterdam. <https://www.youtube.com/watch?v=psZLAHQXRsI>.
 Leler, Wm. 2017. “What’s Revolutionary About Flutter.” Blog. Hackernoon.
 2017.
 <https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514>.
-
-</div>
-
-<div id="ref-googlellcHowFlutterDifferent2019">
-
-LLC, Google, dir. 2019. *How Is Flutter Different for App Development*.
-Google Developers Official Youtube Channel.
-<https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be>.
 
 </div>
 
