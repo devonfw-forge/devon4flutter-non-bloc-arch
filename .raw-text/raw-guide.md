@@ -415,7 +415,8 @@ Futures [@dartteamDartProgrammingLanguage2019] are the most basic way of dealing
 
 ```dart
 class Api {
-  static const _adviceURI = 'https://api.adviceslip.com/advice'; //Delivers 1 random advice as JSON
+  //Delivers 1 random advice as JSON
+  static const _adviceURI = 'https://api.adviceslip.com/advice'; 
 
   Future<Wisdom> fetch() {
     //Define the Future and what the result will look like
@@ -432,7 +433,8 @@ As you can see, you simply call _get()_ on the HTTP module and give it the URL i
 
 ```dart
 class Api {
-  static const _adviceURI = 'https://api.adviceslip.com/advice'; //Delivers 1 random advice as JSON
+  //Delivers 1 random advice as JSON
+  static const _adviceURI = 'https://api.adviceslip.com/advice'; 
 
   Future<Wisdom> fetch() {
     Future<http.Response> apiCall = http.get(_adviceURI);
@@ -450,7 +452,8 @@ Snippet 11.
 
 ```dart
 class Api {
-  static const _adviceURI = 'https://api.adviceslip.com/advice'; //Delivers 1 random advice as JSON
+  //Delivers 1 random advice as JSON
+  static const _adviceURI = 'https://api.adviceslip.com/advice'; 
 
   Future<Wisdom> fetch() async {
     http.Response response = await http.get(_adviceURI);
@@ -464,7 +467,8 @@ We can use the _await_ keyword to tell Flutter to wait at on specific point unti
 
 ```dart
 class Api {
-  static const _adviceURI = 'https://api.adviceslip.com/advice'; //Delivers 1 random advice as JSON
+  //Delivers 1 random advice as JSON
+  static const _adviceURI = 'https://api.adviceslip.com/advice'; 
 
   Future<Wisdom> fetch() async {
     try {
