@@ -426,6 +426,16 @@ I will not go in detail on Inherited Widgets [(Flutter Dev Team 2018b)](https://
 
 # 140 Asynchronous Flutter
 
+## Introduction
+
+## Futures
+
+## Async & Await
+
+## FutureBuilder
+
+## Yield
+
 # 150 Communication with the Web
 
 ## Introduction
@@ -523,7 +533,7 @@ class Slips {
 }
 ```
 
-*Codesnippt 12: [Wisgen AdviceSlips Class (Faust 2019)](https://github.com/Fasust/wisgen)*
+*Codesnippt 12: Wisgen AdviceSlips Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 # 200 Architecting a Flutter App
 
