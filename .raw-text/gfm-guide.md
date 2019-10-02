@@ -3,7 +3,7 @@
 ## The Goal of this Guide
 
 This guide aims to bridge the gap between the absolute Flutter [(Flutter
-Dev Team 2018a)](https://flutter.dev/) basics and clean, structured
+Dev Team 2018e)](https://flutter.dev/) basics and clean, structured
 Flutter development. It should bring you from the basics of knowing how
 to build an app with Flutter to an understanding of how to do it
 *properly*. Or at least show you one possible way to make large scale
@@ -13,7 +13,7 @@ Flutter projects clean and manageable.
 
 For people with a basic knowledge of the Flutter Framework. I recommend
 following this tutorial by the Flutter team [(Flutter Dev
-Team 2018b)](https://flutter.dev/docs/get-started/codelab). It will walk
+Team 2018f)](https://flutter.dev/docs/get-started/codelab). It will walk
 you through developing your first flutter application. You should also
 have a basic understanding of the Dart programming language [(Dart
 Team 2019a)](https://dart.dev/). No worries, it is very similar to Java
@@ -76,7 +76,7 @@ Framework and the BLoC Pattern
 ## Introduction
 
 This Chapter will give you a basic understanding of how the Flutter
-Framework [(Flutter Dev Team 2018a)](https://flutter.dev/) works as a
+Framework [(Flutter Dev Team 2018e)](https://flutter.dev/) works as a
 whole. I will showcase the difference of Flutter to other Cross-Platform
 approaches and how Flutter works *under the hood*. You will also be
 introduced to the concepts of *state* [(Flutter Dev
@@ -103,7 +103,7 @@ with the Web within the Flutter Framework.
 
 ## Introduction
 
-Flutter [(Flutter Dev Team 2018a)](https://flutter.dev/) is a framework
+Flutter [(Flutter Dev Team 2018e)](https://flutter.dev/) is a framework
 for cross-platform native development. But what exactly does that mean?
 It means that it promises Native App performance while still compiling
 apps for multiple platforms from a single codebase. The best way to
@@ -208,7 +208,7 @@ Time). The following table will showcase the advantage of each:
 
 | Compiler      | What is does                                                                                                                                                                                                                                                                        | When it’s used     |
 | :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- |
-| Just in Time  | Only re-compiles files that have changed. Preserves App State [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables *Hot Reload* [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
+| Just in Time  | Only re-compiles files that have changed. Preserves App State [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables *Hot Reload* [(Flutter Dev Team 2019d)](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
 | Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                                                  | For Release        |
 
 *Table 1: Flutters 2 Compliers (Moore and Nystrom 2019; Google LLC
@@ -217,7 +217,7 @@ Time). The following table will showcase the advantage of each:
 ## Hot Reload
 
 *Hot Reload* [(Flutter Dev
-Team 2019c)](https://flutter.dev/docs/development/tools/hot-reload) is a
+Team 2019d)](https://flutter.dev/docs/development/tools/hot-reload) is a
 feature web developers are already very familiar with. It essentially
 means, that your changes in the code are displayed in the running
 application near instantaneously. Thanks to Flutters JIT Complier, it is
@@ -227,21 +227,21 @@ also able to provide this feature.
 Reload](https://github.com/Fasust/flutter-guide/wiki//.images/hot-reload.gif)
 
 *Figure 6: Hot Reload [(Flutter Dev
-Team 2019c)](https://flutter.dev/docs/development/tools/hot-reload)*
+Team 2019d)](https://flutter.dev/docs/development/tools/hot-reload)*
 
 # Thinking Declaratively
 
 ## Introduction
 
 If you come from the native mobile world and *imperative* frameworks
-like [IOS (Apple 2010)](https://developer.apple.com/ios/) and [Android
-(Google LLC 2008)](https://developer.android.com/), developing with
-[Flutter (Flutter Dev Team 2018)](https://flutter.dev/) can take while
+like IOS [(Apple 2010)](https://developer.apple.com/ios/) and Android
+[(Google LLC 2008)](https://developer.android.com/), developing with
+Flutter [(Flutter Dev Team 2018e)](https://flutter.dev/) can take while
 to get used to. Flutter, other then those frameworks mentioned above, is
 a *declarative* Framework. This section will teach you how to think
 about developing apps declaratively and one of the most important
-concepts of Flutter: [*state* (Flutter Dev Team
-2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
+concepts of Flutter: *state* [(Flutter Dev
+Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 
 ## Declarative Programming vs Imperative Programming
 
@@ -253,8 +253,8 @@ this context, an imperative approach is telling the framework
 command”. A declarative approach, on the other hand, would be
 describing to the framework what kind of result you want to get and
 letting the framework decide on how to achieve that result. “Declaro”
-(Latin) means “to explain” (Bezerra 2018; Flutter Dev Team 2019a;
-2019c). Let’s look at an example:
+(Latin) means “to explain” (Flutter Dev Team 2018e, 2019b, 2019e;
+Bezerra 2018). Let’s look at an example:
 
 ``` dart
 List numbers = [1,2,3,4,5]
@@ -297,18 +297,18 @@ documentation:
 
 > “Flutter is declarative. This means that Flutter builds its user
 > interface to reflect the current state of your app” [(Flutter Dev
-> Team 2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
+> Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
 ![UI =
 f(State)](https://github.com/Fasust/flutter-guide/wiki//.images/ui-equals-function-of-state.png)
 
-*Figure 1: [UI = f(State) (Flutter Dev
-Team 2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)*
+*Figure 1: UI = f(State) [(Flutter Dev
+Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)*
 
 This means that you never imperatively or explicitly call an UI element
 to change it. You rather *declare* that the UI should look a certain
-way, given a certain [*state* (Flutter Dev Team
-2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
+way, given a certain *state* [(Flutter Dev
+Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 But what exactly is *state*?
 
 | ⚠ | State in Flutter is any data that can change over time |
@@ -369,21 +369,21 @@ Widget build(BuildContext context) {
 Is it not very inefficient to re-render the entire Widget every time we
 change the state? That was the first questions I had when learning about
 this topic. But I was pleased to learn, that Flutter uses something
-called “RenderObjects” to improve performance similar to [Reacts
-(Facebook 2015)](https://facebook.github.io/react-native/) virtual DOM.
+called “RenderObjects” to improve performance similar to Reacts
+[(Facebook 2015)](https://facebook.github.io/react-native/) virtual DOM.
 \> “RenderObjects persist between frames and Flutter’s lightweight
 Widgets tell the framework to mutate the RenderObjects between states.
 The Flutter framework handles the rest.” [(Flutter Dev
-Team 2019c)](https://flutter.dev/docs/get-started/flutter-for/declarative)
+Team 2019e)](https://flutter.dev/docs/get-started/flutter-for/declarative)
 
 # The Widget Tree
 
 ## Introduction
 
 This section will give you a better understanding of how programming in
-[Flutter (Flutter Dev Team 2018e)](https://flutter.dev/) actually works.
-You will learn what [Widgets (Flutter Dev
-Team 2019b)](https://flutter.dev/docs/development/ui/widgets-intro) are,
+Flutter [(Flutter Dev Team 2018e)](https://flutter.dev/) actually works.
+You will learn what Widgets [(Flutter Dev
+Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro) are,
 what types of Widgets Flutter has and lastly what exactly the *Widget
 Tree* is.
 
@@ -391,13 +391,13 @@ Tree* is.
 
 One sentence you can simply not avoid when researching Flutter is: \>
 “In Flutter, everything is a Widget.” [(Flutter Dev
-Team 2019b)](https://flutter.dev/docs/development/ui/widgets-intro)
+Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro)
 
 But that is not really helpful, is it? Personally, I like Didier Boelens
 definition of Flutter Widgets better: \> “Think of a Widget as a visual
 component (or a component that interacts with the visual aspect of an
-application).”
-[(Boelens 2018)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
+application).” [(Boelens
+n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
 
 Let’s have look at an example, this app displays an endless feed of
 Wisdoms combined with vaguely thought provoking stock images:
@@ -405,8 +405,8 @@ Wisdoms combined with vaguely thought provoking stock images:
 ![Wisgen
 Widgets](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widgets.png)
 
-*Figure 1: [Wisgen Widgets
-(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 1: Wisgen Widgets
+[(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 As you can see, all UI-Components of the app are Widgets. From high
 level stuff like the App-Bar and the ListView down to to the granular
@@ -432,15 +432,15 @@ Widget build(BuildContext context) {
 }
 ```
 
-*Codesnippt 1: [Wisgen Card Widget
-(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Codesnippt 1: Wisgen Card Widget
+[(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 The functions \_image() generates a Widget that contains the stock
 image. The function \_content() generate a Widget that displays the
 wisdom text and the buttons on the card. Another important thing to note
 is that:
 
-| ⚠ | Widgets in Flutter are always immutable [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/ui/widgets-intro) |
+| ⚠ | Widgets in Flutter are always immutable [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro) |
 | - | :------------------------------------------------------------------------------------------------------------------------ |
 
 The build method of any given Widget can be called multiple times a
@@ -456,8 +456,8 @@ parts, does it? Variables need to change, data needs to be fetched and
 stored. Almost any app needs some sort of mutable data. As mentioned in
 the [previous
 chapter](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively),
-in Flutter such data is called [*state* (Flutter Dev Team
-2019a)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
+in Flutter such data is called *state* [(Flutter Dev
+Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 No worries, how Flutter handles mutable state will be covered in the
 section [Stateful Widgets](#stateful-widgets) down below, so just keep
 on reading.
@@ -474,19 +474,19 @@ to Widgets in the Widget Tree.
 ![Wisgen Widget
 Tree](https://github.com/Fasust/flutter-guide/wiki//.images/wisgen-widget-tree.PNG)
 
-*Figure 2: [Wisgen Widget Tree
-(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 2: Wisgen Widget Tree
+[(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Buildcontext
 
 If you have previously build an App with Flutter, you have definitely
-encountered [*BuildContext* (Flutter Dev Team
-2018a)](https://api.flutter.dev/flutter/widgets/BuildContext-class.html).
+encountered *BuildContext* [(Flutter Dev
+Team 2018a)](https://api.flutter.dev/flutter/widgets/BuildContext-class.html).
 It is passed in as a variable in every Widget build methode in Flutter.
 But what exactly is *BuildContext*? As Didier Boelens puts it: \> “A
 BuildContext is nothing else but a reference to the location of a Widget
-within the tree structure of all the Widgets which are built.”
-[(Boelens 2018)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
+within the tree structure of all the Widgets which are built.” [(Boelens
+n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
 
 The BuildContext contain information about each *ancestor* leading down
 to the Widget that the context belongs to. So it is an easy way for a
@@ -494,8 +494,8 @@ Widget to access all its ancestors in the Widget tree. Accessing a
 Widgets *descendance* through the BuildContext is possible, but not
 advised and inefficient. So in short: For a Widget at the bottom of the
 tree, it is very easy to get information from Widgets at the top of the
-tree but **not** visversa
-[(Boelens 2018)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956).
+tree but **not** visversa [(Boelens
+n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956).
 For example, the image Widget from Figure 2 could access it’s ancestor
 card Widget like this:
 
@@ -512,8 +512,8 @@ Widget build(BuildContext context) {
 }
 ```
 
-*Codesnippt 2: [Hypothetical Wisgen Image Widget
-(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Codesnippt 2: Hypothetical Wisgen Image Widget
+[(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Alright, but what does that mean for me as a Flutter developer? It is
 important to understand how data in Flutter flows through the Widget
@@ -532,7 +532,7 @@ usecases.
 ### Stateless Widgets
 
 This is the most basic of the Three an likely the one you’ll use the
-most when developing an app with Flutter. [Stateless Widgets (Flutter
+most when developing an app with Flutter. Stateless Widgets [(Flutter
 Dev
 Team 2018d)](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html)
 are initialized once with a set of parameters and those parameters will
@@ -558,8 +558,8 @@ class WisdomCard extends StatelessWidget {
 }
 ```
 
-*Codesnippt 3: [Wisgen Card Widget Class
-(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Codesnippt 3: Wisgen Card Widget Class
+[(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 As you can see, it has some const values for styling, a Wisdom object
 that is passed into the constructor and a build methode. The Wisdom
@@ -570,10 +570,10 @@ in a StatelessWidget, it can still change to a degree. A ListView Widget
 is also a Stateless for example. It has a final reference to a list.
 Things can be added or removed from that list without the reference in
 the ListView Widget changing. So the ListView remains immutable and
-Stateless while the things it displays are able to change.
+Stateless while the things it displays are able to change (LLC 2018).
 
 The Lifecycle of Stateless Widgets is very straight forward (Boelens
-2018):
+n.d.):
 
 ``` dart
 class MyWidget extends StatelessWidget {
@@ -597,18 +597,18 @@ class MyWidget extends StatelessWidget {
 ### Stateful Widgets
 
 I have explained what State is in the Chapter [Thinking
-Declaratively](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively#declarative-programming-in-flutter).
+Declaratively](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively).
 But just as a reminder:
 
 | ⚠ | State in Flutter is any data that can change over time |
 | - | :----------------------------------------------------- |
 
-A [Stateful Widget (Flutter Dev
+A Stateful Widget [(Flutter Dev
 Team 2018c)](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html)
 always consist of two parts: An immutable Widget and a mutable state.
 The immutable Widgets responsibility is to hold onto that state, the
 state itself has the mutable data and builds the actual Widget [(Google
-LLC 2018a)](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let’s have a
+LLC 2018)](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let’s have a
 look at an example. This is a simplified version of the WisdomFeed from
 Figure 1. The *WisdomBloc* is responsible for generating and cashing
 wisdoms that are then displayed in the Feed. More on that in the chapter
@@ -634,28 +634,28 @@ class WisdomFeedState extends State<WisdomFeed>{
 }
 ```
 
-*Codesnippt 5: [Wisgen WisdomFeed
-(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Codesnippt 5: Wisgen WisdomFeed
+[(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 If you are anything like me, you will ask yourself: “why is this split
 into 2 parts? The StatefulWidget is not really doing anything.” Well,
 The Flutter Team wants to keep Widgets **always** immutable. The only
 way to keep this statement universally true, is to have the
 StatefulWidget hold onto the State but not actually be the State (Google
-LLC 2018a; Windmill and Contributors 2019).
+LLC 2018; Windmill and Contributors 2019).
 
 State objects have a long lifespan in Flutter. This means that they will
 stick around during rebuilds or even if the widget that they are linked
 to gets replaced [(Google
-LLC 2018a)](https://www.youtube.com/watch?v=AqCMFXEmf3w). So in this
+LLC 2018)](https://www.youtube.com/watch?v=AqCMFXEmf3w). So in this
 example, no matter how often the WisdomFeed gets rebuild and no matter
 if the user switches pages, the cashed list of wisdoms (WisdomBloc) will
 stay the same until the app is shut down.
 
 The Lifecycle of State Objects/StatefulWidgets is a little bit more
 complex, here is a boiled down version of it with all the methods you’ll
-need for this guide. You can read the full Lifecycle here: [Lifecycle of
-StatefulWidgets (Windmill and
+need for this guide. You can read the full Lifecycle here: Lifecycle of
+StatefulWidgets [(Windmill and
 Contributors 2019)](https://flutterbyexample.com//stateful-widget-lifecycle).
 
 ``` dart
@@ -700,9 +700,9 @@ of it’s lifetime.
 
 ### Inherited Widgets
 
-I will not go in detail on [Inherited Widgets (Flutter Dev
+I will not go in detail on Inherited Widgets [(Flutter Dev
 Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html)
-here. When using the [BLoC library (Angelov and
+here. When using the BLoC library [(Angelov and
 Contributors 2019)](https://felangel.github.io/bloc/#/), which I will
 teach you in the chatper [Architecting a
 Flutter-App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App),
@@ -718,23 +718,23 @@ of the BLoC library.
 ## Introduction
 
 In this chapter I will briefly show you how to communicate with the Web
-in [Flutter (Flutter Dev Team 2018)](https://flutter.dev/). I think most
-large scale application are dependant on the Web in one way or another,
-so it felt important to cover this topic.
+in Flutter [(Flutter Dev Team 2018e)](https://flutter.dev/). I think
+most large scale application are dependant on the Web in one way or
+another, so it felt important to cover this topic.
 
 ## The HTTP Package
 
 Communicating with the Web is very easy in Flutter. The Dart Team
-maintains an external package called [http (Dart
-Team 2019b)](https://pub.dev/packages/http) which takes care of most of
-the work for you. [Dart (Dart Team 2019a)](https://dart.dev/) also
-offers very good integration of [asynchrones programming (Dart
+maintains an external package called *http* [(Dart
+Team 2019c)](https://pub.dev/packages/http) which takes care of most of
+the work for you. Dart [(Dart Team 2019a)](https://dart.dev/) also
+offers very good integration of asynchrones programming [(Dart
 Team 2018)](https://dart.dev/codelabs/async-await), which I covered in
 the [last
 chapter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter).
 Let’s look at an example, this is a simplified version is Wisgens Api
-Repository. It can make a request the [AdviceSlip API
-(Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice
+Repository. It can make a request the AdviceSlip API
+[(Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice
 texts.
 
 ``` dart
@@ -758,8 +758,8 @@ class Api implements Repository<Wisdom> {
 }
 ```
 
-*Codesnippt 1: [Wisgen API Repository
-(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Codesnippt 1: Wisgen API Repository
+[(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 As you can see, you simply call *get()* on the HTTP module and give it
 the URL it should request. This is an asynchronous call, so you can use
@@ -767,8 +767,8 @@ the *await* keyword to wait till the request is complete. Once the
 request is finished, you can read out headers and the body from the
 http.Response object.
 
-The AdviceSlips class, is generated with a [JSON to Dart converter
-(Lecuona 2019)](https://javiercbk.github.io/json_to_dart/). The
+The AdviceSlips class, is generated with a JSON to Dart converter
+[(Lecuona 2019)](https://javiercbk.github.io/json_to_dart/). The
 generated class has a fromJson function that makes it easy to populate
 it’s data fields with the JSON response. This is the generated class,
 you don’t need to read it all, I just want to give you an idea of how it
@@ -860,10 +860,33 @@ Ambuludi, Juan Andrés, Santos Jiménez Linares, and Contributors. 2019.
 
 </div>
 
+<div id="ref-angelovBlocLibraryDart2019">
+
+Angelov, Felix, and Contributors. 2019. “Bloc Library for Dart.”
+Computer software Library Documentation. 2019.
+<https://felangel.github.io/bloc/#/>.
+
+</div>
+
 <div id="ref-appleIOSSDK2010">
 
 Apple. 2010. *iOS SDK* (version 13). Apple.
 <https://developer.apple.com/ios/>.
+
+</div>
+
+<div id="ref-bezerraDeclarativeProgramming2018">
+
+Bezerra, Josimar, dir. 2018. *Declarative Programming*. Fun Fun
+Function. <https://www.youtube.com/watch?v=yGh0bjzj4IQ&t=632s>.
+
+</div>
+
+<div id="ref-boelensWidgetStateBuildContext2018">
+
+Boelens, Didier. n.d. “Widget — State — BuildContext — InheritedWidget.”
+Blog. Medium. Accessed September 23, 2019.
+<https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956>.
 
 </div>
 
@@ -874,9 +897,24 @@ Capgemini. 2019. “Capgemini - Home Page.” Home Page. 2019.
 
 </div>
 
+<div id="ref-computerphileHTMLProgrammingLanguage2016">
+
+Computerphile, dir. 2016. *HTML IS a Programming Language (Imperative Vs
+Declarative)*. University of Nottingham.
+<https://www.youtube.com/watch?v=4A2mWqLUpzw>.
+
+</div>
+
+<div id="ref-dartteamAsynchronousProgrammingDart2018">
+
+Dart Team. 2018. “Asynchronous Programming in Dart.” Documentation.
+2018. <https://dart.dev/codelabs/async-await>.
+
+</div>
+
 <div id="ref-dartteamDartProgrammingLanguage2019">
 
-Dart Team. 2019a. “Dart Programming Language.” Documentation. 2019.
+———. 2019a. “Dart Programming Language.” Documentation. 2019.
 <https://dart.dev/>.
 
 </div>
@@ -885,6 +923,13 @@ Dart Team. 2019a. “Dart Programming Language.” Documentation. 2019.
 
 ———. 2019b. “Dart Streams.” Documentation. 2019.
 <https://dart.dev/tutorials/language/streams>.
+
+</div>
+
+<div id="ref-dartteamHttpDartPackage2019">
+
+———. 2019c. “Http | Dart Package.” Dart Packages. 2019.
+<https://pub.dev/packages/http>.
 
 </div>
 
@@ -909,16 +954,44 @@ Faust, Sebastian. 2019. *Wisgen*. Germany.
 
 </div>
 
+<div id="ref-flutterdevteamBuildContextClass2018">
+
+Flutter Dev Team. 2018a. “BuildContext Class.” Documentation. 2018.
+<https://api.flutter.dev/flutter/widgets/BuildContext-class.html>.
+
+</div>
+
+<div id="ref-flutterdevteamInheritedWidgetClass2018">
+
+———. 2018b. “InheritedWidget Class.” Documentation. 2018.
+<https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html>.
+
+</div>
+
+<div id="ref-flutterdevteamStatefulWidgetClass2018">
+
+———. 2018c. “StatefulWidget Class.” Documentation. 2018.
+<https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>.
+
+</div>
+
+<div id="ref-flutterdevteamStatelessWidgetClass2018">
+
+———. 2018d. “StatelessWidget Class.” Documentation. 2018.
+<https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html>.
+
+</div>
+
 <div id="ref-flutterdevteamFlutterFramework2018">
 
-Flutter Dev Team. 2018a. *The Flutter Framework* (version 1.9). Google
-LLC. <https://flutter.dev/>.
+———. 2018e. *The Flutter Framework* (version 1.9). Google LLC.
+<https://flutter.dev/>.
 
 </div>
 
 <div id="ref-flutterdevteamWriteYourFirst2018">
 
-———. 2018b. “Write Your First Flutter App.” Guide. 2018.
+———. 2018f. “Write Your First Flutter App.” Guide. 2018.
 <https://flutter.dev/docs/get-started/codelab>.
 
 </div>
@@ -937,10 +1010,24 @@ LLC. <https://flutter.dev/>.
 
 </div>
 
+<div id="ref-flutterdevteamFlutterWidgets2019">
+
+———. 2019c. “Flutter Widgets.” Documentation. 2019.
+<https://flutter.dev/docs/development/ui/widgets-intro>.
+
+</div>
+
 <div id="ref-flutterdevteamHotReloadFlutter2019">
 
-———. 2019c. “Hot Reload - Flutter.” Documentation. 2019.
+———. 2019d. “Hot Reload - Flutter.” Documentation. 2019.
 <https://flutter.dev/docs/development/tools/hot-reload>.
+
+</div>
+
+<div id="ref-flutterdevteamIntroductionDeclarativeUI2019">
+
+———. 2019e. “Introduction to Declarative UI.” Documentation. 2019.
+<https://flutter.dev/docs/get-started/flutter-for/declarative>.
 
 </div>
 
@@ -948,6 +1035,13 @@ LLC. <https://flutter.dev/>.
 
 Google LLC. 2008. *Android SDK* (version 10). Google LLC.
 <https://developer.android.com/>.
+
+</div>
+
+<div id="ref-googlellcHowStatefulWidgets2018">
+
+———, dir. 2018. *How Stateful Widgets Are Used Best*. Vol. Ep. 2.
+Flutter Widgets 101. <https://www.youtube.com/watch?v=AqCMFXEmf3w>.
 
 </div>
 
@@ -966,6 +1060,13 @@ Jet Brains. 2017. *Kotlin SDK* (version 1.3). Jet Brains.
 
 </div>
 
+<div id="ref-kissAdviceSlipAPI2019">
+
+Kiss, Tom. 2019. “Advice Slip API.” Documentation. 2019.
+<https://api.adviceslip.com/>.
+
+</div>
+
 <div id="ref-kolPerformanceLimitationsReact2017">
 
 Kol, Tal. 2017. “Performance Limitations of React Native and How to
@@ -974,11 +1075,25 @@ Amsterdam. <https://www.youtube.com/watch?v=psZLAHQXRsI>.
 
 </div>
 
+<div id="ref-lecuonaJSONDartConverter2019">
+
+Lecuona, Javier. 2019. *JSON to Dart Converter* (version 1). Buenos
+Aires, Argentina. <https://javiercbk.github.io/json_to_dart/>.
+
+</div>
+
 <div id="ref-lelerWhatRevolutionaryFlutter2017">
 
 Leler, Wm. 2017. “What’s Revolutionary About Flutter.” Blog. Hackernoon.
 2017.
 <https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514>.
+
+</div>
+
+<div id="ref-googlellcHowCreateStateless2018">
+
+LLC, Google, dir. 2018. *How to Create Stateless Widgets*. Vol. Ep. 1.
+Flutter Widgets 101. <https://www.youtube.com/watch?v=wE7khGHVkYY>.
 
 </div>
 
@@ -1018,6 +1133,14 @@ Why Is It a Big Deal?” Blog. Medium. 2018.
 
 Technical University Cologne. 2019. “Technical University Cologne.” Home
 Page. 2019. <https://www.th-koeln.de/en/homepage_26.php>.
+
+</div>
+
+<div id="ref-windmillStatefulWidgetLifecycle2019">
+
+Windmill, Eric, and Contributors. 2019. “Stateful Widget Lifecycle.”
+Blog. Flutterbyexample. 2019.
+<https://flutterbyexample.com//stateful-widget-lifecycle>.
 
 </div>
 
