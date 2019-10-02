@@ -15,7 +15,6 @@ Build PDF: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=source
 [declarative]: https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively
 [tree]: https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree
 [async]: https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter
-[web]: https://github.com/Fasust/flutter-guide/wiki/150-Communication-with-the-Web
 [architecture]: https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App
 [test]: https://github.com/Fasust/flutter-guide/wiki/300-Testing
 [conventions]: https://github.com/Fasust/flutter-guide/wiki/400-Conventions
@@ -55,7 +54,6 @@ This Chapter will give you a basic understanding of how the Flutter Framework [[
 * [Thinking Declaratively][declarative]
 * [The Widget Tree][tree]
 * [Asynchronous Flutter][async]
-* [Communication with the Web][web]
 
 # 110-Under-The-Hood
 
@@ -606,99 +604,6 @@ class Slips {
 ```
 _Codesnippt XXX: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-# 150-Communication-with-the-Web
-## Introduction
-In this chapter I will briefly show you how to communicate with the Web in Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/). I think most large scale application are dependant on the Web in one way or another, so it felt important to cover this topic.
-
-## The HTTP Package
-Communicating with the Web is very easy in Flutter. The Dart Team maintains an external package called _http_ [[@dartteamHttpDartPackage2019]](https://pub.dev/packages/http) which takes care of most of the work for you. Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) also offers very good integration of asynchrones programming [[@dartteamAsynchronousProgrammingDart2018]](https://dart.dev/codelabs/async-await), which I covered in the [last chapter][async]. Let's look at an example, this is a simplified version is Wisgens Api Repository. It can make a request the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
-
-```dart
-import 'package:http/http.dart' as http;
-
-class Api implements Repository<Wisdom> {
-  static const _adviceURI = 'https://api.adviceslip.com/advice/search/%20';
-
-  Future<List<Wisdom>> loadData() async {
-    http.Response response = await http.get(_adviceURI); //API Request
-
-    AdviceSlips adviceSlips = AdviceSlips.fromJson(json.decode(response.body));
-
-    List<Wisdom> wisdoms = new List();
-    adviceSlips.slips.forEach((slip) {
-      wisdoms.add(slip.toWisdom());
-    });
-
-    return wisdoms;
-  }
-}
-```
-_Codesnippt 11: Wisgen API Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
-
-As you can see, you simply call _get()_ on the HTTP module and give it the URL it should request. This is an asynchronous call, so you can use the _await_ keyword to wait till the request is complete. Once the request is finished, you can read out headers and the body from the http.Response object. 
-
-The AdviceSlips class, is generated with a JSON to Dart converter [[@lecuonaJSONDartConverter2019]](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
-
-```dart
-class AdviceSlips {
-  String totalResults;
-  String query;
-  List<Slips> slips;
-
-  AdviceSlips({this.totalResults, this.query, this.slips});
-
-  AdviceSlips.fromJson(Map<String, dynamic> json) {
-    totalResults = json['total_results'];
-    query = json['query'];
-    if (json['slips'] != null) {
-      slips = new List<Slips>();
-      json['slips'].forEach((v) {
-        slips.add(new Slips.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['total_results'] = this.totalResults;
-    data['query'] = this.query;
-    if (this.slips != null) {
-      data['slips'] = this.slips.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Slips {
-  String advice;
-  String slipId;
-
-  Slips({this.advice, this.slipId});
-
-  Slips.fromJson(Map<String, dynamic> json) {
-    advice = json['advice'];
-    slipId = json['slip_id'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['advice'] = this.advice;
-    data['slip_id'] = this.slipId;
-    return data;
-  }
-
-  //I wrote this function myself to make it easy to cast 
-  //slips into my own Wisdom data structure.
-  Wisdom toWisdom() {
-    return new Wisdom(
-      id: int.parse(slipId),
-      text: advice,
-      type: "Advice Slip",
-    );
-  }
-}
-```
-_Codesnippt 12: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 # 200-Architecting-a-Flutter-App
 ## What options are there? 

@@ -4,7 +4,6 @@
   * [Thinking Declaratively](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively)
   * [The Widget Tree](https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree)
   * [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter)
-  * [Communication with the Web](https://github.com/Fasust/flutter-guide/wiki/150-Communication-with-the-Web)
 * [Architekting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App)
 * [Testing](https://github.com/Fasust/flutter-guide/wiki/300-Testing)
 * [Conventions](https://github.com/Fasust/flutter-guide/wiki/400-Conventions)
