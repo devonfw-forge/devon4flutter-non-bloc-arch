@@ -54,7 +54,7 @@ Flutter [(Flutter Dev Team 2018e)](https://flutter.dev/) is a framework for cros
 
 *Figure 1: Native app rendering [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-The classic way to build a mobile app, would be to write native code for each platform you want to support. I.E. One for IOS [(Apple 2010)](https://developer.apple.com/ios/), one for Android [(Google LLC 2008)](https://developer.android.com/) and so on. In this approach your app will be written in a platform specific language and render through platform specific widgets and a platform specific engine. During the development you have direct access to platform specific services and sensors (Google LLC 2019; Stoll 2018; Leler 2017). But you will have to build the same app multiple times, which effectively doubles your workload.
+The classic way to build a mobile app, would be to write native code for each platform you want to support. I.E. One for IOS [(Apple 2010)](https://developer.apple.com/ios/), one for Android [(Google LLC 2008)](https://developer.android.com/) and so on. In this approach your app will be written in a platform specific language and render through platform specific widgets and a platform specific engine. During the development you have direct access to platform specific services and sensors (Google LLC 2019a; Stoll 2018; Leler 2017). But you will have to build the same app multiple times, which effectively doubles your workload.
 
 ### Embedded WebApp Approach
 
@@ -62,7 +62,7 @@ The classic way to build a mobile app, would be to write native code for each pl
 
 *Figure 2: Embedded WebApp rendering [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-Embedded WebApps where the first approach to cross-platform development. You would simply build your application with HTML, CSS and JavaScript and then have it render through a native WebView(Google LLC 2019; Leler 2017). The Problem here is, that developers are limited to the web technology stack and that communication between the app and native services would always have to run through a *bridge* [(Stoll 2018)](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a).
+Embedded WebApps where the first approach to cross-platform development. You would simply build your application with HTML, CSS and JavaScript and then have it render through a native WebView(Google LLC 2019a; Leler 2017). The Problem here is, that developers are limited to the web technology stack and that communication between the app and native services would always have to run through a *bridge* [(Stoll 2018)](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a).
 
 #### Bridges
 
@@ -74,7 +74,7 @@ Bridges connect components with one another. These components can be build in th
 
 *Figure 3: Reactive app rendering [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-Apps build with reactive frameworks (like React Native [(Facebook 2015)](https://facebook.github.io/react-native/)) are mostly written in a platform independent language like JavaScript [(ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). The JavaScript code then sends information on how UI components should be displayed to the native environment. This communication always runs through a *bridge*. So we end up with native widgets that are controller through JavaScript. The main problem here, is that the communication through the *bridge* is a bottleneck which can lead to performance issus (Google LLC 2019; Stoll 2018; Leler 2017; Kol 2017).
+Apps build with reactive frameworks (like React Native [(Facebook 2015)](https://facebook.github.io/react-native/)) are mostly written in a platform independent language like JavaScript [(ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). The JavaScript code then sends information on how UI components should be displayed to the native environment. This communication always runs through a *bridge*. So we end up with native widgets that are controller through JavaScript. The main problem here, is that the communication through the *bridge* is a bottleneck which can lead to performance issus (Google LLC 2019a; Stoll 2018; Leler 2017; Kol 2017).
 
 ### Flutters Approach
 
@@ -82,7 +82,7 @@ Apps build with reactive frameworks (like React Native [(Facebook 2015)](https:/
 
 *Figure 4: Flutter app rendering [(Leler 2017)](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-Flutters approach is to move the entire rendering process into the app. The rendering runs through Flutters own engine and uses flutters own widgets. It only needs a canvas to display the rendered frames on and system events/input it can then forward to your app. The framework also provides a way to access services and sensors through platform independent interfaces. This way the *bridging* between the app and the native environment is kept to a minimum which removes that bottleneck (Google LLC 2019; Stoll 2018; Leler 2017).
+Flutters approach is to move the entire rendering process into the app. The rendering runs through Flutters own engine and uses flutters own widgets. It only needs a canvas to display the rendered frames on and system events/input it can then forward to your app. The framework also provides a way to access services and sensors through platform independent interfaces. This way the *bridging* between the app and the native environment is kept to a minimum which removes that bottleneck (Google LLC 2019a; Stoll 2018; Leler 2017).
 
 You might think that keeping an entire rendering engine inside your app would lead to huge APKs, but as of 2019 the compressed framework is only 4.3MB [(Flutter Dev Team 2019a)](https://flutter.dev/docs/resources/faq).
 
@@ -102,7 +102,7 @@ One additional advantage of Flutter, is that is comes with two different compile
 | Just in Time  | Only re-compiles files that have changed. Preserves App State [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables *Hot Reload* [(Flutter Dev Team 2019d)](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
 | Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                                                  | For Release        |
 
-*Table 1: Flutters 2 Compliers (Moore and Nystrom 2019; Google LLC 2019)*
+*Table 1: Flutters 2 Compliers (Moore and Nystrom 2019; Google LLC 2019a)*
 
 ## Hot Reload
 
@@ -428,39 +428,84 @@ I will not go in detail on Inherited Widgets [(Flutter Dev Team 2018b)](https://
 
 ## Introduction
 
-Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart (Dart Team 2019a) and Flutter (Flutter Dev Team 2018e) have a very good integration for Asynchronous Programming. This chapter will teach you the basics of Futures (Dart Team 2019a), Streams (Dart Team 2019b) and how to connect those to your UI.
+Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart (Dart Team 2019a) and Flutter (Flutter Dev Team 2018e) have a very good integration for Asynchronous Programming. This chapter will teach you the basics of Futures, async/await(Dart Team 2019a) and Streams (Dart Team 2019b). Throughout this chapter I will be using the *http* package [(Dart Team 2019c)](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common usecases for Asynchronous Programming, so I though it would only be fitting.
 
 ## Futures
 
-Futures are the most basic way of dealing with asynchronous code. If you have ever worked with JavaScripts (ECMA 1997) Promises before, they are basically the exact same thing. Here is a small example, this is a simplified version is Wisgens Api Repository. It can make a request to the AdviceSlip API [(Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice texts. In this Example it just prints the wisdom to the console.
+Futures (Dart Team 2019a) are the most basic way of dealing with asynchronous code. If you have ever worked with JavaScripts (ECMA 1997) Promises before, they are basically the exact same thing. Here is a small example, this is a simplified version is Wisgens Api Repository. It can make a request to the AdviceSlip API [(Kiss 2019)](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ``` dart
-import 'package:http/http.dart' as http;
+class Api {
+  static const _adviceURI = 'https://api.adviceslip.com/advice'; //Delivers 1 random advice as JSON
 
-class Api implements Repository<Wisdom> {
-  static const _adviceURI = 'https://api.adviceslip.com/advice/search/%20';
-  
-  makeWisdom(){
-    Future apiCall = http.get(_adviceURI);
-    
-    apiCall.then((response) => () {
-        print(json.decode(response.body));
-    });
+  Future<Wisdom> fetch() {
+    //Define the Future and what the result will look like
+    Future<http.Response> apiCall = http.get(_adviceURI); 
+
+    //Define what will happen once it's resolved
+    return apiCall.then((response) => Wisdom.fromResponse(response)); 
   }
 }
 ```
 
-*Codesnippt 11: Wisgen API Repository [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Codesnippt 11: Wisgen API Repository (Futures) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-### FutureBuilders
+As you can see, you simply call *get()* on the HTTP module and give it the URL it should request. The get() methode returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can assinge it a callback function with *then()* that will execute once that event is resolved. The callback we define will get access to the result of the Future IE the type `Future<Type>`. So here, the Future *apiCall* object is a reference to when the API call will be resolved. Once the call is complete, *then* will be called and we get access to the http.Response. We then tell the future to transform the Response into a wisdom object (Google LLC 2019c, 2019b). We can also handle errors with the *catchError()* function:
+
+``` dart
+class Api {
+  static const _adviceURI = 'https://api.adviceslip.com/advice'; //Delivers 1 random advice as JSON
+
+  Future<Wisdom> fetch() {
+    Future<http.Response> apiCall = http.get(_adviceURI);
+    return apiCall
+      .then((response) => Wisdom.fromResponse(response))
+      .catchError((exception) => Wisdom.Empty);
+  }
+}
+```
+
+*Codesnippt 12: Wisgen API Repository (Futures with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Async & Await
 
-## Streams
+If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks in callbacks in callbacks. Luckily Dart supports the Async & Await keywords, which give us the ability to structure our asynchrones code the same way we would if it was synchronous. Let’s take the same example as in
+Snippet 11.
+
+``` dart
+class Api {
+  static const _adviceURI = 'https://api.adviceslip.com/advice'; //Delivers 1 random advice as JSON
+
+  Future<Wisdom> fetch() async {
+    http.Response response = await http.get(_adviceURI);
+    return Wisdom.fromResponse(response);
+  }
+}
+```
+
+*Codesnippt 13: Wisgen API Repository (Async) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
+We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark it as *async*. This forces the return type to be a Future. Because if we wait during the function, the function will never return instantly, thus it **has** to return a Future. Error handling in async function can be done with try / catch:
+
+``` dart
+class Api {
+  static const _adviceURI = 'https://api.adviceslip.com/advice'; //Delivers 1 random advice as JSON
+
+  Future<Wisdom> fetch() async {
+    try {
+      http.Response response = await http.get(_adviceURI);
+      return Wisdom.fromResponse(response);
+    } catch (exception) {
+      return Wisdom.Empty;
+    }
+  }
+}
+```
+
+*Codesnippt 14: Wisgen API Repository (Async with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+\#\# Streams
 
 ### Yield
-
-### StreamBuilders
 
 # 150-Communication-with-the-Web
 
@@ -794,7 +839,19 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 
 <div id="ref-googlellcHowFlutterDifferent2019">
 
-———, dir. 2019. *How Is Flutter Different for App Development*. Google Developers Official Youtube Channel. <https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be>.
+———, dir. 2019a. *How Is Flutter Different for App Development*. Google Developers Official Youtube Channel. <https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be>.
+
+</div>
+
+<div id="ref-googlellcIsolatesEventLoops2019">
+
+———, dir. 2019b. *Isolates and Event Loops*. Vol. Ep. 1. Flutter in Focus. <https://www.youtube.com/watch?v=vl_AaCgudcY>.
+
+</div>
+
+<div id="ref-googlellcDartFutures2019">
+
+———, dir. 2019c. *Dart Futures*. Vol. Ep. 2. Flutter in Focus. <https://www.youtube.com/watch?v=OTS-ap9_aXc>.
 
 </div>
 

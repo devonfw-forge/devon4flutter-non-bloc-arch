@@ -171,7 +171,19 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 
 <div id="ref-googlellcHowFlutterDifferent2019">
 
-———, dir. 2019. *How Is Flutter Different for App Development*. Google Developers Official Youtube Channel. <https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be>.
+———, dir. 2019a. *How Is Flutter Different for App Development*. Google Developers Official Youtube Channel. <https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be>.
+
+</div>
+
+<div id="ref-googlellcIsolatesEventLoops2019">
+
+———, dir. 2019b. *Isolates and Event Loops*. Vol. Ep. 1. Flutter in Focus. <https://www.youtube.com/watch?v=vl_AaCgudcY>.
+
+</div>
+
+<div id="ref-googlellcDartFutures2019">
+
+———, dir. 2019c. *Dart Futures*. Vol. Ep. 2. Flutter in Focus. <https://www.youtube.com/watch?v=OTS-ap9_aXc>.
 
 </div>
 
