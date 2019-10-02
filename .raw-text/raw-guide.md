@@ -249,7 +249,7 @@ The functions _image() generates a Widget that contains the stock image. The fun
 Another important thing to note is that:
 
 | ⚠   | Widgets in Flutter are always immutable [[@flutterdevteamFlutterWidgets2019]](https://flutter.dev/docs/development/ui/widgets-intro) |
-| --- | :------------------------------------------------------------------------------------------------------------------------ |
+| --- | :----------------------------------------------------------------------------------------------------------------------------------- |
 
 The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html). To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods light weight by making all Widgets immutable. This means that all variables in a Widget have to be declared as _final_. Which means they are initialized once and can not change over time. 
 But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. As mentioned in the [previous chapter][declarative], in Flutter such data is called _state_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). No worries, how Flutter handles mutable state will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
@@ -408,14 +408,37 @@ I will not go in detail on Inherited Widgets [[@flutterdevteamInheritedWidgetCla
 
 # 140-Asynchronous-Flutter
 ## Introduction
+Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart [@dartteamDartProgrammingLanguage2019] and Flutter [@flutterdevteamFlutterFramework2018] have a very good integration for Asynchronous Programming. This chapter will teach you the basics of Futures [@dartteamDartProgrammingLanguage2019], Streams [@dartteamDartStreams2019] and how to connect those to your UI.
 
 ## Futures
+Futures are the most basic way of dealing with asynchronous code. If you have ever worked with JavaScripts [@ecmaJavaScriptECMAStandard1997] Promises before, they are basically the exact same thing. Here is a small example, this is a simplified version is Wisgens Api Repository. It can make a request to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts. In this Example it just prints the wisdom to the console.
 
-## Async & Await
+```dart
+import 'package:http/http.dart' as http;
 
-## FutureBuilder
+class Api implements Repository<Wisdom> {
+  static const _adviceURI = 'https://api.adviceslip.com/advice/search/%20';
+  
+  makeWisdom(){
+    Future apiCall = http.get(_adviceURI);
+    
+    apiCall.then((response) => () {
+        print(json.decode(response.body));
+    });
+  }
+}
+```
+_Codesnippt 11: Wisgen API Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-## Yield
+### FutureBuilders
+
+### Async & Await
+
+## Streams
+
+### Yield
+
+### StreamBuilders
 
 # 150-Communication-with-the-Web
 ## Introduction
