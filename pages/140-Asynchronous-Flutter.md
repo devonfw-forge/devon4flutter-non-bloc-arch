@@ -4,6 +4,7 @@ Page Table of Contents
   - [Async & Await](#async--await)
 - [Streams](#streams)
   - [Yield](#yield)
+- [Side Note on Communication with the Web](#side-note-on-communication-with-the-web)
 
 ## Introduction
 
@@ -214,5 +215,5 @@ class Slips {
 
 *Codesnippt XXX: Wisgen AdviceSlips Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/150-Communication-with-the-Web">Next Chapter: Architecting a Flutter App ></a></p>
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App">Next Chapter: Architecting a Flutter App ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
