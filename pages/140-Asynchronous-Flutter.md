@@ -103,7 +103,7 @@ class WisdomBloc {
   List<Wisdom> _oldWisdom = new List();
 
   //Stream
-  final StreamController _streamController = StreamController<List<Wisdom>>.broadcast(); 
+  final StreamController _streamController = StreamController<List<Wisdom>>; 
   StreamSink<List<Wisdom>> get _wisdomSink => _streamController.sink; //Data In
   Stream<List<Wisdom>> get wisdomStream => _streamController.stream; //Data out
 
@@ -204,10 +204,23 @@ Alright, let’s go through this step by step. First we initialize our WisdomBlo
 
 *Figure 10: Streaming Wisdom from BLoC to WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-### yield
+### Async\* & yield
 
-  - yield example (Wisdom BLoC)
-  - mainpultion options (brief)
+Streams have a two keywords that are very similar to the *async & await* of Futures: *async\* & yield*. If we mark a function as \_async*\_ the return type *has\* to be a stream. In an \_async\*\_ function we get access to the *async* keyword (which we already know) and the *yield* keyword, which is very similar to a return, only that *yield* does not terminate the function, but instead adds a value to the stream. This is what an implementation of the WisdomBloc from snippet 15 could look like when using \_async\*\_:
+
+``` dart
+Stream<List<Wisdom>> streamWisdoms() async* {
+  List<Wisdom> fetchedWisdoms = await _api.fetch(20);
+
+  //Appending the new Wisdoms to the current state
+  List<Wisdom> newWisdom = _oldWisdom + fetchedWisdoms;
+
+  yield newWisdom; //publish to stream
+  _oldWisdom = newWisdom;
+}
+```
+
+*Codesnippt 17: Simplified Wisgen WisdomBLoC with async\* [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ## Side Note on Communication with the Web
 
