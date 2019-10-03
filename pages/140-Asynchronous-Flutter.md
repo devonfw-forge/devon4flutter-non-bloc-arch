@@ -89,11 +89,70 @@ class Api {
 
 ## Streams
 
-Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming (Boelens 2018). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *streams*? As Andrew Brogdon put’s it in one of Googles official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one countinous flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and b notified once a new peace of data enters the stream.
+Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming (Boelens 2018). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *streams*? As Andrew Brogdon put’s it in one of Googles official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one continuos flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and be notified once a new peace of data enters the stream.
 
 ![Data Stream](https://github.com/Fasust/flutter-guide/wiki//images/stream.PNG)
 
 *Figure 10: Data Stream*
+
+Let’s have a look at an example: In Wisgen, our Wisdoms are delivered to the Interface via a stream. When ever we run out of wisdoms to display, a request is send to a class that fetches new wisdoms form our API and publishes them in a stream. Once those new wisdoms come in, the UI gets notified and receives them. This approach is called *BLoC Pattern* and I will explain it’s details in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). For now, this is a simplified version of how that could look like:
+
+``` dart
+class WisdomBloc {
+  final Api _api = new Api();
+  List<Wisdom> _oldWisdom = new List();
+
+  final StreamController _streamController = StreamController<List<Wisdom>>.broadcast(); //Stream
+  StreamSink<List<Wisdom>> get _wisdomSink => _streamController.sink; //Data In
+  Stream<List<Wisdom>> get wisdomStream => _streamController.stream; //Data out
+
+  ///Called from UI to tell the BLoC to put more data into the stream
+  publishMoreWisdom() async {
+    List<Wisdom> fetchedWisdoms = await _api.fetch();
+
+    //Appending the new Wisdoms to the current state
+    List<Wisdom> newWisdom = _oldWisdom + fetchedWisdoms;
+
+    _wisdomSink.add(newWisdom); //publish to stream
+    _oldWisdom = newWisdom;
+  }
+
+  ///Called when UI is disposed
+  dispose(){
+    _streamController.close();
+  }
+}
+```
+
+*Codesnippt 15: Simplified Wisgen WisdomBLoC [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
+We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. Wehen ever the *publishMoreWisdom()* function is called, the BLoC request more wisdom from the API, waits until it is fetched and the publishes it to the stream. Let’s look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
+
+``` dart
+WisdomBloc _wisdomBloc = WisdomBloc();
+
+@override
+Widget build(BuildContext context) {
+  return StreamBuilder<List<Wisdom>>(
+    stream: _wisdomBloc.wisdomStream,
+    builder: (BuildContext context, AsyncSnapshot<List<Wisdom>> snapshot) {
+      if (snapshot.hasError) return _error(); //show Error message
+      if (snapshot.connectionState == ConnectionState.waiting) return _loading(); //loading animation
+      else return _listView(snapshot.data); //create listView of wisdoms
+    },
+  );
+}
+
+@override
+void dispose() {
+  _wisdomBloc.dispose();
+  super.dispose();
+}
+```
+
+*Codesnippt 16: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
+With Flutters *StreamBuilder* Widget, we can easily link our UI to our stream. By checking the state of the snapshot, we can determine how our UI should look. And when we have available wisdom, we can create a ListView out of it.
 
   - Concept
   - Importance
