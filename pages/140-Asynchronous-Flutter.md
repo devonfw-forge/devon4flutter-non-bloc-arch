@@ -102,7 +102,8 @@ class WisdomBloc {
   final Api _api = new Api();
   List<Wisdom> _oldWisdom = new List();
 
-  final StreamController _streamController = StreamController<List<Wisdom>>.broadcast(); //Stream
+  //Stream
+  final StreamController _streamController = StreamController<List<Wisdom>>.broadcast(); 
   StreamSink<List<Wisdom>> get _wisdomSink => _streamController.sink; //Data In
   Stream<List<Wisdom>> get wisdomStream => _streamController.stream; //Data out
 
@@ -153,9 +154,12 @@ class WisdomFeedState extends State<WisdomFeed> {
       body: StreamBuilder(
         stream: _wisdomBloc.wisdomStream,
         builder: (context, AsyncSnapshot<List<Wisdom>> snapshot) {
-          if (snapshot.hasError) return _error(); //show Error message
-          if (snapshot.connectionState == ConnectionState.waiting) return _loading(context); //loading animation
-          else return _listView(context, snapshot.data); //create listView of wisdoms
+          //show Error message
+          if (snapshot.hasError) return _error(); 
+          //loading animation
+          if (snapshot.connectionState == ConnectionState.waiting) return _loading(context); 
+          //create listView of wisdoms
+          else return _listView(context, snapshot.data); 
         },
       ),
     );
@@ -194,16 +198,10 @@ class WisdomFeedState extends State<WisdomFeed> {
 
 *Codesnippt 16: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the list from our stream through the snapshot, we continue to the \*\_listView()\* methode. here we just use the List of wisdoms to create a list of WisdomCards. Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
+Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the \*\_listView()\* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a compleat list is also recommended by the Flutter team for this usecase. Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
 
-  - Concept
-  - Importance
-  - Example pub/sub (wisdom BLoC)
-      - Very Simplified
-      - Screens sub
-      - Screens ask for more
-      - BLoC pubs
-  - Explain Implementation
+### yield
+
   - yield example (Wisdom BLoC)
   - mainpultion options (brief)
 
