@@ -3,7 +3,6 @@ Page Table of Contents
 - [Futures](#futures)
   - [Async & Await](#async--await)
 - [Streams](#streams)
-  - [Yield](#yield)
 - [Side Note on Communication with the Web](#side-note-on-communication-with-the-web)
 
 ## Introduction
