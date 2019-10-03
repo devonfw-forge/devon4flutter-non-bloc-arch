@@ -109,27 +109,39 @@ Flutter Dev Team. 2018a. “BuildContext Class.” Documentation. 2018. <https:/
 
 </div>
 
+<div id="ref-flutterdevteamScrollControllerClass2018">
+
+———. 2018c. “ScrollController Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/ScrollController-class.html>.
+
+</div>
+
 <div id="ref-flutterdevteamStatefulWidgetClass2018">
 
-———. 2018c. “StatefulWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>.
+———. 2018d. “StatefulWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamStatelessWidgetClass2018">
 
-———. 2018d. “StatelessWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html>.
+———. 2018e. “StatelessWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html>.
+
+</div>
+
+<div id="ref-flutterdevteamStreamBuilderClass2018">
+
+———. 2018f. “StreamBuilder Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamFlutterFramework2018">
 
-———. 2018e. *The Flutter Framework* (version 1.9). Google LLC. <https://flutter.dev/>.
+———. 2018g. *The Flutter Framework* (version 1.9). Google LLC. <https://flutter.dev/>.
 
 </div>
 
 <div id="ref-flutterdevteamWriteYourFirst2018">
 
-———. 2018f. “Write Your First Flutter App.” Guide. 2018. <https://flutter.dev/docs/get-started/codelab>.
+———. 2018h. “Write Your First Flutter App.” Guide. 2018. <https://flutter.dev/docs/get-started/codelab>.
 
 </div>
 
@@ -195,7 +207,7 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 
 <div id="ref-googlellcDartStreams2019">
 
-———, dir. 2019d. *Dart Streams*. Vol. Ep. 3. Flutter in Focus. <https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s>.
+———, dir. 2019d. *Dart Streams*. Vol. Ep. 3. Flutter in Focus. <https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17>.
 
 </div>
 
@@ -262,6 +274,12 @@ Soares, Paolo. 2018. “Flutter / AngularDart – Code Sharing, Better Together.
 <div id="ref-stollPlainEnglishWhat2018">
 
 Stoll, Scott. 2018. “In Plain English: So What the Heck Is Flutter and Why Is It a Big Deal?” Blog. Medium. 2018. <https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a>.
+
+</div>
+
+<div id="ref-sullivanTechnicalDebtStreams">
+
+Sullivan, Matt, and Filip Hracek. n.d. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. Accessed September 9, 2019. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
 
 </div>
 
