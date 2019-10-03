@@ -492,7 +492,7 @@ Let's have a look at an example: In Wisgen, our wisdoms are delivered to the Int
 ```dart
 class WisdomBloc {
   final Api _api = new Api();
-  List<Wisdom> _oldWisdom = new List();
+  List<Wisdom> _oldWisdoms = new List();
 
   //Stream
   final StreamController _streamController = StreamController<List<Wisdom>>; 
@@ -504,10 +504,10 @@ class WisdomBloc {
     List<Wisdom> fetchedWisdoms = await _api.fetch(20);
 
     //Appending the new Wisdoms to the current state
-    List<Wisdom> newWisdom = _oldWisdom + fetchedWisdoms;
+    List<Wisdom> newWisdoms = _oldWisdoms + fetchedWisdoms;
 
-    _wisdomSink.add(newWisdom); //publish to stream
-    _oldWisdom = newWisdom;
+    _wisdomSink.add(newWisdoms); //publish to stream
+    _oldWisdoms = newWisdoms;
   }
 
   ///Called when UI is disposed
@@ -602,10 +602,10 @@ Stream<List<Wisdom>> streamWisdoms() async* {
   List<Wisdom> fetchedWisdoms = await _api.fetch(20);
 
   //Appending the new Wisdoms to the current state
-  List<Wisdom> newWisdom = _oldWisdom + fetchedWisdoms;
+  List<Wisdom> newWisdoms = _oldWisdoms + fetchedWisdoms;
 
-  yield newWisdom; //publish to stream
-  _oldWisdom = newWisdom;
+  yield newWisdoms; //publish to stream
+  _oldWisdoms = newWisdoms;
 }
 ```
 _Codesnippt 17: Simplified Wisgen WisdomBLoC with async* [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
