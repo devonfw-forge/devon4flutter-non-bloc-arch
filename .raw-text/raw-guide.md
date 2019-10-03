@@ -592,7 +592,7 @@ Alright, let's go through this step by step. First we initialize our WisdomBloc 
 
 ![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/Fasust/flutter-guide/wiki//images/wisdomBloc-stream.PNG)
 
-_Figure 10: Streaming Wisdom from BLoC to WisdomFeed [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 11: Streaming Wisdom from BLoC to WisdomFeed [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Async* & yield
 Streams have a two keywords that are very similar to the _async & await_ of Futures: _async* & yield_ [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). If we mark a function as async* the return type **has** to be a stream. In an async* function we get access to the async keyword (which we already know) and the yield keyword, which is very similar to a return, only that yield does not terminate the function, but instead adds a value to the stream. This is what an implementation of the WisdomBloc from snippet 15 could look like when using async*:

@@ -622,7 +622,7 @@ Alright, let’s go through this step by step. First we initialize our WisdomBlo
 
 ![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/Fasust/flutter-guide/wiki//images/wisdomBloc-stream.PNG)
 
-*Figure 10: Streaming Wisdom from BLoC to WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 11: Streaming Wisdom from BLoC to WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Async\* & yield
 
