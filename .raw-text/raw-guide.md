@@ -220,7 +220,7 @@ Let's have look at an example, this app displays an endless feed of Wisdoms comb
 
 ![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widgets.png)
 
-_Figure 1: Wisgen Widgets [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 8: Wisgen Widgets [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 As you can see, all UI-Components of the app are Widgets. From high level stuff like the App-Bar and the ListView down to to the granular things like texts and buttons (I did not highlight every Widget on screen to keep the figure from becoming over crowded). In code, the build method of a card Widget would look something like this:
 
@@ -253,18 +253,18 @@ The build method of any given Widget can be called multiple times a second. And 
 But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. As mentioned in the [previous chapter][declarative], in Flutter such data is called _state_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). No worries, how Flutter handles mutable state will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
 
 ### The Widget Tree
-When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let's have a look at the Widget Tree for our example from Figure 1. Note the card Widgets on the right hand side of the diagram. You can see how the code from Codesnippt 5 translates to Widgets in the Widget Tree.
+When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let's have a look at the Widget Tree for our example from Figure 8. Note the card Widgets on the right hand side of the diagram. You can see how the code from Codesnippt 5 translates to Widgets in the Widget Tree.
 
 ![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widget-tree.PNG)
 
-_Figure 2: Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 9: Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Buildcontext
 If you have previously build an App with Flutter, you have definitely encountered _BuildContext_ [[@flutterdevteamBuildContextClass2018]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build methode in Flutter. But what exactly is _BuildContext_? As Didier Boelens puts it:
 
 > "A BuildContext is nothing else but a reference to the location of a Widget within the tree structure of all the Widgets which are built." [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
 
-The BuildContext contain information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget tree. Accessing a Widgets *descendance* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** visversa [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 2 could access it's ancestor card Widget like this:
+The BuildContext contain information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget tree. Accessing a Widgets *descendance* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** visversa [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 9 could access it's ancestor card Widget like this:
 ```dart
 Widget build(BuildContext context) {
 
@@ -285,7 +285,7 @@ Alright, but what does that mean for me as a Flutter developer? It is important 
 There are 3 types of Widgets in the Flutter framework. I will now showcase there differences, there lifecycles and their respective usecases.
 
 ### Stateless Widgets
-This is the most basic of the Three an likely the one you'll use the most when developing an app with Flutter. Stateless Widgets [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let's have a look at an example. This is the class of the card Widget from figure 1:
+This is the most basic of the Three an likely the one you'll use the most when developing an app with Flutter. Stateless Widgets [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let's have a look at an example. This is the class of the card Widget from figure 8:
 
 ```dart
 class WisdomCard extends StatelessWidget {
@@ -337,7 +337,7 @@ I have explained what State is in the Chapter [Thinking Declaratively][declarati
 | ⚠   | State in Flutter is any data that can change over time |
 | --- | :----------------------------------------------------- |
 
-A Stateful Widget [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 1. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App][architecture].
+A Stateful Widget [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App][architecture].
 
 ```dart
 //Immutable Widget
@@ -481,7 +481,11 @@ class Api {
 _Codesnippt 14: Wisgen API Repository (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Streams
-Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s).
+Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [@boelensFlutterReactiveProgramming2018]. And we'll use them heavily in the chapter [Architecting a Flutter app][architecture]. But what exactly are _streams_? As Andrew Brogdon put's it in one of Googles official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one countinous flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and b notified once a new peace of data enters the stream.
+
+![Data Stream](https://github.com/Fasust/flutter-guide/wiki//images/stream.PNG)
+
+_Figure 10: Data Stream_
 
 - Concept
 - Importance
