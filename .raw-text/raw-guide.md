@@ -487,7 +487,7 @@ Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams
 
 _Figure 10: Data Stream_
 
-Let's have a look at an example: In Wisgen, our Wisdoms are delivered to the Interface via a stream. When ever we run out of wisdoms to display, a request is send to a class that fetches new wisdoms form our API and publishes them in a stream. Once those new wisdoms come in, the UI gets notified and receives them. This approach is called _BLoC Pattern_ and I will explain it's details in the chapter [Architecting a Flutter app][architecture]. For now, this is a simplified version of how that could look like:
+Let's have a look at an example: In Wisgen, our wisdoms are delivered to the Interface via a stream. When ever we run out of wisdoms to display, a request is send to a class that fetches new wisdoms form our API and publishes them in a stream. Once those new wisdoms come in, the UI gets notified and receives them. This approach is called _BLoC Pattern_ and I will explain it's details in the chapter [Architecting a Flutter app][architecture]. For now, this is a simplified version of how that could look like:
 
 ```dart
 class WisdomBloc {
@@ -500,7 +500,7 @@ class WisdomBloc {
 
   ///Called from UI to tell the BLoC to put more data into the stream
   publishMoreWisdom() async {
-    List<Wisdom> fetchedWisdoms = await _api.fetch();
+    List<Wisdom> fetchedWisdoms = await _api.fetch(20);
 
     //Appending the new Wisdoms to the current state
     List<Wisdom> newWisdom = _oldWisdom + fetchedWisdoms;
@@ -510,39 +510,81 @@ class WisdomBloc {
   }
 
   ///Called when UI is disposed
-  dispose(){
+  dispose() {
     _streamController.close();
   }
 }
 ```
 _Codesnippt 15: Simplified Wisgen WisdomBLoC [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. Wehen ever the _publishMoreWisdom()_ function is called, the BLoC request more wisdom from the API, waits until it is fetched and the publishes it to the stream. Let's look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
+We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. When ever the _publishMoreWisdom()_ function is called, the BLoC request more wisdom from the API, waits until it is fetched and the publishes it to the stream. Let's look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
 
 ```dart
-WisdomBloc _wisdomBloc = WisdomBloc();
+class WisdomFeedState extends State<WisdomFeed> {
 
-@override
-Widget build(BuildContext context) {
-  return StreamBuilder<List<Wisdom>>(
-    stream: _wisdomBloc.wisdomStream,
-    builder: (BuildContext context, AsyncSnapshot<List<Wisdom>> snapshot) {
-      if (snapshot.hasError) return _error(); //show Error message
-      if (snapshot.connectionState == ConnectionState.waiting) return _loading(); //loading animation
-      else return _listView(snapshot.data); //create listView of wisdoms
-    },
-  );
-}
+  WisdomBloc _wisdomBloc;
 
-@override
-void dispose() {
-  _wisdomBloc.dispose();
-  super.dispose();
+  //We Tell the WisdomBLoC to fetch more data based on how far we have scrolled down
+  //the list. That is why we need this Controller
+  final _scrollController = ScrollController();
+  static const _scrollThreshold = 200.0;
+
+  @override
+  void initState() {
+    _wisdomBloc = new WisdomBloc();    
+    _wisdomBloc.publishMoreWisdom(); //Dispatch Initial Events
+
+    _scrollController.addListener(_onScroll);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: StreamBuilder(
+        stream: _wisdomBloc.wisdomStream,
+        builder: (context, AsyncSnapshot<List<Wisdom>> snapshot) {
+          if (snapshot.hasError) return _error(); //show Error message
+          if (snapshot.connectionState == ConnectionState.waiting) return _loading(context); //loading animation
+          else return _listView(context, snapshot.data); //create listView of wisdoms
+        },
+      ),
+    );
+  }
+
+  Widget _listView(BuildContext context, List<Wisdom> wisdoms) {
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        return index >= wisdoms.length
+            ? LoadingCard()
+            : WisdomCard(wisdom: wisdoms[index]);
+      },
+      itemCount: wisdoms.length + 1,
+      controller: _scrollController,
+    );
+  }
+
+  @override
+  void dispose() {
+    _wisdomBloc.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  ///Dispatching fetch events to the BLoC when we reach the end of the List
+  void _onScroll() {
+    final maxScroll = _scrollController.position.maxScrollExtent;
+    final currentScroll = _scrollController.position.pixels;
+    if (maxScroll - currentScroll <= _scrollThreshold) {
+      _wisdomBloc.publishMoreWisdom();
+    }
+  }
+  ...
 }
 ```
 _Codesnippt 16: Simplified Wisgen WisdomFeed with StreamBuilder [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-With Flutters _StreamBuilder_ Widget, we can easily link our UI to our stream. By checking the state of the snapshot, we can determine how our UI should look. And when we have available wisdom, we can create a ListView out of it. 
+Alright, let's go through this step by step. First we initialize our WisdomBloc in the _initSate()_ methode. This is also where we set up a ScrollController that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call _publishMoreWisdom()_ on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the _build()_ methode, we use Flutters StreamBuilder to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the list from our stream through the snapshot, we continue to the *_listView()* methode. here we just use the List of wisdoms to create a list of WisdomCards. Finally, once the app is closed down, the _dispose()_ methode is called and we dispose our stream and ScrollController.
 
 
 - Concept
