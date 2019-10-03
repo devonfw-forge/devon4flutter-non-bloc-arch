@@ -31,9 +31,15 @@ Bezerra, Josimar, dir. 2018. *Declarative Programming*. Fun Fun Function. <https
 
 </div>
 
+<div id="ref-boelensFlutterReactiveProgramming2018">
+
+Boelens, Didier. 2018. “Flutter - Reactive Programming - Streams - BLoC.” Guide. Didier Boelens. 2018. <https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/>.
+
+</div>
+
 <div id="ref-boelensWidgetStateBuildContext2018">
 
-Boelens, Didier. n.d. “Widget — State — BuildContext — InheritedWidget.” Blog. Medium. Accessed September 23, 2019. <https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956>.
+———. n.d. “Widget — State — BuildContext — InheritedWidget.” Blog. Medium. Accessed September 23, 2019. <https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956>.
 
 </div>
 
