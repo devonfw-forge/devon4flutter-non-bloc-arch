@@ -406,10 +406,10 @@ I will not go in detail on Inherited Widgets [[@flutterdevteamInheritedWidgetCla
 
 # 140-Asynchronous-Flutter
 ## Introduction
-Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) have a very good integration for Asynchronous Programming. This chapter will teach you the basics of Futures, async/await [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). Throughout this chapter I will be using the _http_ package [[@dartteamHttpDartPackage2019]](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common usecases for Asynchronous Programming, so I though it would only be fitting.
+Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) have a very good integration of Asynchronous Programming. This chapter will teach you the basics of Futures, async/await [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). Throughout this chapter I will be using the _http_ package [[@dartteamHttpDartPackage2019]](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common usecases for Asynchronous Programming, so I though it would only be fitting.
 
 ## Futures
-Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) are the most basic way of dealing with asynchronous code. If you have ever worked with JavaScripts [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example, this is a simplified version is Wisgens Api Repository. It can make a request to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
+Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version is Wisgens Api Repository. It can make requests to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ```dart
 class Api {
@@ -427,7 +427,7 @@ class Api {
 ```
 _Codesnippt 11: Wisgen API Repository (Futures) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-As you can see, you simply call _get()_ on the HTTP module and give it the URL it should request. The get() methode returns a Future. A Future object is a reference to an event that will take place at some point in the _future_. We can assinge it a callback function with _then()_ that will execute once that event is resolved. The callback we define will get access to the result of the Future IE the type `Future<Type>`. So here, the Future _apiCall_ object is a reference to when the API call will be resolved. Once the call is complete, _then_ will be called and we get access to the http.Response. We then tell the future to transform the Response into a wisdom object [@googlellcDartFutures2019; @googlellcIsolatesEventLoops2019]. We can also handle errors with the _catchError()_ function:
+As you can see, you simply call _get()_ on the HTTP module and give it the URL it should request. The get() methode returns a Future. A Future object is a reference to an event that will take place at some point in the _future_. We can give it a callback function with _then()_, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it's type: `Future<Type>`. So here, the Future object _"apiCall"_ is a reference to when the API call will be resolved. Once the call is complete, _then()_ will be called and we get access to the _http.Response_. We tell the future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to _then()_ [@googlellcDartFutures2019; @googlellcIsolatesEventLoops2019]. We can also handle errors with the _catchError()_ function:
 
 ```dart
 class Api {
@@ -445,8 +445,8 @@ class Api {
 _Codesnippt 12: Wisgen API Repository (Futures with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Async & Await
-If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks in callbacks in callbacks. Luckily Dart supports the Async & Await keywords [[@dartteamAsynchronousProgrammingDart2018]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchrones code the same way we would if it was synchronous. Let's take the same example as in 
-Snippet 11.
+If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks nested in callbacks. Luckily Dart supports the _async & await_ keywords [[@dartteamAsynchronousProgrammingDart2018]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchrones code the same way we would if it was synchronous. Let's take the same example as in 
+Snippet 11:
 
 ```dart
 class Api {
@@ -461,7 +461,7 @@ class Api {
 ```
 _Codesnippt 13: Wisgen API Repository (Async) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-We can use the _await_ keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the _http.Response_ has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark it as _async_. This forces the return type to be a Future. Because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [[@googlellcAsyncAwait2019]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with try / catch:
+We can use the _await_ keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the _http.Response_ has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark the function as _async_. This forces the return type to be a Future. This makes sense, because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [[@googlellcAsyncAwait2019]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with try / catch:
 
 ```dart
 class Api {
