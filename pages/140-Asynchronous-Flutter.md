@@ -90,7 +90,7 @@ class Api {
 
 ## Streams
 
-Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming (Boelens 2018). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *streams*? As Andrew Brogdon put’s it in one of Googles official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one continuos flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and be notified once a new peace of data enters the stream.
+Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *streams*? As Andrew Brogdon put’s it in one of Googles official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one continuos flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and be notified once a new peace of data enters the stream.
 
 ![Data Stream](https://github.com/Fasust/flutter-guide/wiki//images/stream.PNG)
 
@@ -126,7 +126,7 @@ main(List<String> arguments) {
 Important Siedenote:
 
 | ⚠ | Streams are single subscription by default. So if you want multiple subscribers you need to add `StreamController streamController = new StreamController.broadcast();` |
-| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| - | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 Let’s have a look at a more complex example: In Wisgen, our wisdoms are delivered to the Interface via a stream. When ever we run out of wisdoms to display, a request is send to a class that fetches new wisdoms form our API [(Kiss 2019)](https://api.adviceslip.com/) and publishes them in a stream. Once those new wisdoms come in, the UI gets notified and receives them. This approach is called *BLoC Pattern* [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) and I will explain it’s details in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). For now, this is a simplified version of how that could look like:
 
@@ -160,7 +160,7 @@ class WisdomBloc {
 
 *Codesnippt 17: Simplified Wisgen WisdomBLoC [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. When ever the *publishMoreWisdom()* function is called, the BLoC request more wisdom from the API, waits until it is fetched and the publishes it to the stream. Let’s look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
+We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. When ever the *publishMoreWisdom()* function is called, the BLoC request more wisdom from the API, waits until they are fetched and then publishes them to the stream. Let’s look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
 
 ``` dart
 class WisdomFeedState extends State<WisdomFeed> {
@@ -231,7 +231,7 @@ class WisdomFeedState extends State<WisdomFeed> {
 
 *Codesnippt 18: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018f)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a compleat list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek n.d.)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
+Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018f)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek 2018)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
 
 ![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/Fasust/flutter-guide/wiki//images/wisdomBloc-stream.PNG)
 
@@ -239,7 +239,7 @@ Alright, let’s go through this step by step. First we initialize our WisdomBlo
 
 ### Async\* & yield
 
-Streams have a two keywords that are very similar to the *async & await* of Futures: *async\* & yield* [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams). If we mark a function as async\* the return type **has** to be a stream. In an async\* function we get access to the async keyword (which we already know) and the yield keyword, which is very similar to a return, only that yield does not terminate the function, but instead adds a value to the stream. This is what an implementation of the WisdomBloc from snippet 15 could look like when using async\*:
+Streams have a two keywords that are very similar to the *async & await* of Futures: *async\* & yield* [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams). If we mark a function as async\* the return type **has** to be a stream. In an async\* function we get access to the async keyword (which we already know) and the yield keyword, which is very similar to a return, only that yield does not terminate the function, but instead adds a value to the stream. This is what an implementation of the WisdomBloc from snippet 17 could look like when using async\*:
 
 ``` dart
 Stream<List<Wisdom>> streamWisdoms() async* {
@@ -255,7 +255,7 @@ Stream<List<Wisdom>> streamWisdoms() async* {
 
 *Codesnippt 19: Simplified Wisgen WisdomBLoC with async\* [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still fell like you want to learn more I can highly recommend this article by Didier Boelens [(Boelens 2018)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8 minute tutorial video by the Flutter Team [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
+This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still fell like you want to learn more I can highly recommend this article by Didier Boelens [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8 minute tutorial video by the Flutter Team [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
 ## Side Note on Communication with the Web
 
@@ -275,18 +275,17 @@ import 'package:http/http.dart' as http;
 ///then Provides a given amount of random entries.
 class Api implements Repository<Wisdom> {
   ///Advice SLip API Query that requests all (~213) Text Entries from the API.
-  ///We fetch all entries ad once and cash them locally to minimize network traffic.
+  ///We fetch all entries at once and cash them locally to minimize network traffic.
   ///The Advice Slip API also does not provide the option to request a 
   ///selected amount of entries.
   ///That's why I think this is the best approach.
-
-  ///Delivers all entries of the AdviceSlip API
   static const _adviceURI = 'https://api.adviceslip.com/advice/search/%20';
+
   List<Wisdom> _cash;
   final Random _random = new Random();
 
   @override
-  Future<List<Wisdom>> fetch(int amount, BuildContext context) async {
+  Future<List<Wisdom>> fetch(int amount) async {
     //if the Cash is empty, request data from the API
     if (_cash == null) _cash = await _loadData();
 

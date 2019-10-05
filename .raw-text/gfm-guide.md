@@ -219,7 +219,7 @@ One sentence you can simply not avoid when researching Flutter is:
 
 But that is not really helpful, is it? Personally, I like Didier Boelens definition of Flutter Widgets better:
 
-> “Think of a Widget as a visual component (or a component that interacts with the visual aspect of an application).” [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
+> “Think of a Widget as a visual component (or a component that interacts with the visual aspect of an application).” [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
 
 Let’s have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought provoking stock images:
 
@@ -270,9 +270,9 @@ When working with Flutter, you will inevitably stumble over the term *Widget Tre
 
 If you have previously build an App with Flutter, you have definitely encountered *BuildContext* [(Flutter Dev Team 2018a)](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build methode in Flutter. But what exactly is *BuildContext*? As Didier Boelens puts it:
 
-> “A BuildContext is nothing else but a reference to the location of a Widget within the tree structure of all the Widgets which are built.” [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
+> “A BuildContext is nothing else but a reference to the location of a Widget within the tree structure of all the Widgets which are built.” [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
 
-The BuildContext contain information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget tree. Accessing a Widgets *descendance* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** visversa [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 9 could access it’s ancestor card Widget like this:
+The BuildContext contain information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget tree. Accessing a Widgets *descendance* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** visversa [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 9 could access it’s ancestor card Widget like this:
 
 ``` dart
 Widget build(BuildContext context) {
@@ -297,7 +297,7 @@ There are 3 types of Widgets in the Flutter framework. I will now showcase there
 
 ### Stateless Widgets
 
-This is the most basic of the Three an likely the one you’ll use the most when developing an app with Flutter. Stateless Widgets [(Flutter Dev Team 2018e)](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let’s have a look at an example. This is the class of the card Widget from figure 8:
+This is the most basic of the three an likely the one you’ll use the most when developing an app with Flutter. Stateless Widgets [(Flutter Dev Team 2018e)](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let’s have a look at an example. This is the class of the card Widget from figure 8:
 
 ``` dart
 class WisdomCard extends StatelessWidget {
@@ -320,11 +320,11 @@ class WisdomCard extends StatelessWidget {
 
 *Codesnippt 7: Wisgen Card Widget Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-As you can see, it has some const values for styling, a Wisdom object that is passed into the constructor and a build methode. The Wisdom object contains the wisdom text and the hyperlink for the stock image.
+As you can see, it has some const values for styling, a wisdom object that is passed into the constructor and a build methode. The wsidom object contains the wisdom text and the hyperlink for the stock image.
 
-One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays are able to change [(LLC 2018)](https://www.youtube.com/watch?v=wE7khGHVkYY).
+One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays are able to change [(Google LLC 2018b)](https://www.youtube.com/watch?v=wE7khGHVkYY).
 
-The Lifecycle of Stateless Widgets is very straight forward [(Boelens n.d.)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956):
+The Lifecycle of Stateless Widgets is very straight forward [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956):
 
 ``` dart
 class MyWidget extends StatelessWidget {
@@ -352,7 +352,7 @@ I have explained what State is in the Chapter [Thinking Declaratively](https://g
 | ⚠ | State in Flutter is any data that can change over time |
 | - | :----------------------------------------------------- |
 
-A Stateful Widget [(Flutter Dev Team 2018d)](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget [(Google LLC 2018)](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let’s have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The *WisdomBloc* is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
+A Stateful Widget [(Flutter Dev Team 2018d)](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget [(Google LLC 2018a)](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let’s have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The *WisdomBloc* is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
 ``` dart
 //Immutable Widget
@@ -375,9 +375,9 @@ class WisdomFeedState extends State<WisdomFeed>{
 
 *Codesnippt 9: Wisgen WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-If you are anything like me, you will ask yourself: “why is this split into 2 parts? The StatefulWidget is not really doing anything.” Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true, is to have the StatefulWidget hold onto the State but not actually be the State (Google LLC 2018; Windmill and Contributors 2019).
+If you are anything like me, you will ask yourself: “why is this split into 2 parts? The StatefulWidget is not really doing anything.” Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true, is to have the StatefulWidget hold onto the State but not actually be the State (Google LLC 2018a; Windmill and Contributors 2019).
 
-State objects have a long lifespan in Flutter. This means that they will stick around during rebuilds or even if the widget that they are linked to gets replaced [(Google LLC 2018)](https://www.youtube.com/watch?v=AqCMFXEmf3w). So in this example, no matter how often the WisdomFeed gets rebuild and no matter if the user switches pages, the cashed list of wisdoms (WisdomBloc) will stay the same until the app is shut down.
+State objects have a long lifespan in Flutter. This means that they will stick around during rebuilds or even if the widget that they are linked to gets replaced [(Google LLC 2018a)](https://www.youtube.com/watch?v=AqCMFXEmf3w). So in this example, no matter how often the WisdomFeed gets rebuild and no matter if the user switches pages, the cashed list of wisdoms (WisdomBloc) will stay the same until the app is shut down.
 
 The Lifecycle of State Objects/StatefulWidgets is a little bit more complex, here is a boiled down version of it with all the methods you’ll need for this guide. You can read the full Lifecycle here: Lifecycle of StatefulWidgets [(Windmill and Contributors 2019)](https://flutterbyexample.com//stateful-widget-lifecycle).
 
@@ -416,8 +416,9 @@ class MySate extends State<MyWidget>{
 
 Keep in mind, to improve performance, you always want to rely on as few Stateful widgets as possible.
 But There is essentially two reasons to choose a Stateful Widget over a Stateless one:
-1\. The Widget needs to hold any kind of data that has to change during its lifetime.
-2\. The Widget needs to dispose of anything or cleanup after it self at the end of it’s lifetime.
+
+1.  The Widget needs to hold any kind of data that has to change during its lifetime.
+2.  The Widget needs to dispose of anything or cleanup after it self at the end of it’s lifetime.
 
 ### Inherited Widgets
 
@@ -509,7 +510,7 @@ class Api {
 
 ## Streams
 
-Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming (Boelens 2018). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *streams*? As Andrew Brogdon put’s it in one of Googles official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one continuos flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and be notified once a new peace of data enters the stream.
+Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *streams*? As Andrew Brogdon put’s it in one of Googles official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one continuos flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and be notified once a new peace of data enters the stream.
 
 ![Data Stream](https://github.com/Fasust/flutter-guide/wiki//images/stream.PNG)
 
@@ -545,7 +546,7 @@ main(List<String> arguments) {
 Important Siedenote:
 
 | ⚠ | Streams are single subscription by default. So if you want multiple subscribers you need to add `StreamController streamController = new StreamController.broadcast();` |
-| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| - | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 Let’s have a look at a more complex example: In Wisgen, our wisdoms are delivered to the Interface via a stream. When ever we run out of wisdoms to display, a request is send to a class that fetches new wisdoms form our API [(Kiss 2019)](https://api.adviceslip.com/) and publishes them in a stream. Once those new wisdoms come in, the UI gets notified and receives them. This approach is called *BLoC Pattern* [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) and I will explain it’s details in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). For now, this is a simplified version of how that could look like:
 
@@ -579,7 +580,7 @@ class WisdomBloc {
 
 *Codesnippt 17: Simplified Wisgen WisdomBLoC [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. When ever the *publishMoreWisdom()* function is called, the BLoC request more wisdom from the API, waits until it is fetched and the publishes it to the stream. Let’s look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
+We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. When ever the *publishMoreWisdom()* function is called, the BLoC request more wisdom from the API, waits until they are fetched and then publishes them to the stream. Let’s look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
 
 ``` dart
 class WisdomFeedState extends State<WisdomFeed> {
@@ -650,7 +651,7 @@ class WisdomFeedState extends State<WisdomFeed> {
 
 *Codesnippt 18: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018f)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a compleat list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek n.d.)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
+Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018f)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek 2018)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
 
 ![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/Fasust/flutter-guide/wiki//images/wisdomBloc-stream.PNG)
 
@@ -658,7 +659,7 @@ Alright, let’s go through this step by step. First we initialize our WisdomBlo
 
 ### Async\* & yield
 
-Streams have a two keywords that are very similar to the *async & await* of Futures: *async\* & yield* [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams). If we mark a function as async\* the return type **has** to be a stream. In an async\* function we get access to the async keyword (which we already know) and the yield keyword, which is very similar to a return, only that yield does not terminate the function, but instead adds a value to the stream. This is what an implementation of the WisdomBloc from snippet 15 could look like when using async\*:
+Streams have a two keywords that are very similar to the *async & await* of Futures: *async\* & yield* [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams). If we mark a function as async\* the return type **has** to be a stream. In an async\* function we get access to the async keyword (which we already know) and the yield keyword, which is very similar to a return, only that yield does not terminate the function, but instead adds a value to the stream. This is what an implementation of the WisdomBloc from snippet 17 could look like when using async\*:
 
 ``` dart
 Stream<List<Wisdom>> streamWisdoms() async* {
@@ -674,7 +675,7 @@ Stream<List<Wisdom>> streamWisdoms() async* {
 
 *Codesnippt 19: Simplified Wisgen WisdomBLoC with async\* [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still fell like you want to learn more I can highly recommend this article by Didier Boelens [(Boelens 2018)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8 minute tutorial video by the Flutter Team [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
+This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still fell like you want to learn more I can highly recommend this article by Didier Boelens [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8 minute tutorial video by the Flutter Team [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
 ## Side Note on Communication with the Web
 
@@ -694,18 +695,17 @@ import 'package:http/http.dart' as http;
 ///then Provides a given amount of random entries.
 class Api implements Repository<Wisdom> {
   ///Advice SLip API Query that requests all (~213) Text Entries from the API.
-  ///We fetch all entries ad once and cash them locally to minimize network traffic.
+  ///We fetch all entries at once and cash them locally to minimize network traffic.
   ///The Advice Slip API also does not provide the option to request a 
   ///selected amount of entries.
   ///That's why I think this is the best approach.
-
-  ///Delivers all entries of the AdviceSlip API
   static const _adviceURI = 'https://api.adviceslip.com/advice/search/%20';
+
   List<Wisdom> _cash;
   final Random _random = new Random();
 
   @override
-  Future<List<Wisdom>> fetch(int amount, BuildContext context) async {
+  Future<List<Wisdom>> fetch(int amount) async {
     //if the Cash is empty, request data from the API
     if (_cash == null) _cash = await _loadData();
 
@@ -894,13 +894,13 @@ Bezerra, Josimar, dir. 2018. *Declarative Programming*. Fun Fun Function. <https
 
 <div id="ref-boelensFlutterReactiveProgramming2018">
 
-Boelens, Didier. 2018. “Flutter - Reactive Programming - Streams - BLoC.” Guide. Didier Boelens. 2018. <https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/>.
+Boelens, Didier. 2018a. “Flutter - Reactive Programming - Streams - BLoC.” Guide. Didier Boelens. 2018. <https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/>.
 
 </div>
 
 <div id="ref-boelensWidgetStateBuildContext2018">
 
-———. n.d. “Widget — State — BuildContext — InheritedWidget.” Blog. Medium. Accessed September 23, 2019. <https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956>.
+———. 2018b. “Widget — State — BuildContext — InheritedWidget.” Blog. Medium. 2018. <https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956>.
 
 </div>
 
@@ -1044,7 +1044,13 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 
 <div id="ref-googlellcHowStatefulWidgets2018">
 
-———, dir. 2018. *How Stateful Widgets Are Used Best*. Vol. Ep. 2. Flutter Widgets 101. <https://www.youtube.com/watch?v=AqCMFXEmf3w>.
+———, dir. 2018a. *How Stateful Widgets Are Used Best*. Vol. Ep. 2. Flutter Widgets 101. <https://www.youtube.com/watch?v=AqCMFXEmf3w>.
+
+</div>
+
+<div id="ref-googlellcHowCreateStateless2018">
+
+———, dir. 2018b. *How to Create Stateless Widgets*. Vol. Ep. 1. Flutter Widgets 101. <https://www.youtube.com/watch?v=wE7khGHVkYY>.
 
 </div>
 
@@ -1108,12 +1114,6 @@ Leler, Wm. 2017. “What’s Revolutionary About Flutter.” Blog. Hackernoon. 2
 
 </div>
 
-<div id="ref-googlellcHowCreateStateless2018">
-
-LLC, Google, dir. 2018. *How to Create Stateless Widgets*. Vol. Ep. 1. Flutter Widgets 101. <https://www.youtube.com/watch?v=wE7khGHVkYY>.
-
-</div>
-
 <div id="ref-mooreDartProductiveFast2019">
 
 Moore, Kevin, and Bob Nystrom. 2019. “Dart: Productive, Fast, Multi-Platform - Pick 3.” Conference Talk presented at the Google I/O’19, Mountain View, CA, May 9. <https://www.youtube.com/watch?v=J5DQRPRBiFI>.
@@ -1138,9 +1138,9 @@ Stoll, Scott. 2018. “In Plain English: So What the Heck Is Flutter and Why Is 
 
 </div>
 
-<div id="ref-sullivanTechnicalDebtStreams">
+<div id="ref-sullivanTechnicalDebtStreams2018">
 
-Sullivan, Matt, and Filip Hracek. n.d. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. Accessed September 9, 2019. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
+Sullivan, Matt, and Filip Hracek, dirs. 2018. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
 
 </div>
 

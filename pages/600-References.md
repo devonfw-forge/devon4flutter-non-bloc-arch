@@ -33,13 +33,13 @@ Bezerra, Josimar, dir. 2018. *Declarative Programming*. Fun Fun Function. <https
 
 <div id="ref-boelensFlutterReactiveProgramming2018">
 
-Boelens, Didier. 2018. “Flutter - Reactive Programming - Streams - BLoC.” Guide. Didier Boelens. 2018. <https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/>.
+Boelens, Didier. 2018a. “Flutter - Reactive Programming - Streams - BLoC.” Guide. Didier Boelens. 2018. <https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/>.
 
 </div>
 
 <div id="ref-boelensWidgetStateBuildContext2018">
 
-———. n.d. “Widget — State — BuildContext — InheritedWidget.” Blog. Medium. Accessed September 23, 2019. <https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956>.
+———. 2018b. “Widget — State — BuildContext — InheritedWidget.” Blog. Medium. 2018. <https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956>.
 
 </div>
 
@@ -183,7 +183,13 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 
 <div id="ref-googlellcHowStatefulWidgets2018">
 
-———, dir. 2018. *How Stateful Widgets Are Used Best*. Vol. Ep. 2. Flutter Widgets 101. <https://www.youtube.com/watch?v=AqCMFXEmf3w>.
+———, dir. 2018a. *How Stateful Widgets Are Used Best*. Vol. Ep. 2. Flutter Widgets 101. <https://www.youtube.com/watch?v=AqCMFXEmf3w>.
+
+</div>
+
+<div id="ref-googlellcHowCreateStateless2018">
+
+———, dir. 2018b. *How to Create Stateless Widgets*. Vol. Ep. 1. Flutter Widgets 101. <https://www.youtube.com/watch?v=wE7khGHVkYY>.
 
 </div>
 
@@ -247,12 +253,6 @@ Leler, Wm. 2017. “What’s Revolutionary About Flutter.” Blog. Hackernoon. 2
 
 </div>
 
-<div id="ref-googlellcHowCreateStateless2018">
-
-LLC, Google, dir. 2018. *How to Create Stateless Widgets*. Vol. Ep. 1. Flutter Widgets 101. <https://www.youtube.com/watch?v=wE7khGHVkYY>.
-
-</div>
-
 <div id="ref-mooreDartProductiveFast2019">
 
 Moore, Kevin, and Bob Nystrom. 2019. “Dart: Productive, Fast, Multi-Platform - Pick 3.” Conference Talk presented at the Google I/O’19, Mountain View, CA, May 9. <https://www.youtube.com/watch?v=J5DQRPRBiFI>.
@@ -277,9 +277,9 @@ Stoll, Scott. 2018. “In Plain English: So What the Heck Is Flutter and Why Is 
 
 </div>
 
-<div id="ref-sullivanTechnicalDebtStreams">
+<div id="ref-sullivanTechnicalDebtStreams2018">
 
-Sullivan, Matt, and Filip Hracek. n.d. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. Accessed September 9, 2019. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
+Sullivan, Matt, and Filip Hracek, dirs. 2018. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
 
 </div>
 
