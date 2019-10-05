@@ -29,21 +29,21 @@ Page Table of Contents
       - Output are formated as little as possible
       - If you do have Platform Branching, It should be dependent on a single BLoC bool output
 
-### Bloc Architecture
-
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
-### Bloc Architecture with Layers
+*Figure XXX: Bloc Architecture*
 
 ![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
-### Wisgen Component Dependencies
+*Figure XXX: Bloc Architecture with Layers*
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 
-### Wisgen DataFlow
+*Figure XXX: Wisgen Bloc Architecture*
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
+
+*Figure XXX: Wisgen Bloc Architecture Dataflow*
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/300-Testing">Next Chapter: Testing ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

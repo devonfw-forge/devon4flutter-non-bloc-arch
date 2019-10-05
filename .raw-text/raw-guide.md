@@ -487,7 +487,38 @@ Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams
 
 _Figure 10: Data Stream_
 
-Let's have a look at an example: In Wisgen, our wisdoms are delivered to the Interface via a stream. When ever we run out of wisdoms to display, a request is send to a class that fetches new wisdoms form our API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) and publishes them in a stream. Once those new wisdoms come in, the UI gets notified and receives them. This approach is called _BLoC Pattern_ [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) and I will explain it's details in the chapter [Architecting a Flutter app][architecture]. For now, this is a simplified version of how that could look like:
+Okay, but how does it look in Dart code? Fist we initialize a SteamBuilder [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) to generate a new stream. The StreamBuilder gives us access to a _sink_, that we can use to put data into the stream and the actual _stream_, which we can use to read data from the stream:
+
+```dart
+main(List<String> arguments) {
+  StreamController<int> _controller = StreamController();
+  for(int i = 0; i < 5 ; i++){
+    _controller.sink.add(i);
+  }
+
+  _controller.stream.listen((i) => print(i));
+
+  _controller.close(); //don't forget to close the stream once you are done
+}
+```
+_Codesnippt 15: Stream of Ints_
+
+```bash
+0
+1
+2
+3
+4
+```
+_Codesnippt 16: Stream of Ints Output_
+
+Important Siedenote: 
+
+| ⚠   | Streams are single subscription by default. So if you want multiple subscribers you need to add `StreamController streamController = new StreamController.broadcast();` |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+
+Let's have a look at a more complex example: In Wisgen, our wisdoms are delivered to the Interface via a stream. When ever we run out of wisdoms to display, a request is send to a class that fetches new wisdoms form our API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) and publishes them in a stream. Once those new wisdoms come in, the UI gets notified and receives them. This approach is called _BLoC Pattern_ [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) and I will explain it's details in the chapter [Architecting a Flutter app][architecture]. For now, this is a simplified version of how that could look like:
 
 ```dart
 class WisdomBloc {
@@ -516,7 +547,7 @@ class WisdomBloc {
   }
 }
 ```
-_Codesnippt 15: Simplified Wisgen WisdomBLoC [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Codesnippt 17: Simplified Wisgen WisdomBLoC [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. When ever the _publishMoreWisdom()_ function is called, the BLoC request more wisdom from the API, waits until it is fetched and the publishes it to the stream. Let's look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
 
@@ -586,7 +617,7 @@ class WisdomFeedState extends State<WisdomFeed> {
   ...
 }
 ```
-_Codesnippt 16: Simplified Wisgen WisdomFeed with StreamBuilder [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Codesnippt 18: Simplified Wisgen WisdomFeed with StreamBuilder [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Alright, let's go through this step by step. First we initialize our WisdomBloc in the _initSate()_ methode. This is also where we set up a ScrollController [[@flutterdevteamScrollControllerClass2018]](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call _publishMoreWisdom()_ on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the _build()_ methode, we use Flutters StreamBuilder [[@flutterdevteamStreamBuilderClass2018]](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the _listView()_ methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a compleat list is also recommended by the Flutter team for this usecase [[@sullivanTechnicalDebtStreams]](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the _dispose()_ methode is called and we dispose our stream and ScrollController.
 
@@ -608,7 +639,7 @@ Stream<List<Wisdom>> streamWisdoms() async* {
   _oldWisdoms = newWisdoms;
 }
 ```
-_Codesnippt 17: Simplified Wisgen WisdomBLoC with async* [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Codesnippt 19: Simplified Wisgen WisdomBLoC with async* [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still fell like you want to learn more I can highly recommend this article by Didier Boelens [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8 minute tutorial video by the Flutter Team [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
@@ -668,7 +699,7 @@ class Api implements Repository<Wisdom> {
 }
 
 ```
-_Codesnippt 18: Actual Wisgen API Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Codesnippt 20: Actual Wisgen API Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 The AdviceSlips class, is generated with a JSON to Dart converter [[@lecuonaJSONDartConverter2019]](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. I used this class instead of implementing a method in the Wisdom class, because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
 
@@ -731,7 +762,7 @@ class Slips {
   }
 }
 ```
-_Codesnippt 19: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Codesnippt 21: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 
 # 200-Architecting-a-Flutter-App
@@ -756,17 +787,21 @@ _Codesnippt 19: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com
   - Output are formated as little as possible
   - If you do have Platform Branching, It should be dependent on a single BLoC bool output
   
-### Bloc Architecture
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
-### Bloc Architecture with Layers
+_Figure XXX: Bloc Architecture_
+
 ![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
-### Wisgen Component Dependencies
+_Figure XXX: Bloc Architecture with Layers_
+
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 
-### Wisgen DataFlow
+_Figure XXX: Wisgen Bloc Architecture_
+
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
+
+_Figure XXX: Wisgen Bloc Architecture Dataflow_
 
 # 300-Testing
 ## Unit Tests in Dart using the BLoC Pattern
