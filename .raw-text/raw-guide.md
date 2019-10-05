@@ -767,6 +767,7 @@ _Codesnippt 21: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com
 
 # 200-Architecting-a-Flutter-App
 ## Introduction
+The Most central topic of architecting a Flutter app is _Statemanagement_. **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most 4 most popular Statemanagement solutions and you will learn one of those Statemanagement solutions (BLoC) in detail.
 - Central topic of State handling
 
 ## Types of state
