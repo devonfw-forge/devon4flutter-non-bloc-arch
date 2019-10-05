@@ -4,6 +4,7 @@ const refMarker = 'ref-';
 const lineMarker = '\n';
 const flutterMarker = 'flutter';
 const flutterDevMarker = '(Flutter Dev Team';
+const ndMarker = ' n.d.)';
 const imgMarker = '/wiki//images/';
 const codeMarker = "*Codesnippt ";
 const tldrMarker = 'TLDR';
@@ -30,6 +31,8 @@ main(List<String> arguments) async {
       flutterMarker.allMatches(text.toLowerCase()).length.toString() +
       '\nRefs to Flutter Devs:\t' +
       flutterDevMarker.allMatches(text).length.toString() +
+      '\nRefs with No Date:\t' +
+      ndMarker.allMatches(text).length.toString() +
       '\nReferences:\t\t' +
       refMarker.allMatches(text).length.toString());
 }

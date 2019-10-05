@@ -291,7 +291,7 @@ Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*
 
 <div id="ref-suriArchitectYourFlutter2019">
 
-Suri, Sagar. n.d. “Architect Your Flutter Project Using BLOC Pattern.” Guide. Medium. Accessed September 9, 2019. <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>.
+Suri, Sagar. 2019. “Architect Your Flutter Project Using BLOC Pattern.” Guide. Medium. 2019. <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>.
 
 </div>
 

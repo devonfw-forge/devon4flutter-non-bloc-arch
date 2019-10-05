@@ -107,7 +107,7 @@ Page Table of Contents
 
 ![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
-*Figure XXX: Bloc Architecture with Layers [(Suri n.d.)](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
+*Figure XXX: Bloc Architecture with Layers [(Suri 2019)](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
 
 ## BLoC in Wisgen
 
