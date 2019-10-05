@@ -9,14 +9,14 @@ const imgMarker = '/wiki//images/';
 const codeMarker = "*Codesnippt ";
 const tldrMarker = 'TLDR';
 const importantMarker = '⚠';
-const sectionMarker = "\n# ";
+const chpMarker = "\n# ";
 
 main(List<String> arguments) async {
   File input = File(arguments[0]);
   String text = await input.readAsString();
 
-  print('Number of Sections:\t' +
-      (sectionMarker.allMatches(text).length + 1).toString() +
+  print('Number of Chapters:\t' +
+      (chpMarker.allMatches(text).length + 1).toString() +
       '\nImages:\t\t\t' +
       imgMarker.allMatches(text).length.toString() +
       '\nCode Snippets:\t\t' +
