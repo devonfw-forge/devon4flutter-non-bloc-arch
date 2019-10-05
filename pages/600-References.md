@@ -279,7 +279,19 @@ Stoll, Scott. 2018. “In Plain English: So What the Heck Is Flutter and Why Is 
 
 <div id="ref-sullivanTechnicalDebtStreams2018">
 
-Sullivan, Matt, and Filip Hracek, dirs. 2018. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
+Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
+
+</div>
+
+<div id="ref-sullivanBuildReactiveMobile2018">
+
+———. 2018b. “Build Reactive Mobile Apps with Flutter.” Conference Talk presented at the Google I/O ’18, Mountain View, CA, May 10. <https://www.youtube.com/watch?v=RS36gBEp8OI>.
+
+</div>
+
+<div id="ref-suriArchitectYourFlutter2019">
+
+Suri, Sagar. n.d. “Architect Your Flutter Project Using BLOC Pattern.” Guide. Medium. Accessed September 9, 2019. <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>.
 
 </div>
 

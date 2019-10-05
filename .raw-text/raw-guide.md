@@ -766,16 +766,65 @@ _Codesnippt 21: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com
 
 
 # 200-Architecting-a-Flutter-App
-## What options are there? 
-  - Vanilla, Redux, Bloc, Provide/Scoped Model
-  - Which one will I focus on and Why?
-  - Google went bach and forth on this as well.
+## Introduction
+- Central topic of State handling
 
-## BLoC
-- Why this one?
-- Origin
+## Types of state
+- ephemeral state
+  - no need to get fancy
+- app state
+  - this is the stuff we architect for
+  
+## What options are there? 
+- Flutter does not impose an approach
+- Showcase the most popular ones
+- Explain why I choose to go with BLoC
+- Options
+
+### Lifting State up
+- Putting App state up in the Widget Tree
+- Pasing it down through constructors
+- Or Using inhereted widgets
+- Use for tiny apps
+
+### Provide/Scoped Model
+- One Approach advicate by Google
+- Uising a package to hide Inherted widgets behind a nice interface
+- Access through context
+- used by google internally
+- Simple but not really an architecture
+
+### Redux
+- Port from React
+- Good approach if you are already familiar
+- Uses a store for BL
+- Not that easy to understand
+
+### Bloc
+- Goal: 
+  - Extract the Logic into a class that can be calls from 2 different independent interfaces (AngularDart and Flutter)
+- Streams
+- build by google engniers
+- used by google internally
+- Google went bach and forth on this as well.
+- Why BLoC ...
+  - Produces nice layered architecture
+    - Makes sense for big applications
+  - Specifically build for this
+  - Used by the people who build the framework
+  - -> Not better or worse then Redux, but thats why I choose BLoC
+
+## BLoC in depth
 - UI only publishes and subscribes
-- **Build Interface code how you want it to look like -> then make it work**
+- NO BL in the UI
+- Keep it stupid so you don't need to test it
+- All BL should be in BLoC
+  - Buisnees Logic Objecs
+
+![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
+
+_Figure XXX: Bloc Architecture [[@sullivanBuildReactiveMobile2018]](https://www.youtube.com/watch?v=RS36gBEp8OI)_
+
 - **4 Rules for BLoCs**
   - Only Sinks In & Streams out
   - Dependencies Injectable
@@ -786,22 +835,36 @@ _Codesnippt 21: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com
   - Components do not format the inputs they send to the BLoC
   - Output are formated as little as possible
   - If you do have Platform Branching, It should be dependent on a single BLoC bool output
-  
-![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
-_Figure XXX: Bloc Architecture_
+![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
+
+_Figure XXX: Bloc Sink and Stream [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
+
+- **Build Interface code how you want it to look like -> then make it work**
+
+- Pros
+  - Change BL more easily
+  - Change UI without impacting BL
+  - Easily Test BL
+
+- Layered Architecture out of BLoCs
+  - Like Uncle Bob says
+  - Nice indented Layers
+  - use Boundary classes IE interfaces to keep data layer seperat from Buisness Layer
 
 ![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
-_Figure XXX: Bloc Architecture with Layers_
+_Figure XXX: Bloc Architecture with Layers [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)_
+
+## BLoC in Wisgen
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 
-_Figure XXX: Wisgen Bloc Architecture_
+_Figure XXX: Wisgen Bloc Architecture [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
-_Figure XXX: Wisgen Bloc Architecture Dataflow_
+_Figure XXX: Wisgen Bloc Architecture Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 # 300-Testing
 ## Unit Tests in Dart using the BLoC Pattern

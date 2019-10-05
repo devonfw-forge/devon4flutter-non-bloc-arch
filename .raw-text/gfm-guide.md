@@ -651,7 +651,7 @@ class WisdomFeedState extends State<WisdomFeed> {
 
 *Codesnippt 18: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018f)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek 2018)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
+Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018f)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek 2018a)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
 
 ![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/Fasust/flutter-guide/wiki//images/wisdomBloc-stream.PNG)
 
@@ -801,18 +801,73 @@ class Slips {
 
 # 200-Architecting-a-Flutter-App
 
+## Introduction
+
+  - Central topic of State handling
+
+## Types of state
+
+  - ephemeral state
+      - no need to get fancy
+  - app state
+      - this is the stuff we architect for
+
 ## What options are there?
 
-  - Vanilla, Redux, Bloc, Provide/Scoped Model
-  - Which one will I focus on and Why?
+  - Flutter does not impose an approach
+  - Showcase the most popular ones
+  - Explain why I choose to go with BLoC
+  - Options
+
+### Lifting State up
+
+  - Putting App state up in the Widget Tree
+  - Pasing it down through constructors
+  - Or Using inhereted widgets
+  - Use for tiny apps
+
+### Provide/Scoped Model
+
+  - One Approach advicate by Google
+  - Uising a package to hide Inherted widgets behind a nice interface
+  - Access through context
+  - used by google internally
+  - Simple but not really an architecture
+
+### Redux
+
+  - Port from React
+  - Good approach if you are already familiar
+  - Uses a store for BL
+  - Not that easy to understand
+
+### Bloc
+
+  - Goal:
+      - Extract the Logic into a class that can be calls from 2 different independent interfaces (AngularDart and Flutter)
+  - Streams
+  - build by google engniers
+  - used by google internally
   - Google went bach and forth on this as well.
+  - Why BLoC …
+      - Produces nice layered architecture
+          - Makes sense for big applications
+      - Specifically build for this
+      - Used by the people who build the framework
+      - \-\> Not better or worse then Redux, but thats why I choose BLoC
 
-## BLoC
+## BLoC in depth
 
-  - Why this one?
-  - Origin
   - UI only publishes and subscribes
-  - **Build Interface code how you want it to look like -\> then make it work**
+  - NO BL in the UI
+  - Keep it stupid so you don’t need to test it
+  - All BL should be in BLoC
+      - Buisnees Logic Objecs
+
+![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
+
+*Figure XXX: Bloc Architecture [(Sullivan and Hracek 2018b)](https://www.youtube.com/watch?v=RS36gBEp8OI)*
+
   - **4 Rules for BLoCs**
       - Only Sinks In & Streams out
       - Dependencies Injectable
@@ -824,21 +879,37 @@ class Slips {
       - Output are formated as little as possible
       - If you do have Platform Branching, It should be dependent on a single BLoC bool output
 
-![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
+![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
 
-*Figure XXX: Bloc Architecture*
+*Figure XXX: Bloc Sink and Stream [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
+
+  - **Build Interface code how you want it to look like -\> then make it work**
+
+  - Pros
+    
+      - Change BL more easily
+      - Change UI without impacting BL
+      - Easily Test BL
+
+  - Layered Architecture out of BLoCs
+    
+      - Like Uncle Bob says
+      - Nice indented Layers
+      - use Boundary classes IE interfaces to keep data layer seperat from Buisness Layer
 
 ![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
-*Figure XXX: Bloc Architecture with Layers*
+*Figure XXX: Bloc Architecture with Layers [(Suri n.d.)](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
+
+## BLoC in Wisgen
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 
-*Figure XXX: Wisgen Bloc Architecture*
+*Figure XXX: Wisgen Bloc Architecture [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
-*Figure XXX: Wisgen Bloc Architecture Dataflow*
+*Figure XXX: Wisgen Bloc Architecture Dataflow [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 # 300-Testing
 
@@ -1140,7 +1211,19 @@ Stoll, Scott. 2018. “In Plain English: So What the Heck Is Flutter and Why Is 
 
 <div id="ref-sullivanTechnicalDebtStreams2018">
 
-Sullivan, Matt, and Filip Hracek, dirs. 2018. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
+Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
+
+</div>
+
+<div id="ref-sullivanBuildReactiveMobile2018">
+
+———. 2018b. “Build Reactive Mobile Apps with Flutter.” Conference Talk presented at the Google I/O ’18, Mountain View, CA, May 10. <https://www.youtube.com/watch?v=RS36gBEp8OI>.
+
+</div>
+
+<div id="ref-suriArchitectYourFlutter2019">
+
+Suri, Sagar. n.d. “Architect Your Flutter Project Using BLOC Pattern.” Guide. Medium. Accessed September 9, 2019. <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>.
 
 </div>
 
