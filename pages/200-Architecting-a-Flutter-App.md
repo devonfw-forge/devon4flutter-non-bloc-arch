@@ -1,10 +1,13 @@
 Page Table of Contents
+- [Introduction](#introduction)
+- [Types of state](#types-of-state)
 - [What options are there?](#what-options-are-there)
-- [BLoC](#bloc)
-  - [Bloc Architecture](#bloc-architecture)
-  - [Bloc Architecture with Layers](#bloc-architecture-with-layers)
-  - [Wisgen Component Dependencies](#wisgen-component-dependencies)
-  - [Wisgen DataFlow](#wisgen-dataflow)
+  - [Lifting State up](#lifting-state-up)
+  - [Provide/Scoped Model](#providescoped-model)
+  - [Redux](#redux)
+  - [Bloc](#bloc)
+- [BLoC in depth](#bloc-in-depth)
+- [BLoC in Wisgen](#bloc-in-wisgen)
 
 ## Introduction
 
