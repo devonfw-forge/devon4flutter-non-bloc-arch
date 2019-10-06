@@ -285,7 +285,7 @@ Stoll, Scott. 2018. “In Plain English: So What the Heck Is Flutter and Why Is 
 
 <div id="ref-sullivanTechnicalDebtStreams2018">
 
-Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
+Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*. Vol. 4. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=fahC3ky_zW0>.
 
 </div>
 
@@ -298,12 +298,6 @@ Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*
 <div id="ref-sullivanPragmaticStateManagement2019">
 
 ———. 2019. “Pragmatic State Management in Flutter.” Conference Talk presented at the Google I/O’19, Mountain View, CA, May 9. <https://www.youtube.com/watch?v=d_m5csmrf7I>.
-
-</div>
-
-<div id="ref-sullivanPragmaticStateManagement">
-
-———. n.d. *Pragmatic State Management Using Provider*. The Boring Flutter Development Show. Accessed September 9, 2019. <https://www.youtube.com/watch?v=HrBiNHEqSYU>.
 
 </div>
 
