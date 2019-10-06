@@ -1,7 +1,8 @@
 Page Table of Contents
 - [Introduction](#introduction)
-- [Example](#example)
-- [Provider](#provider)
+- [Example App State](#example-app-state)
+- [Provider Package](#provider-package)
+  - [Why I decided against it](#why-i-decided-against-it)
 - [Redux](#redux)
 - [Bloc](#bloc)
 
