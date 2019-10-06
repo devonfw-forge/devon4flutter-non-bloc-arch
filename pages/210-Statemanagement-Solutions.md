@@ -107,7 +107,7 @@ Expanded(
 
 ### Why I decided against it
 
-All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it not an architecture (Hracek and Sullivan 2019; Boelens 2019; Savjolovs n.d.; Sullivan and Hracek 2019). Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [(Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
+All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it not an architecture (Hracek and Sullivan 2019; Boelens 2019; Savjolovs 2019; Sullivan and Hracek 2019). Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [(Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
 
 ## Redux
 

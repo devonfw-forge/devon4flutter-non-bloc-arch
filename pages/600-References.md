@@ -297,7 +297,7 @@ Rousselet, Remi, and Flutter Dev Team. 2018. “Provider | Flutter Package.” D
 
 <div id="ref-savjolovsFlutterAppArchitecture2019">
 
-Savjolovs, Vadims. n.d. “Flutter App Architecture 101: Vanilla, Scoped Model, BLoC.” Medium. Accessed August 28, 2019. <https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e>.
+Savjolovs, Vadims. 2019. “Flutter App Architecture 101: Vanilla, Scoped Model, BLoC.” Medium. 2019. <https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e>.
 
 </div>
 

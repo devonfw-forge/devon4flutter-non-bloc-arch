@@ -4,7 +4,7 @@ const refMarker = 'ref-';
 const lineMarker = '\n';
 const flutterMarker = 'flutter';
 const flutterDevMarker = '(Flutter Dev Team';
-const ndMarker = ' n.d.)';
+const ndMarker = ' n.d.';
 const brokenMarker = '???';
 const imgMarker = '/wiki//images/';
 const codeMarker = "*Codesnippt ";
@@ -33,7 +33,7 @@ main(List<String> arguments) async {
       '\nRefs to Flutter Devs:\t' +
       flutterDevMarker.allMatches(text).length.toString() +
       '\nRefs with No Date:\t' +
-      ndMarker.allMatches(text).length.toString() +
+      (ndMarker.allMatches(text).length / 2).toString() +
       '\nRefs that are Broken:\t' +
       brokenMarker.allMatches(text).length.toString() +
       '\nReferences:\t\t' +
