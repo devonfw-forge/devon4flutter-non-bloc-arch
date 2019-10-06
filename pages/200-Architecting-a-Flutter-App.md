@@ -1,6 +1,8 @@
 Page Table of Contents
 - [Introduction](#introduction)
+- [Statemanagement vs Architecture](#statemanagement-vs-architecture)
 - [Types of State](#types-of-state)
+- [Contents of this Chapter](#contents-of-this-chapter)
 
 ## Introduction
 

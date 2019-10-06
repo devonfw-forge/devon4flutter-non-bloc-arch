@@ -1,9 +1,8 @@
 Page Table of Contents
-- [What options are there?](#what-options-are-there)
-  - [Lifting State up](#lifting-state-up)
-  - [Provide/Scoped Model](#providescoped-model)
-  - [Redux](#redux)
-  - [Bloc](#bloc)
+- [Introduction](#introduction)
+- [Provider](#provider)
+- [Redux](#redux)
+- [Bloc](#bloc)
 
 ## Introduction
 
