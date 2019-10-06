@@ -1,4 +1,4 @@
-# Contents
+## Contents
 
 * [Introduction](https://github.com/Fasust/flutter-guide/wiki)
 * [The Flutter Framework](https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework)
