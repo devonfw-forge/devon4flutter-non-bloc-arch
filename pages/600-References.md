@@ -265,6 +265,12 @@ Oracle. 1996. *Java JDK* (version 8). Oracle. <https://www.oracle.com/technetwor
 
 </div>
 
+<div id="ref-rousseletProviderFlutterPackage2018">
+
+Rousselet, Remi, and Flutter Dev Team. 2018. “Provider | Flutter Package.” Documentation. Dart Packages. 2018. <https://pub.dev/packages/provider>.
+
+</div>
+
 <div id="ref-soaresFlutterAngularDartCode2018">
 
 Soares, Paolo. 2018. “Flutter / AngularDart – Code Sharing, Better Together.” Conference Talk presented at the DartConf 2018, Google Campus, LA, January 25. <https://www.youtube.com/watch?v=PLHln7wHgPE>.
@@ -286,6 +292,18 @@ Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*
 <div id="ref-sullivanBuildReactiveMobile2018">
 
 ———. 2018b. “Build Reactive Mobile Apps with Flutter.” Conference Talk presented at the Google I/O ’18, Mountain View, CA, May 10. <https://www.youtube.com/watch?v=RS36gBEp8OI>.
+
+</div>
+
+<div id="ref-sullivanPragmaticStateManagement2019">
+
+———. 2019. “Pragmatic State Management in Flutter.” Conference Talk presented at the Google I/O’19, Mountain View, CA, May 9. <https://www.youtube.com/watch?v=d_m5csmrf7I>.
+
+</div>
+
+<div id="ref-sullivanPragmaticStateManagement">
+
+———. n.d. *Pragmatic State Management Using Provider*. The Boring Flutter Development Show. Accessed September 9, 2019. <https://www.youtube.com/watch?v=HrBiNHEqSYU>.
 
 </div>
 

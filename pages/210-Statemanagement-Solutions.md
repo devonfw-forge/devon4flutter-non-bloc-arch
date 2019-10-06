@@ -7,27 +7,17 @@ Page Table of Contents
 
 ## Introduction
 
-Other then many mobile development frameworks, Flutter does not impose any kind of architecture on it’s developers. This openended approach has lead to multiple architectures and
+Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it’s developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
 
-  - Flutter does not impose an approach
-  - Showcase the most popular ones
-  - Explain why I choose to go with BLoC
-  - Options
-
-## Lifting State up
-
-  - Putting App state up in the Widget Tree
-  - Pasing it down through constructors
-  - Or Using inhereted widgets
-  - Use for tiny apps
-
-## Provide/Scoped Model
+## Provider
 
   - One Approach advicate by Google
   - Uising a package to hide Inherted widgets behind a nice interface
   - Access through context
   - used by google internally
   - Simple but not really an architecture
+
+The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions (Sullivan and Hracek n.d., 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom.
 
 ## Redux
 

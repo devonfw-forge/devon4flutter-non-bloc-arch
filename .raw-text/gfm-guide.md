@@ -803,7 +803,7 @@ class Slips {
 
 ## Introduction
 
-The Most central topic of architecting a Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) app is *Statemanagement* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most 4 most popular statemanagement solutions and you will learn one of those statemanagement solutions (BLoC [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC statemanagement solution in a clean and scalable 3-Layered architecture.
+The Most central topic of architecting a Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) app is *Statemanagement* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most three most popular statemanagement solutions and you will learn one of those statemanagement solutions (BLoC [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC statemanagement solution in a clean and scalable 3-Layered architecture.
 
 ## Statemanagement vs Architecture
 
@@ -828,27 +828,17 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
 ## Introduction
 
-Other then many mobile development frameworks, Flutter does not impose any kind of architecture on it’s developers. This openended approach has lead to multiple architectures and
+Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it’s developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
 
-  - Flutter does not impose an approach
-  - Showcase the most popular ones
-  - Explain why I choose to go with BLoC
-  - Options
-
-## Lifting State up
-
-  - Putting App state up in the Widget Tree
-  - Pasing it down through constructors
-  - Or Using inhereted widgets
-  - Use for tiny apps
-
-## Provide/Scoped Model
+## Provider
 
   - One Approach advicate by Google
   - Uising a package to hide Inherted widgets behind a nice interface
   - Access through context
   - used by google internally
   - Simple but not really an architecture
+
+The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions (Sullivan and Hracek n.d., 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom.
 
 ## Redux
 
@@ -1219,6 +1209,12 @@ Oracle. 1996. *Java JDK* (version 8). Oracle. <https://www.oracle.com/technetwor
 
 </div>
 
+<div id="ref-rousseletProviderFlutterPackage2018">
+
+Rousselet, Remi, and Flutter Dev Team. 2018. “Provider | Flutter Package.” Documentation. Dart Packages. 2018. <https://pub.dev/packages/provider>.
+
+</div>
+
 <div id="ref-soaresFlutterAngularDartCode2018">
 
 Soares, Paolo. 2018. “Flutter / AngularDart – Code Sharing, Better Together.” Conference Talk presented at the DartConf 2018, Google Campus, LA, January 25. <https://www.youtube.com/watch?v=PLHln7wHgPE>.
@@ -1240,6 +1236,18 @@ Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*
 <div id="ref-sullivanBuildReactiveMobile2018">
 
 ———. 2018b. “Build Reactive Mobile Apps with Flutter.” Conference Talk presented at the Google I/O ’18, Mountain View, CA, May 10. <https://www.youtube.com/watch?v=RS36gBEp8OI>.
+
+</div>
+
+<div id="ref-sullivanPragmaticStateManagement2019">
+
+———. 2019. “Pragmatic State Management in Flutter.” Conference Talk presented at the Google I/O’19, Mountain View, CA, May 9. <https://www.youtube.com/watch?v=d_m5csmrf7I>.
+
+</div>
+
+<div id="ref-sullivanPragmaticStateManagement">
+
+———. n.d. *Pragmatic State Management Using Provider*. The Boring Flutter Development Show. Accessed September 9, 2019. <https://www.youtube.com/watch?v=HrBiNHEqSYU>.
 
 </div>
 

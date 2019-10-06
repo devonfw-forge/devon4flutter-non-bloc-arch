@@ -770,7 +770,7 @@ _Codesnippt 21: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com
 
 # 200-Architecting-a-Flutter-App
 ## Introduction
-The Most central topic of architecting a Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) app is _Statemanagement_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most 4 most popular statemanagement solutions and you will learn one of those statemanagement solutions (BLoC [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC statemanagement solution in a clean and scalable 3-Layered architecture.
+The Most central topic of architecting a Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) app is _Statemanagement_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most three most popular statemanagement solutions and you will learn one of those statemanagement solutions (BLoC [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC statemanagement solution in a clean and scalable 3-Layered architecture.
 
 ## Statemanagement vs Architecture
 I want to differentiate these two terms. Within the Flutter community _Statemanagement_ and _Architecture_ are often used synonymously, but I think we should be careful to do so. Statemanagement is a set of tools or a pattern with which we can manage the State within our app. Architecture on the other hand, is the over arching structure of our app. A set of rules that our app conforms to. Any architecture for a Flutter application will have some sort of statemanagement, but statemanagement is not an architecture by it self. I just want you to keep this in mind for the following chapters.
@@ -785,32 +785,23 @@ _Figure XXX: Ephemeral State vs App State Dession Tree [[@flutterdevteamFlutterS
 
 ## Contents of this Chapter
 
-- [Statemanagement Solutions](https://github.com/Fasust/flutter-guide/wiki/210-Statemanagement-Solutions)
-- [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
-- [BLoC in Practice](https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice)
-  
+- [Statemanagement Solutions][statemng]
+- [BLoC][bloc]
+- [BLoC in Practice][bloc-practice]
+
 # 210-Statemanagement-Solutions
 
 ## Introduction
-Other then many mobile development frameworks, Flutter does not impose any kind of architecture on it's developers. This openended approach has lead to multiple architectures and
+Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it's developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
 
-- Flutter does not impose an approach
-- Showcase the most popular ones
-- Explain why I choose to go with BLoC
-- Options
-
-## Lifting State up
-- Putting App state up in the Widget Tree
-- Pasing it down through constructors
-- Or Using inhereted widgets
-- Use for tiny apps
-
-## Provide/Scoped Model
+## Provider
 - One Approach advicate by Google
 - Uising a package to hide Inherted widgets behind a nice interface
 - Access through context
 - used by google internally
 - Simple but not really an architecture
+
+The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions [@sullivanPragmaticStateManagement; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom.
 
 ## Redux
 - Port from React
