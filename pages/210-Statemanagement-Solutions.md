@@ -11,17 +11,20 @@ Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018g)
 
 ## Example
 
-I will showcase the statemanagment solutions using one example of *App State* from the Wisgen App. We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 partys: The ListView on the favorite page, so it can display all favorites and the button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favortie. Classic case of *App State*.
+I will showcase the statemanagement solutions using one example of *App State* from the Wisgen App [(Faust 2019)](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties:
+
+1.  The ListView on the favorite page, so it can display all favorites and t
+2.  The button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favorite.
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
 
-*Figure XXX: Wisgen Favorites*
+*Figure XXX: Wisgen Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-So when ever the favorite button on any card is pressed, a number of widgets have to update. This a simplified version of the Wisgen Widget Tree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
+So when ever the favorite button on any card is pressed, a number of widgets have to update. This a simplified version of the Wisgen WidgetTree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
 
-*Figure XXX: Wisgen WidgetTree Favorites*
+*Figure XXX: Wisgen WidgetTree Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ## Provider
 

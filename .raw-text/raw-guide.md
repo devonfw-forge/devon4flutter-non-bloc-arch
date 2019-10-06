@@ -795,18 +795,20 @@ _Figure XXX: Ephemeral State vs App State Dession Tree [[@flutterdevteamFlutterS
 Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it's developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
 
 ## Example
-I will showcase the statemanagment solutions using one example of _App State_ from the Wisgen App. We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 partys: The ListView on the favorite page, so it can display all favorites and the button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favortie. Classic case of _App State_. 
+I will showcase the statemanagement solutions using one example of _App State_ from the Wisgen App [[@faustWisgen2019]](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties: 
+
+1. The ListView on the favorite page, so it can display all favorites and t
+2. The button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favorite.
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
 
-_Figure XXX: Wisgen Favorites_
+_Figure XXX: Wisgen Favorites [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-So when ever the favorite button on any card is pressed, a number of widgets have to update. This a simplified version of the Wisgen Widget Tree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
+So when ever the favorite button on any card is pressed, a number of widgets have to update. This a simplified version of the Wisgen WidgetTree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
 
-_Figure XXX: Wisgen WidgetTree Favorites_
-
+_Figure XXX: Wisgen WidgetTree Favorites [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Provider
 - One Approach advicate by Google
