@@ -4,7 +4,11 @@ Page Table of Contents
 
 ## Introduction
 
-The Most central topic of architecting a Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) app is *Statemanagement* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most 4 most popular Statemanagement solutions and you will learn one of those Statemanagement solutions (BLoC [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail.
+The Most central topic of architecting a Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) app is *Statemanagement* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most 4 most popular statemanagement solutions and you will learn one of those statemanagement solutions (BLoC [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC statemanagement solution in a clean and scalable 3-Layered architecture.
+
+## Statemanagement vs Architecture
+
+I want to differentiate these two terms. Within the Flutter community *Statemanagement* and *Architecture* are often used synonymously, but I think we should be careful to do so. Statemanagement is a set of tools or a pattern with which we can manage the State within our app. Architecture on the other hand, is the over arching structure of our app. A set of rules that our app conforms to. Any architecture for a Flutter application will have some sort of statemanagement, but statemanagement is not an architecture by it self. I just want you to keep this in mind for the following chapters.
 
 ## Types of State
 
