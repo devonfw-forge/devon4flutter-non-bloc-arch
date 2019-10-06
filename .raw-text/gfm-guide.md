@@ -841,7 +841,7 @@ I will showcase the statemanagement solutions using one example of *App State* f
 
 *Figure XXX: Wisgen Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-So when ever the favorite button on any card is pressed, a number of widgets have to update. This a simplified version of the Wisgen WidgetTree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
+So when ever the favorite button on any card is pressed, a number of widgets [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro) have to update. This a simplified version of the Wisgen WidgetTree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
 
@@ -855,11 +855,68 @@ So when ever the favorite button on any card is pressed, a number of widgets hav
   - used by google internally
   - Simple but not really an architecture
 
-The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions (Hracek and Sullivan 2019; Sullivan and Hracek 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom. As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it above/at one of there common ancestors so they can both access it through their build contexts. This practice is called *lifting state up* and it a common practice within declarative frameworks. The Provider Package is an easy way for us to lift state up. Let’s look at our example form figure XXX: The first common ancestor of all widgets in need of the favorite list is *MaterialApp*. So we will need to lift the state up to the MaterialApp and then have our widgets access it from there:
+The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions (Hracek and Sullivan 2019; Sullivan and Hracek 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom.
+
+As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it above/at one of there common ancestors so they can both access it through their build contexts. This practice is called *lifting state up* and it a common practice within declarative frameworks [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A).
+
+The Provider Package is an easy way for us to lift state up. Let’s look at our example form figure XXX: The first common ancestor of all widgets in need of the favorite list is *MaterialApp*. So we will need to lift the state up to the MaterialApp and then have our widgets access it from there:
 
 ![Wisgen WidgetTree Favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
 
 *Figure XXX: Wisgen WidgetTree Favorites with Provider [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
+To minimize re-builds the Provider Package uses ChangeNotifiers. This way Widgets can subscribe/listen to the Sate and get notified whenever the state changes. This how an implementation of Wisgens favorite list would look like using Provider:
+
+``` dart
+class Favorites with ChangeNotifier{
+  final List<Wisdom> _wisdoms = new List();
+
+  List<Wisdom> get wisdoms => _wisdoms;
+
+  add(Wisdom w){
+    _wisdoms.add(w);
+    notifyListeners();
+  }
+
+  remove(Wisdom w){
+    _wisdoms.remove(w);
+    notifyListeners();
+  }
+}
+```
+
+*Codesnippt XXX: Favorites Class that will be exposed through Provider Package*
+
+``` dart
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      builder: (_) => Favorites(),
+      child: MaterialApp(home: WisdomFeed()),
+    );
+  }
+}
+```
+
+*Codesnippt XXX: Providing Favorites Globally*
+
+``` dart
+///Gets called when Favorite Button is pressed on a Wisdom Card
+///Figures out if a Wisdom is already liked or not.
+///Then send corresponding Event.
+void _onLike(BuildContext context) {
+  final List<Wisdom> favorites = Provider.of<Favorites>(context).wisdoms;
+  
+  //"wisdom" is the wisdom displayed on this card
+  if (favorites.contains(wisdom)) favorites.remove(wisdom);
+  else favorites.add(wisdom);
+}
+```
+
+*Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card*
 
 ## Redux
 
@@ -1047,6 +1104,12 @@ Dart Team. 2018. “Asynchronous Programming in Dart.” Documentation. 2018. <h
 <div id="ref-ecmaJavaScriptECMAStandard1997">
 
 ECMA. 1997. *JavaScript ECMA Standard* (version 10). ECMA. <https://www.ecma-international.org/publications/standards/Ecma-262.htm>.
+
+</div>
+
+<div id="ref-eganKeepItSimple2018">
+
+Egan, Brian. 2018. “Keep It Simple, State: Architecture for Flutter Apps.” Conference Talk presented at the DartConf 2018, Google Campus, LA, January 25. <https://www.youtube.com/watch?v=zKXz3pUkw9A>.
 
 </div>
 

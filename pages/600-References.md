@@ -85,6 +85,12 @@ ECMA. 1997. *JavaScript ECMA Standard* (version 10). ECMA. <https://www.ecma-int
 
 </div>
 
+<div id="ref-eganKeepItSimple2018">
+
+Egan, Brian. 2018. “Keep It Simple, State: Architecture for Flutter Apps.” Conference Talk presented at the DartConf 2018, Google Campus, LA, January 25. <https://www.youtube.com/watch?v=zKXz3pUkw9A>.
+
+</div>
+
 <div id="ref-facebookReactNativeFramework2015">
 
 Facebook. 2015. *React Native Framework*. Facebook. <https://facebook.github.io/react-native/>.
