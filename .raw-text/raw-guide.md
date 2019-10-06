@@ -16,6 +16,9 @@ Build PDF: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=source
 [tree]: https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree
 [async]: https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter
 [architecture]: https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App
+[statemng]: https://github.com/Fasust/flutter-guide/wiki/210-Statemanagement-Solutions
+[bloc]: https://github.com/Fasust/flutter-guide/wiki/220-BLoC
+[bloc-practice]: https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice
 [test]: https://github.com/Fasust/flutter-guide/wiki/300-Testing
 [conventions]: https://github.com/Fasust/flutter-guide/wiki/400-Conventions
 [conclusion]: https://github.com/Fasust/flutter-guide/wiki/500-Conclusion
@@ -777,6 +780,12 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
 _Figure XXX: Ephemeral State vs App State Dession Tree [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt)_
 
+## Contents of this Chapter
+
+- [Statemanagement Solutions](https://github.com/Fasust/flutter-guide/wiki/210-Statemanagement-Solutions)
+- [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
+- [BLoC in Practice](https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice)
+  
 # 210-Statemanagement-Solutions
 
 ## What options are there? 

@@ -1,5 +1,4 @@
 Page Table of Contents
-- [Introduction](#introduction)
 - [What options are there?](#what-options-are-there)
   - [Lifting State up](#lifting-state-up)
   - [Provide/Scoped Model](#providescoped-model)
@@ -50,5 +49,5 @@ Page Table of Contents
       - Used by the people who build the framework
       - \-\> Not better or worse then Redux, but thats why I choose BLoC
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/300-Testing">Next Chapter: Testing ></a></p>
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/220-BLoC">Next Chapter: BLoC ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

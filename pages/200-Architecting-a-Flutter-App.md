@@ -15,5 +15,11 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
 *Figure XXX: Ephemeral State vs App State Dession Tree [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt)*
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/300-Testing">Next Chapter: Testing ></a></p>
+## Contents of this Chapter
+
+  - [Statemanagement Solutions](https://github.com/Fasust/flutter-guide/wiki/210-Statemanagement-Solutions)
+  - [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
+  - [BLoC in Practice](https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice)
+
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/210-Statemanagement-Solutions">Next Chapter: Statemanagement Solutions ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

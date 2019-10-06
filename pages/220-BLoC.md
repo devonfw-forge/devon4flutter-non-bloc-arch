@@ -46,5 +46,5 @@ Page Table of Contents
 
 *Figure XXX: Bloc Architecture with Layers [(Suri 2019)](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/300-Testing">Next Chapter: Testing ></a></p>
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice">Next Chapter: BLoC in Practice ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
