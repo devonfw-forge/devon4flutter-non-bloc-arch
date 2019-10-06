@@ -797,7 +797,7 @@ Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterF
 ## Example
 I will showcase the statemanagement solutions using one example of _App State_ from the Wisgen App [[@faustWisgen2019]](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties: 
 
-1. The ListView on the favorite page, so it can display all favorites and t
+1. The ListView on the favorite page, so it can display all favorites
 2. The button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favorite.
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
@@ -817,7 +817,11 @@ _Figure XXX: Wisgen WidgetTree Favorites [[@faustWisgen2019]](https://github.com
 - used by google internally
 - Simple but not really an architecture
 
-The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions [@sullivanPragmaticStateManagement; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom. As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks. The Provider Package is an easy way for us to lift state up. Let's look at our example form figure XXX:
+The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions [@sullivanPragmaticStateManagement; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom. As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it above/at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks. The Provider Package is an easy way for us to lift state up. Let's look at our example form figure XXX: The first common ancestor of all widgets in need of the favorite list is _MaterialApp_. So we will need to lift the state up to the MaterialApp and then have our widgets access it from there:
+
+![Wisgen WidgetTree Favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
+
+_Figure XXX: Wisgen WidgetTree Favorites with Provider [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Redux
 - Port from React
