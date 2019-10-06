@@ -881,7 +881,7 @@ class Favorites with ChangeNotifier{
 }
 ```
 
-*Codesnippt XXX: Favorites Class that will be exposed through Provider Package*
+*Codesnippt XXX: Favorites Class that will be exposed through Provider Package [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Here expose our Favorite class globally above *MaterialApp* in the WidgetTree:
 
@@ -899,7 +899,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-*Codesnippt XXX: Providing Favorites Globally*
+*Codesnippt XXX: Providing Favorites Globally [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 This is how listening to the Favorite class looks like. We use the *Consumer Widget* to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes.
 
@@ -923,7 +923,7 @@ Expanded(
 ...
 ```
 
-*Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card*
+*Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Why I decided against it
 

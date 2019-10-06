@@ -842,7 +842,7 @@ class Favorites with ChangeNotifier{
   }
 }
 ```
-_Codesnippt XXX: Favorites Class that will be exposed through Provider Package_
+_Codesnippt XXX: Favorites Class that will be exposed through Provider Package [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Here expose our Favorite class globally above _MaterialApp_ in the WidgetTree:
 
@@ -859,7 +859,7 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-_Codesnippt XXX: Providing Favorites Globally_
+_Codesnippt XXX: Providing Favorites Globally [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 This is how listening to the Favorite class looks like. We use the _Consumer Widget_ to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes.
 
@@ -882,7 +882,7 @@ Expanded(
 )
 ...
 ```
-_Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card_
+_Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Why I decided against it
 All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it not an architecture [@hracekPragmaticStateManagement2019; @boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @sullivanPragmaticStateManagement2019]. Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
