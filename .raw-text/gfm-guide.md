@@ -838,7 +838,12 @@ Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018g)
   - used by google internally
   - Simple but not really an architecture
 
-The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions (Sullivan and Hracek n.d., 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom.
+The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions (Sullivan and Hracek n.d., 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom. As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called *lifting state up* and it a common practice within declarative frameworks. The Provider Package is an easy way for us to lift state up. Let’s look at an example:
+We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 partys: The ListView on the favorite page and the button on every wisdom card (as is has to be red when the given wisdom is a favorite). Classic case of *App State*. So when ever the favorite button on any card is pressed, a number of widgets have to update. This a simplified version of the Wisgen Widget Tree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
+
+![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav)
+
+*Figure XXX: Wisgen WidgetTree Favorites*
 
 ## Redux
 
