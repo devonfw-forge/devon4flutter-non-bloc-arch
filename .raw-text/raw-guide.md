@@ -794,6 +794,20 @@ _Figure XXX: Ephemeral State vs App State Dession Tree [[@flutterdevteamFlutterS
 ## Introduction
 Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it's developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
 
+## Example
+I will showcase the statemanagment solutions using one example of _App State_ from the Wisgen App. We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 partys: The ListView on the favorite page, so it can display all favorites and the button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favortie. Classic case of _App State_. 
+
+![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
+
+_Figure XXX: Wisgen Favorites_
+
+So when ever the favorite button on any card is pressed, a number of widgets have to update. This a simplified version of the Wisgen Widget Tree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
+
+![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
+
+_Figure XXX: Wisgen WidgetTree Favorites_
+
+
 ## Provider
 - One Approach advicate by Google
 - Uising a package to hide Inherted widgets behind a nice interface
@@ -801,19 +815,7 @@ Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterF
 - used by google internally
 - Simple but not really an architecture
 
-The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions [@sullivanPragmaticStateManagement; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom. As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks. The Provider Package is an easy way for us to lift state up. Let's look at an example: 
-We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 partys: The ListView on the favorite page, so it can display all favorites and the button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favortie. Classic case of _App State_. So when ever the favorite button on any card is pressed, a number of widgets have to update. This a simplified version of the Wisgen Widget Tree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
-
-![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
-
-_Figure XXX: Wisgen WidgetTree Favorites_
-
-
-![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
-
-_Figure XXX: Wisgen Favorites_
-
-
+The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions [@sullivanPragmaticStateManagement; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom. As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks. The Provider Package is an easy way for us to lift state up. Let's look at our example form figure XXX:
 
 ## Redux
 - Port from React
