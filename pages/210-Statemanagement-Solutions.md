@@ -1,5 +1,6 @@
 Page Table of Contents
 - [Introduction](#introduction)
+- [Example](#example)
 - [Provider](#provider)
 - [Redux](#redux)
 - [Bloc](#bloc)
