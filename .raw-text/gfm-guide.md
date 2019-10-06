@@ -814,6 +814,8 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
 *Figure XXX: Ephemeral State vs App State Dession Tree [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt)*
 
+# 210-Statemanagement-Solutions
+
 ## What options are there?
 
   - Flutter does not impose an approach
@@ -858,7 +860,9 @@ Ephemeral State is State that is only required in one location IE inside of one 
       - Used by the people who build the framework
       - \-\> Not better or worse then Redux, but thats why I choose BLoC
 
-## BLoC in depth
+# 220-BLoC
+
+## Introduction
 
   - UI only publishes and subscribes
   - NO BL in the UI
@@ -902,6 +906,10 @@ Ephemeral State is State that is only required in one location IE inside of one 
 ![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
 *Figure XXX: Bloc Architecture with Layers [(Suri 2019)](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
+
+# 230-BLoC-In-Practice
+
+## Introduction
 
 ## BLoC in Wisgen
 
