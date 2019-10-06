@@ -1,6 +1,12 @@
 
 <div id="refs" class="references">
 
+<div id="ref-abramovRedux2015">
+
+Abramov, Dan. 2015. “Redux.” Documentation. 2015. <https://redux.js.org/>.
+
+</div>
+
 <div id="ref-adinugrohoReviewMultiplatformMobile2015">
 
 Adinugroho, Timothy Yudi, Reina, and Josef Bernadi Gautama. 2015. “Review of Multi-Platform Mobile Application Development Using WebView: Learning Management System on Mobile Platform.” *Procedia Computer Science*, International Conference on Computer Science and Computational Intelligence (ICCSCI 2015), 59 (January): 291–97. <https://doi.org/10.1016/j.procs.2015.07.568>.
@@ -196,6 +202,12 @@ Flutter Dev Team. 2018a. “BuildContext Class.” Documentation. 2018. <https:/
 <div id="ref-googlellcAndroidSDK2008">
 
 Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.android.com/>.
+
+</div>
+
+<div id="ref-googlellcAngular2016">
+
+———. 2016. “Angular.” Documentation. 2016. <https://angular.io/>.
 
 </div>
 

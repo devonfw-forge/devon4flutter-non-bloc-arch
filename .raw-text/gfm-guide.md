@@ -912,7 +912,9 @@ Expanded(
       icon: Icon(favorites.contains(wisdom)
           ? Icons.favorite
           : Icons.favorite_border),
-      color: favorites.contains(wisdom) ? Colors.red : Colors.grey,
+      color: favorites.contains(wisdom) 
+          ? Colors.red 
+          : Colors.grey,
       onPressed: () {
         if (favorites.contains(wisdom)) favorites.remove(wisdom);
         else favorites.add(wisdom);
@@ -931,10 +933,11 @@ All in all Provider is a great and easy solution to distribute State in a small 
 
 ## Redux
 
-  - Port from React
   - Good approach if you are already familiar
   - Uses a store for BL
   - Not that easy to understand
+
+Redux [(Abramov 2015)](https://redux.js.org/) is statemanagement solution originally build for React [(Facebook 2015)](https://facebook.github.io/react-native/) and Angular [(Google LLC 2016)](https://angular.io/) in 2015 by Dan Abramov. Out of time constraints, I have decided to only briefly manchen it here without highlighting how to actually implement it.
 
 ## Bloc
 
@@ -1033,6 +1036,12 @@ All in all Provider is a great and easy solution to distribute State in a small 
 # 600-References
 
 <div id="refs" class="references">
+
+<div id="ref-abramovRedux2015">
+
+Abramov, Dan. 2015. “Redux.” Documentation. 2015. <https://redux.js.org/>.
+
+</div>
 
 <div id="ref-adinugrohoReviewMultiplatformMobile2015">
 
@@ -1229,6 +1238,12 @@ Flutter Dev Team. 2018a. “BuildContext Class.” Documentation. 2018. <https:/
 <div id="ref-googlellcAndroidSDK2008">
 
 Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.android.com/>.
+
+</div>
+
+<div id="ref-googlellcAngular2016">
+
+———. 2016. “Angular.” Documentation. 2016. <https://angular.io/>.
 
 </div>
 

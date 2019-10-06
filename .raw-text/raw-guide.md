@@ -872,7 +872,9 @@ Expanded(
       icon: Icon(favorites.contains(wisdom)
           ? Icons.favorite
           : Icons.favorite_border),
-      color: favorites.contains(wisdom) ? Colors.red : Colors.grey,
+      color: favorites.contains(wisdom) 
+          ? Colors.red 
+          : Colors.grey,
       onPressed: () {
         if (favorites.contains(wisdom)) favorites.remove(wisdom);
         else favorites.add(wisdom);
@@ -888,10 +890,12 @@ _Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card [[@faustWi
 All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it not an architecture [@hracekPragmaticStateManagement2019; @boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @sullivanPragmaticStateManagement2019]. Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
 
 ## Redux
-- Port from React
 - Good approach if you are already familiar
 - Uses a store for BL
 - Not that easy to understand
+
+Redux [[@abramovRedux2015]](https://redux.js.org/) is statemanagement solution originally build for React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) and Angular [[@googlellcAngular2016]](https://angular.io/) in 2015 by Dan Abramov. Out of time constraints, I have decided to only briefly manchen it here without highlighting how to actually implement it.
+
 
 ## Bloc
 - Goal: 

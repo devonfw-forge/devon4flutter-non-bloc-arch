@@ -92,7 +92,9 @@ Expanded(
       icon: Icon(favorites.contains(wisdom)
           ? Icons.favorite
           : Icons.favorite_border),
-      color: favorites.contains(wisdom) ? Colors.red : Colors.grey,
+      color: favorites.contains(wisdom) 
+          ? Colors.red 
+          : Colors.grey,
       onPressed: () {
         if (favorites.contains(wisdom)) favorites.remove(wisdom);
         else favorites.add(wisdom);
@@ -111,10 +113,11 @@ All in all Provider is a great and easy solution to distribute State in a small 
 
 ## Redux
 
-  - Port from React
   - Good approach if you are already familiar
   - Uses a store for BL
   - Not that easy to understand
+
+Redux [(Abramov 2015)](https://redux.js.org/) is statemanagement solution originally build for React [(Facebook 2015)](https://facebook.github.io/react-native/) and Angular [(Google LLC 2016)](https://angular.io/) in 2015 by Dan Abramov. Out of time constraints, I have decided to only briefly manchen it here without highlighting how to actually implement it.
 
 ## Bloc
 
