@@ -4,6 +4,7 @@ Page Table of Contents
 - [Provider Package](#provider-package)
   - [Why I decided against it](#why-i-decided-against-it)
 - [Redux](#redux)
+  - [Why I decided against it](#why-i-decided-against-it-1)
 - [Bloc](#bloc)
 
 ## Introduction
@@ -118,6 +119,8 @@ All in all Provider is a great and easy solution to distribute State in a small 
   - Not that easy to understand
 
 Redux [(Abramov 2015)](https://redux.js.org/) is statemanagement solution originally build for React [(Facebook 2015)](https://facebook.github.io/react-native/) and Angular [(Google LLC 2016)](https://angular.io/) in 2015 by Dan Abramov. Out of time constraints, I have decided to only briefly manchen it here without highlighting how to actually implement it.
+
+### Why I decided against it
 
 ## Bloc
 

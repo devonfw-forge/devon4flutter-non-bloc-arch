@@ -896,6 +896,7 @@ All in all Provider is a great and easy solution to distribute State in a small 
 
 Redux [[@abramovRedux2015]](https://redux.js.org/) is statemanagement solution originally build for React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) and Angular [[@googlellcAngular2016]](https://angular.io/) in 2015 by Dan Abramov. Out of time constraints, I have decided to only briefly manchen it here without highlighting how to actually implement it.
 
+### Why I decided against it
 
 ## Bloc
 - Goal: 
