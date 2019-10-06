@@ -43,6 +43,12 @@ Boelens, Didier. 2018a. “Flutter - Reactive Programming - Streams - BLoC.” G
 
 </div>
 
+<div id="ref-boelensFlutterBLoCScopedModel2019">
+
+———. 2019. “Flutter - BLoC - ScopedModel - Redux - Comparison.” Comparison. Didier Boelens. 2019. <https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/>.
+
+</div>
+
 <div id="ref-capgeminiCapgeminiHomePage2019">
 
 Capgemini. 2019. “Capgemini - Home Page.” Home Page. 2019. <https://www.capgemini.com/us-en/>.
@@ -109,45 +115,51 @@ Flutter Dev Team. 2018a. “BuildContext Class.” Documentation. 2018. <https:/
 
 </div>
 
+<div id="ref-flutterdevteamChangeNotifierClass2018">
+
+———. 2018b. “ChangeNotifier Class.” Documentation. 2018. <https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html>.
+
+</div>
+
 <div id="ref-flutterdevteamInheritedWidgetClass2018">
 
-———. 2018b. “InheritedWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html>.
+———. 2018c. “InheritedWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamScrollControllerClass2018">
 
-———. 2018c. “ScrollController Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/ScrollController-class.html>.
+———. 2018d. “ScrollController Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/ScrollController-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamStatefulWidgetClass2018">
 
-———. 2018d. “StatefulWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>.
+———. 2018e. “StatefulWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamStatelessWidgetClass2018">
 
-———. 2018e. “StatelessWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html>.
+———. 2018f. “StatelessWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamStreamBuilderClass2018">
 
-———. 2018f. “StreamBuilder Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html>.
+———. 2018g. “StreamBuilder Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamFlutterFramework2018">
 
-———. 2018g. *The Flutter Framework* (version 1.9). Google LLC. <https://flutter.dev/>.
+———. 2018h. *The Flutter Framework* (version 1.9). Google LLC. <https://flutter.dev/>.
 
 </div>
 
 <div id="ref-flutterdevteamWriteYourFirst2018">
 
-———. 2018h. “Write Your First Flutter App.” Guide. 2018. <https://flutter.dev/docs/get-started/codelab>.
+———. 2018i. “Write Your First Flutter App.” Guide. 2018. <https://flutter.dev/docs/get-started/codelab>.
 
 </div>
 
@@ -280,6 +292,12 @@ Oracle. 1996. *Java JDK* (version 8). Oracle. <https://www.oracle.com/technetwor
 <div id="ref-rousseletProviderFlutterPackage2018">
 
 Rousselet, Remi, and Flutter Dev Team. 2018. “Provider | Flutter Package.” Documentation. Dart Packages. 2018. <https://pub.dev/packages/provider>.
+
+</div>
+
+<div id="ref-savjolovsFlutterAppArchitecture2019">
+
+Savjolovs, Vadims. n.d. “Flutter App Architecture 101: Vanilla, Scoped Model, BLoC.” Medium. Accessed August 28, 2019. <https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e>.
 
 </div>
 

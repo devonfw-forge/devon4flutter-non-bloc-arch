@@ -794,7 +794,7 @@ _Figure XXX: Ephemeral State vs App State Dession Tree [[@flutterdevteamFlutterS
 ## Introduction
 Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it's developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
 
-## Example
+## Example App State
 I will showcase the statemanagement solutions using one example of _App State_ from the Wisgen App [[@faustWisgen2019]](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties: 
 
 1. The ListView on the favorite page, so it can display all favorites
@@ -810,16 +810,10 @@ So when ever the favorite button on any card is pressed, a number of widgets [[@
 
 _Figure XXX: Wisgen WidgetTree Favorites [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-## Provider
-- One Approach advicate by Google
-- Uising a package to hide Inherted widgets behind a nice interface
-- Access through context
-- used by google internally
-- Simple but not really an architecture
+## Provider Package
+The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions [@hracekPragmaticStateManagement2019; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with Inherited Widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a Widget at the top of the tree to a Widget at the bottom. 
 
-The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions [@hracekPragmaticStateManagement2019; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom. 
-
-As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it above/at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). 
+As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). 
 
 The Provider Package is an easy way for us to lift state up. Let's look at our example form figure XXX: The first common ancestor of all widgets in need of the favorite list is _MaterialApp_. So we will need to lift the state up to the MaterialApp and then have our widgets access it from there:
 
@@ -827,13 +821,11 @@ The Provider Package is an easy way for us to lift state up. Let's look at our e
 
 _Figure XXX: Wisgen WidgetTree Favorites with Provider [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-To minimize re-builds the Provider Package uses ChangeNotifiers. This way Widgets can subscribe/listen to the Sate and get notified whenever the state changes. This how an implementation of Wisgens favorite list would look like using Provider:
+To minimize re-builds the Provider Package uses ChangeNotifiers [[@flutterdevteamChangeNotifierClass2018]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the Sate and get notified whenever the state changes. This is how an implementation of Wisgens favorite list would look like using Provider: _Favorites_ is the class we will use to provide our favorite list globally. The _notifyListeners()_ function will trigger rebuilds on all Widgets that listen to it.
 
 ```dart
 class Favorites with ChangeNotifier{
   final List<Wisdom> _wisdoms = new List();
-
-  List<Wisdom> get wisdoms => _wisdoms;
 
   add(Wisdom w){
     _wisdoms.add(w);
@@ -844,9 +836,15 @@ class Favorites with ChangeNotifier{
     _wisdoms.remove(w);
     notifyListeners();
   }
+
+  bool contains(Wisdom w){
+    return _wisdoms.contains(w);
+  }
 }
 ```
 _Codesnippt XXX: Favorites Class that will be exposed through Provider Package_
+
+Here expose our Favorite class globally above _MaterialApp_ in the WidgetTree:
 
 ```dart
 void main() => runApp(MyApp());
@@ -863,19 +861,31 @@ class MyApp extends StatelessWidget {
 ```
 _Codesnippt XXX: Providing Favorites Globally_
 
+This is how listening to the Favorite class looks like. We use the _Consumer Widget_ to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes.
+
 ```dart
-///Gets called when Favorite Button is pressed on a Wisdom Card
-///Figures out if a Wisdom is already liked or not.
-///Then send corresponding Event.
-void _onLike(BuildContext context) {
-  final List<Wisdom> favorites = Provider.of<Favorites>(context).wisdoms;
-  
-  //"wisdom" is the wisdom displayed on this card
-  if (favorites.contains(wisdom)) favorites.remove(wisdom);
-  else favorites.add(wisdom);
-}
+...
+Expanded(
+  flex: 1,
+  child: Consumer<Favorites>(
+    builder: (context, favorites, child) => IconButton(
+      icon: Icon(favorites.contains(wisdom)
+          ? Icons.favorite
+          : Icons.favorite_border),
+      color: favorites.contains(wisdom) ? Colors.red : Colors.grey,
+      onPressed: () {
+        if (favorites.contains(wisdom)) favorites.remove(wisdom);
+        else favorites.add(wisdom);
+      },
+    ),
+  ),
+)
+...
 ```
 _Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card_
+
+### Why I decided against it
+All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it not an architecture [@hracekPragmaticStateManagement2019; @boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @sullivanPragmaticStateManagement2019]. Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
 
 ## Redux
 - Port from React

@@ -10,11 +10,11 @@ Page Table of Contents
 
 ## The Goal of this Guide
 
-This guide aims to bridge the gap between the absolute Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it *properly*. Or at least show you one possible way to make large scale Flutter projects clean and manageable.
+This guide aims to bridge the gap between the absolute Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it *properly*. Or at least show you one possible way to make large scale Flutter projects clean and manageable.
 
 ## Who is this Guide for?
 
-For people with a basic knowledge of the Flutter Framework. I recommend following this tutorial by the Flutter team [(Flutter Dev Team 2018h)](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the Dart programming language [(Dart Team 2019a)](https://dart.dev/). No worries, it is very similar to Java [(Oracle 1996)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), Kotlin [(Jet Brains 2017)](https://kotlinlang.org/) and JavaScript [(ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine.
+For people with a basic knowledge of the Flutter Framework. I recommend following this tutorial by the Flutter team [(Flutter Dev Team 2018i)](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the Dart programming language [(Dart Team 2019a)](https://dart.dev/). No worries, it is very similar to Java [(Oracle 1996)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), Kotlin [(Jet Brains 2017)](https://kotlinlang.org/) and JavaScript [(ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine.
 
 ## Topics that will be covered
 

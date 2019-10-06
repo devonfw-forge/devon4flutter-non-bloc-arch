@@ -2,11 +2,11 @@
 
 ## The Goal of this Guide
 
-This guide aims to bridge the gap between the absolute Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it *properly*. Or at least show you one possible way to make large scale Flutter projects clean and manageable.
+This guide aims to bridge the gap between the absolute Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it *properly*. Or at least show you one possible way to make large scale Flutter projects clean and manageable.
 
 ## Who is this Guide for?
 
-For people with a basic knowledge of the Flutter Framework. I recommend following this tutorial by the Flutter team [(Flutter Dev Team 2018h)](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the Dart programming language [(Dart Team 2019a)](https://dart.dev/). No worries, it is very similar to Java [(Oracle 1996)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), Kotlin [(Jet Brains 2017)](https://kotlinlang.org/) and JavaScript [(ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine.
+For people with a basic knowledge of the Flutter Framework. I recommend following this tutorial by the Flutter team [(Flutter Dev Team 2018i)](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first flutter application. You should also have a basic understanding of the Dart programming language [(Dart Team 2019a)](https://dart.dev/). No worries, it is very similar to Java [(Oracle 1996)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), Kotlin [(Jet Brains 2017)](https://kotlinlang.org/) and JavaScript [(ECMA 1997)](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine.
 
 ## Topics that will be covered
 
@@ -32,7 +32,7 @@ I am basing this guide on a combination of conference talks, blog articles by re
 
 ## Introduction
 
-This Chapter will give you a basic understanding of how the Flutter Framework [(Flutter Dev Team 2018g)](https://flutter.dev/) works as a whole. I will showcase the difference of Flutter to other Cross-Platform approaches and how Flutter works *under the hood*. You will also be introduced to the concepts of *state* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) and flutters way of rendering an app as a tree of *widgets*. In addition to this, You will gain an understanding of how Flutter Handels Asynchronous Programming. And Lastly, you will learn how to communicate with the Web within the Flutter Framework.
+This Chapter will give you a basic understanding of how the Flutter Framework [(Flutter Dev Team 2018h)](https://flutter.dev/) works as a whole. I will showcase the difference of Flutter to other Cross-Platform approaches and how Flutter works *under the hood*. You will also be introduced to the concepts of *state* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) and flutters way of rendering an app as a tree of *widgets*. In addition to this, You will gain an understanding of how Flutter Handels Asynchronous Programming. And Lastly, you will learn how to communicate with the Web within the Flutter Framework.
 
 ## Contents of the Chapter
 
@@ -45,7 +45,7 @@ This Chapter will give you a basic understanding of how the Flutter Framework [(
 
 ## Introduction
 
-Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) is a framework for cross-platform native development. But what exactly does that mean? It means that it promises Native App performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how flutter achieves this, is to compare it to other mobile development approaches.
+Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) is a framework for cross-platform native development. But what exactly does that mean? It means that it promises Native App performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how flutter achieves this, is to compare it to other mobile development approaches.
 
 ### Full Native Approach
 
@@ -115,11 +115,11 @@ One additional advantage of Flutter, is that is comes with two different compile
 
 ## Introduction
 
-If you come from the native mobile world and *imperative* frameworks like IOS [(Apple 2010)](https://developer.apple.com/ios/) and Android [(Google LLC 2008)](https://developer.android.com/), developing with Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) can take while to get used to. Flutter, other then those frameworks mentioned above, is a *declarative* Framework. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: *state* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
+If you come from the native mobile world and *imperative* frameworks like IOS [(Apple 2010)](https://developer.apple.com/ios/) and Android [(Google LLC 2008)](https://developer.android.com/), developing with Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) can take while to get used to. Flutter, other then those frameworks mentioned above, is a *declarative* Framework. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: *state* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 
 ## Declarative Programming vs Imperative Programming
 
-But what exactly is the difference between *declarative* and *imperative*? I will try to explain this using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” (Flutter Dev Team 2018g, 2019b, 2019e; Bezerra 2018). Let’s look at an example:
+But what exactly is the difference between *declarative* and *imperative*? I will try to explain this using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” (Flutter Dev Team 2018h, 2019b, 2019e; Bezerra 2018). Let’s look at an example:
 
 ``` dart
 List numbers = [1,2,3,4,5]
@@ -209,7 +209,7 @@ Is it not very inefficient to re-render the entire Widget every time we change t
 
 ## Introduction
 
-This section will give you a better understanding of how programming in Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) actually works. You will learn what Widgets [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro) are, what types of Widgets Flutter has and lastly what exactly the *Widget Tree* is.
+This section will give you a better understanding of how programming in Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) actually works. You will learn what Widgets [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro) are, what types of Widgets Flutter has and lastly what exactly the *Widget Tree* is.
 
 ## Widgets in General
 
@@ -255,7 +255,7 @@ Another important thing to note is that:
 | ⚠ | Widgets in Flutter are always immutable [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro) |
 | - | :------------------------------------------------------------------------------------------------------------------------ |
 
-The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework [(Flutter Dev Team 2018e)](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html). To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods light weight by making all Widgets immutable. This means that all variables in a Widget have to be declared as *final*. Which means they are initialized once and can not change over time.
+The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework [(Flutter Dev Team 2018f)](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html). To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods light weight by making all Widgets immutable. This means that all variables in a Widget have to be declared as *final*. Which means they are initialized once and can not change over time.
 But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. As mentioned in the [previous chapter](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively), in Flutter such data is called *state* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). No worries, how Flutter handles mutable state will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
 
 ### The Widget Tree
@@ -297,7 +297,7 @@ There are 3 types of Widgets in the Flutter framework. I will now showcase there
 
 ### Stateless Widgets
 
-This is the most basic of the three an likely the one you’ll use the most when developing an app with Flutter. Stateless Widgets [(Flutter Dev Team 2018e)](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let’s have a look at an example. This is the class of the card Widget from figure 8:
+This is the most basic of the three an likely the one you’ll use the most when developing an app with Flutter. Stateless Widgets [(Flutter Dev Team 2018f)](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let’s have a look at an example. This is the class of the card Widget from figure 8:
 
 ``` dart
 class WisdomCard extends StatelessWidget {
@@ -352,7 +352,7 @@ I have explained what State is in the Chapter [Thinking Declaratively](https://g
 | ⚠ | State in Flutter is any data that can change over time |
 | - | :----------------------------------------------------- |
 
-A Stateful Widget [(Flutter Dev Team 2018d)](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget [(Google LLC 2018a)](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let’s have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The *WisdomBloc* is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
+A Stateful Widget [(Flutter Dev Team 2018e)](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consist of two parts: An immutable Widget and a mutable state. The immutable Widgets responsibility is to hold onto that state, the state itself has the mutable data and builds the actual Widget [(Google LLC 2018a)](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let’s have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The *WisdomBloc* is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
 ``` dart
 //Immutable Widget
@@ -422,13 +422,13 @@ But There is essentially two reasons to choose a Stateful Widget over a Stateles
 
 ### Inherited Widgets
 
-I will not go in detail on Inherited Widgets [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) here. When using the BLoC library [(Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/), which I will teach you in the chatper [Architecting a Flutter-App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App), you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all their descendance. And they are used as the underlying technologie of the BLoC library.
+I will not go in detail on Inherited Widgets [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) here. When using the BLoC library [(Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/), which I will teach you in the chatper [Architecting a Flutter-App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App), you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top if the Widget Tree to all their descendance. And they are used as the underlying technologie of the BLoC library.
 
 # 140-Asynchronous-Flutter
 
 ## Introduction
 
-Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart [(Dart Team 2019a)](https://dart.dev/) and Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) have a very good integration of Asynchronous Programming. This chapter will teach you the basics of Futures, async/await [(Dart Team 2019a)](https://dart.dev/) and Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams). Throughout this chapter I will be using the *http* package [(Dart Team 2019c)](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common usecases for Asynchronous Programming, so I though it would only be fitting.
+Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart [(Dart Team 2019a)](https://dart.dev/) and Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) have a very good integration of Asynchronous Programming. This chapter will teach you the basics of Futures, async/await [(Dart Team 2019a)](https://dart.dev/) and Streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams). Throughout this chapter I will be using the *http* package [(Dart Team 2019c)](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common usecases for Asynchronous Programming, so I though it would only be fitting.
 
 ## Futures
 
@@ -651,7 +651,7 @@ class WisdomFeedState extends State<WisdomFeed> {
 
 *Codesnippt 18: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018f)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek 2018a)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
+Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018d)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018g)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek 2018a)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
 
 ![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/Fasust/flutter-guide/wiki//images/wisdomBloc-stream.PNG)
 
@@ -803,7 +803,7 @@ class Slips {
 
 ## Introduction
 
-The Most central topic of architecting a Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) app is *Statemanagement* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most three most popular statemanagement solutions and you will learn one of those statemanagement solutions (BLoC [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC statemanagement solution in a clean and scalable 3-Layered architecture.
+The Most central topic of architecting a Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) app is *Statemanagement* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most three most popular statemanagement solutions and you will learn one of those statemanagement solutions (BLoC [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC statemanagement solution in a clean and scalable 3-Layered architecture.
 
 ## Statemanagement vs Architecture
 
@@ -828,9 +828,9 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
 ## Introduction
 
-Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018g)](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it’s developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
+Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it’s developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
 
-## Example
+## Example App State
 
 I will showcase the statemanagement solutions using one example of *App State* from the Wisgen App [(Faust 2019)](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties:
 
@@ -847,17 +847,11 @@ So when ever the favorite button on any card is pressed, a number of widgets [(F
 
 *Figure XXX: Wisgen WidgetTree Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-## Provider
+## Provider Package
 
-  - One Approach advicate by Google
-  - Uising a package to hide Inherted widgets behind a nice interface
-  - Access through context
-  - used by google internally
-  - Simple but not really an architecture
+The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions (Hracek and Sullivan 2019; Sullivan and Hracek 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with Inherited Widgets [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a Widget at the top of the tree to a Widget at the bottom.
 
-The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions (Hracek and Sullivan 2019; Sullivan and Hracek 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with inherited widgets [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a widget at the top of the widget tree to a widget at the bottom.
-
-As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it above/at one of there common ancestors so they can both access it through their build contexts. This practice is called *lifting state up* and it a common practice within declarative frameworks [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A).
+As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called *lifting state up* and it a common practice within declarative frameworks [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
 The Provider Package is an easy way for us to lift state up. Let’s look at our example form figure XXX: The first common ancestor of all widgets in need of the favorite list is *MaterialApp*. So we will need to lift the state up to the MaterialApp and then have our widgets access it from there:
 
@@ -865,13 +859,11 @@ The Provider Package is an easy way for us to lift state up. Let’s look at our
 
 *Figure XXX: Wisgen WidgetTree Favorites with Provider [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-To minimize re-builds the Provider Package uses ChangeNotifiers. This way Widgets can subscribe/listen to the Sate and get notified whenever the state changes. This how an implementation of Wisgens favorite list would look like using Provider:
+To minimize re-builds the Provider Package uses ChangeNotifiers [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the Sate and get notified whenever the state changes. This is how an implementation of Wisgens favorite list would look like using Provider: *Favorites* is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
 
 ``` dart
 class Favorites with ChangeNotifier{
   final List<Wisdom> _wisdoms = new List();
-
-  List<Wisdom> get wisdoms => _wisdoms;
 
   add(Wisdom w){
     _wisdoms.add(w);
@@ -882,10 +874,16 @@ class Favorites with ChangeNotifier{
     _wisdoms.remove(w);
     notifyListeners();
   }
+
+  bool contains(Wisdom w){
+    return _wisdoms.contains(w);
+  }
 }
 ```
 
 *Codesnippt XXX: Favorites Class that will be exposed through Provider Package*
+
+Here expose our Favorite class globally above *MaterialApp* in the WidgetTree:
 
 ``` dart
 void main() => runApp(MyApp());
@@ -903,20 +901,33 @@ class MyApp extends StatelessWidget {
 
 *Codesnippt XXX: Providing Favorites Globally*
 
+This is how listening to the Favorite class looks like. We use the *Consumer Widget* to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes.
+
 ``` dart
-///Gets called when Favorite Button is pressed on a Wisdom Card
-///Figures out if a Wisdom is already liked or not.
-///Then send corresponding Event.
-void _onLike(BuildContext context) {
-  final List<Wisdom> favorites = Provider.of<Favorites>(context).wisdoms;
-  
-  //"wisdom" is the wisdom displayed on this card
-  if (favorites.contains(wisdom)) favorites.remove(wisdom);
-  else favorites.add(wisdom);
-}
+...
+Expanded(
+  flex: 1,
+  child: Consumer<Favorites>(
+    builder: (context, favorites, child) => IconButton(
+      icon: Icon(favorites.contains(wisdom)
+          ? Icons.favorite
+          : Icons.favorite_border),
+      color: favorites.contains(wisdom) ? Colors.red : Colors.grey,
+      onPressed: () {
+        if (favorites.contains(wisdom)) favorites.remove(wisdom);
+        else favorites.add(wisdom);
+      },
+    ),
+  ),
+)
+...
 ```
 
 *Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card*
+
+### Why I decided against it
+
+All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it not an architecture (Hracek and Sullivan 2019; Boelens 2019; Savjolovs n.d.; Sullivan and Hracek 2019). Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [(Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
 
 ## Redux
 
@@ -1065,6 +1076,12 @@ Boelens, Didier. 2018a. “Flutter - Reactive Programming - Streams - BLoC.” G
 
 </div>
 
+<div id="ref-boelensFlutterBLoCScopedModel2019">
+
+———. 2019. “Flutter - BLoC - ScopedModel - Redux - Comparison.” Comparison. Didier Boelens. 2019. <https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/>.
+
+</div>
+
 <div id="ref-capgeminiCapgeminiHomePage2019">
 
 Capgemini. 2019. “Capgemini - Home Page.” Home Page. 2019. <https://www.capgemini.com/us-en/>.
@@ -1131,45 +1148,51 @@ Flutter Dev Team. 2018a. “BuildContext Class.” Documentation. 2018. <https:/
 
 </div>
 
+<div id="ref-flutterdevteamChangeNotifierClass2018">
+
+———. 2018b. “ChangeNotifier Class.” Documentation. 2018. <https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html>.
+
+</div>
+
 <div id="ref-flutterdevteamInheritedWidgetClass2018">
 
-———. 2018b. “InheritedWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html>.
+———. 2018c. “InheritedWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamScrollControllerClass2018">
 
-———. 2018c. “ScrollController Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/ScrollController-class.html>.
+———. 2018d. “ScrollController Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/ScrollController-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamStatefulWidgetClass2018">
 
-———. 2018d. “StatefulWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>.
+———. 2018e. “StatefulWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamStatelessWidgetClass2018">
 
-———. 2018e. “StatelessWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html>.
+———. 2018f. “StatelessWidget Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamStreamBuilderClass2018">
 
-———. 2018f. “StreamBuilder Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html>.
+———. 2018g. “StreamBuilder Class.” Documentation. 2018. <https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html>.
 
 </div>
 
 <div id="ref-flutterdevteamFlutterFramework2018">
 
-———. 2018g. *The Flutter Framework* (version 1.9). Google LLC. <https://flutter.dev/>.
+———. 2018h. *The Flutter Framework* (version 1.9). Google LLC. <https://flutter.dev/>.
 
 </div>
 
 <div id="ref-flutterdevteamWriteYourFirst2018">
 
-———. 2018h. “Write Your First Flutter App.” Guide. 2018. <https://flutter.dev/docs/get-started/codelab>.
+———. 2018i. “Write Your First Flutter App.” Guide. 2018. <https://flutter.dev/docs/get-started/codelab>.
 
 </div>
 
@@ -1302,6 +1325,12 @@ Oracle. 1996. *Java JDK* (version 8). Oracle. <https://www.oracle.com/technetwor
 <div id="ref-rousseletProviderFlutterPackage2018">
 
 Rousselet, Remi, and Flutter Dev Team. 2018. “Provider | Flutter Package.” Documentation. Dart Packages. 2018. <https://pub.dev/packages/provider>.
+
+</div>
+
+<div id="ref-savjolovsFlutterAppArchitecture2019">
+
+Savjolovs, Vadims. n.d. “Flutter App Architecture 101: Vanilla, Scoped Model, BLoC.” Medium. Accessed August 28, 2019. <https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e>.
 
 </div>
 
