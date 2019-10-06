@@ -223,6 +223,12 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 
 </div>
 
+<div id="ref-hracekPragmaticStateManagement2019">
+
+Hracek, Filip, and Matt Sullivan, dirs. 2019. *Pragmatic State Management Using Provider*. Vol. 24. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=HrBiNHEqSYU>.
+
+</div>
+
 <div id="ref-jetbrainsKotlinSDK2017">
 
 Jet Brains. 2017. *Kotlin SDK* (version 1.3). Jet Brains. <https://kotlinlang.org/>.
@@ -289,12 +295,6 @@ Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*
 
 </div>
 
-<div id="ref-sullivanPragmaticStateManagement2019a">
-
-———, dirs. 2019a. *Pragmatic State Management Using Provider*. Vol. 24. The Boring Flutter Development Show. <https://www.youtube.com/watch?v=HrBiNHEqSYU>.
-
-</div>
-
 <div id="ref-sullivanBuildReactiveMobile2018">
 
 ———. 2018b. “Build Reactive Mobile Apps with Flutter.” Conference Talk presented at the Google I/O ’18, Mountain View, CA, May 10. <https://www.youtube.com/watch?v=RS36gBEp8OI>.
@@ -303,7 +303,7 @@ Sullivan, Matt, and Filip Hracek, dirs. 2018a. *Technical Debt and Streams/BLoC*
 
 <div id="ref-sullivanPragmaticStateManagement2019">
 
-———. 2019b. “Pragmatic State Management in Flutter.” Conference Talk presented at the Google I/O’19, Mountain View, CA, May 9. <https://www.youtube.com/watch?v=d_m5csmrf7I>.
+———. 2019. “Pragmatic State Management in Flutter.” Conference Talk presented at the Google I/O’19, Mountain View, CA, May 9. <https://www.youtube.com/watch?v=d_m5csmrf7I>.
 
 </div>
 
