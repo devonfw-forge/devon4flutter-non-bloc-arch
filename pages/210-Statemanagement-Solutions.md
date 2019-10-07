@@ -118,11 +118,7 @@ All in all Provider is a great and easy solution to distribute State in a small 
 
 ## Redux
 
-  - Good approach if you are already familiar
-  - Uses a store for BL
-  - Not that easy to understand
-
-Redux [(Abramov 2015)](https://redux.js.org/) is statemanagement solution originally build for React [(Facebook 2015)](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. In Redux, we use a *Store* as one central location for our Business Logic. This Store is put at the very top of our Widget Tree and then globally provided to all widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the store (such as user input) and display the interface dependant on the current State of the Store. The Store has *reducer* functions, that take in the previous State and an *action* and return a new state. So in Wisgen the Dataflow would look something like this:
+Redux [(Abramov 2015)](https://redux.js.org/) is statemanagement solution originally build for React [(Facebook 2015)](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. In Redux, we use a *Store* as one central location for our Business Logic. This Store is put at the very top of our Widget Tree and then globally provided to all widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the store (such as user input) and display the interface dependant on the current State of the Store. The Store has *reducer* functions, that take in the previous State and an *action* and return a new state. (Boelens 2019; Doughtie 2017; Egan 2018) So in Wisgen the Dataflow would look something like this:
 
 ![Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
@@ -174,7 +170,7 @@ class MyApp extends StatelessWidget {
     //Create new Store from reducer function
     favoriteStore = new Store<List<Wisdom>>(favoriteReducer, initialState: new List());
 
-    //Provide Store golobally
+    //Provide Store globally
     return StoreProvider<List<Wisdom>>((
       store: favoriteStore,
       child: MaterialApp(home: WisdomFeed()),

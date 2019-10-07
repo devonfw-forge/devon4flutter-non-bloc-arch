@@ -91,6 +91,12 @@ Dart Team. 2018. “Asynchronous Programming in Dart.” Documentation. 2018. <h
 
 </div>
 
+<div id="ref-doughtieArchitectingReactiveFlutter2017">
+
+Doughtie, Gavin. 2017. “Architecting the Reactive Flutter App.” Conference Talk presented at the ReactiveConf 2017, Bratislava, Slovakia, November 20. <https://www.youtube.com/watch?v=n_5JULTrstU&feature=youtu.be>.
+
+</div>
+
 <div id="ref-ecmaJavaScriptECMAStandard1997">
 
 ECMA. 1997. *JavaScript ECMA Standard* (version 10). ECMA. <https://www.ecma-international.org/publications/standards/Ecma-262.htm>.
