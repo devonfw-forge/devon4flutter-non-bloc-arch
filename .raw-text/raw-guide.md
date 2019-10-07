@@ -1116,7 +1116,7 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-_Code Snippet XXX: Providing BLoC Globally in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet XXX: Providing a BLoC Globally in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Lastly, we can dispatch events and subscribe to a BLoC. This is the favorite button in Wisgen. It changes shape and color based on the state of the FavoriteBLoC and it dispatches events to the BLoC to add and remove favorites. The _wisdom_ object is the wisdom displayed on the Card Widget.
 
@@ -1149,7 +1149,7 @@ Expanded(
 )
 ...
 ```
-_Code Snippet XXX: Accessing BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet XXX: Accessing a BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Layered Architecure
 
