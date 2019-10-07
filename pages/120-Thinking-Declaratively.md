@@ -19,7 +19,7 @@ for(int i = 0; i < numbers.length; i++){
 }
 ```
 
-*Codesnippt 1: Number List (Imperative)*
+*Code Snippet 1: Number List (Imperative)*
 
 Here we want to print every entry in the list that is bigger then 3. We explicitly tell the framework to go through the List one by one and check each value. In the declarative version, we simply state how our result should look like, but not how to reach it:
 
@@ -28,7 +28,7 @@ List numbers = [1,2,3,4,5]
 print(numbers.where((num) => num > 3));
 ```
 
-*Codesnippt 2: Number List (Declarative)*
+*Code Snippet 2: Number List (Declarative)*
 
 One important thing to note here is, that the difference between imperative and declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit mor declarative. This is because you are then using functions that *describe* what they do and you no longer care how they do it [(Computerphile 2016)](https://www.youtube.com/watch?v=4A2mWqLUpzw).
 
@@ -68,7 +68,7 @@ button.setOnClickListener(new View.OnClickListener() {
 }); 
 ```
 
-*Codesnippt 3: Red button in Android (Imperative)*
+*Code Snippet 3: Red button in Android (Imperative)*
 
 In Flutter on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool “pressed”). We then declare that the onPressed function should update the app state and re-build the button:
 
@@ -88,7 +88,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-*Codesnippt 4: Red button in Flutter (Declarative)*
+*Code Snippet 4: Red button in Flutter (Declarative)*
 
 ## Efficiency of Re-Builds
 

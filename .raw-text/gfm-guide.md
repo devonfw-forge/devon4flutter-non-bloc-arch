@@ -128,7 +128,7 @@ for(int i = 0; i < numbers.length; i++){
 }
 ```
 
-*Codesnippt 1: Number List (Imperative)*
+*Code Snippet 1: Number List (Imperative)*
 
 Here we want to print every entry in the list that is bigger then 3. We explicitly tell the framework to go through the List one by one and check each value. In the declarative version, we simply state how our result should look like, but not how to reach it:
 
@@ -137,7 +137,7 @@ List numbers = [1,2,3,4,5]
 print(numbers.where((num) => num > 3));
 ```
 
-*Codesnippt 2: Number List (Declarative)*
+*Code Snippet 2: Number List (Declarative)*
 
 One important thing to note here is, that the difference between imperative and declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit mor declarative. This is because you are then using functions that *describe* what they do and you no longer care how they do it [(Computerphile 2016)](https://www.youtube.com/watch?v=4A2mWqLUpzw).
 
@@ -177,7 +177,7 @@ button.setOnClickListener(new View.OnClickListener() {
 }); 
 ```
 
-*Codesnippt 3: Red button in Android (Imperative)*
+*Code Snippet 3: Red button in Android (Imperative)*
 
 In Flutter on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool “pressed”). We then declare that the onPressed function should update the app state and re-build the button:
 
@@ -197,7 +197,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-*Codesnippt 4: Red button in Flutter (Declarative)*
+*Code Snippet 4: Red button in Flutter (Declarative)*
 
 ## Efficiency of Re-Builds
 
@@ -247,7 +247,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-*Codesnippt 5: Wisgen Card Widget [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 5: Wisgen Card Widget [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 The functions \_image() generates a Widget that contains the stock image. The function \_content() generate a Widget that displays the wisdom text and the buttons on the card.
 Another important thing to note is that:
@@ -260,7 +260,7 @@ But your app never consists out of exclusively immutable parts, does it? Variabl
 
 ### The Widget Tree
 
-When working with Flutter, you will inevitably stumble over the term *Widget Tree*, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let’s have a look at the Widget Tree for our example from Figure 8. Note the card Widgets on the right hand side of the diagram. You can see how the code from Codesnippt 5 translates to Widgets in the Widget Tree.
+When working with Flutter, you will inevitably stumble over the term *Widget Tree*, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let’s have a look at the Widget Tree for our example from Figure 8. Note the card Widgets on the right hand side of the diagram. You can see how the code from snippet 5 translates to Widgets in the Widget Tree.
 
 ![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widget-tree.PNG)
 
@@ -287,7 +287,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-*Codesnippt 6: Hypothetical Wisgen Image Widget [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 6: Hypothetical Wisgen Image Widget [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree: **Downwards**. You want to place information that is required by multiple Widgets above them in the tree, so they can both easily access it through their BuildContext. Keep this in mind for now, I will explain this in more detail in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
@@ -318,7 +318,7 @@ class WisdomCard extends StatelessWidget {
 }
 ```
 
-*Codesnippt 7: Wisgen Card Widget Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 7: Wisgen Card Widget Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 As you can see, it has some const values for styling, a wisdom object that is passed into the constructor and a build methode. The wsidom object contains the wisdom text and the hyperlink for the stock image.
 
@@ -343,7 +343,7 @@ class MyWidget extends StatelessWidget {
 }
 ```
 
-*Codesnippt 8: Stateless Widget Lifecycle*
+*Code Snippet 8: Stateless Widget Lifecycle*
 
 ### Stateful Widgets
 
@@ -373,7 +373,7 @@ class WisdomFeedState extends State<WisdomFeed>{
 }
 ```
 
-*Codesnippt 9: Wisgen WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 9: Wisgen WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 If you are anything like me, you will ask yourself: “why is this split into 2 parts? The StatefulWidget is not really doing anything.” Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true, is to have the StatefulWidget hold onto the State but not actually be the State (Google LLC 2018a; Windmill and Contributors 2019).
 
@@ -410,7 +410,7 @@ class MySate extends State<MyWidget>{
 }
 ```
 
-*Codesnippt 10: State Objects/StatefulWidgets Lifecycle*
+*Code Snippet 10: State Objects/StatefulWidgets Lifecycle*
 
 ### When to use Stateless & When to use Stateful
 
@@ -449,7 +449,7 @@ class Api {
 }
 ```
 
-*Codesnippt 11: Wisgen API Repository (Futures) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 11: Wisgen API Repository (Futures) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 As you can see, you simply call *get()* on the HTTP module and give it the URL it should request. The get() methode returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, the Future object *“apiCall”* is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* (Google LLC 2019c, 2019b). We can also handle errors with the *catchError()* function:
 
@@ -467,7 +467,7 @@ class Api {
 }
 ```
 
-*Codesnippt 12: Wisgen API Repository (Futures with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 12: Wisgen API Repository (Futures with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Async & Await
 
@@ -486,7 +486,7 @@ class Api {
 }
 ```
 
-*Codesnippt 13: Wisgen API Repository (Async) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 13: Wisgen API Repository (Async) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark the function as *async*. This forces the return type to be a Future. This makes sense, because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [(Google LLC 2019e)](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with try / catch:
 
@@ -506,7 +506,7 @@ class Api {
 }
 ```
 
-*Codesnippt 14: Wisgen API Repository (Async with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 14: Wisgen API Repository (Async with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ## Streams
 
@@ -531,7 +531,7 @@ main(List<String> arguments) {
 }
 ```
 
-*Codesnippt 15: Stream of Ints*
+*Code Snippet 15: Stream of Ints*
 
 ``` bash
 0
@@ -541,7 +541,7 @@ main(List<String> arguments) {
 4
 ```
 
-*Codesnippt 16: Stream of Ints Output*
+*Code Snippet 16: Stream of Ints Output*
 
 Important Siedenote:
 
@@ -578,7 +578,7 @@ class WisdomBloc {
 }
 ```
 
-*Codesnippt 17: Simplified Wisgen WisdomBLoC [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 17: Simplified Wisgen WisdomBLoC [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. When ever the *publishMoreWisdom()* function is called, the BLoC request more wisdom from the API, waits until they are fetched and then publishes them to the stream. Let’s look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
 
@@ -649,7 +649,7 @@ class WisdomFeedState extends State<WisdomFeed> {
 }
 ```
 
-*Codesnippt 18: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 18: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018d)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018g)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek 2018a)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
 
@@ -673,7 +673,7 @@ Stream<List<Wisdom>> streamWisdoms() async* {
 }
 ```
 
-*Codesnippt 19: Simplified Wisgen WisdomBLoC with async\* [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 19: Simplified Wisgen WisdomBLoC with async\* [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still fell like you want to learn more I can highly recommend this article by Didier Boelens [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8 minute tutorial video by the Flutter Team [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
@@ -733,7 +733,7 @@ class Api implements Repository<Wisdom> {
 }
 ```
 
-*Codesnippt 20: Actual Wisgen API Repository [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 20: Actual Wisgen API Repository [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 The AdviceSlips class, is generated with a JSON to Dart converter [(Lecuona 2019)](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it’s data fields with the JSON response. I used this class instead of implementing a method in the Wisdom class, because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don’t need to read it all, I just want to give you an idea of how it looks like:
 
@@ -797,7 +797,7 @@ class Slips {
 }
 ```
 
-*Codesnippt 21: Wisgen AdviceSlips Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 21: Wisgen AdviceSlips Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 # 200-Architecting-a-Flutter-App
 
@@ -816,7 +816,7 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
 ![Ephemeral State vs App State Dession Tree](https://github.com/Fasust/flutter-guide/wiki//images/ephemeral-vs-app-state.png)
 
-*Figure XXX: Ephemeral State vs App State Dession Tree [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt)*
+*Figure 12: Ephemeral State vs App State Dession Tree [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt)*
 
 ## Contents of this Chapter
 
@@ -839,7 +839,7 @@ I will showcase the State Management solutions using one example of *App State* 
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
 
-*Figure XXX: Wisgen Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 13: Wisgen Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 So when ever the favorite button on any card is pressed, a number of widgets [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro) have to update. This a simplified version of the Wisgen WidgetTree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
 
@@ -857,7 +857,7 @@ The Provider Package is an easy way for us to lift state up. Let’s look at our
 
 ![Wisgen WidgetTree Favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
 
-*Figure XXX: Wisgen WidgetTree Favorites with Provider [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 14: Wisgen WidgetTree Favorites with Provider [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 To minimize re-builds the Provider Package uses ChangeNotifiers [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the Sate and get notified whenever the state changes. This is how an implementation of Wisgens favorite list would look like using Provider: *Favorites* is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
 
@@ -882,7 +882,7 @@ class Favorites with ChangeNotifier{
 }
 ```
 
-*Codesnippt XXX: Favorites Class that will be exposed through Provider Package [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 22: Favorites Class that will be exposed through Provider Package [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Here we expose our Favorite class globally above *MaterialApp* in the WidgetTree using the *ChangeNotifierProvider* Widget:
 
@@ -901,7 +901,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-*Codesnippt XXX: Providing Favorites Globally [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 23: Providing Favorites Globally [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 This is how listening to the Favorite class looks like. We use the *Consumer Widget* to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes.
 
@@ -929,7 +929,7 @@ Expanded(
 ...
 ```
 
-*Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 24: Consuming Provider in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Why I decided against it
 
@@ -941,7 +941,7 @@ Redux [(Abramov 2015)](https://redux.js.org/) is State Management solution origi
 
 ![Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
-*Figure XXX: Wisgen Favorite List with Redux [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 15: Wisgen Favorite List with Redux [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Our possible *actions* are adding a new wisdom and removing a wisdom. So this is what our Action classes would look like:
 
@@ -964,7 +964,7 @@ class RemoveFavoriteAction extends FavoriteAction {
 }
 ```
 
-*Codesnippt XXX: Wisgen Redux Actions [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 25: Wisgen Redux Actions [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 This what the reducer function would look like:
 
@@ -976,7 +976,7 @@ List<Wisdom> favoriteReducer(List<Wisdom> state, FavoriteAction action) {
 }
 ```
 
-*Codesnippt XXX: Wisgen Redux Reducer [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 26: Wisgen Redux Reducer [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 And this is how you would make the Store globally available:
 
@@ -998,9 +998,9 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-*Codesnippt XXX: Providing Redux Store globally in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 27: Providing Redux Store globally in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-Now the Favorite button from snippet XXX would be implemented like this:
+Now the Favorite button from snippet 24 would be implemented like this:
 
 ``` dart
 ...
@@ -1027,7 +1027,7 @@ Expanded(
 ...
 ```
 
-*Codesnippt XXX: Consuming Redux Store in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 28: Consuming Redux Store in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Why I decided against it
 

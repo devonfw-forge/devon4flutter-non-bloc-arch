@@ -19,7 +19,7 @@ I will showcase the State Management solutions using one example of *App State* 
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
 
-*Figure XXX: Wisgen Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 13: Wisgen Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 So when ever the favorite button on any card is pressed, a number of widgets [(Flutter Dev Team 2019c)](https://flutter.dev/docs/development/ui/widgets-intro) have to update. This a simplified version of the Wisgen WidgetTree, the red highlights show the widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
 
@@ -37,7 +37,7 @@ The Provider Package is an easy way for us to lift state up. Let’s look at our
 
 ![Wisgen WidgetTree Favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
 
-*Figure XXX: Wisgen WidgetTree Favorites with Provider [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 14: Wisgen WidgetTree Favorites with Provider [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 To minimize re-builds the Provider Package uses ChangeNotifiers [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the Sate and get notified whenever the state changes. This is how an implementation of Wisgens favorite list would look like using Provider: *Favorites* is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
 
@@ -62,7 +62,7 @@ class Favorites with ChangeNotifier{
 }
 ```
 
-*Codesnippt XXX: Favorites Class that will be exposed through Provider Package [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 22: Favorites Class that will be exposed through Provider Package [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Here we expose our Favorite class globally above *MaterialApp* in the WidgetTree using the *ChangeNotifierProvider* Widget:
 
@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-*Codesnippt XXX: Providing Favorites Globally [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 23: Providing Favorites Globally [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 This is how listening to the Favorite class looks like. We use the *Consumer Widget* to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes.
 
@@ -109,7 +109,7 @@ Expanded(
 ...
 ```
 
-*Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 24: Consuming Provider in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Why I decided against it
 
@@ -121,7 +121,7 @@ Redux [(Abramov 2015)](https://redux.js.org/) is State Management solution origi
 
 ![Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
-*Figure XXX: Wisgen Favorite List with Redux [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 15: Wisgen Favorite List with Redux [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Our possible *actions* are adding a new wisdom and removing a wisdom. So this is what our Action classes would look like:
 
@@ -144,7 +144,7 @@ class RemoveFavoriteAction extends FavoriteAction {
 }
 ```
 
-*Codesnippt XXX: Wisgen Redux Actions [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 25: Wisgen Redux Actions [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 This what the reducer function would look like:
 
@@ -156,7 +156,7 @@ List<Wisdom> favoriteReducer(List<Wisdom> state, FavoriteAction action) {
 }
 ```
 
-*Codesnippt XXX: Wisgen Redux Reducer [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 26: Wisgen Redux Reducer [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 And this is how you would make the Store globally available:
 
@@ -178,9 +178,9 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-*Codesnippt XXX: Providing Redux Store globally in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 27: Providing Redux Store globally in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-Now the Favorite button from snippet XXX would be implemented like this:
+Now the Favorite button from snippet 24 would be implemented like this:
 
 ``` dart
 ...
@@ -207,7 +207,7 @@ Expanded(
 ...
 ```
 
-*Codesnippt XXX: Consuming Redux Store in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 28: Consuming Redux Store in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Why I decided against it
 

@@ -49,7 +49,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-*Codesnippt 5: Wisgen Card Widget [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 5: Wisgen Card Widget [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 The functions \_image() generates a Widget that contains the stock image. The function \_content() generate a Widget that displays the wisdom text and the buttons on the card.
 Another important thing to note is that:
@@ -62,7 +62,7 @@ But your app never consists out of exclusively immutable parts, does it? Variabl
 
 ### The Widget Tree
 
-When working with Flutter, you will inevitably stumble over the term *Widget Tree*, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let’s have a look at the Widget Tree for our example from Figure 8. Note the card Widgets on the right hand side of the diagram. You can see how the code from Codesnippt 5 translates to Widgets in the Widget Tree.
+When working with Flutter, you will inevitably stumble over the term *Widget Tree*, but what exactly does it mean? A UI in flutter is nothing more then a tree of nested Widgets. Let’s have a look at the Widget Tree for our example from Figure 8. Note the card Widgets on the right hand side of the diagram. You can see how the code from snippet 5 translates to Widgets in the Widget Tree.
 
 ![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widget-tree.PNG)
 
@@ -89,7 +89,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-*Codesnippt 6: Hypothetical Wisgen Image Widget [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 6: Hypothetical Wisgen Image Widget [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree: **Downwards**. You want to place information that is required by multiple Widgets above them in the tree, so they can both easily access it through their BuildContext. Keep this in mind for now, I will explain this in more detail in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
@@ -120,7 +120,7 @@ class WisdomCard extends StatelessWidget {
 }
 ```
 
-*Codesnippt 7: Wisgen Card Widget Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 7: Wisgen Card Widget Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 As you can see, it has some const values for styling, a wisdom object that is passed into the constructor and a build methode. The wsidom object contains the wisdom text and the hyperlink for the stock image.
 
@@ -145,7 +145,7 @@ class MyWidget extends StatelessWidget {
 }
 ```
 
-*Codesnippt 8: Stateless Widget Lifecycle*
+*Code Snippet 8: Stateless Widget Lifecycle*
 
 ### Stateful Widgets
 
@@ -175,7 +175,7 @@ class WisdomFeedState extends State<WisdomFeed>{
 }
 ```
 
-*Codesnippt 9: Wisgen WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 9: Wisgen WisdomFeed [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 If you are anything like me, you will ask yourself: “why is this split into 2 parts? The StatefulWidget is not really doing anything.” Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true, is to have the StatefulWidget hold onto the State but not actually be the State (Google LLC 2018a; Windmill and Contributors 2019).
 
@@ -212,7 +212,7 @@ class MySate extends State<MyWidget>{
 }
 ```
 
-*Codesnippt 10: State Objects/StatefulWidgets Lifecycle*
+*Code Snippet 10: State Objects/StatefulWidgets Lifecycle*
 
 ### When to use Stateless & When to use Stateful
 

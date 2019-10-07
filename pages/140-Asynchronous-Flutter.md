@@ -29,7 +29,7 @@ class Api {
 }
 ```
 
-*Codesnippt 11: Wisgen API Repository (Futures) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 11: Wisgen API Repository (Futures) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 As you can see, you simply call *get()* on the HTTP module and give it the URL it should request. The get() methode returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, the Future object *“apiCall”* is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* (Google LLC 2019c, 2019b). We can also handle errors with the *catchError()* function:
 
@@ -47,7 +47,7 @@ class Api {
 }
 ```
 
-*Codesnippt 12: Wisgen API Repository (Futures with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 12: Wisgen API Repository (Futures with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Async & Await
 
@@ -66,7 +66,7 @@ class Api {
 }
 ```
 
-*Codesnippt 13: Wisgen API Repository (Async) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 13: Wisgen API Repository (Async) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark the function as *async*. This forces the return type to be a Future. This makes sense, because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [(Google LLC 2019e)](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with try / catch:
 
@@ -86,7 +86,7 @@ class Api {
 }
 ```
 
-*Codesnippt 14: Wisgen API Repository (Async with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 14: Wisgen API Repository (Async with Error) [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ## Streams
 
@@ -111,7 +111,7 @@ main(List<String> arguments) {
 }
 ```
 
-*Codesnippt 15: Stream of Ints*
+*Code Snippet 15: Stream of Ints*
 
 ``` bash
 0
@@ -121,7 +121,7 @@ main(List<String> arguments) {
 4
 ```
 
-*Codesnippt 16: Stream of Ints Output*
+*Code Snippet 16: Stream of Ints Output*
 
 Important Siedenote:
 
@@ -158,7 +158,7 @@ class WisdomBloc {
 }
 ```
 
-*Codesnippt 17: Simplified Wisgen WisdomBLoC [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 17: Simplified Wisgen WisdomBLoC [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 We create a stream builder in the beginning and expose the stream itself to enable the UI to subscribe to it. We also open up a private sink, so we can easily add thinks to the stream. When ever the *publishMoreWisdom()* function is called, the BLoC request more wisdom from the API, waits until they are fetched and then publishes them to the stream. Let’s look at the UI side of thing. This is a simplified version of the WisdomFeed in Wisgen:
 
@@ -229,7 +229,7 @@ class WisdomFeedState extends State<WisdomFeed> {
 }
 ```
 
-*Codesnippt 18: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 18: Simplified Wisgen WisdomFeed with StreamBuilder [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Alright, let’s go through this step by step. First we initialize our WisdomBloc in the *initSate()* methode. This is also where we set up a ScrollController [(Flutter Dev Team 2018d)](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I wont go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc when ever we are near the end ouf our list. This way we get infinite scrolling. In the *build()* methode, we use Flutters StreamBuilder [(Flutter Dev Team 2018g)](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current state of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the *listView()* methode. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this usecase [(Sullivan and Hracek 2018a)](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the *dispose()* methode is called and we dispose our stream and ScrollController.
 
@@ -253,7 +253,7 @@ Stream<List<Wisdom>> streamWisdoms() async* {
 }
 ```
 
-*Codesnippt 19: Simplified Wisgen WisdomBLoC with async\* [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 19: Simplified Wisgen WisdomBLoC with async\* [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still fell like you want to learn more I can highly recommend this article by Didier Boelens [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8 minute tutorial video by the Flutter Team [(Google LLC 2019d)](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
@@ -313,7 +313,7 @@ class Api implements Repository<Wisdom> {
 }
 ```
 
-*Codesnippt 20: Actual Wisgen API Repository [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 20: Actual Wisgen API Repository [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 The AdviceSlips class, is generated with a JSON to Dart converter [(Lecuona 2019)](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it’s data fields with the JSON response. I used this class instead of implementing a method in the Wisdom class, because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don’t need to read it all, I just want to give you an idea of how it looks like:
 
@@ -377,7 +377,7 @@ class Slips {
 }
 ```
 
-*Codesnippt 21: Wisgen AdviceSlips Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet 21: Wisgen AdviceSlips Class [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App">Next Chapter: Architecting a Flutter App ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
