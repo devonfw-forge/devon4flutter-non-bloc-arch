@@ -223,15 +223,21 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 
 </div>
 
+<div id="ref-googlellcAngularDart2018">
+
+———. 2018a. “AngularDart.” Documentation. 2018. <https://angulardart.dev/>.
+
+</div>
+
 <div id="ref-googlellcHowStatefulWidgets2018">
 
-———, dir. 2018a. *How Stateful Widgets Are Used Best*. Vol. Ep. 2. Flutter Widgets 101. <https://www.youtube.com/watch?v=AqCMFXEmf3w>.
+———, dir. 2018b. *How Stateful Widgets Are Used Best*. Vol. Ep. 2. Flutter Widgets 101. <https://www.youtube.com/watch?v=AqCMFXEmf3w>.
 
 </div>
 
 <div id="ref-googlellcHowCreateStateless2018">
 
-———, dir. 2018b. *How to Create Stateless Widgets*. Vol. Ep. 1. Flutter Widgets 101. <https://www.youtube.com/watch?v=wE7khGHVkYY>.
+———, dir. 2018c. *How to Create Stateless Widgets*. Vol. Ep. 1. Flutter Widgets 101. <https://www.youtube.com/watch?v=wE7khGHVkYY>.
 
 </div>
 
