@@ -139,7 +139,7 @@ class MyApp extends StatelessWidget {
 
 *Code Snippet XXX: Providing BLoC Globally in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-Lastly, we can dispatch events and subscribe to a BLoC like this:
+Lastly, we can dispatch events and subscribe to a BLoC. This is the favorite button in Wisgen. It changes shape and color based on the state of the FavoriteBLoC and it dispatches events to the BLoC to add and remove favorites. The *wisdom* object is the wisdom displayed on the Card Widget.
 
 ``` dart
 ...
