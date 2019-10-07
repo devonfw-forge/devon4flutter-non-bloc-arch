@@ -1075,9 +1075,9 @@ _Figure XXX: Wisgen Bloc Architecture Dataflow [[@faustWisgen2019]](https://gith
 
 # 300-Testing
 
-- Keep it stupid so you don't need to test it
-- 
 ## Unit Tests in Dart using the BLoC Pattern
+
+Keep it stupid so you don't need to test it
 
 # 400-Conventions
 ## Mastering the Widget Tree

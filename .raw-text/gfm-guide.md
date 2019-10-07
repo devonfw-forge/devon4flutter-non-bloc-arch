@@ -1124,9 +1124,9 @@ To gain those promised advanteges, you will have to follow these 8 rules Soares 
 
 # 300-Testing
 
-  - Keep it stupid so you don’t need to test it
+## Unit Tests in Dart using the BLoC Pattern
 
-  - ## Unit Tests in Dart using the BLoC Pattern
+Keep it stupid so you don’t need to test it
 
 # 400-Conventions
 
