@@ -139,6 +139,40 @@ class MyApp extends StatelessWidget {
 
 *Code Snippet XXX: Providing BLoC Globally in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
+Lastly, we can dispatch events and subscribe to a BLoC like this:
+
+``` dart
+...
+Expanded(
+  flex: 1,
+  //This is where we Subscribe to the FavoriteBLoC
+  child: BlocBuilder<FavoriteBloc, List<Wisdom>>(
+    builder: (context, favorites) => IconButton(
+      //Display Icon Button depending on current State
+      //Re-Build when favorite list changes
+      icon: Icon(favorites.contains(wisdom)
+          ? Icons.favorite
+          : Icons.favorite_border),
+      color: favorites.contains(wisdom) 
+          ? Colors.red 
+          : Colors.grey,
+      onPressed: () {
+        //Grab FavoriteBloc though Buildcontext
+        FavoriteBloc favoriteBloc = BlocProvider.of<FavoriteBloc>(context);
+        
+        //Add/remove Wisdom to/from Favorites (dispatch events)
+        if (favorites.contains(wisdom)) favoriteBloc.dispatch(RemoveFavoriteEvent(wisdom));
+        else favoriteBloc.dispatch(AddFavoriteEvent(wisdom));  
+      },
+      padding: EdgeInsets.only(right: _smallPadding),
+    ),
+  ),
+)
+...
+```
+
+*Code Snippet XXX: Accessing BLoC in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
 ## Layered Architecure
 
   - Pros

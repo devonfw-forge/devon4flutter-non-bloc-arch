@@ -1102,7 +1102,6 @@ _Code Snippet XXX: Favorite BLoC in Wisgen [[@faustWisgen2019]](https://github.c
 
 As I machined before, the BLoC package for Flutter uses the Provider package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we would if just used Provider for State Management. By the rule of _"lifting state up"_ we have to place the favorite BLoC at the lowest common ancestor of all widgets that need access to it. So in our case at _MaterialApp_:
 
-
 ```dart
 void main() => runApp(MyApp());
 
@@ -1118,6 +1117,39 @@ class MyApp extends StatelessWidget {
 }
 ```
 _Code Snippet XXX: Providing BLoC Globally in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+Lastly, we can dispatch events and subscribe to a BLoC like this:
+
+```dart
+...
+Expanded(
+  flex: 1,
+  //This is where we Subscribe to the FavoriteBLoC
+  child: BlocBuilder<FavoriteBloc, List<Wisdom>>(
+    builder: (context, favorites) => IconButton(
+      //Display Icon Button depending on current State
+      //Re-Build when favorite list changes
+      icon: Icon(favorites.contains(wisdom)
+          ? Icons.favorite
+          : Icons.favorite_border),
+      color: favorites.contains(wisdom) 
+          ? Colors.red 
+          : Colors.grey,
+      onPressed: () {
+        //Grab FavoriteBloc though Buildcontext
+        FavoriteBloc favoriteBloc = BlocProvider.of<FavoriteBloc>(context);
+        
+        //Add/remove Wisdom to/from Favorites (dispatch events)
+        if (favorites.contains(wisdom)) favoriteBloc.dispatch(RemoveFavoriteEvent(wisdom));
+        else favoriteBloc.dispatch(AddFavoriteEvent(wisdom));  
+      },
+      padding: EdgeInsets.only(right: _smallPadding),
+    ),
+  ),
+)
+...
+```
+_Code Snippet XXX: Accessing BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Layered Architecure
 
