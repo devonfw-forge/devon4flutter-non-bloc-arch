@@ -1041,10 +1041,6 @@ To gain those promised advanteges, you will have to follow these 8 rules Soares 
 _Figure XXX: How a BLoC looks like [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
 
 ## Implementation
-
-- **Build Interface code how you want it to look like -> then make it work**
-- Wisgen Exampels
-
 Alright, Now that you know what the BLoC pattern is, let's have a look at how it looks in practice. You will see some strong similarity to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in gerneral. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the Example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let's have a look at how the Bloc pattern will interact with Wisgen on a more abstract scale:
 
 ![Bloc and Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-bloc.PNG)
@@ -1085,8 +1081,8 @@ class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
   @override
   List<Wisdom> get initialState => List<Wisdom>();
 
-  ///Takes in each event that is send to the BLoC emits a new State based on
-  ///that event.
+  ///Takes in each event that is send to the BLoC and emits new State
+  ///based on that event.
   @override
   Stream<List<Wisdom>> mapEventToState(FavoriteEvent event) async* {
     List<Wisdom> newFavorites = new List()..addAll(currentState);
