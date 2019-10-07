@@ -822,7 +822,6 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
   - [State Management Alternatives](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives)
   - [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
-  - \[BLoC in Practice\]\[bloc-practice\]
 
 # 210-State-Management-Alternatives
 
@@ -845,7 +844,7 @@ So when ever the favorite button on any card is pressed, a number of widgets [(F
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
 
-*Figure XXX: Wisgen WidgetTree Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 14: Wisgen WidgetTree Favorites [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ## Provider Package
 
@@ -857,7 +856,7 @@ The Provider Package is an easy way for us to lift state up. Let’s look at our
 
 ![Wisgen WidgetTree Favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
 
-*Figure 14: Wisgen WidgetTree Favorites with Provider [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 15: Wisgen WidgetTree Favorites with Provider [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 To minimize re-builds the Provider Package uses ChangeNotifiers [(Flutter Dev Team 2018b)](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the Sate and get notified whenever the state changes. This is how an implementation of Wisgens favorite list would look like using Provider: *Favorites* is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
 
@@ -941,7 +940,7 @@ Redux [(Abramov 2015)](https://redux.js.org/) is State Management solution origi
 
 ![Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
-*Figure 15: Wisgen Favorite List with Redux [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure 16: Wisgen Favorite List with Redux [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 Our possible *actions* are adding a new wisdom and removing a wisdom. So this is what our Action classes would look like:
 
