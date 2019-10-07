@@ -1,4 +1,6 @@
 # Flutter Guide
+
+> The Guide is published in the [Wiki of this repository](https://github.com/Fasust/flutter-guide/wiki), this is a copy of the [Introduction chapter](https://github.com/Fasust/flutter-guide/wiki).
  
 Page Table of Contents
 - [Introduction](#introduction)
