@@ -849,7 +849,7 @@ So when ever the favorite button on any card is pressed, a number of widgets [(F
 
 ## Provider Package
 
-The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions (Hracek and Sullivan 2019; Sullivan and Hracek 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with Inherited Widgets [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a Widget at the top of the tree to a Widget at the bottom.
+The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions (Hracek and Sullivan 2019; Sullivan and Hracek 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with Inherited Widgets [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a Widget at the top of the tree to a Widget at the bottom.
 
 As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called *lifting state up* and it a common practice within declarative frameworks [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
@@ -883,7 +883,7 @@ class Favorites with ChangeNotifier{
 
 *Codesnippt XXX: Favorites Class that will be exposed through Provider Package [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
-Here expose our Favorite class globally above *MaterialApp* in the WidgetTree:
+Here we expose our Favorite class globally above *MaterialApp* in the WidgetTree using the *ChangeNotifierProvider* Widget:
 
 ``` dart
 void main() => runApp(MyApp());
@@ -929,7 +929,7 @@ Expanded(
 
 ### Why I decided against it
 
-All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it not an architecture (Hracek and Sullivan 2019; Boelens 2019; Savjolovs 2019; Sullivan and Hracek 2019). Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [(Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
+All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it is not an architecture (Hracek and Sullivan 2019; Boelens 2019; Savjolovs 2019; Sullivan and Hracek 2019). Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [(Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
 
 ## Redux
 
@@ -937,7 +937,59 @@ All in all Provider is a great and easy solution to distribute State in a small 
   - Uses a store for BL
   - Not that easy to understand
 
-Redux [(Abramov 2015)](https://redux.js.org/) is statemanagement solution originally build for React [(Facebook 2015)](https://facebook.github.io/react-native/) and Angular [(Google LLC 2016)](https://angular.io/) in 2015 by Dan Abramov. Out of time constraints, I have decided to only briefly manchen it here without highlighting how to actually implement it.
+Redux [(Abramov 2015)](https://redux.js.org/) is statemanagement solution originally build for React [(Facebook 2015)](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. In Redux, we use a *Store* as one central location for our Business Logic. This Store is put at the very top of our Widget Tree and then globally provided to all widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the store (such as user input) and display the interface dependant on the current State of the Store. The Store has *reducer* functions, that take in the previous State and an *action* and return a new state. So in Wisgen the Dataflow would look something like this:
+
+![Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
+
+*Figure XXX: Wisgen Favorite List with Redux [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
+Our possible *actions* are adding a new wisdom and removing a wisdom. So this is what our Action classes would look like:
+
+``` dart
+@immutable
+abstract class FavoriteAction {
+  final Wisdom _favorite;
+  get favorite => _favorite;
+
+  FavoriteAction(this._favorite);
+}
+
+class AddFavoriteAction extends FavoriteAction {
+  AddFavoriteAction(Wisdom favorite) : super(favorite);
+}
+
+class RemoveFavoriteAction extends FavoriteAction {
+  RemoveFavoriteAction(Wisdom favorite) : super(favorite);
+}
+```
+
+This what the reducer function would look like:
+
+``` dart
+List<Wisdom> favoriteReducer(List<Wisdom> state, FavoriteAction action) {
+  if (action is AddFavoriteAction) state.add(action.favorite);
+  if (action is RemoveFavoriteAction) state.remove(action.favorite);
+  return state;
+}
+```
+
+And this is how you would make the Store globally available:
+
+``` dart
+void main(){} => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    favoriteStore = new Store<List<Wisdom>>(favoriteReducer, initialState: new List());
+
+    return StoreProvider<List<Wisdom>>((
+      store: favoriteStore,
+      child: MaterialApp(home: WisdomFeed()),
+    );
+  }
+}
+```
 
 ### Why I decided against it
 
@@ -1240,12 +1292,6 @@ Flutter Dev Team. 2018a. “BuildContext Class.” Documentation. 2018. <https:/
 <div id="ref-googlellcAndroidSDK2008">
 
 Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.android.com/>.
-
-</div>
-
-<div id="ref-googlellcAngular2016">
-
-———. 2016. “Angular.” Documentation. 2016. <https://angular.io/>.
 
 </div>
 

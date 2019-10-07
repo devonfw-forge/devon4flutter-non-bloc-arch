@@ -811,7 +811,7 @@ So when ever the favorite button on any card is pressed, a number of widgets [[@
 _Figure XXX: Wisgen WidgetTree Favorites [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Provider Package
-The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple achsions [@hracekPragmaticStateManagement2019; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with Inherited Widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a Widget at the top of the tree to a Widget at the bottom. 
+The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions [@hracekPragmaticStateManagement2019; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with Inherited Widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a Widget at the top of the tree to a Widget at the bottom. 
 
 As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). 
 
@@ -844,7 +844,7 @@ class Favorites with ChangeNotifier{
 ```
 _Codesnippt XXX: Favorites Class that will be exposed through Provider Package [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Here expose our Favorite class globally above _MaterialApp_ in the WidgetTree:
+Here we expose our Favorite class globally above _MaterialApp_ in the WidgetTree using the _ChangeNotifierProvider_ Widget:
 
 ```dart
 void main() => runApp(MyApp());
@@ -887,14 +887,66 @@ Expanded(
 _Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Why I decided against it
-All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it not an architecture [@hracekPragmaticStateManagement2019; @boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @sullivanPragmaticStateManagement2019]. Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
+All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it is not an architecture [@hracekPragmaticStateManagement2019; @boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @sullivanPragmaticStateManagement2019]. Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
 
 ## Redux
 - Good approach if you are already familiar
 - Uses a store for BL
 - Not that easy to understand
 
-Redux [[@abramovRedux2015]](https://redux.js.org/) is statemanagement solution originally build for React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) and Angular [[@googlellcAngular2016]](https://angular.io/) in 2015 by Dan Abramov. Out of time constraints, I have decided to only briefly manchen it here without highlighting how to actually implement it.
+Redux [[@abramovRedux2015]](https://redux.js.org/) is statemanagement solution originally build for React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. In Redux, we use a _Store_ as one central location for our Business Logic. This Store is put at the very top of our Widget Tree and then globally provided to all widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the store (such as user input) and display the interface dependant on the current State of the Store. The Store has _reducer_ functions, that take in the previous State and an _action_ and return a new state. So in Wisgen the Dataflow would look something like this:
+
+![ Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
+
+_Figure XXX: Wisgen Favorite List with Redux [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+Our possible _actions_ are adding a new wisdom and removing a wisdom. So this is what our Action classes would look like:
+
+```dart
+@immutable
+abstract class FavoriteAction {
+  final Wisdom _favorite;
+  get favorite => _favorite;
+
+  FavoriteAction(this._favorite);
+}
+
+class AddFavoriteAction extends FavoriteAction {
+  AddFavoriteAction(Wisdom favorite) : super(favorite);
+}
+
+class RemoveFavoriteAction extends FavoriteAction {
+  RemoveFavoriteAction(Wisdom favorite) : super(favorite);
+}
+```
+
+This what the reducer function would look like:
+
+```dart
+List<Wisdom> favoriteReducer(List<Wisdom> state, FavoriteAction action) {
+  if (action is AddFavoriteAction) state.add(action.favorite);
+  if (action is RemoveFavoriteAction) state.remove(action.favorite);
+  return state;
+}
+```
+
+And this is how you would make the Store globally available:
+
+```dart
+void main(){} => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    favoriteStore = new Store<List<Wisdom>>(favoriteReducer, initialState: new List());
+
+    return StoreProvider<List<Wisdom>>((
+      store: favoriteStore,
+      child: MaterialApp(home: WisdomFeed()),
+    );
+  }
+}
+```
 
 ### Why I decided against it
 

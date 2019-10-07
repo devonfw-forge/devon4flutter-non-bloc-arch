@@ -205,12 +205,6 @@ Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.and
 
 </div>
 
-<div id="ref-googlellcAngular2016">
-
-———. 2016. “Angular.” Documentation. 2016. <https://angular.io/>.
-
-</div>
-
 <div id="ref-googlellcHowStatefulWidgets2018">
 
 ———, dir. 2018a. *How Stateful Widgets Are Used Best*. Vol. Ep. 2. Flutter Widgets 101. <https://www.youtube.com/watch?v=AqCMFXEmf3w>.
