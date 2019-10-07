@@ -5,7 +5,6 @@ Page Table of Contents
   - [Why I decided against it](#why-i-decided-against-it)
 - [Redux](#redux)
   - [Why I decided against it](#why-i-decided-against-it-1)
-- [Bloc](#bloc)
 
 ## Introduction
 
