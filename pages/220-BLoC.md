@@ -1,6 +1,9 @@
 Page Table of Contents
 - [Introduction](#introduction)
-- [Rules](#rules)
+- [Advantages of BLoC](#advantages-of-bloc)
+- [Rules of the BLoC Pattern](#rules-of-the-bloc-pattern)
+  - [Rules for the BLoCs](#rules-for-the-blocs)
+  - [Rules for UI Classes](#rules-for-ui-classes)
 - [Implementation](#implementation)
 - [Layered Architecure](#layered-architecure)
 - [Architecture in Practice](#architecture-in-practice)
@@ -36,23 +39,23 @@ That’s all well and good, but why should you care? An application that follows
 
 To gain those promised advanteges, you will have to follow these 8 rules Soares defined for the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE):
 
-**Rules for the BLoCs**
+### Rules for the BLoCs
 
-1.  Input/Outputs are **simple** Sinks/Streams
-2.  All dependencies must be injectable and plattform agnostic
-3.  No platform branching
+1.  Input/Outputs are simple **Sinks/Streams**
+2.  All **dependencies** must be **injectable** and plattform agnostic
+3.  **No platform branching**
       - No `if(IOS) then doThis()`
 4.  The actual implementation can be whatever you want if you follow 1-3
 
-**Rules for UI Classes**
+### Rules for UI Classes
 
-1.  Each “Complex Enough” Widget has a related BLoC
-      - You will have to define what “Complex Enough” means for your app.
-2.  Widgets do not format the inputs they send to the BLoC
+1.  Each *“Complex Enough”* Widget has a related BLoC
+      - You will have to define what *“Complex Enough”* means for your app.
+2.  Widgets **do not format the inputs** they send to the BLoC
       - Because formating is Business Logic
-3.  Widgets should display the BLoCs State/output with as little formating as possible
+3.  Widgets should display the BLoCs **State/output with as little formating as possible**
       - Sometime a little formatting is inevitable, put things like currency formating is business logic and should be done in the BLoC
-4.  If you do have platform branching, It should be dependent on a single BLoC bool State/output
+4.  If you do have **platform branching**, It should be dependent on **a single BLoC bool State/output**
 
 ![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
 
