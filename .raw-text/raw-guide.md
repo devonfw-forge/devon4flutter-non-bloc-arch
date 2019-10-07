@@ -1045,12 +1045,62 @@ _Figure XXX: How a BLoC looks like [[@boelensFlutterReactiveProgramming2018]](ht
 - **Build Interface code how you want it to look like -> then make it work**
 - Wisgen Exampels
 
-Alright, Now that you know what the BLoC pattern is, let's have a look at how it looks in practice. You will see some strong similarity to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in gerneral. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the Example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let#s have a look at how the Bloc pattern will interact with Wisgen on a more abstract scale:
+Alright, Now that you know what the BLoC pattern is, let's have a look at how it looks in practice. You will see some strong similarity to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in gerneral. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the Example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let's have a look at how the Bloc pattern will interact with Wisgen on a more abstract scale:
 
 ![Bloc and Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-bloc.PNG)
 
 _Figure XXX: Bloc and Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
-  
+
+First, let's have a look at the events that can be send to the BLoC by the UI. Again, this is very similar to the _actions_ in our Redux implementation:
+
+```dart
+///The Favorite BLoC can handle 2 types of Events: Add and Remove.
+///These events add and remove Wisdoms from the Favorite List respectively.
+@immutable
+abstract class FavoriteEvent {
+  final Wisdom _favorite;
+  get favorite => _favorite;
+
+  FavoriteEvent(this._favorite);
+}
+
+class AddFavoriteEvent extends FavoriteEvent {
+  AddFavoriteEvent(Wisdom favorite) : super(favorite);
+}
+
+class RemoveFavoriteEvent extends FavoriteEvent {
+  RemoveFavoriteEvent(Wisdom favorite) : super(favorite);
+}
+```
+_Code Snippet XXX: Favorite Event in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+Now Let's take a look at the most interesting part of an implementation of the BLoC patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It take in the type of the _events_ that will be send to the BLoC and the type of the _State_ that should be emitted from the BLoC `Bloc<Event,State>`:
+
+```dart
+///The FavoriteBLoC is Responsible for Keeping track of the
+///Favorite List. It receives Events to Add and remove Favorite
+///Wisdoms and Broadcasts the Complete List of Favorites.
+class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
+
+  @override
+  List<Wisdom> get initialState => List<Wisdom>();
+
+  ///Takes in each event that is send to the BLoC emits a new State based on
+  ///that event.
+  @override
+  Stream<List<Wisdom>> mapEventToState(FavoriteEvent event) async* {
+    List<Wisdom> newFavorites = new List()..addAll(currentState);
+
+    if (event is AddFavoriteEvent) newFavorites.add(event.favorite);
+    if (event is RemoveFavoriteEvent) newFavorites.remove(event.favorite);
+
+    yield newFavorites;
+  }
+}
+```
+_Code Snippet XXX: Favorite BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+
 ## Layered Architecure
 
 - Pros
