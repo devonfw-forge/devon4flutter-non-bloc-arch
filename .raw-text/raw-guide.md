@@ -825,16 +825,17 @@ To minimize re-builds the Provider Package uses ChangeNotifiers [[@flutterdevtea
 
 ```dart
 class Favorites with ChangeNotifier{
-  final List<Wisdom> _wisdoms = new List();
+  //State
+  final List<Wisdom> _wisdoms = new List(); 
 
   add(Wisdom w){
     _wisdoms.add(w);
-    notifyListeners();
+    notifyListeners(); //Re-Build all Listneres
   }
 
   remove(Wisdom w){
     _wisdoms.remove(w);
-    notifyListeners();
+    notifyListeners(); //Re-Build all Listneres
   }
 
   bool contains(Wisdom w){
@@ -852,6 +853,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //Providing Favorites Globally
     return ChangeNotifierProvider(
       builder: (_) => Favorites(),
       child: MaterialApp(home: WisdomFeed()),
@@ -867,8 +869,9 @@ This is how listening to the Favorite class looks like. We use the _Consumer Wid
 ...
 Expanded(
   flex: 1,
-  child: Consumer<Favorites>(
+  child: Consumer<Favorites>( //Consuming Gloabl instance of Favorites
     builder: (context, favorites, child) => IconButton(
+      //Display Icon Button depending on current State
       icon: Icon(favorites.contains(wisdom)
           ? Icons.favorite
           : Icons.favorite_border),
@@ -876,6 +879,7 @@ Expanded(
           ? Colors.red 
           : Colors.grey,
       onPressed: () {
+        //Add/remove Wisdom to/from Favorites
         if (favorites.contains(wisdom)) favorites.remove(wisdom);
         else favorites.add(wisdom);
       },
@@ -905,6 +909,7 @@ Our possible _actions_ are adding a new wisdom and removing a wisdom. So this is
 ```dart
 @immutable
 abstract class FavoriteAction {
+  //Wisdom related to action
   final Wisdom _favorite;
   get favorite => _favorite;
 
@@ -919,6 +924,7 @@ class RemoveFavoriteAction extends FavoriteAction {
   RemoveFavoriteAction(Wisdom favorite) : super(favorite);
 }
 ```
+_Codesnippt XXX: Wisgen Redux Actions [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 This what the reducer function would look like:
 
@@ -929,17 +935,20 @@ List<Wisdom> favoriteReducer(List<Wisdom> state, FavoriteAction action) {
   return state;
 }
 ```
+_Codesnippt XXX: Wisgen Redux Reducer [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 And this is how you would make the Store globally available:
 
 ```dart
-void main(){} => runApp(MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //Create new Store from reducer function
     favoriteStore = new Store<List<Wisdom>>(favoriteReducer, initialState: new List());
 
+    //Provide Store golobally
     return StoreProvider<List<Wisdom>>((
       store: favoriteStore,
       child: MaterialApp(home: WisdomFeed()),
@@ -947,6 +956,35 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+_Codesnippt XXX: Providing Redux Store globally in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+Now the Favorite button from snippet XXX would be implemented like this:
+
+```dart
+...
+Expanded(
+  flex: 1,
+  child: StoreConnector( //Consume Store
+    converter: (store) => store.state, //No need for convertion, just need current state
+    builder: (context, favorites) => IconButton(
+      //Display Icon Button depending on current State
+      icon: Icon(favorites.contains(wisdom)
+          ? Icons.favorite
+          : Icons.favorite_border),
+      color: favorites.contains(wisdom) 
+          ? Colors.red 
+          : Colors.grey,
+      onPressed: () {
+        //Add/remove Wisdom to/from Favorites
+        if (favorites.contains(wisdom)) store.dispatch(AddFavoriteAction(wisdom));
+        else store.dispatch(RemoveFavoriteAction(wisdom));
+      },
+    ),
+  ),
+)
+...
+```
+_Codesnippt XXX: Consuming Redux Store in Favorite Button of Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Why I decided against it
 
