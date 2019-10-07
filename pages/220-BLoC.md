@@ -120,6 +120,25 @@ class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
 
 *Code Snippet XXX: Favorite BLoC in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
+As I machined before, the BLoC package for Flutter uses the Provider package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we would if just used Provider for State Management. By the rule of *“lifting state up”* we have to place the favorite BLoC at the lowest common ancestor of all widgets that need access to it. So in our case at *MaterialApp*:
+
+``` dart
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //Globally Providing the Favorite BLoC as it is needed on multiple pages
+    return BlocProvider(
+      builder: (BuildContext context) => FavoriteBloc(),
+      child: MaterialApp(home: WisdomFeed()),
+    );
+  }
+}
+```
+
+*Code Snippet XXX: Providing BLoC Globally in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
 ## Layered Architecure
 
   - Pros

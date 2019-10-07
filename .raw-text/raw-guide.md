@@ -811,7 +811,11 @@ _Figure 14: Wisgen WidgetTree Favorites [[@faustWisgen2019]](https://github.com/
 ## Provider Package
 The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions [@hracekPragmaticStateManagement2019; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with Inherited Widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a Widget at the top of the tree to a Widget at the bottom. 
 
-As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). 
+As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
+
+
+| _lifting state up_ | Placing State at the lowest common ancestor of all Widgets that need access to it |
+| :----------------- | :-------------------------------------------------------------------------------- |
 
 The Provider Package is an easy way for us to lift state up. Let's look at our example form figure XXX: The first common ancestor of all widgets in need of the favorite list is _MaterialApp_. So we will need to lift the state up to the MaterialApp and then have our widgets access it from there:
 
@@ -997,7 +1001,7 @@ The BLoC Pattern is a State Management solution originally designed by Paolo Soa
 | ---- | :----------------------- |
 
 | TLDR | The UI should be kept free of business logic. The UI Only publishes _Events_ to a BLoC and subscribes to a stream of _State_ emitted by a BLoC |
-| ---- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
@@ -1096,6 +1100,24 @@ class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
 ```
 _Code Snippet XXX: Favorite BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
+As I machined before, the BLoC package for Flutter uses the Provider package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we would if just used Provider for State Management. By the rule of _"lifting state up"_ we have to place the favorite BLoC at the lowest common ancestor of all widgets that need access to it. So in our case at _MaterialApp_:
+
+
+```dart
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //Globally Providing the Favorite BLoC as it is needed on multiple pages
+    return BlocProvider(
+      builder: (BuildContext context) => FavoriteBloc(),
+      child: MaterialApp(home: WisdomFeed()),
+    );
+  }
+}
+```
+_Code Snippet XXX: Providing BLoC Globally in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Layered Architecure
 
