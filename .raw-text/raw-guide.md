@@ -18,7 +18,6 @@ Build PDF: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=source
 [architecture]: https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App
 [statemng]: https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives
 [bloc]: https://github.com/Fasust/flutter-guide/wiki/220-BLoC
-[bloc-practice]: https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice
 [test]: https://github.com/Fasust/flutter-guide/wiki/300-Testing
 [conventions]: https://github.com/Fasust/flutter-guide/wiki/400-Conventions
 [conclusion]: https://github.com/Fasust/flutter-guide/wiki/500-Conclusion
@@ -985,7 +984,7 @@ _Codesnippt XXX: Consuming Redux Store in Favorite Button of Wisdom Card [[@faus
 ### Why I decided against it
 I went back and forth on this decision a lot. Redux is a great State Management solution and enables the implementation of a clean three layered architecture (View - Store - Data) [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with it's approach from other cross-plattform development frameworks like React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) and Angular [[@googlellcAngular2016]](https://angular.io/) and I very much agree with this advice [[@boelensFlutterBLoCScopedModel2019]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 
-1. It was publicly endorsed by the Flutter Team on multiple occasions [@sullivanBuildReactiveMobile2018; @hracekPragmaticStateManagement2019; @sullivanTechnicalDebtStreams2018]
+1. It was publicly endorsed by the Flutter Team on multiple occasions [@sullivanBuildReactiveMobile2018; @hracekPragmaticStateManagement2019; @sullivanTechnicalDebtStreams2018; @soaresFlutterAngularDartCode2018; @flutterdevteamFlutterState2019]
 2. It has clear architectural rules [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)
 3. It was developed by one of Flutters Engineers [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)
 4. We don't end up with one giant store for the business logic out with multiple blocs with separate responsibilities [[@boelensFlutterBLoCScopedModel2019]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
@@ -999,13 +998,6 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 - Streams
 - build by google engniers
 - used by google internally
-- Google went bach and forth on this as well.
-- Why BLoC ...
-  - Produces nice layered architecture
-    - Makes sense for big applications
-  - Specifically build for this
-  - Used by the people who build the framework
-  - -> Not better or worse then Redux, but thats why I choose BLoC
 - UI only publishes and subscribes
 - NO BL in the UI
 - Keep it stupid so you don't need to test it
@@ -1015,6 +1007,8 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
 _Figure XXX: Bloc Architecture [[@sullivanBuildReactiveMobile2018]](https://www.youtube.com/watch?v=RS36gBEp8OI)_
+
+## Rules
 
 - **4 Rules for BLoCs**
   - Only Sinks In & Streams out
@@ -1027,11 +1021,17 @@ _Figure XXX: Bloc Architecture [[@sullivanBuildReactiveMobile2018]](https://www.
   - Output are formated as little as possible
   - If you do have Platform Branching, It should be dependent on a single BLoC bool output
 
+## Implementation
+
+- **Build Interface code how you want it to look like -> then make it work**
+- Wisgen Exampels
+
+  
+## Layered Architecure
+
 ![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
 
 _Figure XXX: Bloc Sink and Stream [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
-
-- **Build Interface code how you want it to look like -> then make it work**
 
 - Pros
   - Change BL more easily
@@ -1047,11 +1047,7 @@ _Figure XXX: Bloc Sink and Stream [[@boelensFlutterReactiveProgramming2018]](htt
 
 _Figure XXX: Bloc Architecture with Layers [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)_
 
-# 230-BLoC-In-Practice
-
-## Introduction
-
-## BLoC in Wisgen
+## Architecture in Practice 
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 

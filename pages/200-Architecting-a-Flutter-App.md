@@ -25,7 +25,7 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
   - [State Management Alternatives](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives)
   - [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
-  - [BLoC in Practice](https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice)
+  - \[BLoC in Practice\]\[bloc-practice\]
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives">Next Chapter: State Management Alternatives ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

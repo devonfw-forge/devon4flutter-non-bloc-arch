@@ -822,7 +822,7 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
   - [State Management Alternatives](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives)
   - [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
-  - [BLoC in Practice](https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice)
+  - \[BLoC in Practice\]\[bloc-practice\]
 
 # 210-State-Management-Alternatives
 
@@ -1033,7 +1033,7 @@ Expanded(
 
 I went back and forth on this decision a lot. Redux is a great State Management solution and enables the implementation of a clean three layered architecture (View - Store - Data) [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with it’s approach from other cross-plattform development frameworks like React [(Facebook 2015)](https://facebook.github.io/react-native/) and Angular [(Google LLC 2016)](https://angular.io/) and I very much agree with this advice [(Boelens 2019)](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 
-1.  It was publicly endorsed by the Flutter Team on multiple occasions (Sullivan and Hracek 2018b, 2018a; Hracek and Sullivan 2019)
+1.  It was publicly endorsed by the Flutter Team on multiple occasions (Sullivan and Hracek 2018b, 2018a; Hracek and Sullivan 2019; Soares 2018; Flutter Dev Team 2019b)
 2.  It has clear architectural rules [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)
 3.  It was developed by one of Flutters Engineers [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)
 4.  We don’t end up with one giant store for the business logic out with multiple blocs with separate responsibilities [(Boelens 2019)](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
@@ -1047,13 +1047,6 @@ I went back and forth on this decision a lot. Redux is a great State Management 
   - Streams
   - build by google engniers
   - used by google internally
-  - Google went bach and forth on this as well.
-  - Why BLoC …
-      - Produces nice layered architecture
-          - Makes sense for big applications
-      - Specifically build for this
-      - Used by the people who build the framework
-      - \-\> Not better or worse then Redux, but thats why I choose BLoC
   - UI only publishes and subscribes
   - NO BL in the UI
   - Keep it stupid so you don’t need to test it
@@ -1063,6 +1056,8 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
 *Figure XXX: Bloc Architecture [(Sullivan and Hracek 2018b)](https://www.youtube.com/watch?v=RS36gBEp8OI)*
+
+## Rules
 
   - **4 Rules for BLoCs**
       - Only Sinks In & Streams out
@@ -1075,20 +1070,22 @@ I went back and forth on this decision a lot. Redux is a great State Management 
       - Output are formated as little as possible
       - If you do have Platform Branching, It should be dependent on a single BLoC bool output
 
+## Implementation
+
+  - **Build Interface code how you want it to look like -\> then make it work**
+  - Wisgen Exampels
+
+## Layered Architecure
+
 ![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
 
 *Figure XXX: Bloc Sink and Stream [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
 
-  - **Build Interface code how you want it to look like -\> then make it work**
-
   - Pros
-    
       - Change BL more easily
       - Change UI without impacting BL
       - Easily Test BL
-
   - Layered Architecture out of BLoCs
-    
       - Like Uncle Bob says
       - Nice indented Layers
       - use Boundary classes IE interfaces to keep data layer seperat from Buisness Layer
@@ -1097,11 +1094,7 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 
 *Figure XXX: Bloc Architecture with Layers [(Suri 2019)](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
 
-# 230-BLoC-In-Practice
-
-## Introduction
-
-## BLoC in Wisgen
+## Architecture in Practice
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 

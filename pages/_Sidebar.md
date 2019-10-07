@@ -9,7 +9,6 @@
 * [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App)
   * [State Management Alternatives](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives)
   * [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
-  * [BLoC in Practice](https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice)
 * [Testing](https://github.com/Fasust/flutter-guide/wiki/300-Testing)
 * [Conventions](https://github.com/Fasust/flutter-guide/wiki/400-Conventions)
 * [Conclusion](https://github.com/Fasust/flutter-guide/wiki/500-Conclusion)

@@ -213,7 +213,7 @@ Expanded(
 
 I went back and forth on this decision a lot. Redux is a great State Management solution and enables the implementation of a clean three layered architecture (View - Store - Data) [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with it’s approach from other cross-plattform development frameworks like React [(Facebook 2015)](https://facebook.github.io/react-native/) and Angular [(Google LLC 2016)](https://angular.io/) and I very much agree with this advice [(Boelens 2019)](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 
-1.  It was publicly endorsed by the Flutter Team on multiple occasions (Sullivan and Hracek 2018b, 2018a; Hracek and Sullivan 2019)
+1.  It was publicly endorsed by the Flutter Team on multiple occasions (Sullivan and Hracek 2018b, 2018a; Hracek and Sullivan 2019; Soares 2018; Flutter Dev Team 2019b)
 2.  It has clear architectural rules [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)
 3.  It was developed by one of Flutters Engineers [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)
 4.  We don’t end up with one giant store for the business logic out with multiple blocs with separate responsibilities [(Boelens 2019)](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)

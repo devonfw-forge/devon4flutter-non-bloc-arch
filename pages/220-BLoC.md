@@ -8,13 +8,6 @@ Page Table of Contents
   - Streams
   - build by google engniers
   - used by google internally
-  - Google went bach and forth on this as well.
-  - Why BLoC …
-      - Produces nice layered architecture
-          - Makes sense for big applications
-      - Specifically build for this
-      - Used by the people who build the framework
-      - \-\> Not better or worse then Redux, but thats why I choose BLoC
   - UI only publishes and subscribes
   - NO BL in the UI
   - Keep it stupid so you don’t need to test it
@@ -24,6 +17,8 @@ Page Table of Contents
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
 *Figure XXX: Bloc Architecture [(Sullivan and Hracek 2018b)](https://www.youtube.com/watch?v=RS36gBEp8OI)*
+
+## Rules
 
   - **4 Rules for BLoCs**
       - Only Sinks In & Streams out
@@ -36,20 +31,22 @@ Page Table of Contents
       - Output are formated as little as possible
       - If you do have Platform Branching, It should be dependent on a single BLoC bool output
 
+## Implementation
+
+  - **Build Interface code how you want it to look like -\> then make it work**
+  - Wisgen Exampels
+
+## Layered Architecure
+
 ![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
 
 *Figure XXX: Bloc Sink and Stream [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
 
-  - **Build Interface code how you want it to look like -\> then make it work**
-
   - Pros
-    
       - Change BL more easily
       - Change UI without impacting BL
       - Easily Test BL
-
   - Layered Architecture out of BLoCs
-    
       - Like Uncle Bob says
       - Nice indented Layers
       - use Boundary classes IE interfaces to keep data layer seperat from Buisness Layer
@@ -58,5 +55,15 @@ Page Table of Contents
 
 *Figure XXX: Bloc Architecture with Layers [(Suri 2019)](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice">Next Chapter: BLoC in Practice ></a></p>
+## Architecture in Practice
+
+![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
+
+*Figure XXX: Wisgen Bloc Architecture [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
+![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
+
+*Figure XXX: Wisgen Bloc Architecture Dataflow [(Faust 2019)](https://github.com/Fasust/wisgen)*
+
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/300-Testing">Next Chapter: Testing ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
