@@ -16,7 +16,7 @@ Build PDF: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=source
 [tree]: https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree
 [async]: https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter
 [architecture]: https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App
-[statemng]: https://github.com/Fasust/flutter-guide/wiki/210-Statemanagement-Solutions
+[statemng]: https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives
 [bloc]: https://github.com/Fasust/flutter-guide/wiki/220-BLoC
 [bloc-practice]: https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice
 [test]: https://github.com/Fasust/flutter-guide/wiki/300-Testing
@@ -785,14 +785,14 @@ _Figure XXX: Ephemeral State vs App State Dession Tree [[@flutterdevteamFlutterS
 
 ## Contents of this Chapter
 
-- [State Management Solutions][statemng]
+- [State Management Alternatives][statemng]
 - [BLoC][bloc]
 - [BLoC in Practice][bloc-practice]
 
-# 210-Statemanagement-Solutions
+# 210-State-Management-Alternatives
 
 ## Introduction
-Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or State Management solution on it's developers. This open ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular State Management solution briefly to explain why I ended up choosing the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
+Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or State Management solution on it's developers. This open ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I decided to focus on the BLoC pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) for this Guide. But I do want to showcase some alternatives and explain why exactly I ended up choosing BLoC.
 
 ## Example App State
 I will showcase the State Management solutions using one example of _App State_ from the Wisgen App [[@faustWisgen2019]](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties: 
@@ -990,7 +990,10 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 3. It was developed by one of Flutters Engineers [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)
 4. We don't end up with one giant store for the business logic out with multiple blocs with separate responsibilities [[@boelensFlutterBLoCScopedModel2019]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
 
-## Bloc
+# 220-BLoC
+
+## Introduction
+
 - Goal: 
   - Extract the Logic into a class that can be calls from 2 different independent interfaces (AngularDart and Flutter)
 - Streams
@@ -1003,11 +1006,6 @@ I went back and forth on this decision a lot. Redux is a great State Management 
   - Specifically build for this
   - Used by the people who build the framework
   - -> Not better or worse then Redux, but thats why I choose BLoC
-
-# 220-BLoC
-
-## Introduction
-
 - UI only publishes and subscribes
 - NO BL in the UI
 - Keep it stupid so you don't need to test it

@@ -9,7 +9,7 @@ Page Table of Contents
 
 ## Introduction
 
-Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) does not impose any kind of architecture or State Management solution on it’s developers. This open ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular State Management solution briefly to explain why I ended up choosing the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
+Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) does not impose any kind of architecture or State Management solution on it’s developers. This open ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I decided to focus on the BLoC pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) for this Guide. But I do want to showcase some alternatives and explain why exactly I ended up choosing BLoC.
 
 ## Example App State
 
@@ -218,21 +218,6 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 2.  It has clear architectural rules [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)
 3.  It was developed by one of Flutters Engineers [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)
 4.  We don’t end up with one giant store for the business logic out with multiple blocs with separate responsibilities [(Boelens 2019)](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
-
-## Bloc
-
-  - Goal:
-      - Extract the Logic into a class that can be calls from 2 different independent interfaces (AngularDart and Flutter)
-  - Streams
-  - build by google engniers
-  - used by google internally
-  - Google went bach and forth on this as well.
-  - Why BLoC …
-      - Produces nice layered architecture
-          - Makes sense for big applications
-      - Specifically build for this
-      - Used by the people who build the framework
-      - \-\> Not better or worse then Redux, but thats why I choose BLoC
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/220-BLoC">Next Chapter: BLoC ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

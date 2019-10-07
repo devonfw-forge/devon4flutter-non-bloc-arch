@@ -3,6 +3,18 @@ Page Table of Contents
 
 ## Introduction
 
+  - Goal:
+      - Extract the Logic into a class that can be calls from 2 different independent interfaces (AngularDart and Flutter)
+  - Streams
+  - build by google engniers
+  - used by google internally
+  - Google went bach and forth on this as well.
+  - Why BLoC …
+      - Produces nice layered architecture
+          - Makes sense for big applications
+      - Specifically build for this
+      - Used by the people who build the framework
+      - \-\> Not better or worse then Redux, but thats why I choose BLoC
   - UI only publishes and subscribes
   - NO BL in the UI
   - Keep it stupid so you don’t need to test it

@@ -820,15 +820,15 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
 ## Contents of this Chapter
 
-  - [State Management Solutions](https://github.com/Fasust/flutter-guide/wiki/210-Statemanagement-Solutions)
+  - [State Management Alternatives](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives)
   - [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
   - [BLoC in Practice](https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice)
 
-# 210-Statemanagement-Solutions
+# 210-State-Management-Alternatives
 
 ## Introduction
 
-Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) does not impose any kind of architecture or State Management solution on it’s developers. This open ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular State Management solution briefly to explain why I ended up choosing the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
+Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) does not impose any kind of architecture or State Management solution on it’s developers. This open ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I decided to focus on the BLoC pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) for this Guide. But I do want to showcase some alternatives and explain why exactly I ended up choosing BLoC.
 
 ## Example App State
 
@@ -1038,7 +1038,9 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 3.  It was developed by one of Flutters Engineers [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)
 4.  We don’t end up with one giant store for the business logic out with multiple blocs with separate responsibilities [(Boelens 2019)](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
 
-## Bloc
+# 220-BLoC
+
+## Introduction
 
   - Goal:
       - Extract the Logic into a class that can be calls from 2 different independent interfaces (AngularDart and Flutter)
@@ -1052,11 +1054,6 @@ I went back and forth on this decision a lot. Redux is a great State Management 
       - Specifically build for this
       - Used by the people who build the framework
       - \-\> Not better or worse then Redux, but thats why I choose BLoC
-
-# 220-BLoC
-
-## Introduction
-
   - UI only publishes and subscribes
   - NO BL in the UI
   - Keep it stupid so you don’t need to test it

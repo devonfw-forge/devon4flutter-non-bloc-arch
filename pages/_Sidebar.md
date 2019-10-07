@@ -7,7 +7,7 @@
   * [The Widget Tree](https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree)
   * [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter)
 * [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App)
-  * [Statemanagement Solutions](https://github.com/Fasust/flutter-guide/wiki/210-Statemanagement-Solutions)
+  * [Statemanagement Solutions](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives)
   * [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
   * [BLoC in Practice](https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice)
 * [Testing](https://github.com/Fasust/flutter-guide/wiki/300-Testing)
