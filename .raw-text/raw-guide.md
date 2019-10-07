@@ -1018,7 +1018,7 @@ That's all well and good, but why should you care? An application that follows t
 ## Rules of the BLoC Pattern
 To gain those promised advanteges, you will have to follow these 8 rules Soares defined for the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE):
 
-### Rules for the BLoCs
+#### Rules for the BLoCs
 
    1. Input/Outputs are simple **Sinks/Streams**
    2. All **dependencies** must be **injectable** and plattform agnostic
@@ -1026,7 +1026,7 @@ To gain those promised advanteges, you will have to follow these 8 rules Soares 
       - No `if(IOS) then doThis()`
    4. The actual implementation can be whatever you want if you follow 1-3
    
-### Rules for UI Classes
+#### Rules for UI Classes
 
   1. Each _"Complex Enough"_ Widget has a related BLoC
      - You will have to define what _"Complex Enough"_ means for your app.
@@ -1040,12 +1040,12 @@ To gain those promised advanteges, you will have to follow these 8 rules Soares 
 
 _Figure XXX: How a BLoC looks like [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
 
-
 ## Implementation
 
 - **Build Interface code how you want it to look like -> then make it work**
 - Wisgen Exampels
 
+Alright, Now that you know what the BLoC pattern is, let's have a look at how it looks in code. You will see some strong similarity to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in gerneral. I am going to use the Example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen).
   
 ## Layered Architecure
 

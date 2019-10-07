@@ -2,8 +2,8 @@ Page Table of Contents
 - [Introduction](#introduction)
 - [Advantages of BLoC](#advantages-of-bloc)
 - [Rules of the BLoC Pattern](#rules-of-the-bloc-pattern)
-  - [Rules for the BLoCs](#rules-for-the-blocs)
-  - [Rules for UI Classes](#rules-for-ui-classes)
+    - [Rules for the BLoCs](#rules-for-the-blocs)
+    - [Rules for UI Classes](#rules-for-ui-classes)
 - [Implementation](#implementation)
 - [Layered Architecure](#layered-architecure)
 - [Architecture in Practice](#architecture-in-practice)
@@ -39,7 +39,7 @@ That’s all well and good, but why should you care? An application that follows
 
 To gain those promised advanteges, you will have to follow these 8 rules Soares defined for the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE):
 
-### Rules for the BLoCs
+#### Rules for the BLoCs
 
 1.  Input/Outputs are simple **Sinks/Streams**
 2.  All **dependencies** must be **injectable** and plattform agnostic
@@ -47,7 +47,7 @@ To gain those promised advanteges, you will have to follow these 8 rules Soares 
       - No `if(IOS) then doThis()`
 4.  The actual implementation can be whatever you want if you follow 1-3
 
-### Rules for UI Classes
+#### Rules for UI Classes
 
 1.  Each *“Complex Enough”* Widget has a related BLoC
       - You will have to define what *“Complex Enough”* means for your app.
@@ -65,6 +65,8 @@ To gain those promised advanteges, you will have to follow these 8 rules Soares 
 
   - **Build Interface code how you want it to look like -\> then make it work**
   - Wisgen Exampels
+
+Alright, Now that you know what the BLoC pattern is, let’s have a look at how it looks in code. You will see some strong similarity to the implementation of Redux [(Abramov 2015)](https://redux.js.org/) here. That is just because the two patterns are very similar in gerneral. I am going to use the Example of *App State* as I did in the [previous chapter](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives): The favorite list in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen).
 
 ## Layered Architecure
 
