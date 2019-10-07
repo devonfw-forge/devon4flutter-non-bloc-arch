@@ -1,6 +1,6 @@
 Page Table of Contents
 - [Introduction](#introduction)
-- [Statemanagement vs Architecture](#statemanagement-vs-architecture)
+- [State Management vs Architecture](#state-management-vs-architecture)
 - [Types of State](#types-of-state)
 - [Contents of this Chapter](#contents-of-this-chapter)
 
@@ -27,5 +27,5 @@ Ephemeral State is State that is only required in one location IE inside of one 
   - [BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC)
   - [BLoC in Practice](https://github.com/Fasust/flutter-guide/wiki/230-BLoC-In-Practice)
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives">Next Chapter: Statemanagement Solutions ></a></p>
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives">Next Chapter: State Management Alternatives ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
