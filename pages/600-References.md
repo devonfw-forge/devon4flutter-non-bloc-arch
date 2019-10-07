@@ -103,9 +103,15 @@ ECMA. 1997. *JavaScript ECMA Standard* (version 10). ECMA. <https://www.ecma-int
 
 </div>
 
+<div id="ref-eganFlutterReduxPackage2017">
+
+Egan, Brian. 2017. “Flutter Redux Package.” Documentation. Dart Packages. 2017. <https://pub.dev/packages/flutter_redux>.
+
+</div>
+
 <div id="ref-eganKeepItSimple2018">
 
-Egan, Brian. 2018. “Keep It Simple, State: Architecture for Flutter Apps.” Conference Talk presented at the DartConf 2018, Google Campus, LA, January 25. <https://www.youtube.com/watch?v=zKXz3pUkw9A>.
+———. 2018. “Keep It Simple, State: Architecture for Flutter Apps.” Conference Talk presented at the DartConf 2018, Google Campus, LA, January 25. <https://www.youtube.com/watch?v=zKXz3pUkw9A>.
 
 </div>
 
@@ -208,6 +214,12 @@ Flutter Dev Team. 2018a. “BuildContext Class.” Documentation. 2018. <https:/
 <div id="ref-googlellcAndroidSDK2008">
 
 Google LLC. 2008. *Android SDK* (version 10). Google LLC. <https://developer.android.com/>.
+
+</div>
+
+<div id="ref-googlellcAngular2016">
+
+———. 2016. “Angular.” Documentation. 2016. <https://angular.io/>.
 
 </div>
 

@@ -770,14 +770,14 @@ _Codesnippt 21: Wisgen AdviceSlips Class [[@faustWisgen2019]](https://github.com
 
 # 200-Architecting-a-Flutter-App
 ## Introduction
-The Most central topic of architecting a Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) app is _Statemanagement_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most three most popular statemanagement solutions and you will learn one of those statemanagement solutions (BLoC [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC statemanagement solution in a clean and scalable 3-Layered architecture.
+The Most central topic of architecting a Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) app is _State Management_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** need access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of state, you will be introduced to the most three most popular State Management solutions and you will learn one of those State Management solutions (BLoC [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC State Management solution in a clean and scalable 3-Layered architecture.
 
-## Statemanagement vs Architecture
-I want to differentiate these two terms. Within the Flutter community _Statemanagement_ and _Architecture_ are often used synonymously, but I think we should be careful to do so. Statemanagement is a set of tools or a pattern with which we can manage the State within our app. Architecture on the other hand, is the over arching structure of our app. A set of rules that our app conforms to. Any architecture for a Flutter application will have some sort of statemanagement, but statemanagement is not an architecture by it self. I just want you to keep this in mind for the following chapters.
+## State Management vs Architecture
+I want to differentiate these two terms. Within the Flutter community _State Management_ and _Architecture_ are often used synonymously, but I think we should be careful to do so. State Management is a set of tools or a pattern with which we can manage the State within our app. Architecture on the other hand, is the over arching structure of our app. A set of rules that our app conforms to. Any architecture for a Flutter application will have some sort of State Management, but State Management is not an architecture by it self. I just want you to keep this in mind for the following chapters.
 
 ## Types of State
 The Flutter documentaion [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) differentiates between two types of State: _Ephemeral State_ & _App State_.
-Ephemeral State is State that is only required in one location IE inside of one Widget. Examples would be: scroll position in a list, highlighting of selected elements or the color change of a pressed button. This is the type of state that we don't need to worry about that much or in other word, there is no need for a fancy Statemanagement solution for Ephemeral State. We can simply use a Stateful Widget with some variables and manage Ephemeral State that way [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). The more interesting type of State is App State. This is information that is required in multiple locations / by multiple Widgets. Examples would be: User data, a list of favorites or a shopping car. App State management is going to be the focus of this chapter.
+Ephemeral State is State that is only required in one location IE inside of one Widget. Examples would be: scroll position in a list, highlighting of selected elements or the color change of a pressed button. This is the type of state that we don't need to worry about that much or in other word, there is no need for a fancy State Management solution for Ephemeral State. We can simply use a Stateful Widget with some variables and manage Ephemeral State that way [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). The more interesting type of State is App State. This is information that is required in multiple locations / by multiple Widgets. Examples would be: User data, a list of favorites or a shopping car. App State management is going to be the focus of this chapter.
 
 ![Ephemeral State vs App State Dession Tree](https://github.com/Fasust/flutter-guide/wiki//images/ephemeral-vs-app-state.png)
 
@@ -785,17 +785,17 @@ _Figure XXX: Ephemeral State vs App State Dession Tree [[@flutterdevteamFlutterS
 
 ## Contents of this Chapter
 
-- [Statemanagement Solutions][statemng]
+- [State Management Solutions][statemng]
 - [BLoC][bloc]
 - [BLoC in Practice][bloc-practice]
 
 # 210-Statemanagement-Solutions
 
 ## Introduction
-Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it's developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
+Other then many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or State Management solution on it's developers. This open ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular State Management solution briefly to explain why I ended up choosing the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
 
 ## Example App State
-I will showcase the statemanagement solutions using one example of _App State_ from the Wisgen App [[@faustWisgen2019]](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties: 
+I will showcase the State Management solutions using one example of _App State_ from the Wisgen App [[@faustWisgen2019]](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties: 
 
 1. The ListView on the favorite page, so it can display all favorites
 2. The button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favorite.
@@ -830,12 +830,12 @@ class Favorites with ChangeNotifier{
 
   add(Wisdom w){
     _wisdoms.add(w);
-    notifyListeners(); //Re-Build all Listneres
+    notifyListeners(); //Re-Build all Listeners
   }
 
   remove(Wisdom w){
     _wisdoms.remove(w);
-    notifyListeners(); //Re-Build all Listneres
+    notifyListeners(); //Re-Build all Listeners
   }
 
   bool contains(Wisdom w){
@@ -869,7 +869,7 @@ This is how listening to the Favorite class looks like. We use the _Consumer Wid
 ...
 Expanded(
   flex: 1,
-  child: Consumer<Favorites>( //Consuming Gloabl instance of Favorites
+  child: Consumer<Favorites>( //Consuming Global instance of Favorites
     builder: (context, favorites, child) => IconButton(
       //Display Icon Button depending on current State
       icon: Icon(favorites.contains(wisdom)
@@ -894,7 +894,7 @@ _Codesnippt XXX: Consuming Provider in Favorite Button of Wisdom Card [[@faustWi
 All in all Provider is a great and easy solution to distribute State in a small Flutter applications. But it is not an architecture [@hracekPragmaticStateManagement2019; @boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @sullivanPragmaticStateManagement2019]. Just the provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because provider is such an efficient and easy way to distribute state, the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) uses it as an underlying technologie for their approach.
 
 ## Redux
-Redux [[@abramovRedux2015]](https://redux.js.org/) is statemanagement solution originally build for React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. In Redux, we use a _Store_ as one central location for our Business Logic. This Store is put at the very top of our Widget Tree and then globally provided to all widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the store (such as user input) and display the interface dependant on the current State of the Store. The Store has _reducer_ functions, that take in the previous State and an _action_ and return a new state. [@boelensFlutterBLoCScopedModel2019; @doughtieArchitectingReactiveFlutter2017; @eganKeepItSimple2018] So in Wisgen the Dataflow would look something like this:
+Redux [[@abramovRedux2015]](https://redux.js.org/) is State Management solution originally build for React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [[@eganFlutterReduxPackage2017]](https://pub.dev/packages/flutter_redux). In Redux, we use a _Store_ as one central location for all our Business Logic. This Store is put at the very top of our Widget Tree and then globally provided to all widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the store (such as user input) and display the interface dependant on the current State of the Store. The Store has _reducer_ functions, that take in the previous State and an _action_ and return a new state. [@boelensFlutterBLoCScopedModel2019; @doughtieArchitectingReactiveFlutter2017; @eganKeepItSimple2018] So in Wisgen the Dataflow would look something like this:
 
 ![ Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
@@ -961,7 +961,7 @@ Now the Favorite button from snippet XXX would be implemented like this:
 Expanded(
   flex: 1,
   child: StoreConnector( //Consume Store
-    converter: (store) => store.state, //No need for convertion, just need current state
+    converter: (store) => store.state, //No need for conversion, just need current state
     builder: (context, favorites) => IconButton(
       //Display Icon Button depending on current State
       icon: Icon(favorites.contains(wisdom)
@@ -983,6 +983,12 @@ Expanded(
 _Codesnippt XXX: Consuming Redux Store in Favorite Button of Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Why I decided against it
+I went back and forth on this decision a lot. Redux is a great State Management solution and enables the implementation of a clean three layered architecture (View - Store - Data) [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with it's approach from other cross-plattform development frameworks like React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) and Angular [[@googlellcAngular2016]](https://angular.io/) and I very much agree with this advice [[@boelensFlutterBLoCScopedModel2019]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
+
+1. It was publicly endorsed by the Flutter Team on multiple occasions [@sullivanBuildReactiveMobile2018; @hracekPragmaticStateManagement2019; @sullivanTechnicalDebtStreams2018]
+2. It has clear architectural rules [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)
+3. It was developed by one of Flutters Engineers [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)
+4. We don't end up with one giant store for the business logic out with multiple blocs with separate responsibilities [[@boelensFlutterBLoCScopedModel2019]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
 
 ## Bloc
 - Goal: 

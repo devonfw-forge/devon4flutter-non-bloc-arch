@@ -9,11 +9,11 @@ Page Table of Contents
 
 ## Introduction
 
-Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) does not impose any kind of architecture or statemanagement solution on it’s developers. This open ended approach has lead to multiple statemanagement solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular statemanagement solution briefly to explain why I ended up choosing the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
+Other then many mobile development frameworks, Flutter [(Flutter Dev Team 2018h)](https://flutter.dev/) does not impose any kind of architecture or State Management solution on it’s developers. This open ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community. Some of these approaches have even been indorsed by the Flutter Team itself [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I will now showcase the three most popular State Management solution briefly to explain why I ended up choosing the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) in combination with a layered architecture for this guide.
 
 ## Example App State
 
-I will showcase the statemanagement solutions using one example of *App State* from the Wisgen App [(Faust 2019)](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties:
+I will showcase the State Management solutions using one example of *App State* from the Wisgen App [(Faust 2019)](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties:
 
 1.  The ListView on the favorite page, so it can display all favorites
 2.  The button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favorite.
@@ -49,12 +49,12 @@ class Favorites with ChangeNotifier{
 
   add(Wisdom w){
     _wisdoms.add(w);
-    notifyListeners(); //Re-Build all Listneres
+    notifyListeners(); //Re-Build all Listeners
   }
 
   remove(Wisdom w){
     _wisdoms.remove(w);
-    notifyListeners(); //Re-Build all Listneres
+    notifyListeners(); //Re-Build all Listeners
   }
 
   bool contains(Wisdom w){
@@ -90,7 +90,7 @@ This is how listening to the Favorite class looks like. We use the *Consumer Wid
 ...
 Expanded(
   flex: 1,
-  child: Consumer<Favorites>( //Consuming Gloabl instance of Favorites
+  child: Consumer<Favorites>( //Consuming Global instance of Favorites
     builder: (context, favorites, child) => IconButton(
       //Display Icon Button depending on current State
       icon: Icon(favorites.contains(wisdom)
@@ -118,7 +118,7 @@ All in all Provider is a great and easy solution to distribute State in a small 
 
 ## Redux
 
-Redux [(Abramov 2015)](https://redux.js.org/) is statemanagement solution originally build for React [(Facebook 2015)](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. In Redux, we use a *Store* as one central location for our Business Logic. This Store is put at the very top of our Widget Tree and then globally provided to all widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the store (such as user input) and display the interface dependant on the current State of the Store. The Store has *reducer* functions, that take in the previous State and an *action* and return a new state. (Boelens 2019; Doughtie 2017; Egan 2018) So in Wisgen the Dataflow would look something like this:
+Redux [(Abramov 2015)](https://redux.js.org/) is State Management solution originally build for React [(Facebook 2015)](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [(Egan 2017)](https://pub.dev/packages/flutter_redux). In Redux, we use a *Store* as one central location for all our Business Logic. This Store is put at the very top of our Widget Tree and then globally provided to all widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the store (such as user input) and display the interface dependant on the current State of the Store. The Store has *reducer* functions, that take in the previous State and an *action* and return a new state. (Boelens 2019; Doughtie 2017; Egan 2018) So in Wisgen the Dataflow would look something like this:
 
 ![Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
@@ -188,7 +188,7 @@ Now the Favorite button from snippet XXX would be implemented like this:
 Expanded(
   flex: 1,
   child: StoreConnector( //Consume Store
-    converter: (store) => store.state, //No need for convertion, just need current state
+    converter: (store) => store.state, //No need for conversion, just need current state
     builder: (context, favorites) => IconButton(
       //Display Icon Button depending on current State
       icon: Icon(favorites.contains(wisdom)
@@ -211,6 +211,13 @@ Expanded(
 *Codesnippt XXX: Consuming Redux Store in Favorite Button of Wisdom Card [(Faust 2019)](https://github.com/Fasust/wisgen)*
 
 ### Why I decided against it
+
+I went back and forth on this decision a lot. Redux is a great State Management solution and enables the implementation of a clean three layered architecture (View - Store - Data) [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with it’s approach from other cross-plattform development frameworks like React [(Facebook 2015)](https://facebook.github.io/react-native/) and Angular [(Google LLC 2016)](https://angular.io/) and I very much agree with this advice [(Boelens 2019)](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
+
+1.  It was publicly endorsed by the Flutter Team on multiple occasions (Sullivan and Hracek 2018b, 2018a; Hracek and Sullivan 2019)
+2.  It has clear architectural rules [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)
+3.  It was developed by one of Flutters Engineers [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE)
+4.  We don’t end up with one giant store for the business logic out with multiple blocs with separate responsibilities [(Boelens 2019)](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
 
 ## Bloc
 
