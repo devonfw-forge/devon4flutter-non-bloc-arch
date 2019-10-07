@@ -996,25 +996,48 @@ The BLoC Pattern is a State Management solution originally designed by Paolo Soa
 | BLoC | Business Logic Component |
 | ---- | :----------------------- |
 
-| TLDR | The UI should be kept free of business logic. The UI Only publishes _Events_ to the BLoC and subscribes to a stream of _State_ emitted by the BLoC |
+| TLDR | The UI should be kept free of business logic. The UI Only publishes _Events_ to a BLoC and subscribes to a stream of _State_ emitted by a BLoC |
 | ---- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
-_Figure XXX: Bloc Architecture [[@sullivanBuildReactiveMobile2018]](https://www.youtube.com/watch?v=RS36gBEp8OI)_
+_Figure XXX: Bloc turning input events to a stream of State [[@sullivanBuildReactiveMobile2018]](https://www.youtube.com/watch?v=RS36gBEp8OI)_
 
-## Rules
+## Advantages of BLoC
+That's all well and good, but why should you care? An application that follows the rules defined by the BLoC pattern will..
 
-- **4 Rules for BLoCs**
-  - Only Sinks In & Streams out
-  - Dependencies Injectable
-  - No Platform Branching
-  - Implementation can be whatever you want
-- **4 Rules for UI Classes**
-  - "Complex Enough" views have a BLoC
-  - Components do not format the inputs they send to the BLoC
-  - Output are formated as little as possible
-  - If you do have Platform Branching, It should be dependent on a single BLoC bool output
+1. have all it's business logic in one place 
+2. have business logic that is functions independently of the interface
+3. have UI that can be changed without affecting the business Logic
+4. have business logic that easily testable
+5. rely on few rebuilds, as the UI only rebuilds when the state related to that UI changes
+6. have all it's dependencies injectable
+
+[@boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018]
+
+## Rules of the BLoC Pattern
+To gain those promised advanteges, you will have to follow these 8 rules Soares defined for the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE):
+
+**Rules for the BLoCs**
+   1. Input/Outputs are **simple** Sinks/Streams
+   2. All dependencies must be injectable and plattform agnostic
+   3. No platform branching
+      - No `if(IOS) then doThis()`
+   4. The actual implementation can be whatever you want if you follow 1-3
+   
+**Rules for UI Classes**
+  1. Each "Complex Enough" Widget has a related BLoC
+     - You will have to define what "Complex Enough" means for your app.
+  2. Widgets do not format the inputs they send to the BLoC
+     - Because formating is Business Logic
+  3. Widgets should display the BLoCs State/output with as little formating as possible
+     - Sometime a little formatting is inevitable, put things like currency formating is business logic and should be done in the BLoC 
+  4. If you do have platform branching, It should be dependent on a single BLoC bool State/output
+
+![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
+
+_Figure XXX: How a BLoC looks like [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
+
 
 ## Implementation
 
@@ -1023,10 +1046,6 @@ _Figure XXX: Bloc Architecture [[@sullivanBuildReactiveMobile2018]](https://www.
 
   
 ## Layered Architecure
-
-![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
-
-_Figure XXX: Bloc Sink and Stream [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
 
 - Pros
   - Change BL more easily
