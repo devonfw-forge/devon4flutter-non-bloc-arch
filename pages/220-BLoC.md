@@ -1,5 +1,9 @@
 Page Table of Contents
 - [Introduction](#introduction)
+- [Rules](#rules)
+- [Implementation](#implementation)
+- [Layered Architecure](#layered-architecure)
+- [Architecture in Practice](#architecture-in-practice)
 
 ## Introduction
 
