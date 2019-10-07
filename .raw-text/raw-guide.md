@@ -1019,6 +1019,7 @@ That's all well and good, but why should you care? An application that follows t
 To gain those promised advanteges, you will have to follow these 8 rules Soares defined for the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE):
 
 **Rules for the BLoCs**
+
    1. Input/Outputs are **simple** Sinks/Streams
    2. All dependencies must be injectable and plattform agnostic
    3. No platform branching
@@ -1026,6 +1027,7 @@ To gain those promised advanteges, you will have to follow these 8 rules Soares 
    4. The actual implementation can be whatever you want if you follow 1-3
    
 **Rules for UI Classes**
+
   1. Each "Complex Enough" Widget has a related BLoC
      - You will have to define what "Complex Enough" means for your app.
   2. Widgets do not format the inputs they send to the BLoC
