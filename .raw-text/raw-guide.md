@@ -811,11 +811,11 @@ _Figure 14: Wisgen WidgetTree Favorites [[@faustWisgen2019]](https://github.com/
 ## Provider Package
 The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is an open source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions [@hracekPragmaticStateManagement2019; @sullivanPragmaticStateManagement2019] and they are now devolving it in cooperation. The package is basically a prettier interface to interact with Inherited Widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose state from a Widget at the top of the tree to a Widget at the bottom. 
 
-As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called _lifting state up_ and it a common practice within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
+As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations withing your widget tree, you have to place it at one of there common ancestors so they can both access it through their build contexts. This practice is called _"lifting state up"_ and it a common practice within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
 
-| _lifting state up_ | Placing State at the lowest common ancestor of all Widgets that need access to it |
-| :----------------- | :-------------------------------------------------------------------------------- |
+| Lifting state up | Placing State at the lowest common ancestor of all Widgets that need access to it |
+| :--------------- | :-------------------------------------------------------------------------------- |
 
 The Provider Package is an easy way for us to lift state up. Let's look at our example form figure XXX: The first common ancestor of all widgets in need of the favorite list is _MaterialApp_. So we will need to lift the state up to the MaterialApp and then have our widgets access it from there:
 
