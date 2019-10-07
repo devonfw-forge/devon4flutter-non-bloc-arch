@@ -991,17 +991,13 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 # 220-BLoC
 
 ## Introduction
+The BLoC Pattern is a State Management solution originally designed by Paolo Soares in 2018 [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). It's original purpose was to enable code sharing between Flutter [[@flutterdevteamFlutterFramework2018]]([@flutterdevteamFlutterFramework2018]) and Angular [[@googlellcAngular2016]](https://angular.io/) Dart applications. Soares was working on applications in both frameworks at the time and he wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular apps. His Idea was to remove business logic from the UI as much as possible and extract it into it's own class, a BLoC (Business Logic Component). The UI should only send events to the BLoC, and display the interface based on the state of the BLoC. Soares defined, that UI and BLoC should only communicate through streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). This way the developer does not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a stream of State emitted by the BLoC and change based on the incoming state [@sullivanBuildReactiveMobile2018; @sullivanTechnicalDebtStreams2018; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018].
 
-- Goal: 
-  - Extract the Logic into a class that can be calls from 2 different independent interfaces (AngularDart and Flutter)
-- Streams
-- build by google engniers
-- used by google internally
-- UI only publishes and subscribes
-- NO BL in the UI
-- Keep it stupid so you don't need to test it
-- All BL should be in BLoC
-  - Buisnees Logic Objecs
+| BLoC | Business Logic Component |
+| ---- | :----------------------- |
+
+| TLDR | The UI should be kept free of business logic. The UI Only publishes _Events_ to the BLoC and subscribes to a stream of _State_ emitted by the BLoC |
+| ---- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
@@ -1057,6 +1053,9 @@ _Figure XXX: Wisgen Bloc Architecture [[@faustWisgen2019]](https://github.com/Fa
 _Figure XXX: Wisgen Bloc Architecture Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 # 300-Testing
+
+- Keep it stupid so you don't need to test it
+- 
 ## Unit Tests in Dart using the BLoC Pattern
 
 # 400-Conventions

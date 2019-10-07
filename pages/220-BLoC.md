@@ -7,16 +7,13 @@ Page Table of Contents
 
 ## Introduction
 
-  - Goal:
-      - Extract the Logic into a class that can be calls from 2 different independent interfaces (AngularDart and Flutter)
-  - Streams
-  - build by google engniers
-  - used by google internally
-  - UI only publishes and subscribes
-  - NO BL in the UI
-  - Keep it stupid so you don’t need to test it
-  - All BL should be in BLoC
-      - Buisnees Logic Objecs
+The BLoC Pattern is a State Management solution originally designed by Paolo Soares in 2018 [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE). It’s original purpose was to enable code sharing between Flutter [(Flutter Dev Team 2018h)](%5B@flutterdevteamFlutterFramework2018%5D) and Angular [(Google LLC 2016)](https://angular.io/) Dart applications. Soares was working on applications in both frameworks at the time and he wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular apps. His Idea was to remove business logic from the UI as much as possible and extract it into it’s own class, a BLoC (Business Logic Component). The UI should only send events to the BLoC, and display the interface based on the state of the BLoC. Soares defined, that UI and BLoC should only communicate through streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams). This way the developer does not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a stream of State emitted by the BLoC and change based on the incoming state (Sullivan and Hracek 2018b, 2018a; Soares 2018; Boelens 2018a).
+
+| BLoC | Business Logic Component |
+| ---- | :----------------------- |
+
+| TLDR | The UI should be kept free of business logic. The UI Only publishes *Events* to the BLoC and subscribes to a stream of *State* emitted by the BLoC |
+| ---- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
