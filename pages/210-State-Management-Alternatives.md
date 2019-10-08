@@ -29,7 +29,7 @@ So whenever the favorite button on any card is pressed, several Widgets [(Flutte
 
 ## Provider Package
 
-The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open-source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions (Hracek and Sullivan 2019; Sullivan and Hracek 2019) and they are now devolving it in cooperation. The package is basically a prettier interface to interact with Inherited Widgets [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) and expose State from a Widget at the top of the tree to a Widget at the bottom.
+The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider) is an open-source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions (Hracek and Sullivan 2019; Sullivan and Hracek 2019) and they are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [(Flutter Dev Team 2018c)](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
 
 As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their build contexts. This practice is called *“lifting State up”* and it is a common practice within declarative frameworks [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
