@@ -1210,10 +1210,8 @@ Expanded(
 
 ## Layered Architecure
 
-  - Pros
-      - Change BL more easily
-      - Change UI without impacting BL
-      - Easily Test BL
+Now that you understand how to implemepnt the BLoC pattern, lets’ have a look at how you can use it to achive a clean 3 Layered architecture for your application.
+
   - Layered Architecture out of BLoCs
       - Like Uncle Bob says
       - Nice indented Layers
