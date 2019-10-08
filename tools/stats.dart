@@ -7,6 +7,7 @@ const flutterDevMarker = '(Flutter Dev Team';
 const ndMarker = ' n.d.';
 const brokenMarker = '???';
 const imgMarker = '/wiki//images/';
+const defMarker = '📙';
 const codeMarker = "*Code Snippet ";
 const tldrMarker = 'TLDR';
 const importantMarker = '⚠';
@@ -26,6 +27,8 @@ main(List<String> arguments) async {
       tldrMarker.allMatches(text).length.toString() +
       '\n⚠ Importants:\t\t' +
       importantMarker.allMatches(text).length.toString() +
+      '\nDefinitions:\t\t' +
+      defMarker.allMatches(text).length.toString() +
       '\nLine Count:\t\t' +
       lineMarker.allMatches(text).length.toString() +
       '\nThe Word Flutter:\t' +

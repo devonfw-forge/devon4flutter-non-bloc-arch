@@ -100,7 +100,7 @@ You might think that keeping an entire rendering engine inside your app would le
 _Figure 5: Flutter Framework Architecture [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 | 🕐 TLDR | Flutter uses its own engine instead of using the native one. The native environment only renders the finished frames. |
-| ------- | :--------------------------------------------------------------------------------------------------------------------- |
+| ------- | :-------------------------------------------------------------------------------------------------------------------- |
 
 ## Flutter Compiler
 One additional advantage of Flutter is that it comes with two different compilers. A JIT-Compiler (Just in time) and an AOT-Compiler (Ahead of Time). The following table will showcase the advantage of each:
@@ -146,7 +146,7 @@ _Code Snippet 2: Number List (Declarative)_
 One important thing to note here is, that the difference between imperative and declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit more declarative. This is because you are then using functions that _describe_ what they do and you no longer care how they do it [[@computerphileHTMLProgrammingLanguage2016]](https://www.youtube.com/watch?v=4A2mWqLUpzw).
 
 | 🕐 TLDR | Imperative Programming is telling the framework **exactly** what you want it to do. Declarative Programming is describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. |
-| ------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ## Declarative Programming in Flutter
 Okay, now that we understand what declarative means, let's take a look at Flutter specifically. This is a quote from Flutter's official documentation:
@@ -159,8 +159,8 @@ _Figure 7: UI = f(State) [[@flutterdevteamFlutterState2019]](https://flutter.dev
 
 This means that you never imperatively or explicitly call a UI element to change it. You rather _declare_ that the UI should look a certain way, given a certain _State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). But what exactly is _State_? 
 
-| ⚠   | State in Flutter is any data that can change over time |
-| --- | :----------------------------------------------------- |
+| 📙 State | Any data that can change over time [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
 
 Typical State examples: User Data, the position of a scroll bar, a favorite List
 
@@ -216,7 +216,11 @@ One sentence you can simply not avoid when researching Flutter is:
 
 But that is not really helpful, is it? Personally, I like Didier Boelens definition of Flutter Widgets better:
 
-> "Think of a Widget as a visual component (or a component that interacts with the visual aspect of an application)." [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
+
+| 📙 Widget | A visual component (or a component that interacts with the visual aspect of an application) [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
+| :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+
 
 Let's have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought-provoking stock images:
 
@@ -262,9 +266,10 @@ When working with Flutter, you will inevitably stumble over the term _Widget Tre
 _Figure 9: Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Buildcontext
-If you have previously built an App with Flutter, you have definitely encountered _BuildContext_ [[@flutterdevteamBuildContextClass2018]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build method in Flutter. But what exactly is _BuildContext_? As Didier Boelens puts it:
+If you have previously built an App with Flutter, you have definitely encountered _BuildContext_ [[@flutterdevteamBuildContextClass2018]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build method in Flutter. But what exactly is _BuildContext_?
 
-> "A BuildContext is nothing else but a reference to the location of a Widget within the tree structure of all the Widgets which are built." [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956)
+| 📙 BuildContext | A reference to the location of a Widget within the tree structure of all the Widgets that have been built [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
+| :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 The BuildContext contains information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget Tree. Accessing a Widgets *descendants* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** vice-versa [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 9 could access its ancestor card Widget like this:
 ```dart
@@ -814,8 +819,8 @@ The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/pa
 As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their build contexts. This practice is called _"lifting State up"_ and it is a common practice within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
 
-| Lifting State up | Placing State at the lowest common ancestor of all Widgets that need access to it |
-| :--------------- | :-------------------------------------------------------------------------------- |
+| 📙 Lifting State up | Placing State at the lowest common ancestor of all Widgets that need access to it [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A) |
+| :------------------ | :-------------------------------------------------------------------------------- |
 
 The Provider Package is an easy way for us to lift State up. Let's look at our example from figure 14: The first common ancestor of all Widgets in need of the favorite list is _MaterialApp_. So we will need to lift the State up to the MaterialApp and then have our Widgets access it from there:
 
@@ -998,8 +1003,8 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 ## Introduction
 The BLoC Pattern is a State Management solution originally designed by Paolo Soares in 2018 [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [[@flutterdevteamFlutterFramework2018]]([@flutterdevteamFlutterFramework2018]) and Angular Dart [[@googlellcAngularDart2018]](https://angulardart.dev/) applications. Soares was working on applications in both frameworks at the time and he wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send events to a BLoC and display the interface based on the State of a BLoC. Soares defined, that UI and BLoCs should only communicate through streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a stream of State [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State [@sullivanBuildReactiveMobile2018; @sullivanTechnicalDebtStreams2018; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018].
 
-| BLoC | Business Logic Component |
-| ---- | :----------------------- |
+| 📙 BLoC | Business Logic Component |
+| ------- | :----------------------- |
 
 | TLDR | The UI should be kept free of business logic. The UI Only publishes _Events_ to a BLoC and subscribes to a stream of _State_ emitted by a BLoC |
 | ---- | :--------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -47,8 +47,8 @@ Okay, now that we understand what declarative means, let’s take a look at Flut
 
 This means that you never imperatively or explicitly call a UI element to change it. You rather *declare* that the UI should look a certain way, given a certain *State* [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt). But what exactly is *State*?
 
-| ⚠ | State in Flutter is any data that can change over time |
-| - | :----------------------------------------------------- |
+| 📙 State | Any data that can change over time [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------ |
 
 Typical State examples: User Data, the position of a scroll bar, a favorite List
 
