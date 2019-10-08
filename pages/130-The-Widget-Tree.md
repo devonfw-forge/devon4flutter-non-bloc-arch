@@ -21,8 +21,8 @@ One sentence you can simply not avoid when researching Flutter is:
 
 But that is not really helpful, is it? Personally, I like Didier Boelens definition of Flutter Widgets better:
 
-| 📙 Widget | A visual component (or a component that interacts with the visual aspect of an application) [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
-| -------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 📙 | Widget | A visual component (or a component that interacts with the visual aspect of an application) [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
+| - | ------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 Let’s have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought-provoking stock images:
 
@@ -73,8 +73,8 @@ When working with Flutter, you will inevitably stumble over the term *Widget Tre
 
 If you have previously built an App with Flutter, you have definitely encountered *BuildContext* [(Flutter Dev Team 2018a)](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build method in Flutter. But what exactly is *BuildContext*?
 
-| 📙 BuildContext | A reference to the location of a Widget within the tree structure of all the Widgets that have been built [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
-| -------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 📙 | BuildContext | A reference to the location of a Widget within the tree structure of all the Widgets that have been built [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
+| - | ------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 The BuildContext contains information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget Tree. Accessing a Widgets *descendants* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** vice-versa [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 9 could access its ancestor card Widget like this:
 
