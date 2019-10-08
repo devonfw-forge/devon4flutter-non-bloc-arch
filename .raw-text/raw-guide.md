@@ -985,7 +985,7 @@ Expanded(
 _Code Snippet 28: Consuming Redux Store in Favorite Button of Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Why I decided against it
-I went back and forth on this decision a lot. Redux is a great State Management solution with some clear guidlines on how to intergrate it into a Flutter application. It also enables the implementation of a clean three layered architecture (View - Store - Data) [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with it's approach from other cross-plattform development frameworks like React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) and Angular [[@googlellcAngular2016]](https://angular.io/) and I very much agree with this advice [[@boelensFlutterBLoCScopedModel2019]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
+I went back and forth on this decision a lot. Redux is a great State Management solution with some clear guidlines on how to intergrate it into a Reaactive application [[@abramovThreePrinciplesRedux2015]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three layered architecture (View - Store - Data) [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with it's approach from other cross-plattform development frameworks like React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) and Angular [[@googlellcAngular2016]](https://angular.io/) and I very much agree with this advice [[@boelensFlutterBLoCScopedModel2019]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 
 1. It was publicly endorsed by the Flutter Team on multiple occasions [@sullivanBuildReactiveMobile2018; @hracekPragmaticStateManagement2019; @sullivanTechnicalDebtStreams2018; @soaresFlutterAngularDartCode2018; @flutterdevteamFlutterState2019]
 2. It also has clear architectural rules [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)
@@ -1012,7 +1012,7 @@ _Figure XXX: Bloc turning input events to a stream of State [[@sullivanBuildReac
 That's all well and good, but why should you care? An application that follows the rules defined by the BLoC pattern will..
 
 1. have all it's business logic in one place 
-2. have business logic that is functions independently of the interface
+2. have business logic that functions independently of the interface
 3. have UI that can be changed without affecting the business Logic
 4. have business logic that easily testable
 5. rely on few rebuilds, as the UI only rebuilds when the state related to that UI changes
@@ -1052,7 +1052,7 @@ Alright, Now that you know what the BLoC pattern is, let's have a look at how it
 
 _Figure XXX: Bloc and Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-First, let's have a look at the events that can be send to the BLoC by the UI. Again, this is very similar to the _actions_ in our Redux implementation:
+Let's have a look at the events that can be send to the BLoC by the UI. Again, this is very similar to the _actions_ in our Redux implementation:
 
 ```dart
 ///The Favorite BLoC can handle 2 types of Events: Add and Remove.
@@ -1075,7 +1075,7 @@ class RemoveFavoriteEvent extends FavoriteEvent {
 ```
 _Code Snippet XXX: Favorite Event in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Now Let's take a look at the most interesting part of an implementation of the BLoC patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It take in the type of the _events_ that will be send to the BLoC and the type of the _State_ that should be emitted from the BLoC `Bloc<Event,State>`:
+Now Let's take a look at the most interesting part of an implementation of the BLoC patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the _events_ that will be send to the BLoC and the type of the _State_ that should be emitted by the BLoC `Bloc<Event,State>`:
 
 ```dart
 ///The FavoriteBLoC is Responsible for Keeping track of the
@@ -1101,7 +1101,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
 ```
 _Code Snippet XXX: Favorite BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-As I machined before, the BLoC package for Flutter uses the Provider package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we would if just used Provider for State Management. By the rule of _"lifting state up"_ we have to place the favorite BLoC at the lowest common ancestor of all widgets that need access to it. So in our case at _MaterialApp_:
+As I mansioned before, the BLoC package for Flutter uses the Provider package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we would if just used Provider for State Management. By the rule of _"lifting state up"_ we have to place the favorite BLoC at the lowest common ancestor of all widgets that need access to it. So in our case at _MaterialApp_:
 
 ```dart
 void main() => runApp(MyApp());
@@ -1119,7 +1119,7 @@ class MyApp extends StatelessWidget {
 ```
 _Code Snippet XXX: Providing a BLoC Globally in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Lastly, we can dispatch events and subscribe to a BLoC. This is the favorite button in Wisgen. It changes shape and color based on the state of the FavoriteBLoC and it dispatches events to the BLoC to add and remove favorites. The _wisdom_ object is the wisdom displayed on the Card Widget.
+Lastly, we can dispatch events and subscribe to a BLoC. This is the favorite button in Wisgen. It changes shape and color based on the state emitted by the FavoriteBLoC and it dispatches events to the BLoC to add and remove favorites. The _wisdom_ object is the wisdom displayed on the Card Widget.
 
 ```dart
 ...

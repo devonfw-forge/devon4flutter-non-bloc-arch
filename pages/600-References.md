@@ -3,7 +3,13 @@
 
 <div id="ref-abramovRedux2015">
 
-Abramov, Dan. 2015. “Redux.” Documentation. 2015. <https://redux.js.org/>.
+Abramov, Dan. 2015a. “Redux.” Documentation. 2015. <https://redux.js.org/>.
+
+</div>
+
+<div id="ref-abramovThreePrinciplesRedux2015">
+
+———. 2015b. “Three Principles of Redux.” Documentation. 2015. <https://redux.js.org/>.
 
 </div>
 
