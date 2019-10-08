@@ -220,7 +220,7 @@ One sentence you can simply not avoid when researching Flutter is:
 But that is not really helpful, is it? Personally, I like Didier Boelens definition of Flutter Widgets better:
 
 | 📙 Widget | A visual component (or a component that interacts with the visual aspect of an application) [(Boelens 2018b)](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
-| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 Let’s have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought-provoking stock images:
 

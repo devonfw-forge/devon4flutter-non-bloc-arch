@@ -218,7 +218,7 @@ But that is not really helpful, is it? Personally, I like Didier Boelens definit
 
 
 | 📙 Widget | A visual component (or a component that interacts with the visual aspect of an application) [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
-| :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 
 
@@ -820,7 +820,7 @@ As a quick reminder: Data in Flutter always flows **downwards**. If you want to 
 
 
 | 📙 Lifting State up | Placing State at the lowest common ancestor of all Widgets that need access to it [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A) |
-| :------------------ | :-------------------------------------------------------------------------------- |
+| :------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 The Provider Package is an easy way for us to lift State up. Let's look at our example from figure 14: The first common ancestor of all Widgets in need of the favorite list is _MaterialApp_. So we will need to lift the State up to the MaterialApp and then have our Widgets access it from there:
 
