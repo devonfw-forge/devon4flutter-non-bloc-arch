@@ -34,7 +34,7 @@ The Provider Package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/pac
 As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their build contexts. This practice is called *“lifting State up”* and it is a common practice within declarative frameworks [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
 | 📙 Lifting State up | Placing State at the lowest common ancestor of all Widgets that need access to it [(Egan 2018)](https://www.youtube.com/watch?v=zKXz3pUkw9A) |
-| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | :------------------------------------------------------------------------------------------------------------------------------------------- |
 
 The Provider Package is an easy way for us to lift State up. Let’s look at our example from figure 14: The first common ancestor of all Widgets in need of the favorite list is *MaterialApp*. So we will need to lift the State up to the MaterialApp and then have our Widgets access it from there:
 
