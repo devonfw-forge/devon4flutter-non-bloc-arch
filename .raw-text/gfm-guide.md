@@ -1066,9 +1066,8 @@ That’s all well and good, but why should you care? An application that follows
 1.  have all its business logic in one place
 2.  have business logic that functions independently of the interface
 3.  have UI that can be changed without affecting the business Logic
-4.  have business logic that easily testable
+4.  have business logic that is easily testable
 5.  rely on few rebuilds, as the UI only rebuilds when the State related to that UI changes
-6.  have all its dependencies injectable
 
 (Boelens 2019, 2018a; Savjolovs 2019; Soares 2018)
 
