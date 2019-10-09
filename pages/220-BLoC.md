@@ -174,16 +174,16 @@ Expanded(
 
 ## Layered Architecure
 
-Now that you understand how to implement the BLoC pattern, lets’ have a look at how you can use it to achieve a clean Three-Layered architecture for your application. The BLoC Pattern already forces us to kep our UI and our buisness logic seperate. This way we end up with a UI-Layer and a BLoC
+Now that you understand how to implement the BLoC pattern, lets’ have a look at how you can use it to achieve a clean Three-Layered architecture for your application. The BLoC Pattern already forces us to keep our UI and our business logic separate. This way we end up with a UI-Layer and a Business-Logic Layer. Lastly, we want to keep our BLoCs plattform independant. So we extract any logic related to external services out of the BLoC and put them into there own layer [\[63\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). This would be things things like a database connector or a class that handels communication with an API. If we follow *Uncle Bob’s* guidelines for clean architecture, We can’t have our BLoCs directly depend on our external service connectors [\[65\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). We create plattform agnostic interfaces and make our external service connectors implement those. Then our BLoCs can depend on the plattform agnostic interfaces instead and the actual dependency can be injected. This way we end up with a clean three-layered architecture with dependencies only pointing one way:
+
+![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png)
+
+*Figure XXX: Bloc Architecture with Layers*
 
   - Layered Architecture out of BLoCs
       - Like Uncle Bob says
       - Nice indented Layers
       - use Boundary classes IE interfaces to keep data layer seperat from Buisness Layer
-
-![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
-
-*Figure XXX: Bloc Architecture with Layers [\[63\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
 
 ## Architecture in Practice
 

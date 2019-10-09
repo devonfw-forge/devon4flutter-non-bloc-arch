@@ -385,5 +385,11 @@
 
 </div>
 
+<div id="ref-martinPrinciplesCleanArchitecture2015">
+
+\[65\] B. Martin, “The Principles of Clean Architecture,” 2015 \[Online\]. Available: <https://www.youtube.com/watch?v=o_TH-Y78tt4>. \[Accessed: 13-Sep-2019\]
+
+</div>
+
 </div>
 <p align="center"><a href="#">Back to Top</a></center></p>
