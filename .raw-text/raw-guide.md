@@ -1165,7 +1165,7 @@ _Figure XXX: Three-Layered BLoC Architecture_
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
 
-_Figure XXX: Wisgen Architecture [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure XXX: Wisgen Architecture with Dependencies [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 

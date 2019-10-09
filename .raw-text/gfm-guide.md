@@ -1221,7 +1221,7 @@ Now that we understand how to implement the BLoC pattern, lets’ have a look at
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
 
-*Figure XXX: Wisgen Architecture [\[11\]](https://github.com/Fasust/wisgen)*
+*Figure XXX: Wisgen Architecture with Dependencies [\[11\]](https://github.com/Fasust/wisgen)*
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
