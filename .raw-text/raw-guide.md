@@ -415,7 +415,7 @@ I will not go in detail on Inherited Widgets [[@flutterdevteamInheritedWidgetCla
 Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) have a very good integration of Asynchronous Programming. This chapter will teach you the basics of Futures, async/await [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). Throughout this chapter, I will be using the _HTTP package_ [[@dartteamHttpDartPackage2019]](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common use-cases for Asynchronous Programming, so I thought it would only be fitting.
 
 ## Futures
-Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen API Repository. It can make requests to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
+Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen API Data-Provider. It can make requests to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ```dart
 class Api {
@@ -431,7 +431,7 @@ class Api {
   }
 }
 ```
-_Code Snippet 11: Wisgen API Repository (Futures) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 11: Wisgen API Data-Provider (Futures) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 As you can see, you simply call _get()_ on the HTTP module and give it the URL it should request. The get() method returns a Future. A Future object is a reference to an event that will take place at some point in the _future_. We can give it a callback function with _then()_, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it's type: `Future<Type>`. So here, the Future object _"apiCall"_ is a reference to when the API call will be resolved. Once the call is complete, _then()_ will be called and we get access to the _http.Response_. We tell the future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to _then()_ [@googlellcDartFutures2019; @googlellcIsolatesEventLoops2019]. We can also handle errors with the _catchError()_ function:
 
@@ -448,7 +448,7 @@ class Api {
   }
 }
 ```
-_Code Snippet 12: Wisgen API Repository (Futures with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 12: Wisgen API Data-Provider (Futures with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Async & Await
 If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the _async & await_ keywords [[@dartteamAsynchronousProgrammingDart2018]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous  code the same way we would if it was synchronous. Let's take the same example as in 
@@ -465,7 +465,7 @@ class Api {
   }
 }
 ```
-_Code Snippet 13: Wisgen API Repository (Async) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 13: Wisgen API Data-Provider (Async) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 We can use the _await_ keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the _http.Response_ has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark the function as _async_. This forces the return type to be a Future. This makes sense because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [[@googlellcAsyncAwait2019]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with _try/catch_:
 
@@ -484,7 +484,7 @@ class Api {
   }
 }
 ```
-_Code Snippet 14: Wisgen API Repository (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 14: Wisgen API Data-Provider (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Streams
 Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we'll use them heavily in the chapter [Architecting a Flutter app][architecture]. But what exactly are _streams_? As Andrew Brogdon put's it in one of Google's official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one continuous flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and be notified once a new piece of data enters the stream.
@@ -650,7 +650,7 @@ _Code Snippet 19: Simplified Wisgen WisdomBLoC with async* [[@faustWisgen2019]](
 This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still feel like you want to learn more I can highly recommend this article by Didier Boelens [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8-minute tutorial video by the Flutter Team [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
 ## Side Note on Communication with the Web
-I just wanted to end this chapter by showing you how the API Repository of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
+I just wanted to end this chapter by showing you how the API Data-Provider of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
 
 ```dart
 import 'dart:convert';
@@ -662,9 +662,9 @@ import 'package:wisgen/models/wisdom.dart';
 import 'package:wisgen/repositories/repository.dart';
 import 'package:http/http.dart' as http;
 
-///Repository that cashes data it fetches from an API and
+///Data-Provider that cashes data it fetches from an API and
 ///then Provides a given amount of random entries.
-class Api implements Repository<Wisdom> {
+class Api implements DataProvider<Wisdom> {
   ///Advice SLip API Query that requests all (~213) Text Entries from the API.
   ///We fetch all entries at once and cash them locally to minimize network traffic.
   ///The Advice Slip API also does not provide the option to request a 
@@ -704,7 +704,7 @@ class Api implements Repository<Wisdom> {
 }
 
 ```
-_Code Snippet 20: Actual Wisgen API Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 20: Actual Wisgen API Data-Provider [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 The _AdviceSlips_ class is generated with a JSON to Dart converter [[@lecuonaJSONDartConverter2019]](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. I used this class instead of implementing a method in the _Wisdom_ class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
 

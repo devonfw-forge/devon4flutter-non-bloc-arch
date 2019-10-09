@@ -434,7 +434,7 @@ Asynchronous Programming is an essential part of any modern application. There w
 
 ## Futures
 
-Futures [\[3\]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen API Repository. It can make requests to the AdviceSlip API [\[39\]](https://api.adviceslip.com/) to fetch some new advice texts.
+Futures [\[3\]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen API Data-Provider. It can make requests to the AdviceSlip API [\[39\]](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ``` dart
 class Api {
@@ -451,7 +451,7 @@ class Api {
 }
 ```
 
-*Code Snippet 11: Wisgen API Repository (Futures) [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 11: Wisgen API Data-Provider (Futures) [\[11\]](https://github.com/Fasust/wisgen)*
 
 As you can see, you simply call *get()* on the HTTP module and give it the URL it should request. The get() method returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, the Future object *“apiCall”* is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* \[40\], \[41\]. We can also handle errors with the *catchError()* function:
 
@@ -469,7 +469,7 @@ class Api {
 }
 ```
 
-*Code Snippet 12: Wisgen API Repository (Futures with Error) [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 12: Wisgen API Data-Provider (Futures with Error) [\[11\]](https://github.com/Fasust/wisgen)*
 
 ### Async & Await
 
@@ -488,7 +488,7 @@ class Api {
 }
 ```
 
-*Code Snippet 13: Wisgen API Repository (Async) [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 13: Wisgen API Data-Provider (Async) [\[11\]](https://github.com/Fasust/wisgen)*
 
 We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark the function as *async*. This forces the return type to be a Future. This makes sense because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [\[43\]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with *try/catch*:
 
@@ -508,7 +508,7 @@ class Api {
 }
 ```
 
-*Code Snippet 14: Wisgen API Repository (Async with Error) [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 14: Wisgen API Data-Provider (Async with Error) [\[11\]](https://github.com/Fasust/wisgen)*
 
 ## Streams
 
@@ -681,7 +681,7 @@ This marks the end of my introduction to streams. It can be a challenging topic 
 
 ## Side Note on Communication with the Web
 
-I just wanted to end this chapter by showing you how the API Repository of Wisgen [\[11\]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
+I just wanted to end this chapter by showing you how the API Data-Provider of Wisgen [\[11\]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
 
 ``` dart
 import 'dart:convert';
@@ -693,9 +693,9 @@ import 'package:wisgen/models/wisdom.dart';
 import 'package:wisgen/repositories/repository.dart';
 import 'package:http/http.dart' as http;
 
-///Repository that cashes data it fetches from an API and
+///Data-Provider that cashes data it fetches from an API and
 ///then Provides a given amount of random entries.
-class Api implements Repository<Wisdom> {
+class Api implements DataProvider<Wisdom> {
   ///Advice SLip API Query that requests all (~213) Text Entries from the API.
   ///We fetch all entries at once and cash them locally to minimize network traffic.
   ///The Advice Slip API also does not provide the option to request a 
@@ -735,7 +735,7 @@ class Api implements Repository<Wisdom> {
 }
 ```
 
-*Code Snippet 20: Actual Wisgen API Repository [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 20: Actual Wisgen API Data-Provider [\[11\]](https://github.com/Fasust/wisgen)*
 
 The *AdviceSlips* class is generated with a JSON to Dart converter [\[49\]](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it’s data fields with the JSON response. I used this class instead of implementing a method in the *Wisdom* class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don’t need to read it all, I just want to give you an idea of how it looks like:
 
