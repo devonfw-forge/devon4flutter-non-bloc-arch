@@ -1162,17 +1162,13 @@ Now that we understand how to implement the BLoC pattern, lets' have a look at h
 _Figure XXX: Three-Layered BLoC Architecture_
 
 ### Architecture in Practice 
-To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgens [[@faustWisgen2019]](https://github.com/Fasust/wisgen) is build using the BLoC Pattern and a three-layered architecture.
+To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) is build using the BLoC Pattern and a three-layered architecture.
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
 
 _Figure XXX: Wisgen Architecture with Dependencies [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
-
-_Figure XXX: Wisgen Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
-
-In the UI Layer, we have all the Widgets that make up Wisgen. 3 of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the _Wisdom BLoC_ to fetch more data from his _Repository_, which is a plattform agnostic interface that looks like this: 
+In the UI Layer, we have all the Widgets that make up Wisgen. 3 of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the _Wisdom BLoC_ to fetch more data from its _Repository_. The _Repository_ class is a plattform agnostic interface that looks like this: 
 
 ```dart
 ///Interface for a Generic List Provider that fetches a given amount of T
@@ -1182,10 +1178,14 @@ abstract class Repository<T>{
 ```
 _Code Snippets XXX: Wisgen Plattform Agnostic Interface Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-So the _Wisdom BLoC_ just knows it can fetch some data with its Repository and it does not care how it is implemented. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the API implementation of the Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. 
+So the _Wisdom BLoC_ just knows it can fetch some data with its Repository and it does not care how it is implemented. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. 
 When the _Wisdom BLoC_ receives a response from it's Repository/the Data-Provider Layer, it publishes the new wisdoms to its Stream [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified. 
 
-I already covered how the favorite list works in detial in this chapter, so I won't go over it again. The _Storage BLoC_ keeps a persistant copy of the favorite list on the device:
+![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
+
+_Figure XXX: Wisgen Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+I already covered how the favorite list works in detial in this chapter, so I won't go over it again. The _Storage BLoC_ keeps a persistant copy of the favorite list on the device. It is implemented like this:
 
 ```dart
 enum StorageState { idle } //Because this BLoC doesn't need to emit Sate, I used a Single Enum
@@ -1234,7 +1234,7 @@ class StorageBloc extends Bloc<StorageEvent, StorageState> {
 ```
 _Code Snippets XXX: Wisgen Storage BLoC [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-It recievce a _StorageEvent.load_ once on start-up and loads the old favorite list from its _Storage_ and adds it to the _Favortie BLoC_. It also listens to the _Favorite BLoC_ and updates it's persistant copy every time the _Favorite Bloc_ emits a new favorite list. _Storage_ is also a plattform agnostic interface. It looks like this:
+It recievce a _StorageEvent.load_ once on start-up and loads the old favorite list from its _Storage_ and adds it to the _Favortie BLoC_. It also listens to the _Favorite BLoC_ and updates it's persistant copy every time the _Favorite Bloc_ emits a new favorite list. _Storage_ is also a plattform agnostic interface and it looks like this:
 
 ```dart
 ///Interface for a Generic List Provider
@@ -1247,6 +1247,8 @@ abstract class Storage<T>{
 }
 ```
 _Code Snippets XXX: Wisgen Plattform Agnostic Interface Storage [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+In Wisgen, I built an implementaion of _Storage_ that communicates with Androids Shared Preferences [[@googlellcSharedPreferences2011]](https://developer.android.com/reference/android/content/SharedPreferences). 
 
 # 300-Testing
 

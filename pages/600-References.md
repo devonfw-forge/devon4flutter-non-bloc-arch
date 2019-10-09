@@ -397,5 +397,11 @@
 
 </div>
 
+<div id="ref-googlellcSharedPreferences2011">
+
+\[67\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
+
+</div>
+
 </div>
 <p align="center"><a href="#">Back to Top</a></center></p>
