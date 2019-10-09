@@ -625,7 +625,7 @@ class WisdomFeedState extends State<WisdomFeed> {
 ```
 _Code Snippet 18: Simplified Wisgen WisdomFeed with StreamBuilder [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Alright, let's go through this step by step. First, we initialize our WisdomBloc in the _initSate()_ method. This is also where we set up a ScrollController [[@flutterdevteamScrollControllerClass2018]](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled. I won't go into the details here, but the controller enables us to call _publishMoreWisdom()_ on the WisdomBloc whenever we are near the end of our list. This way we get infinite scrolling. In the _build()_ method, we use Flutter's StreamBuilder [[@flutterdevteamStreamBuilderClass2018]](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current State of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the _listView()_ method. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this use-case [[@sullivanTechnicalDebtStreams2018]](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the _dispose()_ method is called and we dispose of our stream and ScrollController.
+Alright, let's go through this step by step. First, we initialize our WisdomBloc in the _initSate()_ method. This is also where we set up a ScrollController [[@flutterdevteamScrollControllerClass2018]](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). I won't go into the details here, but the controller enables us to call _publishMoreWisdom()_ on the WisdomBloc whenever we are near the end of our list. This way we get infinite scrolling. In the _build()_ method, we use Flutter's StreamBuilder [[@flutterdevteamStreamBuilderClass2018]](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our stream. We give it our stream and it provides a builder method. This builder has a snapshot containing the current State of the stream. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive the actual list of wisdoms from our stream through the snapshot, we continue to the _listView()_ method. Here we just use the list of wisdoms to create a ListView with WisdomCards. You might have wondered why we stream a List of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual Wisdoms we would need to combine them into a list here. Streaming a complete list is also recommended by the Flutter team for this use-case [[@sullivanTechnicalDebtStreams2018]](https://www.youtube.com/watch?v=fahC3ky_zW0). Finally, once the app is closed down, the _dispose()_ method is called and we dispose of our stream and ScrollController.
 
 ![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/Fasust/flutter-guide/wiki//images/wisdomBloc-stream.PNG)
 
@@ -1161,7 +1161,8 @@ Now that we understand how to implement the BLoC pattern, lets' have a look at h
 
 _Figure XXX: Three-Layered BLoC Architecture_
 
-## Architecture in Practice 
+### Architecture in Practice 
+To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgens [[@faustWisgen2019]](https://github.com/Fasust/wisgen) is build using the BLoC Pattern and a three-layered architecture.
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
 
@@ -1170,6 +1171,82 @@ _Figure XXX: Wisgen Architecture with Dependencies [[@faustWisgen2019]](https://
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
 _Figure XXX: Wisgen Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+In the UI Layer, we have all the Widgets that make up Wisgen. 3 of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the _Wisdom BLoC_ to fetch more data from his _Repository_, which is a plattform agnostic interface that looks like this: 
+
+```dart
+///Interface for a Generic List Provider that fetches a given amount of T
+abstract class Repository<T>{
+  Future<List<T>> fetch(int amount, BuildContext context);
+}
+```
+_Code Snippets XXX: Wisgen Plattform Agnostic Interface Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+So the _Wisdom BLoC_ just knows it can fetch some data with its Repository and it does not care how it is implemented. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the API implementation of the Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. 
+When the _Wisdom BLoC_ receives a response from it's Repository/the Data-Provider Layer, it publishes the new wisdoms to its Stream [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified. 
+
+I already covered how the favorite list works in detial in this chapter, so I won't go over it again. The _Storage BLoC_ keeps a persistant copy of the favorite list on the device:
+
+```dart
+enum StorageState { idle } //Because this BLoC doesn't need to emit Sate, I used a Single Enum
+enum StorageEvent { load, wipe } //Only 2 events that both don't need to carry additional data
+
+///The StorageBLoC is injected with a FavoriteBLoC on Creation.
+///It subscribes to the FavoriteBLoC and writes the Favorite List
+///to a given Storage device every time a new State is emitted by the FavoriteBLoC.
+///
+///When the StorageBLoC receives a load Event, it loads a list of Wisdoms from a given
+///Storage device and pipes it into the FavoriteBLoC
+///
+///Used to keep a Persistent copy of the Favorite List on the Device
+class StorageBloc extends Bloc<StorageEvent, StorageState> {
+  final Storage _storage = new SharedPreferenceStorage();
+  final FavoriteBloc _observedBloc;
+
+  StorageBloc(this._observedBloc) {
+    //Subscribe to BLoC
+    _observedBloc.state.listen((state) async {
+      //save whenever there is a new favorite list
+      await _storage.save(state);
+    });
+  }
+
+  @override
+  StorageState get initialState => StorageState.idle;
+
+  @override
+  Stream<StorageState> mapEventToState(StorageEvent event) async* {
+    if (event == StorageEvent.load) await _load();
+    if (event == StorageEvent.wipe) _storage.wipeStorage();
+  }
+
+  _load() async {
+    List<Wisdom> loaded = await _storage.load();
+
+    if (loaded == null || loaded.isEmpty) return;
+
+    loaded.forEach((f) {
+      _observedBloc.dispatch(AddFavoriteEvent(f));
+    });
+  }
+
+}
+```
+_Code Snippets XXX: Wisgen Storage BLoC [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+It recievce a _StorageEvent.load_ once on start-up and loads the old favorite list from its _Storage_ and adds it to the _Favortie BLoC_. It also listens to the _Favorite BLoC_ and updates it's persistant copy every time the _Favorite Bloc_ emits a new favorite list. _Storage_ is also a plattform agnostic interface. It looks like this:
+
+```dart
+///Interface for a Generic List Provider
+abstract class Storage<T>{
+  Future<List<T>> load();
+  save(List<T> data);
+
+  ///Wipe the Storage Medium
+  wipeStorage();
+}
+```
+_Code Snippets XXX: Wisgen Plattform Agnostic Interface Storage [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 # 300-Testing
 
