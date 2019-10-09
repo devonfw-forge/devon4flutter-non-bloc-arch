@@ -6,7 +6,7 @@ Page Table of Contents
     - [Rules for UI Classes](#rules-for-ui-classes)
 - [Implementation](#implementation)
 - [Layered Architecure](#layered-architecure)
-- [Architecture in Practice](#architecture-in-practice)
+  - [Architecture in Practice](#architecture-in-practice)
 
 ## Introduction
 
