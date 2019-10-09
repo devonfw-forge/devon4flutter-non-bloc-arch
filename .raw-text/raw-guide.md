@@ -1155,16 +1155,11 @@ Expanded(
 _Code Snippet XXX: Accessing a BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Layered Architecure
-Now that you understand how to implement the BLoC pattern, lets' have a look at how you can use it to achieve a clean Three-Layered architecture for your application. The BLoC Pattern already forces us to keep our UI and our business logic separate. This way we end up with a UI-Layer and a Business-Logic Layer. Lastly, we want to keep our BLoCs plattform independant. So we extract any logic related to external services out of the BLoC and put them into there own layer [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). This would be things things like a database connector or a class that handels communication with an API. If we follow _Uncle Bob's_ guidelines for clean architecture, We can't have our BLoCs directly depend on our external service connectors [[@martinPrinciplesCleanArchitecture2015]](https://www.youtube.com/watch?v=o_TH-Y78tt4). We create plattform agnostic interfaces and make our external service connectors implement those. Then our BLoCs can depend on the plattform agnostic interfaces instead and the actual dependency can be injected. This way we end up with a clean three-layered architecture with dependencies only pointing one way: 
+Now that we understand how to implement the BLoC pattern, lets' have a look at how we can use it to achieve a clean three-layered architecture for your application. The BLoC Pattern already forces us to keep our UI and our business logic separate. This way we end up with a UI-Layer and a Business-Logic Layer. Lastly, we want to keep our BLoCs plattform independant. So we extract any logic related to external services from the BLoC and put it into its own layer [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). This would be things like a _database connector_ or a class that handels communication with an API. To fulfill rule 2 of the BLoC Pattern, We can't have our BLoCs directly depend on our external service connectors. We have to create plattform agnostic _interfaces_/_boundary object_ and make our external service connectors implement those [[@martinPrinciplesCleanArchitecture2015]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Then our BLoCs can depend on the plattform agnostic interfaces instead and the actual dependency can be injected. This way we end up with a clean three-layered architecture with one-way dependencies: 
 
 ![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png)
 
-_Figure XXX: Bloc Architecture with Layers_
-
-- Layered Architecture out of BLoCs
-  - Like Uncle Bob says
-  - Nice indented Layers
-  - use Boundary classes IE interfaces to keep data layer seperat from Buisness Layer
+_Figure XXX: Three-Layered BLoC Architecture_
 
 ## Architecture in Practice 
 
