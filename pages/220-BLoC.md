@@ -10,17 +10,17 @@ Page Table of Contents
 
 ## Introduction
 
-The BLoC Pattern is a State Management solution originally designed by Paolo Soares in 2018 [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [(Flutter Dev Team 2018h)](%5B@flutterdevteamFlutterFramework2018%5D) and Angular Dart [(Google LLC 2018a)](https://angulardart.dev/) applications. Soares was working on applications in both frameworks at the time and he wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send events to a BLoC and display the interface based on the State of a BLoC. Soares defined, that UI and BLoCs should only communicate through streams [(Dart Team 2019b)](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a stream of State [(Flutter Dev Team 2019b)](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State (Sullivan and Hracek 2018b, 2018a; Soares 2018; Boelens 2018a).
+The BLoC Pattern is a State Management solution originally designed by Paolo Soares in 2018 [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [\[1\]](%5B@flutterdevteamFlutterFramework2018%5D) and Angular Dart [\[64\]](https://angulardart.dev/) applications. Soares was working on applications in both frameworks at the time and he wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send events to a BLoC and display the interface based on the State of a BLoC. Soares defined, that UI and BLoCs should only communicate through streams [\[37\]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a stream of State [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State \[7\], \[44\], \[48\], \[62\].
 
-| 📙 | BLoC | Business Logic Component [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE) |
-| - | ---- | :------------------------------------------------------------------------------------ |
+| 📙 | BLoC | Business Logic Component [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) |
+| - | ---- | :---------------------------------------------------------------------------- |
 
 | 🕐 | TLDR | The UI should be kept free of business logic. The UI Only publishes *Events* to a BLoC and subscribes to a stream of *State* emitted by a BLoC |
 | - | ---- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
-*Figure XXX: Bloc turning input events to a stream of State [(Sullivan and Hracek 2018b)](https://www.youtube.com/watch?v=RS36gBEp8OI)*
+*Figure XXX: Bloc turning input events to a stream of State [\[62\]](https://www.youtube.com/watch?v=RS36gBEp8OI)*
 
 ## Advantages of BLoC
 
@@ -32,11 +32,11 @@ That’s all well and good, but why should you care? An application that follows
 4.  have business logic that is easily testable
 5.  rely on few rebuilds, as the UI only rebuilds when the State related to that UI changes
 
-(Boelens 2019, 2018a; Savjolovs 2019; Soares 2018)
+\[7\], \[44\], \[55\], \[56\]
 
 ## Rules of the BLoC Pattern
 
-To gain those promised advantages, you will have to follow these 8 rules Soares defined for the BLoC Pattern [(Soares 2018)](https://www.youtube.com/watch?v=PLHln7wHgPE):
+To gain those promised advantages, you will have to follow these 8 rules Soares defined for the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE):
 
 #### Rules for the BLoCs
 
@@ -58,15 +58,15 @@ To gain those promised advantages, you will have to follow these 8 rules Soares 
 
 ![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
 
-*Figure XXX: How a BLoC looks like [(Boelens 2018a)](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
+*Figure XXX: How a BLoC looks like [\[44\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
 
 ## Implementation
 
-Alright, Now that you know what the BLoC pattern is, let’s have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [(Abramov 2015a)](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [(Angelov and Contributors 2019)](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the Example of *App State* as I did in the [previous chapter](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives): The favorite list in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen). First, let’s have a look at how the Bloc pattern will interact with Wisgen on a more abstract scale:
+Alright, Now that you know what the BLoC pattern is, let’s have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [\[57\]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [\[36\]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the Example of *App State* as I did in the [previous chapter](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives): The favorite list in Wisgen [\[11\]](https://github.com/Fasust/wisgen). First, let’s have a look at how the Bloc pattern will interact with Wisgen on a more abstract scale:
 
 ![Bloc and Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-bloc.PNG)
 
-*Figure XXX: Bloc and Wisgen Widget Tree [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure XXX: Bloc and Wisgen Widget Tree [\[11\]](https://github.com/Fasust/wisgen)*
 
 Let’s have a look at the events that can be sent to the BLoC by the UI. Again, this is very similar to the *actions* in our Redux implementation:
 
@@ -90,7 +90,7 @@ class RemoveFavoriteEvent extends FavoriteEvent {
 }
 ```
 
-*Code Snippet XXX: Favorite Event in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet XXX: Favorite Event in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
 Now Let’s take a look at the most interesting part of an implementation of the BLoC patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the *events* that will be sent to the BLoC and the type of the *State* that should be emitted by the BLoC `Bloc<Event, State>`:
 
@@ -117,9 +117,9 @@ class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
 }
 ```
 
-*Code Snippet XXX: Favorite BLoC in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet XXX: Favorite BLoC in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
-As I mentioned before, the BLoC package for Flutter uses the Provider package [(Rousselet and Flutter Dev Team 2018)](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we would if just used Provider for State Management. By the rule of *“lifting State up”* we have to place the favorite BLoC at the lowest common ancestor of all Widgets that need access to it. So in our case at *MaterialApp*:
+As I mentioned before, the BLoC package for Flutter uses the Provider package [\[50\]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we would if just used Provider for State Management. By the rule of *“lifting State up”* we have to place the favorite BLoC at the lowest common ancestor of all Widgets that need access to it. So in our case at *MaterialApp*:
 
 ``` dart
 void main() => runApp(MyApp());
@@ -136,7 +136,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-*Code Snippet XXX: Providing a BLoC Globally in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet XXX: Providing a BLoC Globally in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
 Lastly, we can dispatch events and subscribe to a BLoC. This is the favorite button in Wisgen. It changes shape and color based on the State emitted by the FavoriteBLoC and it dispatches events to the BLoC to add and remove favorites. The *wisdom* object is the wisdom displayed on the Card Widget.
 
@@ -170,11 +170,11 @@ Expanded(
 ...
 ```
 
-*Code Snippet XXX: Accessing a BLoC in Wisgen [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Code Snippet XXX: Accessing a BLoC in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
 ## Layered Architecure
 
-Now that you understand how to implemepnt the BLoC pattern, lets’ have a look at how you can use it to achive a clean 3 Layered architecture for your application.
+Now that you understand how to implement the BLoC pattern, lets’ have a look at how you can use it to achieve a clean Three-Layered architecture for your application. The BLoC Pattern already forces us to kep our UI and our buisness logic seperate. This way we end up with a UI-Layer and a BLoC
 
   - Layered Architecture out of BLoCs
       - Like Uncle Bob says
@@ -183,17 +183,17 @@ Now that you understand how to implemepnt the BLoC pattern, lets’ have a look 
 
 ![Bloc Architecture with Layers](https://github.com/Fasust/flutter-guide/wiki//images/bloc-layers.png)
 
-*Figure XXX: Bloc Architecture with Layers [(Suri 2019)](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
+*Figure XXX: Bloc Architecture with Layers [\[63\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)*
 
 ## Architecture in Practice
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dependencies.png)
 
-*Figure XXX: Wisgen Bloc Architecture [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure XXX: Wisgen Bloc Architecture [\[11\]](https://github.com/Fasust/wisgen)*
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
-*Figure XXX: Wisgen Bloc Architecture Dataflow [(Faust 2019)](https://github.com/Fasust/wisgen)*
+*Figure XXX: Wisgen Bloc Architecture Dataflow [\[11\]](https://github.com/Fasust/wisgen)*
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/300-Testing">Next Chapter: Testing ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

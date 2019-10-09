@@ -1,13 +1,11 @@
 ---
-Build GFM: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md
-
-Split GFM: dart .\tools\splitter.dart .\.raw-text\gfm-guide.md .\pages\
-
 Show Stats: dart .\tools\stats.dart .\.raw-text\gfm-guide.md
 
-Build & Split GFM: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md ; dart .\tools\splitter.dart .\.raw-text\gfm-guide.md .\pages\
+Build & Split GFM IEEE: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md --csl=sources/ieee.csl ; dart .\tools\splitter.dart .\.raw-text\gfm-guide.md .\pages\
 
-Build PDF: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib --pdf-engine=xelatex --variable papersize=a4paper -s .raw-text/raw-guide.md -o paper.pdf
+Build & Split GFM Chicago: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md ; dart .\tools\splitter.dart .\.raw-text\gfm-guide.md .\pages\
+
+Build PDF: pandoc --wrap=preserve --filter pandoc-citeproc --csl=sources/ieee.csl --bibliography=sources/guide.bib --pdf-engine=xelatex --variable papersize=a4paper -s .raw-text/raw-guide.md -o paper.pdf
 ---
 [intro]: https://github.com/Fasust/flutter-guide/wiki
 [framework]: https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework
@@ -1157,7 +1155,7 @@ Expanded(
 _Code Snippet XXX: Accessing a BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Layered Architecure
-Now that you understand how to implemepnt the BLoC pattern, lets' have a look at how you can use it to achive a clean 3 Layered architecture for your application.  
+Now that you understand how to implement the BLoC pattern, lets' have a look at how you can use it to achieve a clean Three-Layered architecture for your application. The BLoC Pattern already forces us to kep our UI and our buisness logic seperate. This way we end up with a UI-Layer and a BLoC
 
 - Layered Architecture out of BLoCs
   - Like Uncle Bob says
