@@ -1057,7 +1057,7 @@ BLoC is an architectural pattern with a State Management solution originally des
 
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
-*Figure XXX: Bloc turning input events to a stream of State [\[64\]](https://www.youtube.com/watch?v=RS36gBEp8OI)*
+*Figure 17: Bloc turning input events to a stream of State [\[64\]](https://www.youtube.com/watch?v=RS36gBEp8OI)*
 
 ## Advantages of BLoC
 
@@ -1095,7 +1095,7 @@ To gain those promised advantages, you will have to follow these 8 rules Soares 
 
 ![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
 
-*Figure XXX: How a BLoC looks like [\[44\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
+*Figure 18: How a BLoC looks like [\[44\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
 
 ## Implementation
 
@@ -1103,7 +1103,7 @@ Alright, Now that you know what the BLoC pattern is, let’s have a look at how 
 
 ![Bloc and Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-bloc.PNG)
 
-*Figure XXX: Bloc and Wisgen Widget Tree [\[11\]](https://github.com/Fasust/wisgen)*
+*Figure 19: Bloc and Wisgen Widget Tree [\[11\]](https://github.com/Fasust/wisgen)*
 
 These are the events that can be sent to the BLoC by the UI. Again, this is very similar to the *actions* in our Redux implementation:
 
@@ -1127,7 +1127,7 @@ class RemoveFavoriteEvent extends FavoriteEvent {
 }
 ```
 
-*Code Snippet XXX: Favorite Event in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 29: Favorite Event in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
 Now the arguably most interesting part of an implementation of the BLoC patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the *events* that will be sent to the BLoC and the type of the *State* that should be emitted by the BLoC `Bloc<Event, State>`:
 
@@ -1154,7 +1154,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
 }
 ```
 
-*Code Snippet XXX: Favorite BLoC in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 30: Favorite BLoC in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
 As I mentioned before, the BLoC package for Flutter uses the Provider package [\[52\]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we learned in the chapter [State Management Alternatives](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives). By the rule of *“lifting State up”* we have to place the favorite BLoC at the lowest common ancestor of all Widgets that need access to it. So in our case at *MaterialApp*:
 
@@ -1173,7 +1173,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-*Code Snippet XXX: Providing a BLoC Globally in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 31: Providing a BLoC Globally in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
 Now we can dispatch events and subscribe to a BLoC. This is the favorite button in Wisgen. It changes shape and color based on the State emitted by the FavoriteBLoC and it dispatches events to the BLoC to add and remove favorites. The *wisdom* object is the wisdom displayed on the Card Widget.
 
@@ -1207,7 +1207,7 @@ Expanded(
 ...
 ```
 
-*Code Snippet XXX: Accessing a BLoC in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 32: Accessing a BLoC in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
 ## Layered Architecure
 
@@ -1215,7 +1215,7 @@ Now that we understand how to implement the BLoC pattern [\[7\]](https://www.you
 
 <img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Bloc Architecture with Layers">
 
-*Figure XXX: Four-Layered BLoC Architecture*
+*Figure 20: Four-Layered BLoC Architecture*
 
 ### UI Layer
 
@@ -1227,7 +1227,7 @@ This is where all our BLoCs reside. All our business logic sits in this layer. T
 
 ![Widget BLoC Communication](https://github.com/Fasust/flutter-guide/wiki//images/widget-bloc-communication.PNG)
 
-*Figure XXX: Widget BLoC Communication*
+*Figure 21: Widget BLoC Communication*
 
 For this Layer, all plattform specific dependencies should be injectable. To achieve this, the Flutter community \[36\], \[51\], \[65\], \[67\] mostly uses the *Repository Patter* [\[68\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[69\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on plattform specific interfaces, we create simple *Repository* interfaces for the BLoCs to depend on:
 
@@ -1238,7 +1238,7 @@ abstract class DataRepository<T>{
 }
 ```
 
-*Code Snippets XXX: Wisgen Plattform Agnostic Repository [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippets 33: Wisgen Plattform Agnostic Repository [\[11\]](https://github.com/Fasust/wisgen)*
 
 The actual implementation of the *Repository* can then be injected into the BLoC.
 
@@ -1256,13 +1256,13 @@ To give you a better understanding of how this architecture works in practice, I
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
 
-*Figure XXX: Wisgen Architecture with Dependencies [\[11\]](https://github.com/Fasust/wisgen)*
+*Figure 22: Wisgen Architecture with Dependencies [\[11\]](https://github.com/Fasust/wisgen)*
 
-In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[47\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its Repository. You can see the *Repository* interface in snippet XXX. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) if you want to remind yourself again. When the Wisdom BLoC receives a response from it’s Repository, it publishes the new wisdoms to its Stream [\[37\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
+In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure 22. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[47\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its Repository. You can see the *Repository* interface in snippet 33. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) if you want to remind yourself again. When the Wisdom BLoC receives a response from it’s Repository, it publishes the new wisdoms to its Stream [\[37\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
-*Figure XXX: Wisgen Dataflow [\[11\]](https://github.com/Fasust/wisgen)*
+*Figure 23: Wisgen Dataflow [\[11\]](https://github.com/Fasust/wisgen)*
 
 I already covered how the favorite list works in detail in this chapter, so I won’t go over it again. The *Storage BLoC* keeps a persistant copy of the favorite list on the device. It recievce a *Load-Event* once on start-up, loads the old favorite list from its *Storage*, and adds it to the *Favortie BLoC* though *Add-Events*. It also listens to the *Favorite BLoC* and updates the persistant copy of the favorite list every time the *Favorite Bloc* emits a new State:
 
@@ -1316,7 +1316,7 @@ class StorageBloc extends Bloc<StorageEvent, StorageState> {
 }
 ```
 
-*Code Snippets XXX: Wisgen Storage BLoC [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippets 34: Wisgen Storage BLoC [\[11\]](https://github.com/Fasust/wisgen)*
 
 *Storage* is also a plattform agnostic interface and it looks like this:
 
@@ -1331,7 +1331,7 @@ abstract class Storage<T>{
 }
 ```
 
-*Code Snippets XXX: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippets 35: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
 
 In Wisgen, I built an implementaion of *Storage* that communicates with Androids Shared Preferences [\[70\]](https://developer.android.com/reference/android/content/SharedPreferences) and saves the favorite list as a JSON:
 
@@ -1382,7 +1382,7 @@ class SharedPreferenceStorage implements Storage<Wisdom> {
 }
 ```
 
-*Code Snippets XXX: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippets 36: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
 
 # 300-Testing
 
