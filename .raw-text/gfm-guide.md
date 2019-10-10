@@ -1407,7 +1407,7 @@ Widget Tests are used to test small Widget Sub-Trees of your application. They r
 
 #### Integration Test (Driver Tests)
 
-Integration Test/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-case. They are very slow and *“prone to braking”*[\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+Integration Test/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and *“prone to braking”*[\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
 ![Flutter Test Comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
 
@@ -1415,43 +1415,24 @@ Integration Test/Driver Tests run your entire application in a virtual machine o
 
 ## Writing Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high *confidence* \[73\], \[74\]. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high *confidence* \[73\], \[74\]. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[72\]](https://pub.dev/packages/test) and mockito [\[75\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
-  - Set up
-  - packages
-  - testing a bloc
-  - Dependency injection problems in Flutter
+``` yaml
+dev_dependencies:
+  mockito: ^4.1.1
+  flutter_test:
+    sdk: flutter
+```
 
-## Introduction
+*Code Snippet XXX: Pubspec.yaml Test Imports*
 
-//Last Snip 36
-//Last Fig 23
+*flutter\_test* offers the core testing capabilities of Flutter, *mockito* is used to mock up dependencies. Now place a new directory called *“tests”* on the root level of our app directory:
 
-Testing has become an essential part of developing a large scale application and there is strong evidence that writing tests leads to a higher code quality [\[71\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works.
+![Wisgen Test Directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
 
-## Types of Tests in Flutter
+*Figure XXX: Wisgen Test Directory [\[11\]](https://github.com/Fasust/wisgen)*
 
-Flutters official test library [\[72\]](https://pub.dev/packages/test) differentiates between three types of tests:
-
-#### Unit Tests
-
-Unit Test can be run very quickly. They can test any function of your app, that does not require the rendering of a Widget [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). Their main use-case is to test business logic or in our case: BLoCs [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
-
-#### Widget Tests
-
-Widget Tests are used to test small Widget Sub-Trees of your application. They run relatively quickly and can test the behavior of a given UI [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
-
-#### Integration Test (Driver Tests)
-
-Integration Test/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-case. They are very slow and *“prone to braking”*[\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
-
-![Flutter Test Comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-copm.PNG)
-
-*Figure XXX: Flutter Test Comparison [\[74\]](https://flutter.dev/docs/testing)*
-
-## Writing Tests
-
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high *confidence* \[73\], \[74\]. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+All testfiles have to end with the postfix "\_test.dart" to be recognized by the framework [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
   - Set up
   - packages
@@ -1917,6 +1898,12 @@ I will focus on *Unit Tests* for this guide. The Flutter Team recommends that th
 <div id="ref-flutterdevteamTestingFlutterApps2018">
 
 \[74\] Flutter Dev Team, “Testing Flutter apps,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing>. \[Accessed: 09-Oct-2019\]
+
+</div>
+
+<div id="ref-fibulwinterMockitoDartPackage2019">
+
+\[75\] D. Fibulwinter and Dart Team, “Mockito | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/mockito>. \[Accessed: 09-Oct-2019\]
 
 </div>
 

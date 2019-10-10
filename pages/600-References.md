@@ -445,5 +445,11 @@
 
 </div>
 
+<div id="ref-fibulwinterMockitoDartPackage2019">
+
+\[75\] D. Fibulwinter and Dart Team, “Mockito | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/mockito>. \[Accessed: 09-Oct-2019\]
+
+</div>
+
 </div>
 <p align="center"><a href="#">Back to Top</a></center></p>
