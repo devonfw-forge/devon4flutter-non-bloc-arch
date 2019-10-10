@@ -434,7 +434,7 @@ Asynchronous Programming is an essential part of any modern application. There w
 
 ## Futures
 
-Futures [\[3\]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen API Data-Provider. It can make requests to the AdviceSlip API [\[39\]](https://api.adviceslip.com/) to fetch some new advice texts.
+Futures [\[3\]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen API class. It can make requests to the AdviceSlip API [\[39\]](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ``` dart
 class Api {
@@ -451,7 +451,7 @@ class Api {
 }
 ```
 
-*Code Snippet 11: Wisgen API Data-Provider (Futures) [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 11: Wisgen API class (Futures) [\[11\]](https://github.com/Fasust/wisgen)*
 
 As you can see, you simply call *get()* on the HTTP module and give it the URL it should request. The get() method returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, the Future object *“apiCall”* is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* \[40\], \[41\]. We can also handle errors with the *catchError()* function:
 
@@ -469,7 +469,7 @@ class Api {
 }
 ```
 
-*Code Snippet 12: Wisgen API Data-Provider (Futures with Error) [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 12: Wisgen API Class (Futures with Error) [\[11\]](https://github.com/Fasust/wisgen)*
 
 ### Async & Await
 
@@ -488,7 +488,7 @@ class Api {
 }
 ```
 
-*Code Snippet 13: Wisgen API Data-Provider (Async) [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 13: Wisgen API Class (Async) [\[11\]](https://github.com/Fasust/wisgen)*
 
 We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark the function as *async*. This forces the return type to be a Future. This makes sense because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [\[43\]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with *try/catch*:
 
@@ -508,7 +508,7 @@ class Api {
 }
 ```
 
-*Code Snippet 14: Wisgen API Data-Provider (Async with Error) [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 14: Wisgen API Class (Async with Error) [\[11\]](https://github.com/Fasust/wisgen)*
 
 ## Streams
 
@@ -681,7 +681,7 @@ This marks the end of my introduction to streams. It can be a challenging topic 
 
 ## Side Note on Communication with the Web
 
-I just wanted to end this chapter by showing you how the API Data-Provider of Wisgen [\[11\]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
+I just wanted to end this chapter by showing you how the API class of Wisgen [\[11\]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
 
 ``` dart
 import 'dart:convert';
@@ -693,7 +693,7 @@ import 'package:wisgen/models/wisdom.dart';
 import 'package:wisgen/repositories/repository.dart';
 import 'package:http/http.dart' as http;
 
-///Data-Provider that cashes data it fetches from an API and
+///Cashes data it fetches from an API and
 ///then Provides a given amount of random entries.
 class Api implements DataProvider<Wisdom> {
   ///Advice SLip API Query that requests all (~213) Text Entries from the API.
@@ -735,7 +735,7 @@ class Api implements DataProvider<Wisdom> {
 }
 ```
 
-*Code Snippet 20: Actual Wisgen API Data-Provider [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 20: Actual Wisgen API Class [\[11\]](https://github.com/Fasust/wisgen)*
 
 The *AdviceSlips* class is generated with a JSON to Dart converter [\[50\]](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it’s data fields with the JSON response. I used this class instead of implementing a method in the *Wisdom* class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don’t need to read it all, I just want to give you an idea of how it looks like:
 
@@ -1211,13 +1211,46 @@ Expanded(
 
 ## Layered Architecure
 
-Now that we understand how to implement the BLoC pattern, lets’ have a look at how we can use it to achieve a clean four-layered architecture for your application. The BLoC Pattern already forces us to keep our UI and our business logic separate. This way we end up with a UI-Layer and a Business-Logic-Layer. Lastly, we want to keep our BLoCs plattform independant. We can do this by extracting any logic related to external services from the BLoC and puting it into its own layer [\[65\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). This layer is responsible for things like communication with a database, communication with an api or communication with any other system that is not part of our application. Let’s call the classes in this layer *Data-Providers*, as they provide access to external Data. To fulfill rule two of the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), we can’t have our BLoCs directly depend on our *Data-Providers*. We have to create plattform agnostic interfaces (IE *boundary objects* [\[67\]](https://www.youtube.com/watch?v=o_TH-Y78tt4)) and make our *Data-Providers* implement those. Then our BLoCs can depend on the plattform agnostic interfaces and the actual dependency can be injected. This way we end up with a clean four-layered architecture with one-way dependencies:
+Now that we understand how to implement the BLoC pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets’ have a look at how we can use it to achieve a four-layered architecture with on way dependencies for your application [\[65\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
 
 <img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Bloc Architecture with Layers">
 
 *Figure XXX: Four-Layered BLoC Architecture*
 
-### Architecture in Practice
+### UI Layer
+
+This is the layer that our user directly interacts with. It is the Widget Tree of our Application, all Widgets of our app sit here. We need to keep this layer as *stupid* as possible, No business logic and only minor formating.
+
+### Business Logic Layer
+
+This is where all our BLoCs reside. All our business logic sits in this layer. The communication between this layer and the *UI Layer* should be limited to sinks and streams:
+
+![Widget BLoC Communication](https://github.com/Fasust/flutter-guide/wiki//images/widget-bloc-communication.PNG)
+
+*Figure XXX: Widget BLoC Communication*
+
+For this Layer, all plattform specific dependencies should be injectable. To achieve this, the Flutter community \[36\], \[51\], \[65\], \[67\] mostly uses the *Repository Patter* [\[68\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[69\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even this pattern is not an explicit part of BLoC, I personally think this is a very clean solution. Instead of having BLoCs directly depend on plattform specific interfaces, we create simple *Repository* interfaces for the BLoCs to depend on:
+
+``` dart
+///Interface for a Generic List Provider that fetches a given amount of T
+abstract class DataRepository<T>{
+  Future<List<T>> fetch(int amount);
+}
+```
+
+*Code Snippets XXX: Wisgen Plattform Agnostic Repository [\[11\]](https://github.com/Fasust/wisgen)*
+
+The actual implementation of the *Repository* can then be injected into the BLoC.
+
+### Repository Layer
+
+This Layer consist of plattform agnostic interfaces. Things like *Data Base* or *Service*.
+
+### Data Layer
+
+These are the actual implementations of our *Repositories*. Platform specific things like a Database connector or a class to make API calls.
+
+## Architecture in Practice
 
 To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgen [\[11\]](https://github.com/Fasust/wisgen) is build using the BLoC Pattern and a Four-layered architecture.
 
@@ -1225,19 +1258,7 @@ To give you a better understanding of how this architecture works in practice, I
 
 *Figure XXX: Wisgen Architecture with Dependencies [\[11\]](https://github.com/Fasust/wisgen)*
 
-In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[47\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its *Repository*. The *Repository* class is a plattform agnostic interface that looks like this:
-
-``` dart
-///Interface for a Generic List Provider that fetches a given amount of T
-abstract class Repository<T>{
-  Future<List<T>> fetch(int amount, BuildContext context);
-}
-```
-
-*Code Snippets XXX: Wisgen Plattform Agnostic Interface Repository [\[11\]](https://github.com/Fasust/wisgen)*
-
-So the *Wisdom BLoC* just knows it can fetch some data with its Repository and it does not care how it is implemented. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) if you want to remind yourself again.
-When the *Wisdom BLoC* receives a response from it’s Repository/the Data-Provider Layer, it publishes the new wisdoms to its Stream [\[37\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
+In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[47\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its *Repository*. You can see the *Repository* implementaion in snippet XXX. This way the *Wisdom BLoC* just knows it can fetch some data with its *Repository* and it does not care how it is implemented. In our case, the *Repository* could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) if you want to remind yourself again. When the *Wisdom BLoC* receives a response from it’s Repository/the Data-Provider Layer, it publishes the new wisdoms to its Stream [\[37\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
@@ -1258,7 +1279,7 @@ abstract class Storage<T>{
 
 *Code Snippets XXX: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
 
-In Wisgen, I built an implementaion of *Storage* that communicates with Androids Shared Preferences [\[68\]](https://developer.android.com/reference/android/content/SharedPreferences).
+In Wisgen, I built an implementaion of *Storage* that communicates with Androids Shared Preferences [\[70\]](https://developer.android.com/reference/android/content/SharedPreferences).
 
 # 300-Testing
 
@@ -1690,15 +1711,27 @@ In Wisgen, I built an implementaion of *Storage* that communicates with Androids
 
 </div>
 
+<div id="ref-bizzottoWidgetAsyncBlocServicePracticalArchitecture2019">
+
+\[67\] A. Bizzotto, “Widget-Async-Bloc-Service: A Practical Architecture for Flutter Apps,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/coding-with-flutter/widget-async-bloc-service-a-practical-architecture-for-flutter-apps-250a28f9251b>. \[Accessed: 10-Oct-2019\]
+
+</div>
+
+<div id="ref-garlanIntroductionSoftwareArchitecture1994">
+
+\[68\] D. Garlan and M. Shaw, “An Introduction to Software Architecture,” Carnegie Mellon University, Pittsburgh, PA, USA, 1994 \[Online\]. Available: <https://dl.acm.org/citation.cfm?id=865128>
+
+</div>
+
 <div id="ref-martinPrinciplesCleanArchitecture2015">
 
-\[67\] B. Martin, “The Principles of Clean Architecture,” 2015 \[Online\]. Available: <https://www.youtube.com/watch?v=o_TH-Y78tt4>. \[Accessed: 13-Sep-2019\]
+\[69\] B. Martin, “The Principles of Clean Architecture,” 2015 \[Online\]. Available: <https://www.youtube.com/watch?v=o_TH-Y78tt4>. \[Accessed: 13-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcSharedPreferences2011">
 
-\[68\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
+\[70\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
 
 </div>
 

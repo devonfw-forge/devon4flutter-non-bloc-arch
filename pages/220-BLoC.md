@@ -174,13 +174,46 @@ Expanded(
 
 ## Layered Architecure
 
-Now that we understand how to implement the BLoC pattern, lets’ have a look at how we can use it to achieve a clean four-layered architecture for your application. The BLoC Pattern already forces us to keep our UI and our business logic separate. This way we end up with a UI-Layer and a Business-Logic-Layer. Lastly, we want to keep our BLoCs plattform independant. We can do this by extracting any logic related to external services from the BLoC and puting it into its own layer [\[65\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). This layer is responsible for things like communication with a database, communication with an api or communication with any other system that is not part of our application. Let’s call the classes in this layer *Data-Providers*, as they provide access to external Data. To fulfill rule two of the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), we can’t have our BLoCs directly depend on our *Data-Providers*. We have to create plattform agnostic interfaces (IE *boundary objects* [\[67\]](https://www.youtube.com/watch?v=o_TH-Y78tt4)) and make our *Data-Providers* implement those. Then our BLoCs can depend on the plattform agnostic interfaces and the actual dependency can be injected. This way we end up with a clean four-layered architecture with one-way dependencies:
+Now that we understand how to implement the BLoC pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets’ have a look at how we can use it to achieve a four-layered architecture with on way dependencies for your application [\[65\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
 
 <img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Bloc Architecture with Layers">
 
 *Figure XXX: Four-Layered BLoC Architecture*
 
-### Architecture in Practice
+### UI Layer
+
+This is the layer that our user directly interacts with. It is the Widget Tree of our Application, all Widgets of our app sit here. We need to keep this layer as *stupid* as possible, No business logic and only minor formating.
+
+### Business Logic Layer
+
+This is where all our BLoCs reside. All our business logic sits in this layer. The communication between this layer and the *UI Layer* should be limited to sinks and streams:
+
+![Widget BLoC Communication](https://github.com/Fasust/flutter-guide/wiki//images/widget-bloc-communication.PNG)
+
+*Figure XXX: Widget BLoC Communication*
+
+For this Layer, all plattform specific dependencies should be injectable. To achieve this, the Flutter community \[36\], \[51\], \[65\], \[67\] mostly uses the *Repository Patter* [\[68\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[69\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even this pattern is not an explicit part of BLoC, I personally think this is a very clean solution. Instead of having BLoCs directly depend on plattform specific interfaces, we create simple *Repository* interfaces for the BLoCs to depend on:
+
+``` dart
+///Interface for a Generic List Provider that fetches a given amount of T
+abstract class DataRepository<T>{
+  Future<List<T>> fetch(int amount);
+}
+```
+
+*Code Snippets XXX: Wisgen Plattform Agnostic Repository [\[11\]](https://github.com/Fasust/wisgen)*
+
+The actual implementation of the *Repository* can then be injected into the BLoC.
+
+### Repository Layer
+
+This Layer consist of plattform agnostic interfaces. Things like *Data Base* or *Service*.
+
+### Data Layer
+
+These are the actual implementations of our *Repositories*. Platform specific things like a Database connector or a class to make API calls.
+
+## Architecture in Practice
 
 To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgen [\[11\]](https://github.com/Fasust/wisgen) is build using the BLoC Pattern and a Four-layered architecture.
 
@@ -188,19 +221,7 @@ To give you a better understanding of how this architecture works in practice, I
 
 *Figure XXX: Wisgen Architecture with Dependencies [\[11\]](https://github.com/Fasust/wisgen)*
 
-In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[47\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its *Repository*. The *Repository* class is a plattform agnostic interface that looks like this:
-
-``` dart
-///Interface for a Generic List Provider that fetches a given amount of T
-abstract class Repository<T>{
-  Future<List<T>> fetch(int amount, BuildContext context);
-}
-```
-
-*Code Snippets XXX: Wisgen Plattform Agnostic Interface Repository [\[11\]](https://github.com/Fasust/wisgen)*
-
-So the *Wisdom BLoC* just knows it can fetch some data with its Repository and it does not care how it is implemented. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) if you want to remind yourself again.
-When the *Wisdom BLoC* receives a response from it’s Repository/the Data-Provider Layer, it publishes the new wisdoms to its Stream [\[37\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
+In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[47\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its *Repository*. You can see the *Repository* implementaion in snippet XXX. This way the *Wisdom BLoC* just knows it can fetch some data with its *Repository* and it does not care how it is implemented. In our case, the *Repository* could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) if you want to remind yourself again. When the *Wisdom BLoC* receives a response from it’s Repository/the Data-Provider Layer, it publishes the new wisdoms to its Stream [\[37\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
@@ -221,7 +242,7 @@ abstract class Storage<T>{
 
 *Code Snippets XXX: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
 
-In Wisgen, I built an implementaion of *Storage* that communicates with Androids Shared Preferences [\[68\]](https://developer.android.com/reference/android/content/SharedPreferences).
+In Wisgen, I built an implementaion of *Storage* that communicates with Androids Shared Preferences [\[70\]](https://developer.android.com/reference/android/content/SharedPreferences).
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/300-Testing">Next Chapter: Testing ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

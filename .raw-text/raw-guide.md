@@ -415,7 +415,7 @@ I will not go in detail on Inherited Widgets [[@flutterdevteamInheritedWidgetCla
 Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) have a very good integration of Asynchronous Programming. This chapter will teach you the basics of Futures, async/await [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). Throughout this chapter, I will be using the _HTTP package_ [[@dartteamHttpDartPackage2019]](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common use-cases for Asynchronous Programming, so I thought it would only be fitting.
 
 ## Futures
-Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen API Data-Provider. It can make requests to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
+Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen API class. It can make requests to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ```dart
 class Api {
@@ -431,7 +431,7 @@ class Api {
   }
 }
 ```
-_Code Snippet 11: Wisgen API Data-Provider (Futures) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 11: Wisgen API class (Futures) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 As you can see, you simply call _get()_ on the HTTP module and give it the URL it should request. The get() method returns a Future. A Future object is a reference to an event that will take place at some point in the _future_. We can give it a callback function with _then()_, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it's type: `Future<Type>`. So here, the Future object _"apiCall"_ is a reference to when the API call will be resolved. Once the call is complete, _then()_ will be called and we get access to the _http.Response_. We tell the future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to _then()_ [@googlellcDartFutures2019; @googlellcIsolatesEventLoops2019]. We can also handle errors with the _catchError()_ function:
 
@@ -448,7 +448,7 @@ class Api {
   }
 }
 ```
-_Code Snippet 12: Wisgen API Data-Provider (Futures with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 12: Wisgen API Class (Futures with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Async & Await
 If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the _async & await_ keywords [[@dartteamAsynchronousProgrammingDart2018]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous  code the same way we would if it was synchronous. Let's take the same example as in 
@@ -465,7 +465,7 @@ class Api {
   }
 }
 ```
-_Code Snippet 13: Wisgen API Data-Provider (Async) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 13: Wisgen API Class (Async) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 We can use the _await_ keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the _http.Response_ has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark the function as _async_. This forces the return type to be a Future. This makes sense because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [[@googlellcAsyncAwait2019]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with _try/catch_:
 
@@ -484,7 +484,7 @@ class Api {
   }
 }
 ```
-_Code Snippet 14: Wisgen API Data-Provider (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 14: Wisgen API Class (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Streams
 Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we'll use them heavily in the chapter [Architecting a Flutter app][architecture]. But what exactly are _streams_? As Andrew Brogdon put's it in one of Google's official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one continuous flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and be notified once a new piece of data enters the stream.
@@ -650,7 +650,7 @@ _Code Snippet 19: Simplified Wisgen WisdomBLoC with async* [[@faustWisgen2019]](
 This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still feel like you want to learn more I can highly recommend this article by Didier Boelens [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8-minute tutorial video by the Flutter Team [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
 ## Side Note on Communication with the Web
-I just wanted to end this chapter by showing you how the API Data-Provider of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
+I just wanted to end this chapter by showing you how the API class of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
 
 ```dart
 import 'dart:convert';
@@ -662,7 +662,7 @@ import 'package:wisgen/models/wisdom.dart';
 import 'package:wisgen/repositories/repository.dart';
 import 'package:http/http.dart' as http;
 
-///Data-Provider that cashes data it fetches from an API and
+///Cashes data it fetches from an API and
 ///then Provides a given amount of random entries.
 class Api implements DataProvider<Wisdom> {
   ///Advice SLip API Query that requests all (~213) Text Entries from the API.
@@ -704,7 +704,7 @@ class Api implements DataProvider<Wisdom> {
 }
 
 ```
-_Code Snippet 20: Actual Wisgen API Data-Provider [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 20: Actual Wisgen API Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 The _AdviceSlips_ class is generated with a JSON to Dart converter [[@lecuonaJSONDartConverter2019]](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. I used this class instead of implementing a method in the _Wisdom_ class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
 
@@ -1155,31 +1155,48 @@ Expanded(
 _Code Snippet XXX: Accessing a BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Layered Architecure
-Now that we understand how to implement the BLoC pattern, lets' have a look at how we can use it to achieve a clean four-layered architecture for your application. The BLoC Pattern already forces us to keep our UI and our business logic separate. This way we end up with a UI-Layer and a Business-Logic-Layer. Lastly, we want to keep our BLoCs plattform independant. We can do this by extracting any logic related to external services from the BLoC and puting it into its own layer [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). This layer is responsible for things like communication with a database, communication with an api or communication with any other system that is not part of our application. Let's call the classes in this layer _Data-Providers_, as they provide access to external Data. To fulfill rule two of the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE), we can't have our BLoCs directly depend on our _Data-Providers_. We have to create plattform agnostic interfaces (IE _boundary objects_ [[@martinPrinciplesCleanArchitecture2015]](https://www.youtube.com/watch?v=o_TH-Y78tt4)) and make our _Data-Providers_ implement those. Then our BLoCs can depend on the plattform agnostic interfaces and the actual dependency can be injected. This way we end up with a clean four-layered architecture with one-way dependencies: 
+Now that we understand how to implement the BLoC pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets' have a look at how we can use it to achieve a four-layered architecture with on way dependencies for your application [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
 
 <img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Bloc Architecture with Layers">
 
 _Figure XXX: Four-Layered BLoC Architecture_
 
-### Architecture in Practice 
+### UI Layer
+This is the layer that our user directly interacts with. It is the Widget Tree of our Application, all Widgets of our app sit here. We need to keep this layer as _stupid_ as possible, No business logic and only minor formating.
+
+### Business Logic Layer
+This is where all our BLoCs reside. All our business logic sits in this layer. The communication between this layer and the _UI Layer_ should be limited to sinks and streams:
+
+![Widget BLoC Communication](https://github.com/Fasust/flutter-guide/wiki//images/widget-bloc-communication.PNG)
+
+_Figure XXX: Widget BLoC Communication_
+
+For this Layer, all plattform specific dependencies should be injectable. To achieve this, the Flutter community [@suriArchitectYourFlutter2019; @eganFlutterArchitectureSamples2017; @angelovBlocLibraryDart2019; @bizzottoWidgetAsyncBlocServicePracticalArchitecture2019] mostly uses the _Repository Patter_ [[@garlanIntroductionSoftwareArchitecture1994]](https://dl.acm.org/citation.cfm?id=865128) or as _"Uncle Bob"_ would say: _Boundary Objects_ [[@martinPrinciplesCleanArchitecture2015]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even this pattern is not an explicit part of BLoC, I personally think this is a very clean solution. Instead of having BLoCs directly depend on plattform specific interfaces, we create simple _Repository_ interfaces for the BLoCs to depend on:
+
+```dart
+///Interface for a Generic List Provider that fetches a given amount of T
+abstract class DataRepository<T>{
+  Future<List<T>> fetch(int amount);
+}
+```
+_Code Snippets XXX: Wisgen Plattform Agnostic Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+The actual implementation of the _Repository_ can then be injected into the BLoC.
+
+### Repository Layer
+This Layer consist of plattform agnostic interfaces. Things like _Data Base_ or _Service_.
+
+### Data Layer
+These are the actual implementations of our _Repositories_. Platform specific things like a Database connector or a class to make API calls.
+
+## Architecture in Practice 
 To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) is build using the BLoC Pattern and a Four-layered architecture.
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
 
 _Figure XXX: Wisgen Architecture with Dependencies [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the _Wisdom BLoC_ to fetch more data from its _Repository_. The _Repository_ class is a plattform agnostic interface that looks like this: 
-
-```dart
-///Interface for a Generic List Provider that fetches a given amount of T
-abstract class Repository<T>{
-  Future<List<T>> fetch(int amount, BuildContext context);
-}
-```
-_Code Snippets XXX: Wisgen Plattform Agnostic Interface Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
-
-So the _Wisdom BLoC_ just knows it can fetch some data with its Repository and it does not care how it is implemented. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. 
-When the _Wisdom BLoC_ receives a response from it's Repository/the Data-Provider Layer, it publishes the new wisdoms to its Stream [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified. 
+In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the _Wisdom BLoC_ to fetch more data from its _Repository_. You can see the _Repository_ implementaion in snippet XXX. This way the _Wisdom BLoC_ just knows it can fetch some data with its _Repository_ and it does not care how it is implemented. In our case, the _Repository_ could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. When the _Wisdom BLoC_ receives a response from it's Repository/the Data-Provider Layer, it publishes the new wisdoms to its Stream [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified. 
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
