@@ -345,8 +345,8 @@ _Code Snippet 8: Stateless Widget Lifecycle_
 ### Stateful Widgets
 I have explained what State is in the Chapter [Thinking Declaratively][declarative]. But just as a reminder:
 
-| ⚠   | State in Flutter is any data that can change over time |
-| --- | :----------------------------------------------------- |
+| 📙  | State | Any data that can change over time [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) |
+| --- | ----- | :--------------------------------------------------------------------------------------------------------------------------------------- |
 
 A Stateful Widget [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consists of two parts: An immutable Widget and a mutable State. The immutable Widget's responsibility is to hold onto that State, the State itself has the mutable data and builds the actual Widget [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App][architecture].
 
