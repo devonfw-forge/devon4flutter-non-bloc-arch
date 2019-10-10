@@ -1404,6 +1404,8 @@ void main() {
 ```
 _Code Snippet XXX: Wisgen Favorite BLoC Tests 1 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
+### Testing Streams
+
 ```dart
 void main() {
 
@@ -1443,6 +1445,8 @@ void main() {
 }
 ```
 _Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+### Mockito
 
 ```dart
 void main() {
@@ -1506,7 +1510,7 @@ class ErrorWisdomState extends WisdomState {
 
 ///Normal State that holds favorite list.
 ///When BLoC receives a FetchEvent during this State, 
-///it fetched more wisdom and emits a new IdleSate 
+///it fetches more wisdom and emits a new IdleWisdomState 
 ///with more wisdoms
 class IdleWisdomState extends WisdomState {
   final List<Wisdom> wisdoms;

@@ -5,6 +5,8 @@ Page Table of Contents
     - [Widget Tests](#widget-tests)
     - [Integration Test (Driver Tests)](#integration-test-driver-tests)
 - [Writing Tests](#writing-tests)
+  - [Testing Streams](#testing-streams)
+  - [Mockito](#mockito)
 
 ## Introduction
 
@@ -95,6 +97,8 @@ void main() {
 
 *Code Snippet XXX: Wisgen Favorite BLoC Tests 1 [\[11\]](https://github.com/Fasust/wisgen)*
 
+### Testing Streams
+
 ``` dart
 void main() {
 
@@ -135,6 +139,8 @@ void main() {
 ```
 
 *Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [\[11\]](https://github.com/Fasust/wisgen)*
+
+### Mockito
 
 ``` dart
 void main() {
@@ -199,7 +205,7 @@ class ErrorWisdomState extends WisdomState {
 
 ///Normal State that holds favorite list.
 ///When BLoC receives a FetchEvent during this State, 
-///it fetched more wisdom and emits a new IdleSate 
+///it fetches more wisdom and emits a new IdleWisdomState 
 ///with more wisdoms
 class IdleWisdomState extends WisdomState {
   final List<Wisdom> wisdoms;
