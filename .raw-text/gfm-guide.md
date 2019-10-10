@@ -22,7 +22,7 @@ This guide was written by a student in the Bachelor of Science Program “Comput
 
 ## Structure
 
-The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [\[11\]](https://github.com/Fasust/wisgen), an example Flutter Application that was specifically built for the purposes of this guide. There is going to be a few common symbols throughout the guide, this is what they stand for:
+The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [\[11\]](https://github.com/Fasust/wisgen), an example Flutter Application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/Fasust/flutter-guide/wiki/gfm-guide). It is all chapters of the guide combine into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
 
 | Symbol | Meaning                  |
 | :----: | :----------------------- |
