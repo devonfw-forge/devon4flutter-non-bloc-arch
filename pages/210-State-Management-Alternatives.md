@@ -214,11 +214,11 @@ Expanded(
 
 ### Why I decided against it
 
-I went back and forth on this decision a lot. Redux is a great State Management solution with some clear guidelines on how to integrate it into a Reactive application [\[62\]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three-layered architecture (View - Store - Data) [\[55\]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [\[19\]](https://facebook.github.io/react-native/) and Angular [\[63\]](https://angular.io/) and I very much agree with this advice [\[57\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
+I went back and forth on this decision a lot. Redux is a great State Management solution with some clear guidelines on how to integrate it into a Reactive application [\[62\]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean four-layered architecture (View - Store - Data) [\[55\]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [\[19\]](https://facebook.github.io/react-native/) and Angular [\[63\]](https://angular.io/) and I very much agree with this advice [\[57\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 
 1.  It was publicly endorsed by the Flutter Team on multiple occasions \[7\], \[12\], \[49\], \[53\], \[64\]
 2.  It also has clear architectural rules [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
-3.  It also enables the implementation of a clean three-layered architecture [\[65\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)
+3.  It also enables the implementation of a clean four-layered architecture [\[65\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)
 4.  It was developed by one of Flutter’s Engineers [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
 5.  We don’t end up with one giant store for the business logic out with multiple blocs with separate responsibilities [\[57\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
 

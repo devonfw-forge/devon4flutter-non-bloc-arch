@@ -6,7 +6,7 @@ Page Table of Contents
 
 ## Introduction
 
-The Most central topic of architecting a Flutter [\[1\]](https://flutter.dev/) app is *State Management* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** needs access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of State, you will be introduced to the three most popular State Management solutions and you will learn one of those State Management solutions (BLoC [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC State Management solution in a clean and scalable 3-Layered architecture.
+The Most central topic of architecting a Flutter [\[1\]](https://flutter.dev/) app is *State Management* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** needs access to it and **how** do parts of the app access it? This chapter aims to answer those questions. You will learn about the two types of State, you will be introduced to the three most popular State Management solutions and you will learn one of those State Management solutions (BLoC [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC State Management solution in a clean and scalable Four-Layered architecture.
 
 ## State Management vs Architecture
 

@@ -97,7 +97,7 @@ Alright, but what does that mean for me as a Flutter developer? It is important 
 
 ## The three types of Widgets
 
-There are 3 types of Widgets in the Flutter framework. I will now showcase their differences, their lifecycles, and their respective use-cases.
+There are three types of Widgets in the Flutter framework. I will now showcase their differences, their lifecycles, and their respective use-cases.
 
 ### Stateless Widgets
 

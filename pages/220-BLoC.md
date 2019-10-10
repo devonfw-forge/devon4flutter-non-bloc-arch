@@ -174,21 +174,21 @@ Expanded(
 
 ## Layered Architecure
 
-Now that we understand how to implement the BLoC pattern, lets’ have a look at how we can use it to achieve a clean three-layered architecture for your application. The BLoC Pattern already forces us to keep our UI and our business logic separate. This way we end up with a UI-Layer and a Business-Logic-Layer. Lastly, we want to keep our BLoCs plattform independant. We can do this by extracting any logic related to external services from the BLoC and puting it into its own layer [\[65\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). This layer is responsible for things like communication with a database, communication with an api or communication with any other system that is not part of our application. Let’s call the classes in this layer *Data-Providers*, as they provide access to external Data. To fulfill rule two of the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), we can’t have our BLoCs directly depend on our *Data-Providers*. We have to create plattform agnostic interfaces (IE *boundary objects* [\[67\]](https://www.youtube.com/watch?v=o_TH-Y78tt4)) and make our *Data-Providers* implement those. Then our BLoCs can depend on the plattform agnostic interfaces and the actual dependency can be injected. This way we end up with a clean three-layered architecture with one-way dependencies:
+Now that we understand how to implement the BLoC pattern, lets’ have a look at how we can use it to achieve a clean four-layered architecture for your application. The BLoC Pattern already forces us to keep our UI and our business logic separate. This way we end up with a UI-Layer and a Business-Logic-Layer. Lastly, we want to keep our BLoCs plattform independant. We can do this by extracting any logic related to external services from the BLoC and puting it into its own layer [\[65\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). This layer is responsible for things like communication with a database, communication with an api or communication with any other system that is not part of our application. Let’s call the classes in this layer *Data-Providers*, as they provide access to external Data. To fulfill rule two of the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), we can’t have our BLoCs directly depend on our *Data-Providers*. We have to create plattform agnostic interfaces (IE *boundary objects* [\[67\]](https://www.youtube.com/watch?v=o_TH-Y78tt4)) and make our *Data-Providers* implement those. Then our BLoCs can depend on the plattform agnostic interfaces and the actual dependency can be injected. This way we end up with a clean four-layered architecture with one-way dependencies:
 
 <img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Bloc Architecture with Layers">
 
-*Figure XXX: Three-Layered BLoC Architecture*
+*Figure XXX: Four-Layered BLoC Architecture*
 
 ### Architecture in Practice
 
-To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgen [\[11\]](https://github.com/Fasust/wisgen) is build using the BLoC Pattern and a three-layered architecture.
+To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgen [\[11\]](https://github.com/Fasust/wisgen) is build using the BLoC Pattern and a Four-layered architecture.
 
 ![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
 
 *Figure XXX: Wisgen Architecture with Dependencies [\[11\]](https://github.com/Fasust/wisgen)*
 
-In the UI Layer, we have all the Widgets that make up Wisgen. 3 of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[47\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its *Repository*. The *Repository* class is a plattform agnostic interface that looks like this:
+In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[47\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its *Repository*. The *Repository* class is a plattform agnostic interface that looks like this:
 
 ``` dart
 ///Interface for a Generic List Provider that fetches a given amount of T
