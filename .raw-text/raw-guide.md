@@ -1416,38 +1416,6 @@ void main() {
     
     test('Add a Favorite and see if it is emitted as state', () {...});
 
-    test('Add and Remove a Favorite and see if the state is empty', () {
-      //Set Up
-      Wisdom wisdom = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
-
-      //Testing
-      favoriteBloc.dispatch(AddFavoriteEvent(wisdom));
-      favoriteBloc.dispatch(RemoveFavoriteEvent(wisdom));
-
-      //Result
-      expect(0, favoriteBloc.currentState.length);
-    });
-
-    ...
-  });
-}
-```
-_Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
-
-```dart
-void main() {
-
-  group('Favorite Bloc', () {
-    FavoriteBloc favoriteBloc;
-
-    setUp((){...});
-
-    tearDown((){...});
-    
-    test('Add a Favorite and see if it is emitted as state', () {...});
-
-    test('Add and Remove a Favorite and see if the state is empty', () {...});
-
     test('Stream many events and see if the State is emitted in correct order', () {
       //Set Up
       Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
@@ -1474,7 +1442,81 @@ void main() {
   });
 }
 ```
-_Code Snippet XXX: Wisgen Favorite BLoC Tests 3 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+```dart
+void main() {
+  group('Wisdom Bloc', () {
+    WisdomBloc wisdomBloc;
+    MockRepository mockRepository;
+    MockBuildContext mockBuildContext;
+
+    setUp(() {
+      wisdomBloc = WisdomBloc();
+      mockRepository = MockRepository();
+      mockBuildContext = MockBuildContext();
+
+      wisdomBloc.repository = mockRepository;
+    });
+
+    tearDown(() {
+      //Run after each test
+      wisdomBloc.dispose();
+    });
+
+    test('Send Fetch Event and see if it emits correct wisdom', () {
+      List<Wisdom> fetchedWisdom = [
+        Wisdom(id: 1, text: "Back up your Pictures", type: "tech"),
+        Wisdom(id: 2, text: "Wash your ears", type: "Mum's Advice"),
+        Wisdom(id: 3, text: "Travel while you're young", type: "Grandma's Advice")
+      ];
+
+      List expectedStates = [
+        //BLoC Library BLoCs emit their initial State on creation
+        IdleWisdomState(new List()), 
+        IdleWisdomState(fetchedWisdom)
+      ];
+
+      when(mockRepository.fetch(20, mockBuildContext))
+          .thenAnswer((_) async => fetchedWisdom);
+
+      expectLater(wisdomBloc.state, emitsInOrder(expectedStates));
+
+      wisdomBloc.dispatch(FetchEvent(mockBuildContext));
+    });
+  });
+}
+```
+_Code Snippet XXX: Wisgen Wisdom BLoC Tests with Mockito [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+```dart
+///The Wisdom BLoC has 2 States: Loaded and Error
+///We can infer it is loading when we are not reviving new items through the stream
+@immutable
+abstract class WisdomState extends Equatable {}
+
+///Broadcasted on Network Error
+class ErrorWisdomState extends WisdomState {
+  final Exception exception;
+  ErrorWisdomState(this.exception);
+
+  @override
+  List<Object> get props => [exception];
+}
+
+///Normal State that holds favorite list.
+///When BLoC receives a FetchEvent during this State, 
+///it fetched more wisdom and emits a new IdleSate 
+///with more wisdoms
+class IdleWisdomState extends WisdomState {
+  final List<Wisdom> wisdoms;
+  IdleWisdomState(this.wisdoms);
+
+  @override
+  List<Object> get props => wisdoms;
+}
+```
+_Code Snippet XXX: Wisgen Wisdom States with Equatable [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 - testing a bloc
 - Dependency injection problems in Flutter
