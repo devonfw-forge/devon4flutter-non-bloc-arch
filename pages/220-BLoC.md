@@ -206,7 +206,7 @@ When the *Wisdom BLoC* receives a response from it’s Repository/the Data-Provi
 
 *Figure XXX: Wisgen Dataflow [\[11\]](https://github.com/Fasust/wisgen)*
 
-I already covered how the favorite list works in detial in this chapter, so I won’t go over it again. The *Storage BLoC* keeps a persistant copy of the favorite list on the device. It recievce a *Load-Event* once on start-up, loads the old favorite list from its *Storage*, and adds it to the *Favortie BLoC* though *Add-Events*. It also listens to the *Favorite BLoC* and updates the persistant copy of the favorite list every time the *Favorite Bloc* emits a new State. *Storage* is also a plattform agnostic interface and it looks like this:
+I already covered how the favorite list works in detail in this chapter, so I won’t go over it again. The *Storage BLoC* keeps a persistant copy of the favorite list on the device. It recievce a *Load-Event* once on start-up, loads the old favorite list from its *Storage*, and adds it to the *Favortie BLoC* though *Add-Events*. It also listens to the *Favorite BLoC* and updates the persistant copy of the favorite list every time the *Favorite Bloc* emits a new State. *Storage* is also a plattform agnostic interface and it looks like this:
 
 ``` dart
 ///Interface for a Generic List Provider

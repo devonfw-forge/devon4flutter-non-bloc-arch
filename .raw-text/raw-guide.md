@@ -1185,7 +1185,7 @@ When the _Wisdom BLoC_ receives a response from it's Repository/the Data-Provide
 
 _Figure XXX: Wisgen Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-I already covered how the favorite list works in detial in this chapter, so I won't go over it again. The _Storage BLoC_ keeps a persistant copy of the favorite list on the device. It recievce a _Load-Event_ once on start-up, loads the old favorite list from its _Storage_, and adds it to the _Favortie BLoC_ though _Add-Events_. It also listens to the _Favorite BLoC_ and updates the persistant copy of the favorite list every time the _Favorite Bloc_ emits a new State. _Storage_ is also a plattform agnostic interface and it looks like this:
+I already covered how the favorite list works in detail in this chapter, so I won't go over it again. The _Storage BLoC_ keeps a persistant copy of the favorite list on the device. It recievce a _Load-Event_ once on start-up, loads the old favorite list from its _Storage_, and adds it to the _Favortie BLoC_ though _Add-Events_. It also listens to the _Favorite BLoC_ and updates the persistant copy of the favorite list every time the _Favorite Bloc_ emits a new State. _Storage_ is also a plattform agnostic interface and it looks like this:
 
 ```dart
 ///Interface for a Generic List Provider
@@ -1203,9 +1203,19 @@ In Wisgen, I built an implementaion of _Storage_ that communicates with Androids
 
 # 300-Testing
 
-## Unit Tests in Dart using the BLoC Pattern
+## Introduction
 
-Keep it stupid so you don't need to test it
+- Types of tests
+  - Focus on Unit test
+- Advantages of BloC
+- Keep it stupid so you don’t need to test it
+
+## Unit Tests in Flutter
+
+- Set up
+- packages
+- testing a bloc
+- Dependency injection problems in Flutter
 
 # 400-Conventions
 ## Mastering the Widget Tree
