@@ -1327,7 +1327,7 @@ _Code Snippet 36: Wisgen Plattform Agnostic Interface Storage [[@faustWisgen2019
 //Last Snip 36 
 //Last Fig 23
 
-Testing has become an essential part of developing a large scale application and there is strong evidence that writing tests leads to a higher code quality [[@georgeInitialInvestigationTest2003]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) works. 
+Testing has become an essential part of developing a large scale application and there is strong evidence that writing tests leads to a higher code quality [[@georgeInitialInvestigationTest2003]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) works and more specifcally, how to test an app that implements the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 ## Types of Tests in Flutter
 Flutters official test library [[@dartteamTestDartPackage2019]](https://pub.dev/packages/test) differentiates between three types of tests:
@@ -1345,7 +1345,7 @@ Integration Test/Driver Tests run your entire application in a virtual machine o
 
 _Figure XXX: Flutter Test Comparison [[@flutterdevteamTestingFlutterApps2018]](https://flutter.dev/docs/testing)_
 
-## Writing Tests
+## Writing Unit Tests
 I will focus on _Unit Tests_ for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high _confidence_ [@hracekTestingFlutterApps2019; @flutterdevteamTestingFlutterApps2018]. In addition to this, because we are using the BLoC Pattern, our UI shouldn't contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so _stupid_ we don't need to test it [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [[@dartteamTestDartPackage2019]](https://pub.dev/packages/test) and the mockito package [[@fibulwinterMockitoDartPackage2019]](https://pub.dev/packages/mockito) in our _pubspec.yaml_:
 
 ```yaml

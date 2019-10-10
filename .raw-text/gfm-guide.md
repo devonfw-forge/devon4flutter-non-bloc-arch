@@ -1391,7 +1391,7 @@ class SharedPreferenceStorage implements Storage<Wisdom> {
 //Last Snip 36
 //Last Fig 23
 
-Testing has become an essential part of developing a large scale application and there is strong evidence that writing tests leads to a higher code quality [\[71\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works.
+Testing has become an essential part of developing a large scale application and there is strong evidence that writing tests leads to a higher code quality [\[71\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifcally, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 ## Types of Tests in Flutter
 
@@ -1413,7 +1413,7 @@ Integration Test/Driver Tests run your entire application in a virtual machine o
 
 *Figure XXX: Flutter Test Comparison [\[74\]](https://flutter.dev/docs/testing)*
 
-## Writing Tests
+## Writing Unit Tests
 
 I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high *confidence* \[73\], \[74\]. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[72\]](https://pub.dev/packages/test) and the mockito package [\[75\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
