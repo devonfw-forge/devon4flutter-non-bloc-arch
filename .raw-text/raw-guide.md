@@ -1002,7 +1002,7 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 BLoC is an architectural pattern with a State Management solution originally designed by Paolo Soares in 2018 [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [[@flutterdevteamFlutterFramework2018]]([@flutterdevteamFlutterFramework2018]) and Angular Dart [[@googlellcAngularDart2018]](https://angulardart.dev/) applications. Soares was working on applications in both frameworks at the time and he wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular Dart apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send events to BLoCs and display the interface based on the State of the BLoCs. Soares defined, that UI and BLoCs should only communicate through streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a stream of State [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State [@sullivanBuildReactiveMobile2018; @sullivanTechnicalDebtStreams2018; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018].
 
 | 📙  | BLoC | Business Logic Component [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) |
-| --- | ---- | :----------------------- |
+| --- | ---- | :---------------------------------------------------------------------------------------------------------- |
 
 | 🕐  | TLDR | The UI should be kept free of business logic. The UI Only publishes _Events_ to a BLoC and subscribes to a stream of _State_ emitted by a BLoC |
 | --- | ---- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1346,7 +1346,7 @@ Integration Test/Driver Tests run your entire application in a virtual machine o
 _Figure XXX: Flutter Test Comparison [[@flutterdevteamTestingFlutterApps2018]](https://flutter.dev/docs/testing)_
 
 ## Writing Tests
-I will focus on _Unit Tests_ for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high _confidence_ [@hracekTestingFlutterApps2019; @flutterdevteamTestingFlutterApps2018]. In addition to this, because we are using the BLoC Pattern, our UI shouldn't contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so _stupid_ we don't need to test it [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [[@dartteamTestDartPackage2019]](https://pub.dev/packages/test) and mockito [[@fibulwinterMockitoDartPackage2019]](https://pub.dev/packages/mockito) in our _pubspec.yaml_:
+I will focus on _Unit Tests_ for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high _confidence_ [@hracekTestingFlutterApps2019; @flutterdevteamTestingFlutterApps2018]. In addition to this, because we are using the BLoC Pattern, our UI shouldn't contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so _stupid_ we don't need to test it [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [[@dartteamTestDartPackage2019]](https://pub.dev/packages/test) and the mockito package [[@fibulwinterMockitoDartPackage2019]](https://pub.dev/packages/mockito) in our _pubspec.yaml_:
 
 ```yaml
 dev_dependencies:
@@ -1362,7 +1362,8 @@ _flutter\_test_ offers the core testing capabilities of Flutter, _mockito_ is us
 
 _Figure XXX: Wisgen Test Directory [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-All testfiles have to end with the postfix "_test.dart" to be recognized by the framework [[@hracekTestingFlutterApps2019]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+| ⚠   | All testfiles have to end with the postfix "_test.dart" to be recognized by the framework [[@hracekTestingFlutterApps2019]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
+| --- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 - Set up
 - packages

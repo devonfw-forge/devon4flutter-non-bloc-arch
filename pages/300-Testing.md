@@ -35,7 +35,7 @@ Integration Test/Driver Tests run your entire application in a virtual machine o
 
 ## Writing Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high *confidence* \[73\], \[74\]. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[72\]](https://pub.dev/packages/test) and mockito [\[75\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high *confidence* \[73\], \[74\]. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[72\]](https://pub.dev/packages/test) and the mockito package [\[75\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
 ``` yaml
 dev_dependencies:
@@ -52,7 +52,8 @@ dev_dependencies:
 
 *Figure XXX: Wisgen Test Directory [\[11\]](https://github.com/Fasust/wisgen)*
 
-All testfiles have to end with the postfix "\_test.dart" to be recognized by the framework [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+| ⚠ | All testfiles have to end with the postfix "\_test.dart" to be recognized by the framework [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
+| - | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 
   - Set up
   - packages
