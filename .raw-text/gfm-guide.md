@@ -1391,12 +1391,31 @@ class SharedPreferenceStorage implements Storage<Wisdom> {
 //Last Snip 36
 //Last Fig 23
 
-  - Types of tests
-      - Focus on Unit test
-  - Advantages of BloC
-  - Keep it stupid so you don’t need to test it
+Testing has become an essential part of developing a large scale application and there is strong evidence that writing tests leads to a higher code quality [\[71\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works.
 
-## Unit Tests in Flutter
+## Types of Tests in Flutter
+
+Flutters official test library [\[72\]](https://pub.dev/packages/test) differentiates between three types of tests.
+
+#### Unit Tests
+
+Unit Test can be run very quickly. They can test any function of your app, that does not require the rendering of a Widget [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). Their main use-case is to test business logic or in our case: BLoCs [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+
+#### Widget Tests
+
+Widget Tests are used to test small Widget Sub-Trees of your application. They run relatively quickly and can test the behavior of a given UI [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+
+#### Integration Test (Driver Tests)
+
+Integration Test/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-case. They are very slow and *“prone to braking”*[\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+
+![Flutter Test Comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-copm.PNG)
+
+*Figure XXX: Flutter Test Comparison [\[74\]](https://flutter.dev/docs/testing)*
+
+## Writing Tests
+
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high *confidence* \[73\], \[74\]. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
   - Set up
   - packages
@@ -1838,6 +1857,30 @@ class SharedPreferenceStorage implements Storage<Wisdom> {
 <div id="ref-googlellcSharedPreferences2011">
 
 \[70\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
+
+</div>
+
+<div id="ref-georgeInitialInvestigationTest2003">
+
+\[71\] B. George and L. Williams, “An Initial Investigation of Test Driven Development in Industry,” in *Proceedings of the 2003 ACM Symposium on Applied Computing*, Melbourne, Florida, 2003, pp. 1135–1139 \[Online\]. Available: <http://doi.acm.org/10.1145/952532.952753>. \[Accessed: 10-Oct-2019\]
+
+</div>
+
+<div id="ref-dartteamTestDartPackage2019">
+
+\[72\] Dart Team, “Test | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test>. \[Accessed: 09-Oct-2019\]
+
+</div>
+
+<div id="ref-hracekTestingFlutterApps2019">
+
+\[73\] *Testing Flutter Apps - Making Sure Your Code Works*, vol. Ep. 21. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=bj-oMYyLZEY&>. \[Accessed: 09-Oct-2019\]
+
+</div>
+
+<div id="ref-flutterdevteamTestingFlutterApps2018">
+
+\[74\] Flutter Dev Team, “Testing Flutter apps,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
