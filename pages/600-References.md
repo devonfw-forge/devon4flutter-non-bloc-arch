@@ -451,5 +451,11 @@
 
 </div>
 
+<div id="ref-angelovUnitTestingBloc2019">
+
+\[76\] F. Angelov, “Unit Testing with ‘Bloc’,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86>. \[Accessed: 09-Oct-2019\]
+
+</div>
+
 </div>
 <p align="center"><a href="#">Back to Top</a></center></p>

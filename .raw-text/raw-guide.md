@@ -1365,8 +1365,7 @@ _Figure XXX: Wisgen Test Directory [[@faustWisgen2019]](https://github.com/Fasus
 | ⚠   | All testfiles have to end with the postfix "_test.dart" to be recognized by the framework [[@hracekTestingFlutterApps2019]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
 | --- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-Now we can start writing our tests. For this example, I will test the favortie BLoC of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen).
-
+Now we can start writing our tests. For this example, I will test the favortie BLoC of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen):
 ```dart
 void main() {
 
@@ -1385,17 +1384,8 @@ void main() {
       favoriteBloc.dispose();
     });
     
-    test('Add a Favorite and see if it is emitted as state', () {
-      //Set Up
-      Wisdom wisdom = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
-
-      //Testing
-      favoriteBloc.dispatch(AddFavoriteEvent(wisdom));
-
-      //Result
-      favoriteBloc.state.listen((data) => () {
-            expect(wisdom, data);
-          });
+    test('Initial State is an empty list', () {
+      expect(favoriteBloc.currentState, List());
     });
 
     ...
@@ -1404,7 +1394,10 @@ void main() {
 ```
 _Code Snippet XXX: Wisgen Favorite BLoC Tests 1 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
+We can use the _group()_ function to group realted tests together. This way the output if our tests is more neatly formated [[@hracekTestingFlutterApps2019]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). _setUp()_ is called once before every test, so it is perfect for initializing our BLoC [[@angelovUnitTestingBloc2019]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). _tearDown()_ is called after every test, so we can use it to dispose our BLoC. The _test()_ function takes in a name and a callback with the test. In our test, we check if the state of the favorite BloC after initalization is an empty list. _expect()_ takes in the actual value and the value that is expected: `expect(actual, matcher)`. 
+
 ### Testing Streams
+Now a more relevant topic when working with the BLoC Pattern, the testing of Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams):
 
 ```dart
 void main() {
@@ -1416,7 +1409,8 @@ void main() {
 
     tearDown((){...});
     
-    test('Add a Favorite and see if it is emitted as state', () {...});
+    
+    test('Initial State is an empty list', () {...});
 
     test('Stream many events and see if the State is emitted in correct order', () {
       //Set Up
@@ -1445,6 +1439,8 @@ void main() {
 }
 ```
 _Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We then wrap our _matcher_ in the _emitsInOrder()_ function. This tells the framework that we are working with a stream and looking for specific set of events to be emitted [[@angelovUnitTestingBloc2019]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86).
 
 ### Mockito
 

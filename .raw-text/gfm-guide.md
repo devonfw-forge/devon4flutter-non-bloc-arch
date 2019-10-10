@@ -1435,7 +1435,7 @@ dev_dependencies:
 | ⚠ | All testfiles have to end with the postfix "\_test.dart" to be recognized by the framework [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
 | - | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-Now we can start writing our tests. For this example, I will test the favortie BLoC of Wisgen [\[11\]](https://github.com/Fasust/wisgen).
+Now we can start writing our tests. For this example, I will test the favortie BLoC of Wisgen [\[11\]](https://github.com/Fasust/wisgen):
 
 ``` dart
 void main() {
@@ -1455,17 +1455,8 @@ void main() {
       favoriteBloc.dispose();
     });
     
-    test('Add a Favorite and see if it is emitted as state', () {
-      //Set Up
-      Wisdom wisdom = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
-
-      //Testing
-      favoriteBloc.dispatch(AddFavoriteEvent(wisdom));
-
-      //Result
-      favoriteBloc.state.listen((data) => () {
-            expect(wisdom, data);
-          });
+    test('Initial State is an empty list', () {
+      expect(favoriteBloc.currentState, List());
     });
 
     ...
@@ -1475,7 +1466,11 @@ void main() {
 
 *Code Snippet XXX: Wisgen Favorite BLoC Tests 1 [\[11\]](https://github.com/Fasust/wisgen)*
 
+We can use the *group()* function to group realted tests together. This way the output if our tests is more neatly formated [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[76\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose our BLoC. The *test()* function takes in a name and a callback with the test. In our test, we check if the state of the favorite BloC after initalization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`.
+
 ### Testing Streams
+
+Now a more relevant topic when working with the BLoC Pattern, the testing of Streams [\[37\]](https://dart.dev/tutorials/language/streams):
 
 ``` dart
 void main() {
@@ -1487,7 +1482,8 @@ void main() {
 
     tearDown((){...});
     
-    test('Add a Favorite and see if it is emitted as state', () {...});
+    
+    test('Initial State is an empty list', () {...});
 
     test('Stream many events and see if the State is emitted in correct order', () {
       //Set Up
@@ -1517,6 +1513,8 @@ void main() {
 ```
 
 *Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [\[11\]](https://github.com/Fasust/wisgen)*
+
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We then wrap our *matcher* in the *emitsInOrder()* function. This tells the framework that we are working with a stream and looking for specific set of events to be emitted [\[76\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86).
 
 ### Mockito
 
@@ -2064,6 +2062,12 @@ class IdleWisdomState extends WisdomState {
 <div id="ref-fibulwinterMockitoDartPackage2019">
 
 \[75\] D. Fibulwinter and Dart Team, “Mockito | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/mockito>. \[Accessed: 09-Oct-2019\]
+
+</div>
+
+<div id="ref-angelovUnitTestingBloc2019">
+
+\[76\] F. Angelov, “Unit Testing with ‘Bloc’,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
