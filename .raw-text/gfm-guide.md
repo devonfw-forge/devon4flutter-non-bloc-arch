@@ -1238,7 +1238,7 @@ abstract class DataRepository<T>{
 }
 ```
 
-*Code Snippets 33: Wisgen Plattform Agnostic Repository [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 33: Wisgen Plattform Agnostic Repository [\[11\]](https://github.com/Fasust/wisgen)*
 
 The actual implementation of the *Repository* can then be injected into the BLoC.
 
@@ -1316,7 +1316,7 @@ class StorageBloc extends Bloc<StorageEvent, StorageState> {
 }
 ```
 
-*Code Snippets 34: Wisgen Storage BLoC [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 34: Wisgen Storage BLoC [\[11\]](https://github.com/Fasust/wisgen)*
 
 *Storage* is also a plattform agnostic interface and it looks like this:
 
@@ -1331,7 +1331,7 @@ abstract class Storage<T>{
 }
 ```
 
-*Code Snippets 35: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 35: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
 
 In Wisgen, I built an implementaion of *Storage* that communicates with Androids Shared Preferences [\[70\]](https://developer.android.com/reference/android/content/SharedPreferences) and saves the favorite list as a JSON:
 
@@ -1382,7 +1382,7 @@ class SharedPreferenceStorage implements Storage<Wisdom> {
 }
 ```
 
-*Code Snippets 36: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 36: Wisgen Plattform Agnostic Interface Storage [\[11\]](https://github.com/Fasust/wisgen)*
 
 # 300-Testing
 

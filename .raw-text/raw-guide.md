@@ -1179,7 +1179,7 @@ abstract class DataRepository<T>{
   Future<List<T>> fetch(int amount);
 }
 ```
-_Code Snippets 33: Wisgen Plattform Agnostic Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 33: Wisgen Plattform Agnostic Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 The actual implementation of the _Repository_ can then be injected into the BLoC.
 
@@ -1253,7 +1253,7 @@ class StorageBloc extends Bloc<StorageEvent, StorageState> {
   set observedBloc(FavoriteBloc observedBloc) => _observedBloc = observedBloc;
 }
 ```
-_Code Snippets 34: Wisgen Storage BLoC [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 34: Wisgen Storage BLoC [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 _Storage_ is also a plattform agnostic interface and it looks like this:
 
@@ -1267,7 +1267,7 @@ abstract class Storage<T>{
   wipeStorage();
 }
 ```
-_Code Snippets 35: Wisgen Plattform Agnostic Interface Storage [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 35: Wisgen Plattform Agnostic Interface Storage [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 In Wisgen, I built an implementaion of _Storage_ that communicates with Androids Shared Preferences [[@googlellcSharedPreferences2011]](https://developer.android.com/reference/android/content/SharedPreferences) and saves the favorite list as a JSON:
 
@@ -1317,7 +1317,7 @@ class SharedPreferenceStorage implements Storage<Wisdom> {
   }
 }
 ```
-_Code Snippets 36: Wisgen Plattform Agnostic Interface Storage [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 36: Wisgen Plattform Agnostic Interface Storage [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 # 300-Testing
 
