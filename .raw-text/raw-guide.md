@@ -40,7 +40,13 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [[@technicaluniversitycologneTechnicalUniversityCologne2019]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with Capgemini Cologne [[@capgeminiCapgeminiHomePage2019]](https://www.capgemini.com/us-en/). Capgemini released a guide on building an application in Angular [[@ambuludiCapgeminiAngularGuide2019]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
 
 ## Structure
-The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen), an example Flutter Application that was specifically built for the purposes of this guide.
+The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen), an example Flutter Application that was specifically built for the purposes of this guide. There is going to be a few common symbols throughout the guide, this is what they stand for:
+
+| Symbol | Meaning                  |
+| ------ | :----------------------- |
+| 📙     | Definition               |
+| 🕐     | Shortened version (TLDR) |
+| ⚠      | Important                |
 
 ## My Sources 
 I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in the chapter [_References_][refs]. To better understand all the theory, I also developed the Wisgen app [[@faustWisgen2019]](https://github.com/Fasust/wisgen) using the Flutter Framework and the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE).
