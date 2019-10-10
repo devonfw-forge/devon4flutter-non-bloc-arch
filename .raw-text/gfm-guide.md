@@ -1388,6 +1388,9 @@ class SharedPreferenceStorage implements Storage<Wisdom> {
 
 ## Introduction
 
+//Last Snip 36
+//Last Fig 23
+
   - Types of tests
       - Focus on Unit test
   - Advantages of BloC

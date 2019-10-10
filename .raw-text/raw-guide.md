@@ -1323,6 +1323,9 @@ _Code Snippets 36: Wisgen Plattform Agnostic Interface Storage [[@faustWisgen201
 
 ## Introduction
 
+//Last Snip 36 
+//Last Fig 23
+
 - Types of tests
   - Focus on Unit test
 - Advantages of BloC
