@@ -999,7 +999,7 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 # 220-BLoC
 
 ## Introduction
-The BLoC Pattern is a State Management solution originally designed by Paolo Soares in 2018 [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [[@flutterdevteamFlutterFramework2018]]([@flutterdevteamFlutterFramework2018]) and Angular Dart [[@googlellcAngularDart2018]](https://angulardart.dev/) applications. Soares was working on applications in both frameworks at the time and he wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send events to a BLoC and display the interface based on the State of a BLoC. Soares defined, that UI and BLoCs should only communicate through streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a stream of State [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State [@sullivanBuildReactiveMobile2018; @sullivanTechnicalDebtStreams2018; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018].
+BLoC is an architectural pattern with a State Management solution originally designed by Paolo Soares in 2018 [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [[@flutterdevteamFlutterFramework2018]]([@flutterdevteamFlutterFramework2018]) and Angular Dart [[@googlellcAngularDart2018]](https://angulardart.dev/) applications. Soares was working on applications in both frameworks at the time and he wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular Dart apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send events to BLoCs and display the interface based on the State of the BLoCs. Soares defined, that UI and BLoCs should only communicate through streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a stream of State [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State [@sullivanBuildReactiveMobile2018; @sullivanTechnicalDebtStreams2018; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018].
 
 | 📙  | BLoC | Business Logic Component [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) |
 | --- | ---- | :----------------------- |
@@ -1015,7 +1015,7 @@ _Figure XXX: Bloc turning input events to a stream of State [[@sullivanBuildReac
 That's all well and good, but why should you care? An application that follows the rules defined by the BLoC pattern will...
 
 1. have all its business logic in one place 
-2. have business logic that functions independently of the interface
+2. have business logic that functions independently of the UI
 3. have UI that can be changed without affecting the business Logic
 4. have business logic that is easily testable
 5. rely on few rebuilds, as the UI only rebuilds when the State related to that UI changes
@@ -1040,7 +1040,7 @@ To gain those promised advantages, you will have to follow these 8 rules Soares 
   2. Widgets **do not format the inputs** they send to the BLoC
      - Because formating is Business Logic
   3. Widgets should display the BLoCs **State/output with as little formatting as possible**
-     - Sometimes a little formatting is inevitable, put things like currency formating is business logic and should be done in the BLoC 
+     - Sometimes a little formatting is inevitable, but things like currency formating is business logic and should be done in the BLoC 
   4. If you do have **platform branching**, It should be dependent on **a single BLoC bool State/output**
 
 ![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
@@ -1048,13 +1048,13 @@ To gain those promised advantages, you will have to follow these 8 rules Soares 
 _Figure XXX: How a BLoC looks like [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
 
 ## Implementation
-Alright, Now that you know what the BLoC pattern is, let's have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the Example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let's have a look at how the Bloc pattern will interact with Wisgen on a more abstract scale:
+Alright, Now that you know what the BLoC pattern is, let's have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let's have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
 
 ![Bloc and Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-bloc.PNG)
 
 _Figure XXX: Bloc and Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Let's have a look at the events that can be sent to the BLoC by the UI. Again, this is very similar to the _actions_ in our Redux implementation:
+These are the events that can be sent to the BLoC by the UI. Again, this is very similar to the _actions_ in our Redux implementation:
 
 ```dart
 ///The Favorite BLoC can handle 2 types of Events: Add and Remove.
@@ -1077,7 +1077,7 @@ class RemoveFavoriteEvent extends FavoriteEvent {
 ```
 _Code Snippet XXX: Favorite Event in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Now Let's take a look at the most interesting part of an implementation of the BLoC patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the _events_ that will be sent to the BLoC and the type of the _State_ that should be emitted by the BLoC `Bloc<Event, State>`:
+Now the arguably most interesting part of an implementation of the BLoC patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the _events_ that will be sent to the BLoC and the type of the _State_ that should be emitted by the BLoC `Bloc<Event, State>`:
 
 ```dart
 ///The FavoriteBLoC is Responsible for Keeping track of the
@@ -1103,7 +1103,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
 ```
 _Code Snippet XXX: Favorite BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-As I mentioned before, the BLoC package for Flutter uses the Provider package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we would if just used Provider for State Management. By the rule of _"lifting State up"_ we have to place the favorite BLoC at the lowest common ancestor of all Widgets that need access to it. So in our case at _MaterialApp_:
+As I mentioned before, the BLoC package for Flutter uses the Provider package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we learned in the chapter [State Management Alternatives][statemng]. By the rule of _"lifting State up"_ we have to place the favorite BLoC at the lowest common ancestor of all Widgets that need access to it. So in our case at _MaterialApp_:
 
 ```dart
 void main() => runApp(MyApp());
@@ -1121,7 +1121,7 @@ class MyApp extends StatelessWidget {
 ```
 _Code Snippet XXX: Providing a BLoC Globally in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Lastly, we can dispatch events and subscribe to a BLoC. This is the favorite button in Wisgen. It changes shape and color based on the State emitted by the FavoriteBLoC and it dispatches events to the BLoC to add and remove favorites. The _wisdom_ object is the wisdom displayed on the Card Widget.
+Now we can dispatch events and subscribe to a BLoC. This is the favorite button in Wisgen. It changes shape and color based on the State emitted by the FavoriteBLoC and it dispatches events to the BLoC to add and remove favorites. The _wisdom_ object is the wisdom displayed on the Card Widget.
 
 ```dart
 ...
@@ -1155,7 +1155,7 @@ Expanded(
 _Code Snippet XXX: Accessing a BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Layered Architecure
-Now that we understand how to implement the BLoC pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets' have a look at how we can use it to achieve a four-layered architecture with on way dependencies for your application [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
+Now that we understand how to implement the BLoC pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets' have a look at how we can use it to achieve a four-layered architecture with one way dependencies [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
 
 <img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Bloc Architecture with Layers">
 
@@ -1171,7 +1171,7 @@ This is where all our BLoCs reside. All our business logic sits in this layer. T
 
 _Figure XXX: Widget BLoC Communication_
 
-For this Layer, all plattform specific dependencies should be injectable. To achieve this, the Flutter community [@suriArchitectYourFlutter2019; @eganFlutterArchitectureSamples2017; @angelovBlocLibraryDart2019; @bizzottoWidgetAsyncBlocServicePracticalArchitecture2019] mostly uses the _Repository Patter_ [[@garlanIntroductionSoftwareArchitecture1994]](https://dl.acm.org/citation.cfm?id=865128) or as _"Uncle Bob"_ would say: _Boundary Objects_ [[@martinPrinciplesCleanArchitecture2015]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even this pattern is not an explicit part of BLoC, I personally think this is a very clean solution. Instead of having BLoCs directly depend on plattform specific interfaces, we create simple _Repository_ interfaces for the BLoCs to depend on:
+For this Layer, all plattform specific dependencies should be injectable. To achieve this, the Flutter community [@suriArchitectYourFlutter2019; @eganFlutterArchitectureSamples2017; @angelovBlocLibraryDart2019; @bizzottoWidgetAsyncBlocServicePracticalArchitecture2019] mostly uses the _Repository Patter_ [[@garlanIntroductionSoftwareArchitecture1994]](https://dl.acm.org/citation.cfm?id=865128) or as _"Uncle Bob"_ would say: _Boundary Objects_ [[@martinPrinciplesCleanArchitecture2015]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on plattform specific interfaces, we create simple _Repository_ interfaces for the BLoCs to depend on:
 
 ```dart
 ///Interface for a Generic List Provider that fetches a given amount of T
@@ -1196,13 +1196,66 @@ To give you a better understanding of how this architecture works in practice, I
 
 _Figure XXX: Wisgen Architecture with Dependencies [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the _Wisdom BLoC_ to fetch more data from its _Repository_. You can see the _Repository_ implementaion in snippet XXX. This way the _Wisdom BLoC_ just knows it can fetch some data with its _Repository_ and it does not care how it is implemented. In our case, the _Repository_ could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. When the _Wisdom BLoC_ receives a response from it's Repository/the Data-Provider Layer, it publishes the new wisdoms to its Stream [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified. 
+In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure XXX. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the _Wisdom BLoC_ to fetch more data from its Repository. You can see the _Repository_ interface in snippet XXX. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. When the Wisdom BLoC receives a response from it's Repository, it publishes the new wisdoms to its Stream [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified. 
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
 _Figure XXX: Wisgen Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-I already covered how the favorite list works in detail in this chapter, so I won't go over it again. The _Storage BLoC_ keeps a persistant copy of the favorite list on the device. It recievce a _Load-Event_ once on start-up, loads the old favorite list from its _Storage_, and adds it to the _Favortie BLoC_ though _Add-Events_. It also listens to the _Favorite BLoC_ and updates the persistant copy of the favorite list every time the _Favorite Bloc_ emits a new State. _Storage_ is also a plattform agnostic interface and it looks like this:
+I already covered how the favorite list works in detail in this chapter, so I won't go over it again. The _Storage BLoC_ keeps a persistant copy of the favorite list on the device. It recievce a _Load-Event_ once on start-up, loads the old favorite list from its _Storage_, and adds it to the _Favortie BLoC_ though _Add-Events_. It also listens to the _Favorite BLoC_ and updates the persistant copy of the favorite list every time the _Favorite Bloc_ emits a new State:
+
+```dart
+//Because this BLoC doesn't need to emit Sate, I used a Single Enum
+enum StorageState {idle} 
+//Only 2 events that both don't need to carry additional data
+enum StorageEvent {load, wipe} 
+
+///The StorageBLoC is injected with a FavoriteBLoC on Creation.
+///It subscribes to the FavoriteBLoC and writes the Favorite List
+///to a given Storage device every time a new State is emitted by the FavoriteBLoC.
+///
+///When the StorageBLoC receives a load Event, it loads a list of Wisdoms from a given
+///Storage device and pipes it into the FavoriteBLoC
+///
+///Used to keep a Persistent copy of the Favorite List on the Device
+class StorageBloc extends Bloc<StorageEvent, StorageState> {
+  Storage _storage = new SharedPreferenceStorage();
+  FavoriteBloc _observedBloc;
+
+  StorageBloc(this._observedBloc) {
+    //Subscribe to BLoC
+    _observedBloc.state.listen((state) async {
+      await _storage.save(state);
+    });
+  }
+
+  @override
+  StorageState get initialState => StorageState.idle;
+
+  @override
+  Stream<StorageState> mapEventToState(StorageEvent event) async* {
+    if (event == StorageEvent.load) await _load();
+    if (event == StorageEvent.wipe) _storage.wipeStorage();
+  }
+
+  _load() async {
+    List<Wisdom> loaded = await _storage.load();
+
+    if (loaded == null || loaded.isEmpty) return;
+
+    loaded.forEach((f) {
+      _observedBloc.dispatch(AddFavoriteEvent(f));
+    });
+  }
+
+  //Injection
+  set storage(Storage storage) => _storage = storage;
+  set observedBloc(FavoriteBloc observedBloc) => _observedBloc = observedBloc;
+}
+```
+_Code Snippets XXX: Wisgen Storage BLoC [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+_Storage_ is also a plattform agnostic interface and it looks like this:
 
 ```dart
 ///Interface for a Generic List Provider
