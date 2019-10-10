@@ -37,7 +37,7 @@ Integration Test/Driver Tests run your entire application in a virtual machine o
 
 ## Writing Unit Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test, as they are quick to write, quick to execute and yield relatively high *confidence* \[73\], \[74\]. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[72\]](https://pub.dev/packages/test) and the mockito package [\[75\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[73\], \[74\]. This is because the fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[72\]](https://pub.dev/packages/test) and the mockito package [\[75\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
 ``` yaml
 dev_dependencies:
@@ -136,7 +136,7 @@ void main() {
 
 *Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [\[11\]](https://github.com/Fasust/wisgen)*
 
-In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We then wrap our *matcher* in the *emitsInOrder()* function. This tells the framework that we are working with a stream and looking for specific set of events to be emitted [\[76\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86).
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We then wrap our *matcher* in the *emitsInOrder()* function. This tells the framework that we are working with a stream and looking for specific set of events to be emitted in order [\[76\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86).
 
 ### Mockito
 
