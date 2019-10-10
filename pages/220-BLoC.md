@@ -6,7 +6,11 @@ Page Table of Contents
     - [Rules for UI Classes](#rules-for-ui-classes)
 - [Implementation](#implementation)
 - [Layered Architecure](#layered-architecure)
-  - [Architecture in Practice](#architecture-in-practice)
+  - [UI Layer](#ui-layer)
+  - [Business Logic Layer](#business-logic-layer)
+  - [Repository Layer](#repository-layer)
+  - [Data Layer](#data-layer)
+- [Architecture in Practice](#architecture-in-practice)
 
 ## Introduction
 
