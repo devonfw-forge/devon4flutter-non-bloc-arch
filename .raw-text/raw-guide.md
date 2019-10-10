@@ -1398,6 +1398,24 @@ void main() {
           });
     });
 
+    ...
+  });
+}
+```
+_Code Snippet XXX: Wisgen Favorite BLoC Tests 1 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+```dart
+void main() {
+
+  group('Favorite Bloc', () {
+    FavoriteBloc favoriteBloc;
+
+    setUp((){...});
+
+    tearDown((){...});
+    
+    test('Add a Favorite and see if it is emitted as state', () {...});
+
     test('Add and Remove a Favorite and see if the state is empty', () {
       //Set Up
       Wisdom wisdom = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
@@ -1409,6 +1427,26 @@ void main() {
       //Result
       expect(0, favoriteBloc.currentState.length);
     });
+
+    ...
+  });
+}
+```
+_Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+
+```dart
+void main() {
+
+  group('Favorite Bloc', () {
+    FavoriteBloc favoriteBloc;
+
+    setUp((){...});
+
+    tearDown((){...});
+    
+    test('Add a Favorite and see if it is emitted as state', () {...});
+
+    test('Add and Remove a Favorite and see if the state is empty', () {...});
 
     test('Stream many events and see if the State is emitted in correct order', () {
       //Set Up
@@ -1436,9 +1474,7 @@ void main() {
   });
 }
 ```
-_Code Snippet XXX: Wisgen Favorite BLoC Tests [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
-
-Let's go though these tests one by one. 
+_Code Snippet XXX: Wisgen Favorite BLoC Tests 3 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 - testing a bloc
 - Dependency injection problems in Flutter
