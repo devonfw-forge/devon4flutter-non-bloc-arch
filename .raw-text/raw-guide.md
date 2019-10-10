@@ -43,10 +43,10 @@ This guide was written by a student in the Bachelor of Science Program “Comput
 The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen), an example Flutter Application that was specifically built for the purposes of this guide. There is going to be a few common symbols throughout the guide, this is what they stand for:
 
 | Symbol | Meaning                  |
-| ------ | :----------------------- |
-| 📙     | Definition               |
-| 🕐     | Shortened version (TLDR) |
-| ⚠      | Important                |
+| :----: | :----------------------- |
+|   📙   | Definition               |
+|   🕐   | Shortened version (TLDR) |
+|   ⚠    | Important                |
 
 ## My Sources 
 I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in the chapter [_References_][refs]. To better understand all the theory, I also developed the Wisgen app [[@faustWisgen2019]](https://github.com/Fasust/wisgen) using the Flutter Framework and the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE).
