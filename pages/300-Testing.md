@@ -13,31 +13,31 @@ Page Table of Contents
 //Last Snip 36
 //Last Fig 23
 
-Testing has become an essential part of developing a large scale application and there is strong evidence that writing tests leads to a higher code quality [\[71\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifcally, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+Testing has become an essential part of developing a large scale application and there is strong evidence that writing tests leads to a higher code quality [\[1\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[2\]](https://flutter.dev/) works and more specifically, how to test an app that implements the BLoC Pattern [\[3\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 ## Types of Tests in Flutter
 
-Flutters official test library [\[72\]](https://pub.dev/packages/test) differentiates between three types of tests:
+Flutters official test library [\[4\]](https://pub.dev/packages/test) differentiates between three types of tests:
 
 #### Unit Tests
 
-Unit Test can be run very quickly. They can test any function of your app, that does not require the rendering of a Widget [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). Their main use-case is to test business logic or in our case: BLoCs [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+Unit Test can be run very quickly. They can test any function of your app, that does not require the rendering of a Widget [\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). Their main use-case is to test business logic or in our case: BLoCs [\[3\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 #### Widget Tests
 
-Widget Tests are used to test small Widget Sub-Trees of your application. They run relatively quickly and can test the behavior of a given UI [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+Widget Tests are used to test small Widget Sub-Trees of your application. They run relatively quickly and can test the behavior of a given UI [\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
 #### Integration Test (Driver Tests)
 
-Integration Test/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and *“prone to braking”*[\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+Integration Test/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and *“prone to braking”*[\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
 ![Flutter Test Comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
 
-*Figure XXX: Flutter Test Comparison [\[74\]](https://flutter.dev/docs/testing)*
+*Figure XXX: Flutter Test Comparison [\[6\]](https://flutter.dev/docs/testing)*
 
 ## Writing Unit Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[73\], \[74\]. This is because the fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[72\]](https://pub.dev/packages/test) and the mockito package [\[75\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[5\], \[6\]. This is because the fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[3\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[4\]](https://pub.dev/packages/test) and the mockito package [\[7\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
 ``` yaml
 dev_dependencies:
@@ -52,12 +52,12 @@ dev_dependencies:
 
 ![Wisgen Test Directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
 
-*Figure XXX: Wisgen Test Directory [\[11\]](https://github.com/Fasust/wisgen)*
+*Figure XXX: Wisgen Test Directory [\[8\]](https://github.com/Fasust/wisgen)*
 
-| ⚠ | All testfiles have to end with the postfix "\_test.dart" to be recognized by the framework [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
-| - | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ⚠ | All testfiles have to end with the postfix "\_test.dart" to be recognized by the framework [\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
+| - | :------------------------------------------------------------------------------------------------------------------------------------------------ |
 
-Now we can start writing our tests. For this example, I will test the favortie BLoC of Wisgen [\[11\]](https://github.com/Fasust/wisgen):
+Now we can start writing our tests. For this example, I will test the favortie BLoC of Wisgen [\[8\]](https://github.com/Fasust/wisgen):
 
 ``` dart
 void main() {
@@ -86,13 +86,13 @@ void main() {
 }
 ```
 
-*Code Snippet XXX: Wisgen Favorite BLoC Tests 1 [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet XXX: Wisgen Favorite BLoC Tests 1 [\[8\]](https://github.com/Fasust/wisgen)*
 
-We can use the *group()* function to group realted tests together. This way the output if our tests is more neatly formated [\[73\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[76\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose our BLoC. The *test()* function takes in a name and a callback with the test. In our test, we check if the state of the favorite BloC after initalization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`.
+We can use the *group()* function to group realted tests together. This way the output if our tests is more neatly formated [\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[9\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose our BLoC. The *test()* function takes in a name and a callback with the test. In our test, we check if the state of the favorite BloC after initalization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`.
 
 ### Testing Streams
 
-Now a more relevant topic when working with the BLoC Pattern, the testing of Streams [\[37\]](https://dart.dev/tutorials/language/streams):
+Now a more relevant topic when working with the BLoC Pattern, the testing of Streams [\[10\]](https://dart.dev/tutorials/language/streams):
 
 ``` dart
 void main() {
@@ -134,9 +134,9 @@ void main() {
 }
 ```
 
-*Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [\[8\]](https://github.com/Fasust/wisgen)*
 
-In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We then wrap our *matcher* in the *emitsInOrder()* function. This tells the framework that we are working with a stream and looking for specific set of events to be emitted in order [\[76\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86).
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We then wrap our *matcher* in the *emitsInOrder()* function. This tells the framework that we are working with a stream and looking for specific set of events to be emitted in order [\[9\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86).
 
 ### Mockito
 
@@ -184,7 +184,7 @@ void main() {
 }
 ```
 
-*Code Snippet XXX: Wisgen Wisdom BLoC Tests with Mockito [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet XXX: Wisgen Wisdom BLoC Tests with Mockito [\[8\]](https://github.com/Fasust/wisgen)*
 
 ``` dart
 ///The Wisdom BLoC has 2 States: Loaded and Error
@@ -214,7 +214,7 @@ class IdleWisdomState extends WisdomState {
 }
 ```
 
-*Code Snippet XXX: Wisgen Wisdom States with Equatable [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet XXX: Wisgen Wisdom States with Equatable [\[8\]](https://github.com/Fasust/wisgen)*
 
   - testing a bloc
   - Dependency injection problems in Flutter

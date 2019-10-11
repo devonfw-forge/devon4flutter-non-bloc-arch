@@ -80,8 +80,10 @@ List<String> cleanHeaders(List<String> headers) {
   List<String> clean = List();
   headers.forEach((h) => clean.add(h.replaceFirst('# ', '')));
 
-  clean.removeAt(0);
-  clean.insert(0, 'Home');
+  if (clean.contains("000-Introduction")) {
+    clean.remove("000-Introduction");
+    clean.insert(0, 'Home');
+  }
 
   return clean;
 }
