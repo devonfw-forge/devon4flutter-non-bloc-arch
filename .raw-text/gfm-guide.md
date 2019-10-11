@@ -80,7 +80,7 @@ void main() {
 
 *Code Snippet XXX: Wisgen Favorite BLoC Tests 1 [\[8\]](https://github.com/Fasust/wisgen)*
 
-We can use the *group()* function to group related tests together. This way the output if our tests is more neatly formated [\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[9\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose of our BLoC. The *test()* function takes in a name and a callback with the actual test. In our test, we check if the state of the favorite BloC after initialization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`. We can run all our tests using the command `flutter test`.
+We can use the *group()* function to group related tests together. This way the output of our tests is more neatly formated [\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[9\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose of our BLoC. The *test()* function takes in a name and a callback with the actual test. In our test, we check if the state of the favorite BloC after initialization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`. We can run all our tests using the command `flutter test`.
 
 ### Testing Streams
 
@@ -140,7 +140,13 @@ In this test, we create three wisdoms and add/remove them from the favorite BLoC
 
 ### Mockito
 
+As mentioned before, *Mockito* [\[7\]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC pattern forces us to make all plattform specific dependencies of our BLoCs injectable [\[3\]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing them. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it’s Repository, we can inject a mock Repository into the BLoC. In this example, we use *Mockito* to test if our wisdom BLoC emits new wisdom after receiving a fetch event:
+
 ``` dart
+//Creating Mocks using Mockito
+class MockRepository extends Mock implements Repository<Wisdom> {}
+class MockBuildContext extends Mock implements BuildContext {}
+
 void main() {
   group('Wisdom Bloc', () {
     WisdomBloc wisdomBloc;
@@ -152,6 +158,7 @@ void main() {
       mockRepository = MockRepository();
       mockBuildContext = MockBuildContext();
 
+            //Inject Mock
       wisdomBloc.repository = mockRepository;
     });
 
@@ -161,24 +168,29 @@ void main() {
     });
 
     test('Send Fetch Event and see if it emits correct wisdom', () {
+      //Set Up
       List<Wisdom> fetchedWisdom = [
         Wisdom(id: 1, text: "Back up your Pictures", type: "tech"),
         Wisdom(id: 2, text: "Wash your ears", type: "Mum's Advice"),
         Wisdom(id: 3, text: "Travel while you're young", type: "Grandma's Advice")
       ];
 
+            when(mockRepository.fetch(20, mockBuildContext))
+                //Telling the Mock Repo how to behave
+                .thenAnswer((_) async => fetchedWisdom);
+
+
       List expectedStates = [
         //BLoC Library BLoCs emit their initial State on creation
         IdleWisdomState(new List()), 
         IdleWisdomState(fetchedWisdom)
       ];
+    
+            //Test
+            wisdomBloc.dispatch(FetchEvent(mockBuildContext));
 
-      when(mockRepository.fetch(20, mockBuildContext))
-          .thenAnswer((_) async => fetchedWisdom);
-
-      expectLater(wisdomBloc.state, emitsInOrder(expectedStates));
-
-      wisdomBloc.dispatch(FetchEvent(mockBuildContext));
+            //Result
+      expect(wisdomBloc.state, emitsInOrder(expectedStates));
     });
   });
 }
@@ -186,20 +198,27 @@ void main() {
 
 *Code Snippet XXX: Wisgen Wisdom BLoC Tests with Mockito [\[8\]](https://github.com/Fasust/wisgen)*
 
+First we create our Mock classes. For this test we need a mock *Repository* and a mock *Buildcontext* [\[12\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the *setUp()* function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the *test()* function, we tell our mock Repository to send a set of wisdom when it’s *fetch()* function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
+
+## Side Note on Equality in Dart
+
+By default, all comparisons in Dart [\[13\]](https://dart.dev/) work based on references and not base on values \[9\], \[14\]:
+
+``` dart
+Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
+
+print(wisdom1 ==  Wisdom(id: 1, text: "Back up your Pictures", type: "tech")); //false
+```
+
+*Code Snippet XXX: Equality in Flutter*
+
+This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the *Equatable* package in 2019 [\[14\]](https://pub.dev/packages/equatable#-example-tab-). It’s an easy way to overwrite how class equality is handled. If we make a class extend the *Equatable* class, we can set the properties it is compared by. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom the carry:
+
 ``` dart
 ///The Wisdom BLoC has 2 States: Loaded and Error
 ///We can infer it is loading when we are not reviving new items through the stream
 @immutable
 abstract class WisdomState extends Equatable {}
-
-///Broadcasted on Network Error
-class ErrorWisdomState extends WisdomState {
-  final Exception exception;
-  ErrorWisdomState(this.exception);
-
-  @override
-  List<Object> get props => [exception];
-}
 
 ///Normal State that holds favorite list.
 ///When BLoC receives a FetchEvent during this State, 
@@ -212,9 +231,20 @@ class IdleWisdomState extends WisdomState {
   @override
   List<Object> get props => wisdoms;
 }
+
+///Broadcasted on Network Error
+class ErrorWisdomState extends WisdomState {
+  final Exception exception;
+  ErrorWisdomState(this.exception);
+
+  @override
+  List<Object> get props => [exception];
+}
 ```
 
 *Code Snippet XXX: Wisgen Wisdom States with Equatable [\[8\]](https://github.com/Fasust/wisgen)*
+
+If we wouldn’t use Equatable, the test form snippet XXX could not functions properly, as two states carrying the same wisdom would still be considers different by the test framework.
 
   - testing a bloc
   - Dependency injection problems in Flutter
@@ -286,6 +316,24 @@ class IdleWisdomState extends WisdomState {
 <div id="ref-dartteamAsynchronoustestsTestDart2019">
 
 \[11\] Dart Team, “Asynchronous-tests with the test Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test#asynchronous-tests>. \[Accessed: 11-Oct-2019\]
+
+</div>
+
+<div id="ref-flutterdevteamBuildContextClass2018">
+
+\[12\] Flutter Dev Team, “BuildContext class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/BuildContext-class.html>. \[Accessed: 01-Oct-2019\]
+
+</div>
+
+<div id="ref-dartteamDartProgrammingLanguage2019">
+
+\[13\] Dart Team, “Dart programming language,” 2019. \[Online\]. Available: <https://dart.dev/>. \[Accessed: 20-Sep-2019\]
+
+</div>
+
+<div id="ref-angelovEquatableDartPackage2019">
+
+\[14\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
 
 </div>
 

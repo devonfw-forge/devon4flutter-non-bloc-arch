@@ -67,6 +67,24 @@
 
 </div>
 
+<div id="ref-flutterdevteamBuildContextClass2018">
+
+\[12\] Flutter Dev Team, “BuildContext class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/BuildContext-class.html>. \[Accessed: 01-Oct-2019\]
+
+</div>
+
+<div id="ref-dartteamDartProgrammingLanguage2019">
+
+\[13\] Dart Team, “Dart programming language,” 2019. \[Online\]. Available: <https://dart.dev/>. \[Accessed: 20-Sep-2019\]
+
+</div>
+
+<div id="ref-angelovEquatableDartPackage2019">
+
+\[14\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
+
+</div>
+
 </div>
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
 <p align="center"><a href="#">Back to Top</a></p>
