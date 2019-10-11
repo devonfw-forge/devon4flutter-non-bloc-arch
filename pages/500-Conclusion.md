@@ -4,6 +4,8 @@ Page Table of Contents
 
 ## My Opinion of Flutter
 
+  - Dependacy injection
+
 ## Should you use it?
 
 <p align="center"><a href="#">Back to Top</a></center></p>

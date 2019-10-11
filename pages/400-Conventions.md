@@ -3,6 +3,11 @@ Page Table of Contents
 - [Naming conventions](#naming-conventions)
 - [File structure with BLoC](#file-structure-with-bloc)
 
+## Introduction
+
+//Last Fig 25
+//Last Snip 42
+
 ## Mastering the Widget Tree
 
 ## Naming conventions

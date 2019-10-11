@@ -457,5 +457,17 @@
 
 </div>
 
+<div id="ref-dartteamAsynchronoustestsTestDart2019">
+
+\[77\] Dart Team, “Asynchronous-tests with the test Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test#asynchronous-tests>. \[Accessed: 11-Oct-2019\]
+
+</div>
+
+<div id="ref-angelovEquatableDartPackage2019">
+
+\[78\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
+
+</div>
+
 </div>
 <p align="center"><a href="#">Back to Top</a></center></p>
