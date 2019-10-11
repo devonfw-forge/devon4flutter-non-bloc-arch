@@ -3,11 +3,12 @@
 ## Introduction
 
 //Last Fig 25
-//Last Snip 42
+//Last Snip 42 [@suriArchitectYourFlutter2019]
 
-## Mastering the Widget Tree
-## Naming conventions
-## File structure with BLoC
+## Dart Code
+## FlutterWidgets
+## Naming 
+## File Structure
 
 # _Ref-Dump
 
