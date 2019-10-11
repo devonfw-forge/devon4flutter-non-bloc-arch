@@ -37,7 +37,7 @@ Integration Test/Driver Tests run your entire application in a virtual machine o
 
 ## Writing Unit Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[5\], \[6\]. This is because the fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[3\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[4\]](https://pub.dev/packages/test) and the mockito package [\[7\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[5\], \[6\]. The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[3\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[4\]](https://pub.dev/packages/test) and the mockito package [\[7\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
 ``` yaml
 dev_dependencies:
@@ -48,7 +48,7 @@ dev_dependencies:
 
 *Code Snippet XXX: Pubspec.yaml Test Imports*
 
-*flutter\_test* offers the core testing capabilities of Flutter, *mockito* is used to mock up dependencies. Now place a new directory called *“tests”* on the root level of our app directory:
+*flutter\_test* offers the core testing capabilities of Flutter. *mockito* is used to mock up dependencies. All out tests should sit in a directory names *“test”* on the root level of our app directory. If we want to place them somewhere else, we have to specify their location every time we want to run them.
 
 ![Wisgen Test Directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
 
@@ -57,7 +57,7 @@ dev_dependencies:
 | ⚠ | All testfiles have to end with the postfix "\_test.dart" to be recognized by the framework [\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
 | - | :------------------------------------------------------------------------------------------------------------------------------------------------ |
 
-Now we can start writing our tests. For this example, I will test the favortie BLoC of Wisgen [\[8\]](https://github.com/Fasust/wisgen):
+Now we can start writing our tests. For this example, I will test the favorite BLoC of Wisgen [\[8\]](https://github.com/Fasust/wisgen):
 
 ``` dart
 void main() {
@@ -88,7 +88,7 @@ void main() {
 
 *Code Snippet XXX: Wisgen Favorite BLoC Tests 1 [\[8\]](https://github.com/Fasust/wisgen)*
 
-We can use the *group()* function to group realted tests together. This way the output if our tests is more neatly formated [\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[9\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose our BLoC. The *test()* function takes in a name and a callback with the test. In our test, we check if the state of the favorite BloC after initalization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`.
+We can use the *group()* function to group related tests together. This way the output if our tests is more neatly formated [\[5\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[9\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose of our BLoC. The *test()* function takes in a name and a callback with the actual test. In our test, we check if the state of the favorite BloC after initialization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`. We can run all our tests using the command `flutter test`.
 
 ### Testing Streams
 
@@ -136,7 +136,15 @@ void main() {
 
 *Code Snippet XXX: Wisgen Favorite BLoC Tests 2 [\[8\]](https://github.com/Fasust/wisgen)*
 
-In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We then wrap our *matcher* in the *emitsInOrder()* function. This tells the framework that we are working with a stream and looking for specific set of events to be emitted in order [\[9\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86).
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We use the *emitsInOrder()* *matcher* to tell the framework that we are working with a stream and looking for specific set of events to be emitted in order [\[9\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other stream matchers besides *emitsInOrder()* [\[11\]](https://pub.dev/packages/test#asynchronous-tests):
+
+  - *emits()* matches a single data event.
+  - *emitsError()* matches a single error event.
+  - *emitsDone* matches a single done event.
+  - *emitsAnyOf()* consumes events matching one (or more) of several possible matchers.
+  - *emitsInAnyOrder()* works like emitsInOrder(), but it allows the matchers to match in any order.
+  - *neverEmits()* matches a stream that finishes without matching an inner matcher.
+  - And more [\[11\]](https://pub.dev/packages/test#asynchronous-tests)
 
 ### Mockito
 
