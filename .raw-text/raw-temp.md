@@ -191,7 +191,9 @@ _Code Snippet XXX: Wisgen Wisdom BLoC Tests with Mockito [[@faustWisgen2019]](ht
 First we create our Mock classes. For this test we need a mock _Repository_ and a mock _Buildcontext_ [[@flutterdevteamBuildContextClass2018]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the _setUp()_ function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the _test()_ function, we tell our mock Repository to send a set of wisdom when it's _fetch()_ function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
 
 ## Equality in Dart
-By default, all comparisons in Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) work based on references and not base on values [@angelovUnitTestingBloc2019; @angelovEquatableDartPackage2019]:
+
+| ⚠   | By default, all comparisons in Dart work based on references and not base on values [@angelovUnitTestingBloc2019; @angelovEquatableDartPackage2019] |
+| --- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ```dart
 Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
@@ -234,7 +236,7 @@ _Code Snippet XXX: Wisgen Wisdom States with Equatable [[@faustWisgen2019]](http
 If we wouldn't use Equatable, the test form snippet XXX could not functions properly, as two states carrying the same wisdom would still be considers different by the test framework.
 
 | 🕐  | TLDR | If you don't want your classes to be compared base on their reference, use the Equatable package [[@angelovEquatableDartPackage2019]](https://pub.dev/packages/equatable#-example-tab-) |
-| --- | ---- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --- | ---- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 - testing a bloc
 - Dependency injection problems in Flutter

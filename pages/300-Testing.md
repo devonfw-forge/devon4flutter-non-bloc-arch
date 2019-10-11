@@ -210,7 +210,8 @@ First we create our Mock classes. For this test we need a mock *Repository* and 
 
 ## Equality in Dart
 
-By default, all comparisons in Dart [\[13\]](https://dart.dev/) work based on references and not base on values \[9\], \[14\]:
+| ⚠ | By default, all comparisons in Dart work based on references and not base on values \[9\], \[13\] |
+| - | :------------------------------------------------------------------------------------------------ |
 
 ``` dart
 Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
@@ -220,7 +221,7 @@ print(wisdom1 ==  Wisdom(id: 1, text: "Back up your Pictures", type: "tech")); /
 
 *Code Snippet XXX: Equality in Flutter*
 
-This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the *Equatable* package in 2019 [\[14\]](https://pub.dev/packages/equatable#-example-tab-). It’s an easy way to overwrite how class equality is handled. If we make a class extend the *Equatable* class, we can set the properties it is compared by. We do this by overwriting it’s *props* attribute. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom the carry:
+This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the *Equatable* package in 2019 [\[13\]](https://pub.dev/packages/equatable#-example-tab-). It’s an easy way to overwrite how class equality is handled. If we make a class extend the *Equatable* class, we can set the properties it is compared by. We do this by overwriting it’s *props* attribute. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom the carry:
 
 ``` dart
 ///The Wisdom BLoC has 2 States: Loaded and Error
@@ -254,7 +255,7 @@ class ErrorWisdomState extends WisdomState {
 
 If we wouldn’t use Equatable, the test form snippet XXX could not functions properly, as two states carrying the same wisdom would still be considers different by the test framework.
 
-| 🕐 | TLDR | If you don’t want your classes to be compared base on their reference, use the Equatable package [\[14\]](https://pub.dev/packages/equatable#-example-tab-) |
+| 🕐 | TLDR | If you don’t want your classes to be compared base on their reference, use the Equatable package [\[13\]](https://pub.dev/packages/equatable#-example-tab-) |
 | - | ---- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
   - testing a bloc

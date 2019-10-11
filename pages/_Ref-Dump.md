@@ -73,15 +73,9 @@
 
 </div>
 
-<div id="ref-dartteamDartProgrammingLanguage2019">
-
-\[13\] Dart Team, “Dart programming language,” 2019. \[Online\]. Available: <https://dart.dev/>. \[Accessed: 20-Sep-2019\]
-
-</div>
-
 <div id="ref-angelovEquatableDartPackage2019">
 
-\[14\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
+\[13\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
 
 </div>
 
