@@ -369,9 +369,8 @@ _Code Snippet XXX: Wisgen Wisdom Card in four Widgets and with an extracted call
 
 As you can see, splitting your code into multiple smaller Widgets, does lead to a lot more boiler plate. But it has both readability and performance advantages [@krankkaPuttingBuildMethods2018; @dartteamPerformanceBestPractices2018]. Extracting Widgets into private functions removes the boiler plate, but has also no performance advantages.
 
-## File structure with BLoC
-- no consensus, I would recommend a folder / layer + models
-- ui into pages and widgets
+## Directory Structure
+As of te writing of this guide their is not really any agreement or best practice regarding directory structure in the Flutter community. The closest thing i could find was a popular Blog post by Sagar Suri on Medium in 2019 [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). My recommendation would be very close to his. One directory per layer plus one directory for _model_ classes, which are domain specific entities like _user_ or _wisdom_:
 
 ```
 lib
@@ -380,7 +379,7 @@ lib
 ├── data
 ├── models
 ├── repositories
-├── ui 
+├── ui
 |   ├── pages
 |   |   ├── home_page.dart
 |   |   └── ...
@@ -389,7 +388,9 @@ lib
 |       └── ...
 └── main.dart
 ```
-_Figure XXX: Possible Project File Structure_
+_Figure XXX: Possible Project Directory Structure_
+
+I would also recommend splitting up the ui directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository and data directory into one, this also a perfectly valid option.
 
 ## Performance Pitfalls
 - short list of tips

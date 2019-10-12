@@ -382,12 +382,9 @@ class _LikeButton extends StatelessWidget {
 
 As you can see, splitting your code into multiple smaller Widgets, does lead to a lot more boiler plate. But it has both readability and performance advantages \[11\], \[14\]. Extracting Widgets into private functions removes the boiler plate, but has also no performance advantages.
 
-## File structure with BLoC
+## Directory Structure
 
-  - no consensus, I would recommend a folder / layer + models
-  - ui into pages and widgets
-
-<!-- end list -->
+As of te writing of this guide their is not really any agreement or best practice regarding directory structure in the Flutter community. The closest thing i could find was a popular Blog post by Sagar Suri on Medium in 2019 [\[15\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). My recommendation would be very close to his. One directory per layer plus one directory for *model* classes, which are domain specific entities like *user* or *wisdom*:
 
     lib
     |
@@ -395,7 +392,7 @@ As you can see, splitting your code into multiple smaller Widgets, does lead to 
     ├── data
     ├── models
     ├── repositories
-    ├── ui 
+    ├── ui
     |   ├── pages
     |   |   ├── home_page.dart
     |   |   └── ...
@@ -404,7 +401,9 @@ As you can see, splitting your code into multiple smaller Widgets, does lead to 
     |       └── ...
     └── main.dart
 
-*Figure XXX: Possible Project File Structure*
+*Figure XXX: Possible Project Directory Structure*
+
+I would also recommend splitting up the ui directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository and data directory into one, this also a perfectly valid option.
 
 ## Performance Pitfalls
 
@@ -495,6 +494,12 @@ As you can see, splitting your code into multiple smaller Widgets, does lead to 
 <div id="ref-dartteamPerformanceBestPractices2018">
 
 \[14\] Dart Team, “Performance best practices,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing/best-practices>. \[Accessed: 11-Oct-2019\]
+
+</div>
+
+<div id="ref-suriArchitectYourFlutter2019">
+
+\[15\] S. Suri, “Architect your Flutter project using BLOC pattern,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>. \[Accessed: 09-Sep-2019\]
 
 </div>
 
