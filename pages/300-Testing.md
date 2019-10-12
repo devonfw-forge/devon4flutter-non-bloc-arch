@@ -162,7 +162,7 @@ void main() {
       wisdomBloc = WisdomBloc();
       mockRepository = MockRepository();
       mockBuildContext = MockBuildContext();
-      //Inject Mocks
+      //Inject Mock
       wisdomBloc.repository = mockRepository;
     });
 
