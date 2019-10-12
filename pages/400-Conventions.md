@@ -1,9 +1,10 @@
 Page Table of Contents
 - [Introduction](#introduction)
-- [Dart Code](#dart-code)
-- [FlutterWidgets](#flutterwidgets)
-- [Naming](#naming)
-- [File Structure](#file-structure)
+- [Naming conventions](#naming-conventions)
+- [Comments](#comments)
+- [Strings](#strings)
+- [Bracket Hell](#bracket-hell)
+- [File structure with BLoC](#file-structure-with-bloc)
 
 ## Introduction
 
