@@ -9,7 +9,7 @@
 - "A surprisingly important part of good code is good style. Consistent naming, ordering, and formatting helps code that is the same look the same."
 
 ## Naming conventions
-- Table
+- Table [@dartteamEffectiveDart2019]
 - Last word should be the most descriptive one (pageCount, wisdomSink)
 
 ## Comments

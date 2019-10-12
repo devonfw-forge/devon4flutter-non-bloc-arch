@@ -12,7 +12,7 @@
 
 ## Naming conventions
 
-  - Table
+  - Table \[1\]
   - Last word should be the most descriptive one (pageCount, wisdomSink)
 
 ## Comments
@@ -32,3 +32,13 @@
   - ui into pages and widgets
 
 # \_Ref-Dump
+
+<div id="refs" class="references">
+
+<div id="ref-dartteamEffectiveDart2019">
+
+\[1\] Dart Team, “Effective Dart,” 2019. \[Online\]. Available: <https://dart.dev/guides/language/effective-dart>. \[Accessed: 28-Aug-2019\]
+
+</div>
+
+</div>

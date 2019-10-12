@@ -17,7 +17,7 @@ Page Table of Contents
 
 ## Naming conventions
 
-  - Table
+  - Table \[1\]
   - Last word should be the most descriptive one (pageCount, wisdomSink)
 
 ## Comments
