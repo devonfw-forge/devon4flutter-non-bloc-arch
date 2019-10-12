@@ -1880,7 +1880,7 @@ class WisdomCard extends StatelessWidget {
 
 *Code Snippet 47: Wisgen Wisdom Card in one Widget [\[11\]](https://github.com/Fasust/wisgen)*
 
-And this is what it looks like if we extract the callback function and slit th widget into Card, Image, Content and LikeButton:
+And this is what it looks like if we extract the callback function and slit th Widget [\[29\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
 
 ``` dart
 ///Displays a given [Wisdom].
