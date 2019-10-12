@@ -15,7 +15,7 @@
 
 | Nameing Convention             | When to use                                                                                               |
 | :----------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| _lowercase\_with\_underscores_ | libraries, packages, directories ,source files ,and import prefixes: `import 'package:js/js.dart' as js;` |
+| _lowercase\_with\_underscores_ | libraries, packages, directories, source files, and import prefixes: `import 'package:js/js.dart' as js;` |
 | _UpperCamelCase_               | classes, enums, type definitions, and type parameters                                                     |
 | _lowerCamelCase_               | anything else: Class members, top-level definitions, variables, parameters, constants                     |
 
