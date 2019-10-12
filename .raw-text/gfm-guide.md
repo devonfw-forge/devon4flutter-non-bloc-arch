@@ -34,9 +34,9 @@ A few additional things to note about naming conventions in Dart [\[1\]](https:/
   - Whenever naming anything, ask your self: “Does each word in that type name tell me something critical or prevent a name collision?”, If not, shorten it.
   - The last word of a class or variable should always be the most descriptive of what it is: `PageCount & DataSink` are better then `NumberOfPage & DataIn`
 
-## Comments
+## Doc Comments
 
-In the snippets up until now you might have noticed the us of `///` for comments. In Dart `///` is a replacement for the classical `/** ... */` bloc comment from other language. The Dart team argues, that tripple-dash comments don’t take up two additional lines when suing them as a block comment:
+In the snippets up until now you might have noticed the us of `///` for comments. In Dart tripple-dash or “Doc Comments” are a replacement for the classical `/** ... */` bloc comment from other language. The Dart team argues, that Doc Comments don’t take up two additional lines when suing them as a block comment:
 
 ``` dart
 /**
@@ -64,16 +64,19 @@ Wether you agree with that reasoning or not. You should definitely use them, bec
 
 *Figure XXX: Wisgen Wisdom Tool Tip [\[8\]](https://github.com/Fasust/wisgen)*
 
-Some additional things to note about tripple-dash comments in Dart are [\[1\]](https://dart.dev/guides/language/effective-dart):
+Some additional things to note about Doc Comments in Dart are [\[1\]](https://dart.dev/guides/language/effective-dart):
 
   - They should always start with a one sentence description of what the commented thing **dose**. Preferably starting with a third person verb like *Supplies*, *Holds*, *Models*.
   - That initial line should be followed by one empty line to make it stand out.
+  - Highlight relevant classes, functions or members by surrounding them with *\[…\]*.
+      - They will be linked in the auto-generated docs
+  - Markdown [\[9\]](https://daringfireball.net/projects/markdown/) is supported for tripple-dash comments, so consider adding code snippets as examples.
   - Don’t document information that is already obvious by class name and parameter:
 
 <!-- end list -->
 
 ``` dart
-///Adds the Integer values of a and b together.
+///Adds the [int] values of [Adder.a] and [Adder.b] together.
 Adder {
   int a;
   int b;
@@ -82,11 +85,7 @@ Adder {
 }
 ```
 
-*Code Snippet XXX: Adder comment*
-
-  - Highlight relevant classes, functions or members by surrounding them with *\[…\]*.
-      - They will be linked in the auto-generated docs
-  - Markdown [\[9\]](https://daringfireball.net/projects/markdown/) is supported for tripple-dash comments, so consider adding code snippets as examples.
+*Code Snippet XXX: Redundant Doc Comment*
 
 ## Strings
 
