@@ -475,5 +475,59 @@
 
 </div>
 
+<div id="ref-dartteamEffectiveDart2019">
+
+\[80\] Dart Team, “Effective Dart,” 2019. \[Online\]. Available: <https://dart.dev/guides/language/effective-dart>. \[Accessed: 28-Aug-2019\]
+
+</div>
+
+<div id="ref-wikipediaHungarianNotation2019">
+
+\[81\] Wikipedia, “Hungarian notation,” *Wikipedia*. 25-Jun-2019 \[Online\]. Available: <https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-flutterdevteamStyleGuideFlutter2018">
+
+\[82\] Flutter Dev Team, “Style Guide for Flutter repo,” *GitHub*, 2018. \[Online\]. Available: <https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo>. \[Accessed: 11-Oct-2019\]
+
+</div>
+
+<div id="ref-dartteamDartdocTool2019">
+
+\[83\] Dart Team, *Dartdoc tool*. Dart, 2019 \[Online\]. Available: <https://github.com/dart-lang/dartdoc>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-gruberMarkdown2004">
+
+\[84\] J. Gruber and A. Swartz, “Markdown,” 2004. \[Online\]. Available: <https://daringfireball.net/projects/markdown/>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-flutterdevteamOfficialFlutterExample2019">
+
+\[85\] Flutter Dev Team, “Official Flutter Example,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-krankkaPuttingBuildMethods2018">
+
+\[86\] I. Krankka, “Putting build methods on a diet,” *iirokrankka.com*, 2018. \[Online\]. Available: <https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/>. \[Accessed: 28-Aug-2019\]
+
+</div>
+
+<div id="ref-cluelessAmAlsoCreating2018">
+
+\[87\] Clueless, “I am also creating my application with Flutter.” *Medium*. \[Online\]. Available: <https://medium.com/@blusea231/i-am-also-creating-my-application-with-flutter-8f25db889312>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-u/robertpro01FlutterDevFlutterCode2018">
+
+\[88\] u/robertpro01, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
 </div>
 <p align="center"><a href="#">Back to Top</a></center></p>
