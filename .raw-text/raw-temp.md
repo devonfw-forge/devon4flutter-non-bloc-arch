@@ -32,18 +32,12 @@ A few additional things to note about naming conventions in Dart [[@dartteamEffe
 - The last word of a class or variable should always be the most descriptive of what it is: `PageCount & DataSink` are better then `NumberOfPage & DataIn`
 
 ## Comments
-- /// for doc 
-  - auto detect by IDE
-  - auto gen doc
-  - replacement for /** ... */
-    - adds 2 more lines in multi line
-    - bullet points look bad
   - should alway start with one sentace deitiption
   - the emty line, then rest
   - dont be reduntatn with class name
   - prefer to start with 3rd perosn verb ... what it does
   - [name] for classes [class.var] for fars and [class.func()] for functions
-  - no @annotiona
+  - no /@annotiona
   - be brief
   - code snippets ?
 
@@ -66,6 +60,8 @@ _Code Snippet XXX: Classic Block comment_
 class Wisdom {...}
 ```
 _Code Snippet XXX: Tripple-Dash Block comment_
+
+Wether you agree with that reasoning or not. You should definitely use them, because they can be used to auto generate a documentaion for your project with the Dartdoc tool [[@dartteamDartdocTool2019]](https://github.com/dart-lang/dartdoc) and they are shown as tooltips in your IDE:
 
 ![Wisdom Tool Tip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
 

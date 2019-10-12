@@ -43,20 +43,14 @@ A few additional things to note about naming conventions in Dart [\[1\]](https:/
 
 ## Comments
 
-  - /// for doc
-      - auto detect by IDE
-      - auto gen doc
-      - replacement for /\*\* … \*/
-          - adds 2 more lines in multi line
-          - bullet points look bad
-      - should alway start with one sentace deitiption
-      - the emty line, then rest
-      - dont be reduntatn with class name
-      - prefer to start with 3rd perosn verb … what it does
-      - \[name\] for classes \[class.var\] for fars and \[class.func()\] for functions
-      - no **???**
-      - be brief
-      - code snippets ?
+  - should alway start with one sentace deitiption
+  - the emty line, then rest
+  - dont be reduntatn with class name
+  - prefer to start with 3rd perosn verb … what it does
+  - \[name\] for classes \[class.var\] for fars and \[class.func()\] for functions
+  - no /**???**
+  - be brief
+  - code snippets ?
 
 In the snippets up until now you might have noticed the us of `///` for comments. In Dart `///` is a replacement for the classical `/** ... */` bloc comment from other language. The Dart team argues, that tripple-dash comments don’t take up two additional lines when suing them as a block comment:
 
@@ -80,9 +74,11 @@ class Wisdom {...}
 
 *Code Snippet XXX: Tripple-Dash Block comment*
 
+Wether you agree with that reasoning or not. You should definitely use them, because they can be used to auto generate a documentaion for your project with the Dartdoc tool [\[7\]](https://github.com/dart-lang/dartdoc) and they are shown as tooltips in your IDE:
+
 ![Wisdom Tool Tip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
 
-*Figure XXX: Wisgen Wisdom Tool Tip [\[7\]](https://github.com/Fasust/wisgen)*
+*Figure XXX: Wisgen Wisdom Tool Tip [\[8\]](https://github.com/Fasust/wisgen)*
 
 ## Strings
 

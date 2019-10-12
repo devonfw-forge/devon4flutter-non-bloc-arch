@@ -37,9 +37,15 @@
 
 </div>
 
+<div id="ref-dartteamDartdocTool2019">
+
+\[7\] Dart Team, *Dartdoc tool*. Dart, 2019 \[Online\]. Available: <https://github.com/dart-lang/dartdoc>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
 <div id="ref-faustWisgen2019">
 
-\[7\] S. Faust, *Wisgen*. Germany, 2019 \[Online\]. Available: <https://github.com/Fasust/wisgen>. \[Accessed: 20-Sep-2019\]
+\[8\] S. Faust, *Wisgen*. Germany, 2019 \[Online\]. Available: <https://github.com/Fasust/wisgen>. \[Accessed: 20-Sep-2019\]
 
 </div>
 
