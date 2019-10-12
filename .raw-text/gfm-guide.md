@@ -1661,7 +1661,7 @@ I want to start this chapter of with a great quote from Dart’s official style 
 
 > “A surprisingly important part of good code is good style. Consistent naming, ordering, and formatting helps code that is the same look the same.” [\[80\]](https://dart.dev/guides/language/effective-dart)
 
-This chapter will teach you some of the current best practices and conventions when wirting Dart [\[3\]](https://dart.dev/) code and Flutter [\[1\]](https://flutter.dev/) applications in general. That being said, the Dart team has published their own comprehensive guide [\[80\]](https://dart.dev/guides/language/effective-dart) on writing effective Dart. I will be highlighting some of the information of that guide here, but I will mainly be focusing on the aspects that are unique to Dart and might be a bit counter intuitive when coming from a languages like Java [\[4\]](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+This chapter will teach you some of the current best practices and conventions when wirting Dart [\[3\]](https://dart.dev/) code and Flutter [\[1\]](https://flutter.dev/) applications in general. That being said, the Dart team has published their own comprehensive guide [\[80\]](https://dart.dev/guides/language/effective-dart) on writing effective Dart. I will be highlighting some of the information of that guide here, but I will mainly be focusing on the aspects that are unique to Dart and might be a bit counter intuitive when coming from other languages and frameworks.
 
 ## Naming Conventions
 
