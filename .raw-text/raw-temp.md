@@ -52,5 +52,8 @@ lib
 ```
 _Figure XXX: Possible Project File Structure_
 
+## Performance Pitfalls
+- short list of tips
+
 # _Ref-Dump
 

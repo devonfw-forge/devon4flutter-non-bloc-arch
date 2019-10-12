@@ -57,6 +57,10 @@
 
 *Figure XXX: Possible Project File Structure*
 
+## Performance Pitfalls
+
+  - short list of tips
+
 # \_Ref-Dump
 
 <div id="refs" class="references">

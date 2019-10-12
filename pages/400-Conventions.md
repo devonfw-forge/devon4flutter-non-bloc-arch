@@ -1,10 +1,11 @@
 Page Table of Contents
 - [Introduction](#introduction)
-- [Naming conventions](#naming-conventions)
+- [Naming Conventions](#naming-conventions)
 - [Comments](#comments)
 - [Strings](#strings)
 - [Bracket Hell](#bracket-hell)
 - [File structure with BLoC](#file-structure-with-bloc)
+- [Performance Pitfalls](#performance-pitfalls)
 
 ## Introduction
 
@@ -62,6 +63,10 @@ Page Table of Contents
     └── main.dart
 
 *Figure XXX: Possible Project File Structure*
+
+## Performance Pitfalls
+
+  - short list of tips
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/500-Conclusion">Next Chapter: Conclusion ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
