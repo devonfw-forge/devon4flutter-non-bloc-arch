@@ -1535,7 +1535,6 @@ As mentioned before, *Mockito* [\[75\]](https://pub.dev/packages/mockito) can be
 //Creating Mocks using Mockito
 class MockRepository extends Mock implements Repository<Wisdom> {}
 class MockBuildContext extends Mock implements BuildContext {}
-
 void main() {
   group('Wisdom Bloc', () {
     WisdomBloc wisdomBloc;
@@ -1546,8 +1545,7 @@ void main() {
       wisdomBloc = WisdomBloc();
       mockRepository = MockRepository();
       mockBuildContext = MockBuildContext();
-
-        //Inject Mock
+      //Inject Mocks
       wisdomBloc.repository = mockRepository;
     });
 
@@ -1557,28 +1555,26 @@ void main() {
     });
 
     test('Send Fetch Event and see if it emits correct wisdom', () {
-      //Set Up
+      //Set Up ---
       List<Wisdom> fetchedWisdom = [
         Wisdom(id: 1, text: "Back up your Pictures", type: "tech"),
         Wisdom(id: 2, text: "Wash your ears", type: "Mum's Advice"),
         Wisdom(id: 3, text: "Travel while you're young", type: "Grandma's Advice")
       ];
-
-            when(mockRepository.fetch(20, mockBuildContext))
-                //Telling the Mock Repo how to behave
-                .thenAnswer((_) async => fetchedWisdom);
-
+      
+      //Telling the Mock Repo how to behave
+      when(mockRepository.fetch(20, mockBuildContext))
+        .thenAnswer((_) async => fetchedWisdom);
 
       List expectedStates = [
-        //BLoC Library BLoCs emit their initial State on creation
-        IdleWisdomState(new List()), 
+        IdleWisdomState(new List()), //BLoC Library BLoCs emit their initial State on creation
         IdleWisdomState(fetchedWisdom)
       ];
     
-            //Test
-            wisdomBloc.dispatch(FetchEvent(mockBuildContext));
+      //Test ---
+      wisdomBloc.dispatch(FetchEvent(mockBuildContext));
 
-            //Result
+      //Result ---
       expect(wisdomBloc.state, emitsInOrder(expectedStates));
     });
   });
