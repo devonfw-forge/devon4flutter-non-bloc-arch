@@ -259,7 +259,7 @@ Another important thing to note is that:
 | ⚠   | Widgets in Flutter are always immutable [[@flutterdevteamFlutterWidgets2019]](https://flutter.dev/docs/development/ui/widgets-intro) |
 | --- | :----------------------------------------------------------------------------------------------------------------------------------- |
 
-The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html). To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods lightweight by making all Widgets immutable. This means that all variables in a Widget have to be declared as _final_. Which means they are initialized once and can not change over time. 
+The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html). To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods lightweight by making all Widgets immutable [[@dartteamPerformanceBestPractices2018]](https://flutter.dev/docs/testing/best-practices). This means that all variables in a Widget have to be declared as _final_. Which means they are initialized once and can not change over time. 
 But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. As mentioned in the [previous chapter][declarative], in Flutter such data is called _State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). No worries, how Flutter handles mutable State will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
 
 ### The Widget Tree
@@ -1559,12 +1559,16 @@ If we wouldn't use Equatable, the test form snippet 40 could not functions prope
 
 # 400-Conventions
 ## Introduction
-
 //Last Fig 25
 //Last Snip 42
 
-## Mastering the Widget Tree
+- Dart has own guide
+- this is a summayr
+
 ## Naming conventions
+
+## Mastering the Widget Tree
+
 ## File structure with BLoC
 
 # 500-Conclusion
