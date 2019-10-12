@@ -132,7 +132,7 @@ If you come from the native mobile world and _imperative_ frameworks like IOS [[
 But what exactly is the difference between _declarative_ and _imperative_? I will try to explain this using a metaphor: For a second, let's think of programming as _talking_ to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. "Imperium" (Latin) means "to command". A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. "Declaro" (Latin) means "to explain" [@flutterdevteamFlutterFramework2018; @flutterdevteamFlutterState2019; @flutterdevteamIntroductionDeclarativeUI2019; @bezerraDeclarativeProgramming2018]. Let's look at an example:
 
 ```dart
-List numbers = [1,2,3,4,5]
+List numbers = [1,2,3,4,5];
 for(int i = 0; i < numbers.length; i++){
     if(numbers[i] > 3 ) print(numbers[i]);     
 }
@@ -142,7 +142,7 @@ _Code Snippet 1: Number List (Imperative)_
 Here we want to print every entry in the list that is bigger than 3. We explicitly tell the framework to go through the List one by one and check each value. In the declarative version, we simply State how our result should look like, but not how to reach it:
 
 ```dart
-List numbers = [1,2,3,4,5]
+List numbers = [1,2,3,4,5];
 print(numbers.where((num) => num > 3));
 ```
 _Code Snippet 2: Number List (Declarative)_
@@ -243,17 +243,17 @@ Widget build(BuildContext context) {
     ),
     elevation: 2, //Declare shadow drop
     child: Column( //The child of the card should be displayed in a column Widget
-      children: <Widget>[ //The card contains an image and some content
-        _image(context),
-        _content(context),
-      ],
+      children: <Widget>[
+          _Image(_wisdom.imgUrl),
+          _Content(_wisdom),
+        ],
     ),
   );
 }
 ```
 _Code Snippet 5: Wisgen Card Widget [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-The functions _image() generates a Widget that contains the stock image. The function _content() generates a Widget that displays the wisdom text and the buttons on the card. 
+The _Image class generates a Widget that contains the stock image. The _Content() class generates a Widget that displays the wisdom text and the buttons on the card. 
 Another important thing to note is that:
 
 | ⚠   | Widgets in Flutter are always immutable [[@flutterdevteamFlutterWidgets2019]](https://flutter.dev/docs/development/ui/widgets-intro) |
@@ -296,25 +296,22 @@ Alright, but what does that mean for me as a Flutter developer? It is important 
 There are three types of Widgets in the Flutter framework. I will now showcase their differences, their lifecycles, and their respective use-cases.
 
 ### Stateless Widgets
-This is the most basic of the three and likely the one you'll use the most when developing an app with Flutter. Stateless Widgets [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let's have a look at an example. This is the class of the card Widget from figure 8:
+This is the most basic of the three and likely the one you'll use the most when developing an app with Flutter. Stateless Widgets [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let's have a look at an example. This is a simplified version of the card Widget from figure 8:
 
 ```dart
 class WisdomCard extends StatelessWidget {
-  static const double _smallPadding = 4;
-  static const double _largePadding = 8;
-  static const double _imageHeight = 300;
   static const double _cardElevation = 2;
   static const double _cardBorderRadius = 7;
 
-  final Wisdom wisdom;
+  final Wisdom _wisdom;
 
-  WisdomCard({Key key, this.wisdom}) : super(key: key);
+  WisdomCard(this._wisdom);
 
   @override
-  Widget build(BuildContext context) {
-    ...
-  }
+  Widget build(BuildContext context) {...}
+  ...
 }
+
 ```
 _Code Snippet 7: Wisgen Card Widget Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -327,13 +324,15 @@ The Lifecycle of Stateless Widgets is very straight forward [[@boelensWidgetStat
 ```dart
 class MyWidget extends StatelessWidget {
 
-  //Called first
-  //Use for initialization if needed
+  ///Called first
+  ///
+  ///Use for initialization if needed
   MyClass({ Key key }) : super(key: key);
 
-  //Called multiple times a second
-  //Keep lightweight
-  //This is where the actual UI is build
+  ///Called multiple times a second
+  ///
+  ///Keep lightweight (!)
+  ///This is where the actual UI is build
   @override
   Widget build(BuildContext context) {
     ...
@@ -351,13 +350,13 @@ I have explained what State is in the Chapter [Thinking Declaratively][declarati
 A Stateful Widget [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consists of two parts: An immutable Widget and a mutable State. The immutable Widget's responsibility is to hold onto that State, the State itself has the mutable data and builds the actual Widget [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App][architecture].
 
 ```dart
-//Immutable Widget
+///Immutable Widget
 class WisdomFeed extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => WisdomFeedState();
 }
 
-//Mutable State
+///Mutable State
 class WisdomFeedState extends State<WisdomFeed>{
   WisdomBloc _wisdomBloc; //mutable/not final (!)
 
@@ -379,27 +378,30 @@ The Lifecycle of State Objects/StatefulWidgets is a little bit more complex, her
 ```dart
 class MyWidget extends StatefulWidget {
 
-  //Called Immediately when first building the StatefulWidget
+  ///Called Immediately when first building the StatefulWidget
   @override
   State<StatefulWidget> createState() => MySate();
 }
 
 class MySate extends State<MyWidget>{
   
-  //Called after constructor
-  //Called exactly once
-  //Use this to subscribe to streams or for any initialization
+  ///Called after constructor
+  ///
+  ///Called exactly once
+  ///Use this to subscribe to streams or for any initialization
   @override
   initState(){...}
 
-  //Called multiple times a second
-  //Keep lightweight
-  //This is where the actual UI is build
+  ///Called multiple times a second
+  ///
+  ///Keep lightweight
+  ///This is where the actual UI is build
   @override
   Widget build(BuildContext context){...}
 
-  //Called once before the State is disposed(app shut down)
-  //Use this for your clean up and to unsubscribe from streams
+  ///Called once before the State is disposed (app shut down)
+  ///
+  ///Use this for your clean up and to unsubscribe from streams
   @override
   dispose(){...}
 }
@@ -421,11 +423,11 @@ I will not go in detail on Inherited Widgets [[@flutterdevteamInheritedWidgetCla
 Asynchronous Programming is an essential part of any modern application. There will always be network calls, user input or any number of other unpredictable things that your app has to wait for. Luckily Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) have a very good integration of Asynchronous Programming. This chapter will teach you the basics of Futures, async/await [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). Throughout this chapter, I will be using the _HTTP package_ [[@dartteamHttpDartPackage2019]](https://pub.dev/packages/http) to make network requests. Communication with the web is one of the most common use-cases for Asynchronous Programming, so I thought it would only be fitting.
 
 ## Futures
-Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen API class. It can make requests to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
+Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScripts [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen _ApiSupplier_ class. It can make requests to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ```dart
-class Api {
-  //Delivers 1 random advice as JSON
+class ApiSupplier {
+  ///Delivers 1 random advice as JSON
   static const _adviceURI = 'https://api.adviceslip.com/advice'; 
 
   Future<Wisdom> fetch() {
@@ -437,13 +439,13 @@ class Api {
   }
 }
 ```
-_Code Snippet 11: Wisgen API class (Futures) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 11: Wisgen ApiSupplier class (Futures) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 As you can see, you simply call _get()_ on the HTTP module and give it the URL it should request. The get() method returns a Future. A Future object is a reference to an event that will take place at some point in the _future_. We can give it a callback function with _then()_, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it's type: `Future<Type>`. So here, the Future object _"apiCall"_ is a reference to when the API call will be resolved. Once the call is complete, _then()_ will be called and we get access to the _http.Response_. We tell the future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to _then()_ [@googlellcDartFutures2019; @googlellcIsolatesEventLoops2019]. We can also handle errors with the _catchError()_ function:
 
 ```dart
-class Api {
-  //Delivers 1 random advice as JSON
+class ApiSupplier {
+  ///Delivers 1 random advice as JSON
   static const _adviceURI = 'https://api.adviceslip.com/advice'; 
 
   Future<Wisdom> fetch() {
@@ -454,15 +456,15 @@ class Api {
   }
 }
 ```
-_Code Snippet 12: Wisgen API Class (Futures with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 12: Wisgen ApiSupplier Class (Futures with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Async & Await
 If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the _async & await_ keywords [[@dartteamAsynchronousProgrammingDart2018]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous  code the same way we would if it was synchronous. Let's take the same example as in 
 Snippet 11:
 
 ```dart
-class Api {
-  //Delivers 1 random advice as JSON
+class ApiSupplier {
+  ///Delivers 1 random advice as JSON
   static const _adviceURI = 'https://api.adviceslip.com/advice'; 
 
   Future<Wisdom> fetch() async {
@@ -471,13 +473,13 @@ class Api {
   }
 }
 ```
-_Code Snippet 13: Wisgen API Class (Async) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 13: Wisgen ApiSupplier Class (Async) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 We can use the _await_ keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the _http.Response_ has arrived and then proceeds to transform it into a Wisdom. If we want to use the await keyword in a function, we have to mark the function as _async_. This forces the return type to be a Future. This makes sense because if we wait during the function, the function will never return instantly, thus it **has** to return a Future [[@googlellcAsyncAwait2019]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with _try/catch_:
 
 ```dart
-class Api {
-  //Delivers 1 random advice as JSON
+class ApiSupplier {
+  ///Delivers 1 random advice as JSON
   static const _adviceURI = 'https://api.adviceslip.com/advice'; 
 
   Future<Wisdom> fetch() async {
@@ -490,7 +492,7 @@ class Api {
   }
 }
 ```
-_Code Snippet 14: Wisgen API Class (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 14: Wisgen ApiSupplier Class (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Streams
 Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we'll use them heavily in the chapter [Architecting a Flutter app][architecture]. But what exactly are _streams_? As Andrew Brogdon put's it in one of Google's official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of streams as one continuous flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and be notified once a new piece of data enters the stream.
@@ -534,7 +536,7 @@ Let's have a look at a more complex example: In Wisgen, our wisdoms are delivere
 
 ```dart
 class WisdomBloc {
-  final Api _api = new Api();
+  final ApiSupplier _api = new Api();
   List<Wisdom> _oldWisdoms = new List();
 
   //Stream
@@ -589,9 +591,9 @@ class WisdomFeedState extends State<WisdomFeed> {
         stream: _wisdomBloc.wisdomStream,
         builder: (context, AsyncSnapshot<List<Wisdom>> snapshot) {
           //show Error message
-          if (snapshot.hasError) return _error(); 
+          if (snapshot.hasError) return ErrorText(state.exception); 
           //loading animation
-          if (snapshot.connectionState == ConnectionState.waiting) return _loading(context); 
+          if (snapshot.connectionState == ConnectionState.waiting) return LoadingSpinner(); 
           //create listView of wisdoms
           else return _listView(context, snapshot.data); 
         },
@@ -656,51 +658,49 @@ _Code Snippet 19: Simplified Wisgen WisdomBLoC with async* [[@faustWisgen2019]](
 This marks the end of my introduction to streams. It can be a challenging topic wrap your head around at first so if you still feel like you want to learn more I can highly recommend this article by Didier Boelens [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8-minute tutorial video by the Flutter Team [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
 ## Side Note on Communication with the Web
-I just wanted to end this chapter by showing you how the API class of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
+I just wanted to end this chapter by showing you how the ApiSupplier class of Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) actually looks like and give some input of why it looks the way it does:
 
 ```dart
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'package:wisgen/models/advice_slips.dart';
 import 'package:wisgen/models/wisdom.dart';
-import 'package:wisgen/repositories/repository.dart';
+import 'package:wisgen/repositories/supplier.dart';
 import 'package:http/http.dart' as http;
 
-///Cashes data it fetches from an API and
-///then Provides a given amount of random entries.
-class Api implements DataProvider<Wisdom> {
+///[Supplier] that cashes [Wisdom]s it fetches from an API and
+///then provides a given amount of random entries.
+///
+///[Wisdom]s Supplies do not have an Image URL
+class ApiSupplier implements Supplier<List<Wisdom>> {
   ///Advice SLip API Query that requests all (~213) Text Entries from the API.
-  ///We fetch all entries at once and cash them locally to minimize network traffic.
-  ///The Advice Slip API also does not provide the option to request a 
-  ///selected amount of entries.
+  //////We fetch all entries at once and cash them locally to minimize network traffic.
+  ///The Advice Slip API also does not provide the option to request a selected amount of entries.
   ///That's why I think this is the best approach.
   static const _adviceURI = 'https://api.adviceslip.com/advice/search/%20';
-
   List<Wisdom> _cash;
-  final Random _random = new Random();
+  final Random _random = Random();
 
   @override
-  Future<List<Wisdom>> fetch(int amount) async {
+  Future<List<Wisdom>> fetch(int amount, BuildContext context) async {
     //if the Cash is empty, request data from the API
     if (_cash == null) _cash = await _loadData();
 
-    //return requested amount of random Wisdoms
-    List<Wisdom> res = new List();
+    List<Wisdom> res = List();
     for (int i = 0; i < amount; i++) {
       res.add(_cash[_random.nextInt(_cash.length)]);
     }
     return res;
   }
 
-  ///I changed this function for the Snippets in the Guide
   ///Fetches Data from API and coverts it to Wisdoms
   Future<List<Wisdom>> _loadData() async {
     http.Response response = await http.get(_adviceURI);
     AdviceSlips adviceSlips = AdviceSlips.fromJson(json.decode(response.body));
 
-    List<Wisdom> wisdoms = new List();
+    List<Wisdom> wisdoms = List();
     adviceSlips.slips.forEach((slip) {
       wisdoms.add(slip.toWisdom());
     });
@@ -708,13 +708,16 @@ class Api implements DataProvider<Wisdom> {
     return wisdoms;
   }
 }
-
 ```
 _Code Snippet 20: Actual Wisgen API Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 The _AdviceSlips_ class is generated with a JSON to Dart converter [[@lecuonaJSONDartConverter2019]](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. I used this class instead of implementing a method in the _Wisdom_ class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
 
 ```dart
+import 'package:wisgen/models/wisdom.dart';
+
+///Generated Class to Handle JSON Input from AdviceSlip API.
+///I used this tool: https://javiercbk.github.io/json_to_dart/.
 class AdviceSlips {
   String totalResults;
   String query;
@@ -726,15 +729,15 @@ class AdviceSlips {
     totalResults = json['total_results'];
     query = json['query'];
     if (json['slips'] != null) {
-      slips = new List<Slips>();
+      slips = List<Slips>();
       json['slips'].forEach((v) {
-        slips.add(new Slips.fromJson(v));
+        slips.add(Slips.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['total_results'] = this.totalResults;
     data['query'] = this.query;
     if (this.slips != null) {
@@ -744,6 +747,9 @@ class AdviceSlips {
   }
 }
 
+///Generated Class to Handle JSON Input from AdviceSlip API.
+///I used this tool: https://javiercbk.github.io/json_to_dart/.
+///A Slip can be converted directly into a Wisdom.
 class Slips {
   String advice;
   String slipId;
@@ -756,16 +762,14 @@ class Slips {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['advice'] = this.advice;
     data['slip_id'] = this.slipId;
     return data;
   }
 
-  //I wrote this function myself to make it easy to cast 
-  //slips into my own Wisdom data structure.
   Wisdom toWisdom() {
-    return new Wisdom(
+    return Wisdom(
       id: int.parse(slipId),
       text: advice,
       type: "Advice Slip",
@@ -849,12 +853,11 @@ class Favorites with ChangeNotifier{
     notifyListeners(); //Re-Build all Listeners
   }
 
-  bool contains(Wisdom w){
-    return _wisdoms.contains(w);
-  }
+  bool contains(Wisdom w) => _wisdoms.contains(w);
+
 }
 ```
-_Code Snippet 22: Favorites Class that will be exposed through Provider Package [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 22: Hypothetical Favorites Class that would be exposed through the Provider Package [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Here we expose our Favorite class globally above _MaterialApp_ in the WidgetTree using the _ChangeNotifierProvider_ Widget:
 
@@ -878,25 +881,28 @@ This is how listening to the Favorite class looks like. We use the _Consumer Wid
 
 ```dart
 ...
-Expanded(
-  flex: 1,
-  child: Consumer<Favorites>( //Consuming Global instance of Favorites
-    builder: (context, favorites, child) => IconButton(
-      //Display Icon Button depending on current State
-      icon: Icon(favorites.contains(wisdom)
-          ? Icons.favorite
-          : Icons.favorite_border),
-      color: favorites.contains(wisdom) 
-          ? Colors.red 
-          : Colors.grey,
-      onPressed: () {
-        //Add/remove Wisdom to/from Favorites
-        if (favorites.contains(wisdom)) favorites.remove(wisdom);
-        else favorites.add(wisdom);
-      },
+@override
+Widget build(BuildContext context) {
+  return Expanded(
+    flex: 1,
+    child: Consumer<Favorites>( //Consuming Global instance of Favorites
+      builder: (context, favorites, child) => IconButton(
+        //Display Icon Button depending on current State
+        icon: Icon(favorites.contains(wisdom)
+            ? Icons.favorite
+            : Icons.favorite_border),
+        color: favorites.contains(wisdom) 
+            ? Colors.red 
+            : Colors.grey,
+        onPressed: () {
+          //Add/remove Wisdom to/from Favorites
+          if (favorites.contains(wisdom)) favorites.remove(wisdom);
+          else favorites.add(wisdom);
+        },
+      ),
     ),
-  ),
-)
+  )
+}
 ...
 ```
 _Code Snippet 24: Consuming Provider in Favorite Button of Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
@@ -931,7 +937,7 @@ class RemoveFavoriteAction extends FavoriteAction {
   RemoveFavoriteAction(Wisdom favorite) : super(favorite);
 }
 ```
-_Code Snippet 25: Wisgen Redux Actions [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 25: Hypothetical Wisgen Redux Actions [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 This what the reducer function would look like:
 
@@ -942,7 +948,7 @@ List<Wisdom> favoriteReducer(List<Wisdom> state, FavoriteAction action) {
   return state;
 }
 ```
-_Code Snippet 26: Wisgen Redux Reducer [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 26: Hypothetical Wisgen Redux Reducer [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 And this is how you would make the Store globally available:
 
@@ -969,26 +975,29 @@ Now the Favorite button from snippet 24 would be implemented like this:
 
 ```dart
 ...
-Expanded(
-  flex: 1,
-  child: StoreConnector( //Consume Store
-    converter: (store) => store.state, //No need for conversion, just need current State
-    builder: (context, favorites) => IconButton(
-      //Display Icon Button depending on current State
-      icon: Icon(favorites.contains(wisdom)
-          ? Icons.favorite
-          : Icons.favorite_border),
-      color: favorites.contains(wisdom) 
-          ? Colors.red 
-          : Colors.grey,
-      onPressed: () {
-        //Add/remove Wisdom to/from Favorites
-        if (favorites.contains(wisdom)) store.dispatch(AddFavoriteAction(wisdom));
-        else store.dispatch(RemoveFavoriteAction(wisdom));
-      },
+@override
+Widget build(BuildContext context) {
+  return Expanded(
+    flex: 1,
+    child: StoreConnector( //Consume Store
+      converter: (store) => store.state, //No need for conversion, just need current State
+      builder: (context, favorites) => IconButton(
+        //Display Icon Button depending on current State
+        icon: Icon(favorites.contains(wisdom)
+            ? Icons.favorite
+            : Icons.favorite_border),
+        color: favorites.contains(wisdom) 
+            ? Colors.red 
+            : Colors.grey,
+        onPressed: () {
+          //Add/remove Wisdom to/from Favorites
+          if (favorites.contains(wisdom)) store.dispatch(AddFavoriteAction(wisdom));
+          else store.dispatch(RemoveFavoriteAction(wisdom));
+        },
+      ),
     ),
-  ),
-)
+  )
+}
 ...
 ```
 _Code Snippet 28: Consuming Redux Store in Favorite Button of Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
@@ -1063,8 +1072,6 @@ _Figure 19: Bloc and Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/
 These are the events that can be sent to the BLoC by the UI. Again, this is very similar to the _actions_ in our Redux implementation:
 
 ```dart
-///The Favorite BLoC can handle 2 types of Events: Add and Remove.
-///These events add and remove Wisdoms from the Favorite List respectively.
 @immutable
 abstract class FavoriteEvent {
   final Wisdom _favorite;
@@ -1073,35 +1080,36 @@ abstract class FavoriteEvent {
   FavoriteEvent(this._favorite);
 }
 
-class AddFavoriteEvent extends FavoriteEvent {
-  AddFavoriteEvent(Wisdom favorite) : super(favorite);
+///Adds a given [Wisdom] to the [FavoriteBloc] when dispatched
+class FavoriteEventAdd extends FavoriteEvent {
+  FavoriteEventAdd(Wisdom favorite) : super(favorite);
 }
 
-class RemoveFavoriteEvent extends FavoriteEvent {
-  RemoveFavoriteEvent(Wisdom favorite) : super(favorite);
+///Removes a given [Wisdom] from the [FavoriteBloc] when dispatched
+class FavoriteEventRemove extends FavoriteEvent {
+  FavoriteEventRemove(Wisdom favorite) : super(favorite);
 }
 ```
-_Code Snippet 29: Favorite Event in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 29: Favorite Events in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Now the arguably most interesting part of an implementation of the BLoC patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the _events_ that will be sent to the BLoC and the type of the _State_ that should be emitted by the BLoC `Bloc<Event, State>`:
 
 ```dart
-///The FavoriteBLoC is Responsible for Keeping track of the
-///Favorite List. It receives Events to Add and remove Favorite
-///Wisdoms and Broadcasts the Complete List of Favorites.
+///Responsible for keeping track of the Favorite List. 
+///
+///Receives [FavoriteEvent] to add/remove favorite [Wisdom] objects 
+///from its list.
+///Broadcasts complete list of favorites every time it changes.
 class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
-
   @override
   List<Wisdom> get initialState => List<Wisdom>();
 
-  ///Takes in each event that is send to the BLoC and emits new State
-  ///based on that event.
   @override
   Stream<List<Wisdom>> mapEventToState(FavoriteEvent event) async* {
-    List<Wisdom> newFavorites = new List()..addAll(currentState);
+    List<Wisdom> newFavorites = List()..addAll(currentState);
 
-    if (event is AddFavoriteEvent) newFavorites.add(event.favorite);
-    if (event is RemoveFavoriteEvent) newFavorites.remove(event.favorite);
+    if (event is FavoriteEventAdd) newFavorites.add(event.favorite);
+    if (event is FavoriteEventRemove) newFavorites.remove(event.favorite);
 
     yield newFavorites;
   }
@@ -1131,31 +1139,33 @@ Now we can dispatch events and subscribe to a BLoC. This is the favorite button 
 
 ```dart
 ...
-Expanded(
-  flex: 1,
-  //This is where we Subscribe to the FavoriteBLoC
-  child: BlocBuilder<FavoriteBloc, List<Wisdom>>(
-    builder: (context, favorites) => IconButton(
-      //Display Icon Button depending on current State
-      //Re-Build when favorite list changes
-      icon: Icon(favorites.contains(wisdom)
-          ? Icons.favorite
-          : Icons.favorite_border),
-      color: favorites.contains(wisdom) 
-          ? Colors.red 
-          : Colors.grey,
-      onPressed: () {
-        //Grab FavoriteBloc though Buildcontext
-        FavoriteBloc favoriteBloc = BlocProvider.of<FavoriteBloc>(context);
-        
-        //Add/remove Wisdom to/from Favorites (dispatch events)
-        if (favorites.contains(wisdom)) favoriteBloc.dispatch(RemoveFavoriteEvent(wisdom));
-        else favoriteBloc.dispatch(AddFavoriteEvent(wisdom));  
-      },
-      padding: EdgeInsets.only(right: _smallPadding),
+@override
+Widget build(BuildContext context) {
+  return Expanded(
+    flex: 1,
+    //This is where we Subscribe to the FavoriteBLoC
+    child: BlocBuilder<FavoriteBloc, List<Wisdom>>(
+      builder: (context, favorites) => IconButton(
+        //Display Icon Button depending on current State
+        //Re-Build when favorite list changes
+        icon: Icon(favorites.contains(wisdom)
+            ? Icons.favorite
+            : Icons.favorite_border),
+        color: favorites.contains(wisdom) 
+            ? Colors.red 
+            : Colors.grey,
+        onPressed: () {
+          //Grab FavoriteBloc though Buildcontext
+          FavoriteBloc favoriteBloc = BlocProvider.of<FavoriteBloc>(context);
+          
+          //Add/remove Wisdom to/from Favorites (dispatch events)
+          if (favorites.contains(wisdom)) favoriteBloc.dispatch(RemoveFavoriteEvent(wisdom));
+          else favoriteBloc.dispatch(AddFavoriteEvent(wisdom));  
+        },
+      ),
     ),
-  ),
-)
+  )
+}
 ...
 ```
 _Code Snippet 32: Accessing a BLoC in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
@@ -1180,9 +1190,9 @@ _Figure 21: Widget BLoC Communication_
 For this Layer, all plattform specific dependencies should be injectable. To achieve this, the Flutter community [@suriArchitectYourFlutter2019; @eganFlutterArchitectureSamples2017; @angelovBlocLibraryDart2019; @bizzottoWidgetAsyncBlocServicePracticalArchitecture2019] mostly uses the _Repository Patter_ [[@garlanIntroductionSoftwareArchitecture1994]](https://dl.acm.org/citation.cfm?id=865128) or as _"Uncle Bob"_ would say: _Boundary Objects_ [[@martinPrinciplesCleanArchitecture2015]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on plattform specific interfaces, we create simple _Repository_ interfaces for the BLoCs to depend on:
 
 ```dart
-///Interface for a Generic List Provider that fetches a given amount of T
-abstract class DataRepository<T>{
-  Future<List<T>> fetch(int amount);
+///Generic Repository that fetches a given amount of T
+abstract class Supplier<T>{
+  Future<T> fetch(int amount, BuildContext context);
 }
 ```
 _Code Snippet 33: Wisgen Plattform Agnostic Repository [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
@@ -1211,21 +1221,27 @@ _Figure 23: Wisgen Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisge
 I already covered how the favorite list works in detail in this chapter, so I won't go over it again. The _Storage BLoC_ keeps a persistant copy of the favorite list on the device. It recievce a _Load-Event_ once on start-up, loads the old favorite list from its _Storage_, and adds it to the _Favortie BLoC_ though _Add-Events_. It also listens to the _Favorite BLoC_ and updates the persistant copy of the favorite list every time the _Favorite Bloc_ emits a new State:
 
 ```dart
-//Because this BLoC doesn't need to emit Sate, I used a Single Enum
-enum StorageState {idle} 
-//Only 2 events that both don't need to carry additional data
-enum StorageEvent {load, wipe} 
+///Gives access to the 2 events the [StorageBloc] can receive.
+///
+///It is an enum, because the 2 events both don't need to carry additional data.
+///[StorageEvent.load] tells the [StorageBloc] to load the 
+///favorite list from it [Storage].
+///[StorageEvent.wipe] tells the [StorageBloc] to wipe 
+///any favorites on the [Storage].
+enum StorageEvent { load, wipe }
 
-///The StorageBLoC is injected with a FavoriteBLoC on Creation.
-///It subscribes to the FavoriteBLoC and writes the Favorite List
-///to a given Storage device every time a new State is emitted by the FavoriteBLoC.
+///Responsible for keeping a persistent copy of the favorite list 
+///on it's [Storage].
 ///
-///When the StorageBLoC receives a load Event, it loads a list of Wisdoms from a given
-///Storage device and pipes it into the FavoriteBLoC
-///
-///Used to keep a Persistent copy of the Favorite List on the Device
-class StorageBloc extends Bloc<StorageEvent, StorageState> {
-  Storage _storage = new SharedPreferenceStorage();
+///It is injected with a [FavoriteBLoC] on Creation.
+///It subscribes to the [FavoriteBLoC] and writes the favorite list to a 
+///its [Storage] device every time a new State is emitted by the [FavoriteBLoC].
+///When the [StorageBLoC] receives a StorageEvent.load, it loads a list of [Wisdom]s 
+///from a its [Storage] device and pipes it into the [FavoriteBLoC] though [FavoriteEventAdd]s
+///(This usually happens once on Start-up).
+///It's State is [dynamic] because it never needs to emit it.
+class StorageBloc extends Bloc<StorageEvent, dynamic> {
+  Storage _storage = SharedPreferenceStorage();
   FavoriteBloc _observedBloc;
 
   StorageBloc(this._observedBloc) {
@@ -1236,10 +1252,10 @@ class StorageBloc extends Bloc<StorageEvent, StorageState> {
   }
 
   @override
-  StorageState get initialState => StorageState.idle;
+  dynamic get initialState => dynamic;
 
   @override
-  Stream<StorageState> mapEventToState(StorageEvent event) async* {
+  Stream<dynamic> mapEventToState(StorageEvent event) async* {
     if (event == StorageEvent.load) await _load();
     if (event == StorageEvent.wipe) _storage.wipeStorage();
   }
@@ -1250,11 +1266,11 @@ class StorageBloc extends Bloc<StorageEvent, StorageState> {
     if (loaded == null || loaded.isEmpty) return;
 
     loaded.forEach((f) {
-      _observedBloc.dispatch(AddFavoriteEvent(f));
+      _observedBloc.dispatch(FavoriteEventAdd(f));
     });
   }
 
-  //Injection
+  //Injection ---
   set storage(Storage storage) => _storage = storage;
   set observedBloc(FavoriteBloc observedBloc) => _observedBloc = observedBloc;
 }
@@ -1264,10 +1280,10 @@ _Code Snippet 34: Wisgen Storage BLoC [[@faustWisgen2019]](https://github.com/Fa
 _Storage_ is also a plattform agnostic interface and it looks like this:
 
 ```dart
-///Interface for a Generic List Provider
+///Generic Repository for read/write Storage device
 abstract class Storage<T>{
-  Future<List<T>> load();
-  save(List<T> data);
+  Future<T> load();
+  save(T data);
 
   ///Wipe the Storage Medium
   wipeStorage();
@@ -1278,8 +1294,9 @@ _Code Snippet 35: Wisgen Plattform Agnostic Interface Storage [[@faustWisgen2019
 In Wisgen, I built an implementaion of _Storage_ that communicates with Androids Shared Preferences [[@googlellcSharedPreferences2011]](https://developer.android.com/reference/android/content/SharedPreferences) and saves the favorite list as a JSON:
 
 ```dart
-///A Provider of Shared Preferences, a small, local, persistent key value store
-class SharedPreferenceStorage implements Storage<Wisdom> {
+///[Storage] that gives access to Androids Shared Preferences 
+///(a small, local, persistent key value store).
+class SharedPreferenceStorage implements Storage<List<Wisdom>> {
   ///Key is used to access store
   static const String _sharedPrefKey = "wisgen_storage";
 
@@ -1291,7 +1308,7 @@ class SharedPreferenceStorage implements Storage<Wisdom> {
     if (strings == null || strings.isEmpty) return null;
 
     //Decode all JSON Strings we fetched from the Preferences and add them to the Result
-    List<Wisdom> wisdoms = new List();
+    List<Wisdom> wisdoms = List();
     strings.forEach((s) {
       Wisdom w = Wisdom.fromJson(jsonDecode(s));
 
@@ -1307,7 +1324,7 @@ class SharedPreferenceStorage implements Storage<Wisdom> {
     final prefs = await SharedPreferences.getInstance();
 
     //Encode data to JSON Strings
-    List<String> strings = new List();
+    List<String> strings = List();
     data.forEach((wisdom) {
       strings.add(json.encode(wisdom.toJson()));
     });
@@ -1421,10 +1438,10 @@ void main() {
       Wisdom wisdom3 = Wisdom(id: 3, text: "Travel while you're young", type: "Grandma's Advice");
 
       //Testing
-      favoriteBloc.dispatch(AddFavoriteEvent(wisdom1));
-      favoriteBloc.dispatch(AddFavoriteEvent(wisdom2));
-      favoriteBloc.dispatch(RemoveFavoriteEvent(wisdom1));
-      favoriteBloc.dispatch(AddFavoriteEvent(wisdom3));
+      favoriteBloc.dispatch(FavoriteEventAdd(wisdom1));
+      favoriteBloc.dispatch(FavoriteEventAdd(wisdom2));
+      favoriteBloc.dispatch(FavoriteEventRemove(wisdom1));
+      favoriteBloc.dispatch(FavoriteEventAdd(wisdom3));
 
       //Result
       expect( 
@@ -1457,8 +1474,9 @@ As mentioned before, _Mockito_ [[@fibulwinterMockitoDartPackage2019]](https://pu
 
 ```dart
 //Creating Mocks using Mockito
-class MockRepository extends Mock implements Repository<Wisdom> {}
+class MockRepository extends Mock implements Supplier<Wisdom> {}
 class MockBuildContext extends Mock implements BuildContext {}
+
 void main() {
   group('Wisdom Bloc', () {
     WisdomBloc wisdomBloc;
@@ -1506,7 +1524,7 @@ void main() {
 ```
 _Code Snippet 40: Wisgen Wisdom BLoC Tests with Mockito [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-First we create our Mock classes. For this test we need a mock _Repository_ and a mock _Buildcontext_ [[@flutterdevteamBuildContextClass2018]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the _setUp()_ function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the _test()_ function, we tell our mock Repository to send a set of wisdom when it's _fetch()_ function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
+First we create our Mock classes. For this test we need a mock _Supplier-Repository_ and a mock _Buildcontext_ [[@flutterdevteamBuildContextClass2018]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the _setUp()_ function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the _test()_ function, we tell our mock Repository to send a set of wisdom when it's _fetch()_ function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
 
 ## Equality in Dart
 
@@ -1524,30 +1542,29 @@ _Code Snippet 41: Equality in Flutter_
 This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the _Equatable_ package in 2019 [[@angelovEquatableDartPackage2019]](https://pub.dev/packages/equatable#-example-tab-). It's an easy way to overwrite how class equality is handled. If we make a class extend the _Equatable_ class, we can set the properties it is compared by. We do this by overwriting it's _props_ attribute. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom they carry:
 
 ```dart
-///The Wisdom BLoC has 2 States: Loaded and Error
-///We can infer it is loading when we are not reviving new items through the stream
 @immutable
 abstract class WisdomState extends Equatable {}
 
-///Normal State that holds favorite list.
-///When BLoC receives a FetchEvent during this State, 
-///it fetches more wisdom and emits a new IdleWisdomState 
-///with more wisdoms
-class IdleWisdomState extends WisdomState {
-  final List<Wisdom> wisdoms;
-  IdleWisdomState(this.wisdoms);
-
-  @override
-  List<Object> get props => wisdoms;
-}
-
-///Broadcasted on Network Error
-class ErrorWisdomState extends WisdomState {
+///Broadcasted from [WisdomBloc] on Network Error.
+class WisdomStateError extends WisdomState {
   final Exception exception;
-  ErrorWisdomState(this.exception);
+  WisdomStateError(this.exception);
 
   @override
   List<Object> get props => [exception];
+}
+
+///Gives Access to current list of [Wisdom] s in the [WisdomBloc].
+///
+///When BLoC receives a [WisdomEventFetch] during this State, 
+///it fetches more [Wisdom] from it [Supplier]. 
+///When done it emits a new [IdleSate] with more [Wisdom].
+class WisdomStateIdle extends WisdomState {
+  final List<Wisdom> wisdoms;
+  WisdomStateIdle(this.wisdoms);
+
+  @override
+  List<Object> get props => wisdoms;
 }
 ```
 _Code Snippet 42: Wisgen Wisdom States with Equatable [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_

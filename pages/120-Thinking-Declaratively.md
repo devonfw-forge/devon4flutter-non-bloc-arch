@@ -13,7 +13,7 @@ If you come from the native mobile world and *imperative* frameworks like IOS [\
 But what exactly is the difference between *declarative* and *imperative*? I will try to explain this using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” \[1\], \[12\], \[24\], \[25\]. Let’s look at an example:
 
 ``` dart
-List numbers = [1,2,3,4,5]
+List numbers = [1,2,3,4,5];
 for(int i = 0; i < numbers.length; i++){
     if(numbers[i] > 3 ) print(numbers[i]);     
 }
@@ -24,7 +24,7 @@ for(int i = 0; i < numbers.length; i++){
 Here we want to print every entry in the list that is bigger than 3. We explicitly tell the framework to go through the List one by one and check each value. In the declarative version, we simply State how our result should look like, but not how to reach it:
 
 ``` dart
-List numbers = [1,2,3,4,5]
+List numbers = [1,2,3,4,5];
 print(numbers.where((num) => num > 3));
 ```
 

@@ -175,297 +175,303 @@
 
 </div>
 
+<div id="ref-dartteamPerformanceBestPractices2018">
+
+\[30\] Dart Team, “Performance best practices,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing/best-practices>. \[Accessed: 11-Oct-2019\]
+
+</div>
+
 <div id="ref-flutterdevteamBuildContextClass2018">
 
-\[30\] Flutter Dev Team, “BuildContext class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/BuildContext-class.html>. \[Accessed: 01-Oct-2019\]
+\[31\] Flutter Dev Team, “BuildContext class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/BuildContext-class.html>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcHowCreateStateless2018">
 
-\[31\] *How to Create Stateless Widgets*, vol. Ep. 1. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=wE7khGHVkYY>. \[Accessed: 23-Sep-2019\]
+\[32\] *How to Create Stateless Widgets*, vol. Ep. 1. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=wE7khGHVkYY>. \[Accessed: 23-Sep-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamStatefulWidgetClass2018">
 
-\[32\] Flutter Dev Team, “StatefulWidget class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>. \[Accessed: 01-Oct-2019\]
+\[33\] Flutter Dev Team, “StatefulWidget class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcHowStatefulWidgets2018">
 
-\[33\] *How Stateful Widgets Are Used Best*, vol. Ep. 2. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=AqCMFXEmf3w>. \[Accessed: 23-Sep-2019\]
+\[34\] *How Stateful Widgets Are Used Best*, vol. Ep. 2. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=AqCMFXEmf3w>. \[Accessed: 23-Sep-2019\]
 
 </div>
 
 <div id="ref-windmillStatefulWidgetLifecycle2019">
 
-\[34\] E. Windmill and Contributors, “Stateful Widget Lifecycle,” *flutterbyexample*, 2019. \[Online\]. Available: <https://flutterbyexample.com//stateful-widget-lifecycle>. \[Accessed: 01-Oct-2019\]
+\[35\] E. Windmill and Contributors, “Stateful Widget Lifecycle,” *flutterbyexample*, 2019. \[Online\]. Available: <https://flutterbyexample.com//stateful-widget-lifecycle>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamInheritedWidgetClass2018">
 
-\[35\] Flutter Dev Team, “InheritedWidget class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html>. \[Accessed: 01-Oct-2019\]
+\[36\] Flutter Dev Team, “InheritedWidget class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-angelovBlocLibraryDart2019">
 
-\[36\] F. Angelov and Contributors, “Bloc library for Dart,” 2019. \[Online\]. Available: <https://felangel.github.io/bloc/#/>. \[Accessed: 12-Sep-2019\]
+\[37\] F. Angelov and Contributors, “Bloc library for Dart,” 2019. \[Online\]. Available: <https://felangel.github.io/bloc/#/>. \[Accessed: 12-Sep-2019\]
 
 </div>
 
 <div id="ref-dartteamDartStreams2019">
 
-\[37\] Dart Team, “Dart Streams,” 2019. \[Online\]. Available: <https://dart.dev/tutorials/language/streams>. \[Accessed: 20-Sep-2019\]
+\[38\] Dart Team, “Dart Streams,” 2019. \[Online\]. Available: <https://dart.dev/tutorials/language/streams>. \[Accessed: 20-Sep-2019\]
 
 </div>
 
 <div id="ref-dartteamHttpDartPackage2019">
 
-\[38\] Dart Team, “Http | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/http>. \[Accessed: 01-Oct-2019\]
+\[39\] Dart Team, “Http | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/http>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-kissAdviceSlipAPI2019">
 
-\[39\] T. Kiss, “Advice Slip API,” 2019. \[Online\]. Available: <https://api.adviceslip.com/>. \[Accessed: 01-Oct-2019\]
+\[40\] T. Kiss, “Advice Slip API,” 2019. \[Online\]. Available: <https://api.adviceslip.com/>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcDartFutures2019">
 
-\[40\] *Dart Futures*, vol. Ep. 2. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=OTS-ap9_aXc>. \[Accessed: 01-Oct-2019\]
+\[41\] *Dart Futures*, vol. Ep. 2. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=OTS-ap9_aXc>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcIsolatesEventLoops2019">
 
-\[41\] *Isolates and Event Loops*, vol. Ep. 1. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=vl_AaCgudcY>. \[Accessed: 01-Oct-2019\]
+\[42\] *Isolates and Event Loops*, vol. Ep. 1. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=vl_AaCgudcY>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamAsynchronousProgrammingDart2018">
 
-\[42\] Dart Team, “Asynchronous programming in Dart,” 2018. \[Online\]. Available: <https://dart.dev/codelabs/async-await>. \[Accessed: 01-Oct-2019\]
+\[43\] Dart Team, “Asynchronous programming in Dart,” 2018. \[Online\]. Available: <https://dart.dev/codelabs/async-await>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcAsyncAwait2019">
 
-\[43\] *Async/Await*, vol. Ep. 4. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=SmTCmDMi4BY>. \[Accessed: 01-Oct-2019\]
+\[44\] *Async/Await*, vol. Ep. 4. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=SmTCmDMi4BY>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-boelensFlutterReactiveProgramming2018">
 
-\[44\] D. Boelens, “Flutter - Reactive Programming - Streams - BLoC,” *Didier Boelens*, 2018. \[Online\]. Available: <https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/>. \[Accessed: 12-Sep-2019\]
+\[45\] D. Boelens, “Flutter - Reactive Programming - Streams - BLoC,” *Didier Boelens*, 2018. \[Online\]. Available: <https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/>. \[Accessed: 12-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcDartStreams2019">
 
-\[45\] *Dart Streams*, vol. Ep. 3. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17>. \[Accessed: 01-Oct-2019\]
+\[46\] *Dart Streams*, vol. Ep. 3. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamScrollControllerClass2018">
 
-\[46\] Flutter Dev Team, “ScrollController class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/ScrollController-class.html>. \[Accessed: 03-Oct-2019\]
+\[47\] Flutter Dev Team, “ScrollController class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/ScrollController-class.html>. \[Accessed: 03-Oct-2019\]
 
 </div>
 
 <div id="ref-angelovFlutterInfiniteList2019">
 
-\[47\] F. Angelov and Contributors, “Flutter Infinite List BLoC Tutorial,” 2019. \[Online\]. Available: <https://felangel.github.io/bloc/#/flutterinfinitelisttutorial>. \[Accessed: 13-Sep-2019\]
+\[48\] F. Angelov and Contributors, “Flutter Infinite List BLoC Tutorial,” 2019. \[Online\]. Available: <https://felangel.github.io/bloc/#/flutterinfinitelisttutorial>. \[Accessed: 13-Sep-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamStreamBuilderClass2018">
 
-\[48\] Flutter Dev Team, “StreamBuilder class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html>. \[Accessed: 03-Oct-2019\]
+\[49\] Flutter Dev Team, “StreamBuilder class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html>. \[Accessed: 03-Oct-2019\]
 
 </div>
 
 <div id="ref-sullivanTechnicalDebtStreams2018">
 
-\[49\] *Technical Debt and Streams/BLoC*, vol. 4. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=fahC3ky_zW0>. \[Accessed: 09-Sep-2019\]
+\[50\] *Technical Debt and Streams/BLoC*, vol. 4. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=fahC3ky_zW0>. \[Accessed: 09-Sep-2019\]
 
 </div>
 
 <div id="ref-lecuonaJSONDartConverter2019">
 
-\[50\] J. Lecuona, *JSON to Dart converter*. Buenos Aires, Argentina, 2019 \[Online\]. Available: <https://javiercbk.github.io/json_to_dart/>. \[Accessed: 01-Oct-2019\]
+\[51\] J. Lecuona, *JSON to Dart converter*. Buenos Aires, Argentina, 2019 \[Online\]. Available: <https://javiercbk.github.io/json_to_dart/>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-eganFlutterArchitectureSamples2017">
 
-\[51\] B. Egan and Contributors, “Flutter Architecture Samples,” *fluttersamples*, 2017. \[Online\]. Available: <https://fluttersamples.com/>. \[Accessed: 28-Aug-2019\]
+\[52\] B. Egan and Contributors, “Flutter Architecture Samples,” *fluttersamples*, 2017. \[Online\]. Available: <https://fluttersamples.com/>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-rousseletProviderFlutterPackage2018">
 
-\[52\] R. Rousselet and Flutter Dev Team, “Provider | Flutter Package,” *Dart packages*, 2018. \[Online\]. Available: <https://pub.dev/packages/provider>. \[Accessed: 06-Oct-2019\]
+\[53\] R. Rousselet and Flutter Dev Team, “Provider | Flutter Package,” *Dart packages*, 2018. \[Online\]. Available: <https://pub.dev/packages/provider>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-hracekPragmaticStateManagement2019">
 
-\[53\] *Pragmatic State Management Using Provider*, vol. 24. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=HrBiNHEqSYU>. \[Accessed: 09-Sep-2019\]
+\[54\] *Pragmatic State Management Using Provider*, vol. 24. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=HrBiNHEqSYU>. \[Accessed: 09-Sep-2019\]
 
 </div>
 
 <div id="ref-sullivanPragmaticStateManagement2019">
 
-\[54\] M. Sullivan and F. Hracek, “Pragmatic State Management in Flutter,” 09-May-2019 \[Online\]. Available: <https://www.youtube.com/watch?v=d_m5csmrf7I>. \[Accessed: 28-Aug-2019\]
+\[55\] M. Sullivan and F. Hracek, “Pragmatic State Management in Flutter,” 09-May-2019 \[Online\]. Available: <https://www.youtube.com/watch?v=d_m5csmrf7I>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-eganKeepItSimple2018">
 
-\[55\] B. Egan, “Keep it Simple, State: Architecture for Flutter Apps,” 25-Jan-2018 \[Online\]. Available: <https://www.youtube.com/watch?v=zKXz3pUkw9A>. \[Accessed: 28-Aug-2019\]
+\[56\] B. Egan, “Keep it Simple, State: Architecture for Flutter Apps,” 25-Jan-2018 \[Online\]. Available: <https://www.youtube.com/watch?v=zKXz3pUkw9A>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamChangeNotifierClass2018">
 
-\[56\] Flutter Dev Team, “ChangeNotifier class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html>. \[Accessed: 06-Oct-2019\]
+\[57\] Flutter Dev Team, “ChangeNotifier class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-boelensFlutterBLoCScopedModel2019">
 
-\[57\] D. Boelens, “Flutter - BLoC - ScopedModel - Redux - Comparison,” *Didier Boelens*, 2019. \[Online\]. Available: <https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/>. \[Accessed: 09-Sep-2019\]
+\[58\] D. Boelens, “Flutter - BLoC - ScopedModel - Redux - Comparison,” *Didier Boelens*, 2019. \[Online\]. Available: <https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/>. \[Accessed: 09-Sep-2019\]
 
 </div>
 
 <div id="ref-savjolovsFlutterAppArchitecture2019">
 
-\[58\] V. Savjolovs, “Flutter app architecture 101: Vanilla, Scoped Model, BLoC,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e>. \[Accessed: 28-Aug-2019\]
+\[59\] V. Savjolovs, “Flutter app architecture 101: Vanilla, Scoped Model, BLoC,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-abramovRedux2015">
 
-\[59\] D. Abramov, “Redux,” 2015. \[Online\]. Available: <https://redux.js.org/>. \[Accessed: 06-Oct-2019\]
+\[60\] D. Abramov, “Redux,” 2015. \[Online\]. Available: <https://redux.js.org/>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-eganFlutterReduxPackage2017">
 
-\[60\] B. Egan, “Flutter Redux Package,” *Dart packages*, 2017. \[Online\]. Available: <https://pub.dev/packages/flutter_redux>. \[Accessed: 06-Oct-2019\]
+\[61\] B. Egan, “Flutter Redux Package,” *Dart packages*, 2017. \[Online\]. Available: <https://pub.dev/packages/flutter_redux>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-doughtieArchitectingReactiveFlutter2017">
 
-\[61\] G. Doughtie, “Architecting the Reactive Flutter App,” 20-Nov-2017 \[Online\]. Available: <https://www.youtube.com/watch?v=n_5JULTrstU&feature=youtu.be>. \[Accessed: 29-Aug-2019\]
+\[62\] G. Doughtie, “Architecting the Reactive Flutter App,” 20-Nov-2017 \[Online\]. Available: <https://www.youtube.com/watch?v=n_5JULTrstU&feature=youtu.be>. \[Accessed: 29-Aug-2019\]
 
 </div>
 
 <div id="ref-abramovThreePrinciplesRedux2015">
 
-\[62\] D. Abramov, “Three Principles of Redux,” 2015. \[Online\]. Available: <https://redux.js.org/>. \[Accessed: 08-Oct-2019\]
+\[63\] D. Abramov, “Three Principles of Redux,” 2015. \[Online\]. Available: <https://redux.js.org/>. \[Accessed: 08-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcAngular2016">
 
-\[63\] Google LLC, “Angular,” 2016. \[Online\]. Available: <https://angular.io/>. \[Accessed: 06-Oct-2019\]
+\[64\] Google LLC, “Angular,” 2016. \[Online\]. Available: <https://angular.io/>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-sullivanBuildReactiveMobile2018">
 
-\[64\] M. Sullivan and F. Hracek, “Build reactive mobile apps with Flutter,” 10-May-2018 \[Online\]. Available: <https://www.youtube.com/watch?v=RS36gBEp8OI>. \[Accessed: 04-Sep-2019\]
+\[65\] M. Sullivan and F. Hracek, “Build reactive mobile apps with Flutter,” 10-May-2018 \[Online\]. Available: <https://www.youtube.com/watch?v=RS36gBEp8OI>. \[Accessed: 04-Sep-2019\]
 
 </div>
 
 <div id="ref-suriArchitectYourFlutter2019">
 
-\[65\] S. Suri, “Architect your Flutter project using BLOC pattern,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>. \[Accessed: 09-Sep-2019\]
+\[66\] S. Suri, “Architect your Flutter project using BLOC pattern,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>. \[Accessed: 09-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcAngularDart2018">
 
-\[66\] Google LLC, “AngularDart,” 2018. \[Online\]. Available: <https://angulardart.dev/>. \[Accessed: 07-Oct-2019\]
+\[67\] Google LLC, “AngularDart,” 2018. \[Online\]. Available: <https://angulardart.dev/>. \[Accessed: 07-Oct-2019\]
 
 </div>
 
 <div id="ref-bizzottoWidgetAsyncBlocServicePracticalArchitecture2019">
 
-\[67\] A. Bizzotto, “Widget-Async-Bloc-Service: A Practical Architecture for Flutter Apps,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/coding-with-flutter/widget-async-bloc-service-a-practical-architecture-for-flutter-apps-250a28f9251b>. \[Accessed: 10-Oct-2019\]
+\[68\] A. Bizzotto, “Widget-Async-Bloc-Service: A Practical Architecture for Flutter Apps,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/coding-with-flutter/widget-async-bloc-service-a-practical-architecture-for-flutter-apps-250a28f9251b>. \[Accessed: 10-Oct-2019\]
 
 </div>
 
 <div id="ref-garlanIntroductionSoftwareArchitecture1994">
 
-\[68\] D. Garlan and M. Shaw, “An Introduction to Software Architecture,” Carnegie Mellon University, Pittsburgh, PA, USA, 1994 \[Online\]. Available: <https://dl.acm.org/citation.cfm?id=865128>
+\[69\] D. Garlan and M. Shaw, “An Introduction to Software Architecture,” Carnegie Mellon University, Pittsburgh, PA, USA, 1994 \[Online\]. Available: <https://dl.acm.org/citation.cfm?id=865128>
 
 </div>
 
 <div id="ref-martinPrinciplesCleanArchitecture2015">
 
-\[69\] B. Martin, “The Principles of Clean Architecture,” 2015 \[Online\]. Available: <https://www.youtube.com/watch?v=o_TH-Y78tt4>. \[Accessed: 13-Sep-2019\]
+\[70\] B. Martin, “The Principles of Clean Architecture,” 2015 \[Online\]. Available: <https://www.youtube.com/watch?v=o_TH-Y78tt4>. \[Accessed: 13-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcSharedPreferences2011">
 
-\[70\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
+\[71\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-georgeInitialInvestigationTest2003">
 
-\[71\] B. George and L. Williams, “An Initial Investigation of Test Driven Development in Industry,” in *Proceedings of the 2003 ACM Symposium on Applied Computing*, Melbourne, Florida, 2003, pp. 1135–1139 \[Online\]. Available: <http://doi.acm.org/10.1145/952532.952753>. \[Accessed: 10-Oct-2019\]
+\[72\] B. George and L. Williams, “An Initial Investigation of Test Driven Development in Industry,” in *Proceedings of the 2003 ACM Symposium on Applied Computing*, Melbourne, Florida, 2003, pp. 1135–1139 \[Online\]. Available: <http://doi.acm.org/10.1145/952532.952753>. \[Accessed: 10-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamTestDartPackage2019">
 
-\[72\] Dart Team, “Test | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test>. \[Accessed: 09-Oct-2019\]
+\[73\] Dart Team, “Test | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-hracekTestingFlutterApps2019">
 
-\[73\] *Testing Flutter Apps - Making Sure Your Code Works*, vol. Ep. 21. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=bj-oMYyLZEY&>. \[Accessed: 09-Oct-2019\]
+\[74\] *Testing Flutter Apps - Making Sure Your Code Works*, vol. Ep. 21. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=bj-oMYyLZEY&>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamTestingFlutterApps2018">
 
-\[74\] Flutter Dev Team, “Testing Flutter apps,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing>. \[Accessed: 09-Oct-2019\]
+\[75\] Flutter Dev Team, “Testing Flutter apps,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-fibulwinterMockitoDartPackage2019">
 
-\[75\] D. Fibulwinter and Dart Team, “Mockito | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/mockito>. \[Accessed: 09-Oct-2019\]
+\[76\] D. Fibulwinter and Dart Team, “Mockito | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/mockito>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-angelovUnitTestingBloc2019">
 
-\[76\] F. Angelov, “Unit Testing with ‘Bloc’,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86>. \[Accessed: 09-Oct-2019\]
+\[77\] F. Angelov, “Unit Testing with ‘Bloc’,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamAsynchronoustestsTestDart2019">
 
-\[77\] Dart Team, “Asynchronous-tests with the test Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test#asynchronous-tests>. \[Accessed: 11-Oct-2019\]
+\[78\] Dart Team, “Asynchronous-tests with the test Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test#asynchronous-tests>. \[Accessed: 11-Oct-2019\]
 
 </div>
 
 <div id="ref-angelovEquatableDartPackage2019">
 
-\[78\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
+\[79\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
 
 </div>
 
