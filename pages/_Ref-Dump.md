@@ -55,6 +55,30 @@
 
 </div>
 
+<div id="ref-flutterdevteamOfficialFlutterExample2019">
+
+\[10\] Flutter Dev Team, “Official Flutter Example,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-krankkaPuttingBuildMethods2018">
+
+\[11\] I. Krankka, “Putting build methods on a diet,” *iirokrankka.com*, 2018. \[Online\]. Available: <https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/>. \[Accessed: 28-Aug-2019\]
+
+</div>
+
+<div id="ref-cluelessAmAlsoCreating2018">
+
+\[12\] Clueless, “I am also creating my application with Flutter.” *Medium*. \[Online\]. Available: <https://medium.com/@blusea231/i-am-also-creating-my-application-with-flutter-8f25db889312>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-u/robertpro01FlutterDevFlutterCode2018">
+
+\[13\] u/robertpro01, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
 </div>
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
 <p align="center"><a href="#">Back to Top</a></p>

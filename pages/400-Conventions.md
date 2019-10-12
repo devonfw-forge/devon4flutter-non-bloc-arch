@@ -94,14 +94,35 @@ Adder {
 
 *Code Snippet XXX: Redundant Doc Comment*
 
-## Strings
-
-  - ${year + day}
-
 ## Bracket Hell
 
-  - Own widgets (performance)
-  - Callback functions
+One thing you might have already encountered when building an app with Flutter, is how easily you end up with a very deeply needed build methode that might look a little something like this:
+
+``` dart
+...
+                          },
+                        ),
+                      );
+                    }),
+                  );
+                }),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+...
+```
+
+*Code Snippet XXX: Flutter Gallery App [\[10\]](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart)*
+
+This phenomenon is none as “Bracket Hell” in the Flutter community \[11\]–\[13\]. And to a degree, this is just what Flutter code looks like. Snippet XXX is from one of Flutters official example projects. But we can still try to minimize the problem if we …
+
+| ⚠ | Extract any *distinct enough* widget into its own class [\[11\]](https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/) |
+| - | :------------------------------------------------------------------------------------------------------------------------------------ |
 
 ## File structure with BLoC
 

@@ -87,14 +87,35 @@ Adder {
 
 *Code Snippet XXX: Redundant Doc Comment*
 
-## Strings
-
-  - ${year + day}
-
 ## Bracket Hell
 
-  - Own widgets (performance)
-  - Callback functions
+One thing you might have already encountered when building an app with Flutter, is how easily you end up with a very deeply needed build methode that might look a little something like this:
+
+``` dart
+...
+                          },
+                        ),
+                      );
+                    }),
+                  );
+                }),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+...
+```
+
+*Code Snippet XXX: Flutter Gallery App [\[10\]](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart)*
+
+This phenomenon is none as “Bracket Hell” in the Flutter community \[11\]–\[13\]. And to a degree, this is just what Flutter code looks like. Snippet XXX is from one of Flutters official example projects. But we can still try to minimize the problem if we …
+
+| ⚠ | Extract any *distinct enough* widget into its own class [\[11\]](https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/) |
+| - | :------------------------------------------------------------------------------------------------------------------------------------ |
 
 ## File structure with BLoC
 
@@ -179,6 +200,30 @@ Adder {
 <div id="ref-gruberMarkdown2004">
 
 \[9\] J. Gruber and A. Swartz, “Markdown,” 2004. \[Online\]. Available: <https://daringfireball.net/projects/markdown/>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-flutterdevteamOfficialFlutterExample2019">
+
+\[10\] Flutter Dev Team, “Official Flutter Example,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-krankkaPuttingBuildMethods2018">
+
+\[11\] I. Krankka, “Putting build methods on a diet,” *iirokrankka.com*, 2018. \[Online\]. Available: <https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/>. \[Accessed: 28-Aug-2019\]
+
+</div>
+
+<div id="ref-cluelessAmAlsoCreating2018">
+
+\[12\] Clueless, “I am also creating my application with Flutter.” *Medium*. \[Online\]. Available: <https://medium.com/@blusea231/i-am-also-creating-my-application-with-flutter-8f25db889312>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-u/robertpro01FlutterDevFlutterCode2018">
+
+\[13\] u/robertpro01, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
