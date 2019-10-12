@@ -25,6 +25,18 @@
 
 </div>
 
+<div id="ref-wikipediaHungarianNotation2019">
+
+\[5\] Wikipedia, “Hungarian notation,” *Wikipedia*. 25-Jun-2019 \[Online\]. Available: <https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598>. \[Accessed: 12-Oct-2019\]
+
+</div>
+
+<div id="ref-flutterdevteamStyleGuideFlutter2018">
+
+\[6\] Flutter Dev Team, “Style Guide for Flutter repo,” *GitHub*, 2018. \[Online\]. Available: <https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo>. \[Accessed: 11-Oct-2019\]
+
+</div>
+
 </div>
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
 <p align="center"><a href="#">Back to Top</a></p>

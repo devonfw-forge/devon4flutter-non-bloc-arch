@@ -7,19 +7,31 @@ I want to start this chapter of with a great quote from Dart's official style gu
 
 > "A surprisingly important part of good code is good style. Consistent naming, ordering, and formatting helps code that is the same look the same." [[@dartteamEffectiveDart2019]](https://dart.dev/guides/language/effective-dart)
 
-This chapter will teach you some of the current best practices and conventions when wirting Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) code and Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) applications in general. That being said, the Dart team has published their own comprehensive guide on writing effective Dart. I will be highlighting some of the information of that guide here, but I will mainly be focusing on the aspects that are unique to Dart and might be a bit counter intuitive when coming from a languages like Java [[@oracleJavaJDK1996]](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+This chapter will teach you some of the current best practices and conventions when wirting Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) code and Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) applications in general. That being said, the Dart team has published their own comprehensive guide [[@dartteamEffectiveDart2019]](https://dart.dev/guides/language/effective-dart) on writing effective Dart. I will be highlighting some of the information of that guide here, but I will mainly be focusing on the aspects that are unique to Dart and might be a bit counter intuitive when coming from a languages like Java [[@oracleJavaJDK1996]](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 ## Naming Conventions
 
 - Last word should be the most descriptive one (pageCount, wisdomSink)
 
-| Nameing Convention             | When to use                                                                                               |
+There is three types of naming schemes in Dart. The following table is a summarie of when to use which of those schemes:
+
+| Nameing Scheme                 | When to use                                                                                               |
 | :----------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | _lowercase\_with\_underscores_ | libraries, packages, directories, source files, and import prefixes: `import 'package:js/js.dart' as js;` |
 | _UpperCamelCase_               | classes, enums, type definitions, and type parameters                                                     |
 | _lowerCamelCase_               | anything else: Class members, top-level definitions, variables, parameters, **constants**                 |
 
 _Table 2: Nameing Convention [[@dartteamEffectiveDart2019]](https://dart.dev/guides/language/effective-dart)_
+
+Most of those cases should look very familiar. But there are two things I want to highlight about constant values: 
+Firstly, the Dart style guide discourages the use of all uppercase or _SCREENING\_CAPS_. In most other languages all uppercase is used for constant values. The Dart team argues that during development you often end up changing constant variables to no longer be constant. When using all uppercase this leads to a lot of renaming. So the convention in Dart is to use the same scheme for every variable. 
+Secondly, the official style guide forbids the use of prefixed like "k" for constants or any other variation of Hungarian Notaion [[@wikipediaHungarianNotation2019]](https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598). They argue we are now able to see the type, scope, mutability, and other properties of our variables through the IDE and/or framework, and we no longer need to imbed such information into the name. It is iteresting to note that the official Flutter repository uses and encourages the use of a "k" prefix for constants in their style guide [[@flutterdevteamStyleGuideFlutter2018]](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo). So I would argue that either approach is fine as long as you are consistent.
+
+A few minour things to note when about naming conventions in Dart [[@dartteamEffectiveDart2019]](https://dart.dev/guides/language/effective-dart):
+
+- a leading "_" is reserved to define a private scope, so you can't use it in for other purposes then that.
+- Only capitalize the first letter of an Abbreviation For Example: `ApiSupplier`.
+- Whenever naming anything, ask your self: "Does each word in that type name tell me something critical or prevent a name collision?”, If not, shorten it.
 
 ## Comments
 
