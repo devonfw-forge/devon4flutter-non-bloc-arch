@@ -36,6 +36,47 @@ A few additional things to note about naming conventions in Dart [\[1\]](https:/
 
 ## Comments
 
+  - /// for doc
+      - auto detect by IDE
+      - auto gen doc
+      - replacement for /\*\* … \*/
+          - adds 2 more lines in multi line
+          - bullet points look bad
+      - should alway start with one sentace deitiption
+      - the emty line, then rest
+      - dont be reduntatn with class name
+      - prefer to start with 3rd perosn verb … what it does
+      - \[name\] for classes \[class.var\] for fars and \[class.func()\] for functions
+      - no **???**
+      - be brief
+      - code snippets ?
+
+In the snippets up until now you might have noticed the us of `///` for comments. In Dart `///` is a replacement for the classical `/** ... */` bloc comment from other language. The Dart team argues, that tripple-dash comments don’t take up two additional lines when suing them as a block comment:
+
+``` dart
+/**
+* Holds one pice of supreme [Wisdom]
+*
+* [Wisdom.id] is only unique in the scope of its [Wisdom.type].
+*/
+class Wisdom {...}
+```
+
+*Code Snippet XXX: Classic Block comment*
+
+``` dart
+///Holds one pice of supreme [Wisdom]
+///
+///[Wisdom.id] is only unique in the scope of its [Wisdom.type].
+class Wisdom {...}
+```
+
+*Code Snippet XXX: Tripple-Dash Block comment*
+
+![Wisdom Tool Tip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
+
+*Figure XXX: Wisgen Wisdom Tool Tip [\[7\]](https://github.com/Fasust/wisgen)*
+
 ## Strings
 
   - ${year + day}
@@ -110,6 +151,12 @@ A few additional things to note about naming conventions in Dart [\[1\]](https:/
 <div id="ref-flutterdevteamStyleGuideFlutter2018">
 
 \[6\] Flutter Dev Team, “Style Guide for Flutter repo,” *GitHub*, 2018. \[Online\]. Available: <https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo>. \[Accessed: 11-Oct-2019\]
+
+</div>
+
+<div id="ref-faustWisgen2019">
+
+\[7\] S. Faust, *Wisgen*. Germany, 2019 \[Online\]. Available: <https://github.com/Fasust/wisgen>. \[Accessed: 20-Sep-2019\]
 
 </div>
 
