@@ -36,15 +36,6 @@ A few additional things to note about naming conventions in Dart [\[1\]](https:/
 
 ## Comments
 
-  - should alway start with one sentace deitiption
-  - the emty line, then rest
-  - dont be reduntatn with class name
-  - prefer to start with 3rd perosn verb … what it does
-  - \[name\] for classes \[class.var\] for fars and \[class.func()\] for functions
-  - no /**???**
-  - be brief
-  - code snippets ?
-
 In the snippets up until now you might have noticed the us of `///` for comments. In Dart `///` is a replacement for the classical `/** ... */` bloc comment from other language. The Dart team argues, that tripple-dash comments don’t take up two additional lines when suing them as a block comment:
 
 ``` dart
@@ -72,6 +63,30 @@ Wether you agree with that reasoning or not. You should definitely use them, bec
 ![Wisdom Tool Tip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
 
 *Figure XXX: Wisgen Wisdom Tool Tip [\[8\]](https://github.com/Fasust/wisgen)*
+
+Some additional things to note about tripple-dash comments in Dart are [\[1\]](https://dart.dev/guides/language/effective-dart):
+
+  - They should always start with a one sentence description of what the commented thing **dose**. Preferably starting with a third person verb like *Supplies*, *Holds*, *Models*.
+  - That initial line should be followed by one empty line to make it stand out.
+  - Don’t document information that is already obvious by class name and parameter:
+
+<!-- end list -->
+
+``` dart
+///Adds the Integer values of a and b together.
+Adder {
+  int a;
+  int b;
+  Adder(this.a, this.b);
+  ...
+}
+```
+
+*Code Snippet XXX: Adder comment*
+
+  - Highlight relevant classes, functions or members by surrounding them with *\[…\]*.
+      - They will be linked in the auto-generated docs
+  - Markdown [\[9\]](https://daringfireball.net/projects/markdown/) is supported for tripple-dash comments, so consider adding code snippets as examples.
 
 ## Strings
 
@@ -159,6 +174,12 @@ Wether you agree with that reasoning or not. You should definitely use them, bec
 <div id="ref-faustWisgen2019">
 
 \[8\] S. Faust, *Wisgen*. Germany, 2019 \[Online\]. Available: <https://github.com/Fasust/wisgen>. \[Accessed: 20-Sep-2019\]
+
+</div>
+
+<div id="ref-gruberMarkdown2004">
+
+\[9\] J. Gruber and A. Swartz, “Markdown,” 2004. \[Online\]. Available: <https://daringfireball.net/projects/markdown/>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
