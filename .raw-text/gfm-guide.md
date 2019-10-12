@@ -384,7 +384,7 @@ As you can see, splitting your code into multiple smaller Widgets, does lead to 
 
 ## Directory Structure
 
-As of te writing of this guide their is not really any agreement or best practice regarding directory structure in the Flutter community. The closest thing i could find was a popular Blog post by Sagar Suri on Medium in 2019 [\[15\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). My recommendation would be very close to his. One directory per layer plus one directory for *model* classes, which are domain specific entities like *user* or *wisdom*:
+As of the writing of this guide there is not really any agreement or best practice regarding directory structure in the Flutter community. The closest thing I could find was a popular Blog post by Sagar Suri on Medium in 2019 [\[15\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). My recommendation would be very close to his. One directory per layer plus one directory for *model* classes, which are domain specific entities like *user* or *wisdom*:
 
     lib
     |
@@ -403,11 +403,7 @@ As of te writing of this guide their is not really any agreement or best practic
 
 *Figure XXX: Possible Project Directory Structure*
 
-I would also recommend splitting up the ui directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository and data directory into one, this also a perfectly valid option.
-
-## Performance Pitfalls
-
-  - short list of tips
+I would also recommend splitting up the UI directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository and data directory into one, this also a perfectly valid option.
 
 # \_Ref-Dump
 
