@@ -1442,7 +1442,7 @@ void main() {
 ```
 _Code Snippet 39: Wisgen Favorite BLoC Tests 2 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We use the _emitsInOrder()_ _matcher_ to tell the framework that we are working with a stream and looking for specific set of events to be emitted in order [[@angelovUnitTestingBloc2019]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other stream matchers besides _emitsInOrder()_ [[@dartteamAsynchronoustestsTestDart2019]](https://pub.dev/packages/test#asynchronous-tests):
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We use the _emitsInOrder()_ _matcher_ to tell the framework that we are working with a stream and looking for a specific set of events to be emitted in order [[@angelovUnitTestingBloc2019]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other stream matchers besides _emitsInOrder()_ [[@dartteamAsynchronoustestsTestDart2019]](https://pub.dev/packages/test#asynchronous-tests):
 
 - _emits()_ matches a single data event.
 - _emitsError()_ matches a single error event.
@@ -1453,7 +1453,7 @@ In this test, we create three wisdoms and add/remove them from the favorite BLoC
 - And more [[@dartteamAsynchronoustestsTestDart2019]](https://pub.dev/packages/test#asynchronous-tests)
 
 ### Mockito
-As mentioned before, _Mockito_ [[@fibulwinterMockitoDartPackage2019]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC pattern forces us to make all plattform specific dependencies of our BLoCs injectable [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it's Repository, we can inject a mock Repository into the BLoC. In this example, we use _Mockito_ to test if our wisdom BLoC emits new wisdom after receiving a fetch event:
+As mentioned before, _Mockito_ [[@fibulwinterMockitoDartPackage2019]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC pattern forces us to make all plattform specific dependencies of our BLoCs injectable [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it's Repository, we can inject a mock Repository into the BLoC. In this example, we use _Mockito_ to test if our wisdom BLoC emits new wisdoms after receiving a fetch event:
 
 ```dart
 //Creating Mocks using Mockito
@@ -1471,7 +1471,7 @@ void main() {
       mockRepository = MockRepository();
       mockBuildContext = MockBuildContext();
 
-			//Inject Mock
+	    //Inject Mock
       wisdomBloc.repository = mockRepository;
     });
 
@@ -1519,12 +1519,13 @@ First we create our Mock classes. For this test we need a mock _Repository_ and 
 
 ```dart
 Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
+Wisdom wisdom2 = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
 
-print(wisdom1 ==  Wisdom(id: 1, text: "Back up your Pictures", type: "tech")); //false
+print(wisdom1 == wisdom2); //false
 ```
 _Code Snippet 41: Equality in Flutter_
 
-This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the _Equatable_ package in 2019 [[@angelovEquatableDartPackage2019]](https://pub.dev/packages/equatable#-example-tab-). It's an easy way to overwrite how class equality is handled. If we make a class extend the _Equatable_ class, we can set the properties it is compared by. We do this by overwriting it's _props_ attribute. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom the carry:
+This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the _Equatable_ package in 2019 [[@angelovEquatableDartPackage2019]](https://pub.dev/packages/equatable#-example-tab-). It's an easy way to overwrite how class equality is handled. If we make a class extend the _Equatable_ class, we can set the properties it is compared by. We do this by overwriting it's _props_ attribute. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom they carry:
 
 ```dart
 ///The Wisdom BLoC has 2 States: Loaded and Error

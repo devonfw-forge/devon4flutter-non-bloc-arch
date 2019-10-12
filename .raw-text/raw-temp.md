@@ -1,4 +1,3 @@
-
 # 400-Conventions
 ## Introduction
 

@@ -8,15 +8,13 @@ Page Table of Contents
 ## Introduction
 
 //Last Fig 25
-//Last Snip 42 \[1\]
+//Last Snip 42
 
-## Dart Code
+## Mastering the Widget Tree
 
-## FlutterWidgets
+## Naming conventions
 
-## Naming
-
-## File Structure
+## File structure with BLoC
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/500-Conclusion">Next Chapter: Conclusion ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
