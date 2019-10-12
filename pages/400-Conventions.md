@@ -16,10 +16,18 @@ Page Table of Contents
       - focus on things that are unique to dart (Java, Javascript, C)
   - “A surprisingly important part of good code is good style. Consistent naming, ordering, and formatting helps code that is the same look the same.”
 
-## Naming conventions
+## Naming Conventions
 
   - Table \[1\]
   - Last word should be the most descriptive one (pageCount, wisdomSink)
+
+| Nameing Convention             | When to use                                                                                               |
+| :----------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| *lowercase\_with\_underscores* | libraries, packages, directories ,source files ,and import prefixes: `import 'package:js/js.dart' as js;` |
+| *UpperCamelCase*               | classes, enums, type definitions, and type parameters                                                     |
+| *lowerCamelCase*               | anything else: Class members, top-level definitions, variables, parameters, constants                     |
+
+*Table 2: Nameing Convention*
 
 ## Comments
 
