@@ -2,7 +2,6 @@ Page Table of Contents
 - [Introduction](#introduction)
 - [Naming Conventions](#naming-conventions)
 - [Doc Comments](#doc-comments)
-- [Strings](#strings)
 - [Bracket Hell](#bracket-hell)
 - [File structure with BLoC](#file-structure-with-bloc)
 - [Performance Pitfalls](#performance-pitfalls)
