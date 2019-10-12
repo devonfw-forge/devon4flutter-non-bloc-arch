@@ -79,6 +79,12 @@
 
 </div>
 
+<div id="ref-dartteamPerformanceBestPractices2018">
+
+\[14\] Dart Team, “Performance best practices,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing/best-practices>. \[Accessed: 11-Oct-2019\]
+
+</div>
+
 </div>
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
 <p align="center"><a href="#">Back to Top</a></p>
