@@ -25,5 +25,23 @@
 - no consensus, I would recommend a folder / layer + models
 - ui into pages and widgets
 
+```
+lib
+|
+├── blocs
+├── data
+├── models
+├── repositories
+├── ui 
+|   ├── pages
+|   |   ├── home_page.dart
+|   |   └── ...
+|   └── widgets
+|       ├── image_card.dart
+|       └── ...
+└── main.dart
+```
+_Figure XXX: Possible Project File Structure_
+
 # _Ref-Dump
 
