@@ -18,16 +18,15 @@ Page Table of Contents
 
 ## Naming Conventions
 
-  - Table \[1\]
   - Last word should be the most descriptive one (pageCount, wisdomSink)
 
 | Nameing Convention             | When to use                                                                                               |
 | :----------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | *lowercase\_with\_underscores* | libraries, packages, directories, source files, and import prefixes: `import 'package:js/js.dart' as js;` |
 | *UpperCamelCase*               | classes, enums, type definitions, and type parameters                                                     |
-| *lowerCamelCase*               | anything else: Class members, top-level definitions, variables, parameters, constants                     |
+| *lowerCamelCase*               | anything else: Class members, top-level definitions, variables, parameters, **constants**                 |
 
-*Table 2: Nameing Convention*
+*Table 2: Nameing Convention [\[1\]](https://dart.dev/guides/language/effective-dart)*
 
 ## Comments
 

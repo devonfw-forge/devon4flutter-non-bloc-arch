@@ -9,7 +9,7 @@
 - "A surprisingly important part of good code is good style. Consistent naming, ordering, and formatting helps code that is the same look the same."
 
 ## Naming Conventions
-- Table [@dartteamEffectiveDart2019]
+
 - Last word should be the most descriptive one (pageCount, wisdomSink)
 
 
@@ -17,9 +17,9 @@
 | :----------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | _lowercase\_with\_underscores_ | libraries, packages, directories, source files, and import prefixes: `import 'package:js/js.dart' as js;` |
 | _UpperCamelCase_               | classes, enums, type definitions, and type parameters                                                     |
-| _lowerCamelCase_               | anything else: Class members, top-level definitions, variables, parameters, constants                     |
+| _lowerCamelCase_               | anything else: Class members, top-level definitions, variables, parameters, **constants**                 |
 
-_Table 2: Nameing Convention_
+_Table 2: Nameing Convention [[@dartteamEffectiveDart2019]](https://dart.dev/guides/language/effective-dart)_
 
 ## Comments
 
