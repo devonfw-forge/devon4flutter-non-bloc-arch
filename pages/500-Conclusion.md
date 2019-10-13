@@ -9,22 +9,13 @@ Page Table of Contents
 //Last Snip 48
 //Last Fig 28
 
-So, you’ve made it. This is the final chapter of the guide. I will use this chapter ro reflect on the Guide, evaluate it’s strengths and weaknesses, and highlight how I and this project will move foreword from here on out. I will also take this opportunity to share my personal opinion of the framework (that being said, the guide has already been quite opinionated up until now).
+So, you’ve made it. This is the final chapter of the guide. I will use this chapter ro reflect on the Guide, evaluate it’s strengths and weaknesses, and highlight how I and this project will move foreword from here on out. I will also take this opportunity to share my personal opinion of the Flutter Framework [(Flutter Dev Team 2018)](https://flutter.dev/) (that being said, the guide has already been quite opinionated up until now).
 
 ## Evaluation of the Guide
 
-  - what I like
-      - Diverse sources
-      - many sources
-      - What I would have wanted when starting out
-      - personal/ informal style
-      - Clear guid-line on how to build a project
-      - BLoC chapter
-  - Where are the short comings of the guide?
-      - Wordy
-      - could have been more narrowed down
-      - scope was ill defined
-      - more Scientific papers as sources (if there where any)
+I am pretty happy with how the Guide turned out. I managed to find a diverse range of sources for most of the topics I wanted to cover. I kept close to the *informal*, *from developer for developer*-style of the original Angular guide [(Ambuludi, Linares, and Contributors 2019)](https://github.com/devonfw/devon4ng) and I think it reads pretty well. The Guide did end up being a bit longer then I planned (\~50 A4 Pages without figures and references). If I would write it again, I would choose a more narrow and clear scope for what the guide should include. For example, I might have excluded or shortened chapter \[1 The Flutter Framework\]\[framework\] and instead focused even more on chapter \[2 Architecting a Flutter App\]\[architecture\]. I would have also liked to include more scientific sources on Flutter. But as it is still such a new Framework, next to no scientific research has so far been conducted on it. As of the writing of this Guide their is not a single paper published on the Flutter Framework though IEEE [(IEEE 1963)](https://ieeexplore.ieee.org/Xplore/home.jsp) or ACM [(ACM 1947)](https://dl.acm.org/).
+
+All in all, I think I fulfilled the goal I set myself when when starting this guide. To bridge the gap between the basics of FLutter and clean, structured Flutter development. The result is a resource I would have liked to have when trying to bridge that gap myself.
 
 ## Next Steps
 
@@ -32,9 +23,9 @@ So, you’ve made it. This is the final chapter of the guide. I will use this ch
   - Bachelor Thesis
       - Example Project Large Scale
       - Building on the knowledge I obtained fro writing this
-  - Scientific research on topic (same as Tor paper) [\[89\]](http://doi.acm.org/10.1145/3241739)
+  - Scientific research on topic (same as Tor paper) [(Biørn-Hansen, Grønli, and Ghinea 2018)](http://doi.acm.org/10.1145/3241739)
 
-## My Thought on Flutter
+## My Thoughts on Flutter
 
   - positive
       - very efficient and smooth rendering
