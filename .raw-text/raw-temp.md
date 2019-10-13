@@ -1,9 +1,23 @@
+[intro]: https://github.com/Fasust/flutter-guide/wiki
+[framework]: https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework
+[under-hood]: https://github.com/Fasust/flutter-guide/wiki/110-Under-the-Hood
+[declarative]: https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively
+[tree]: https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree
+[async]: https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter
+[architecture]: https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App
+[statemng]: https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives
+[bloc]: https://github.com/Fasust/flutter-guide/wiki/220-BLoC
+[test]: https://github.com/Fasust/flutter-guide/wiki/300-Testing
+[conventions]: https://github.com/Fasust/flutter-guide/wiki/400-Conventions
+[conclusion]: https://github.com/Fasust/flutter-guide/wiki/500-Conclusion
+[refs]: https://github.com/Fasust/flutter-guide/wiki/600-References
+
 # 500-Conclusion
 ## Introduction
 //Last Snip 48
 //Last Fig 28
 
-So, you've made it. This is the final chapter of the guide. I will use this chapter ro reflect on the Guide, evaluate it's strengths and weaknesses, and highlight how I and this project will move foreword from here on out. I will also take this opportunity to share my personal opinion of the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) (that being said, the guide has already been quite opinionated up until now).
+So, you've made it. This is the final chapter of the guide. I will use this chapter ro reflect on the Guide, evaluate it's strengths and weaknesses, and highlight how I and this project will move foreword from here on out. I will also take this opportunity to share my personal opinion of the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/). That being said, the guide has already been quite opinionated up until now.
 
 ## Evaluation of the Guide
 I am pretty happy with how the Guide turned out. I managed to find a diverse range of sources for most of the topics I wanted to cover. I kept close to the _informal_, _from developer for developer_-style of the original Angular guide [[@ambuludiCapgeminiAngularGuide2019]](https://github.com/devonfw/devon4ng) and I think it reads pretty well. The Guide did end up being a bit longer then I planned (~50 A4 Pages without figures and references). If I would write it again, I would choose a more narrow and clear scope for what the guide should include. For example, I might have excluded or shortened chapter [1 The Flutter Framework][framework] and instead focused even more on chapter [2 Architecting a Flutter App][architecture]. I would have also liked to include more scientific sources on Flutter. But as it is still such a new Framework, next to no scientific research has so far been conducted on it. As of the writing of this Guide their is not a single paper published on the Flutter Framework though IEEE [[@ieeeIEEEXploreDigital1963]](https://ieeexplore.ieee.org/Xplore/home.jsp) or ACM [[@acmACMDigitalLibrary1947]](https://dl.acm.org/).
