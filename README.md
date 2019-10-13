@@ -1,6 +1,6 @@
 ![Banner](https://github.com/Fasust/flutter-guide/wiki//images/banner.png)
 
-> The Guide is published in the [Wiki of this repository](https://github.com/Fasust/flutter-guide/wiki), this is a copy of the [Introduction chapter](https://github.com/Fasust/flutter-guide/wiki).
+> The Guide is published in the [Wiki of this repository](https://github.com/Fasust/flutter-guide/wiki). This Repository just hold a copy of the Wiki to make the commit history more readable and enable pull-requests. The README.md is a copy of the [Introduction chapter](https://github.com/Fasust/flutter-guide/wiki).
  
 # Introduction
 Page Table of Contents
