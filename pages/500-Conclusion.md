@@ -50,4 +50,5 @@ So, you’ve made it. This is the final chapter of the guide. I will use this ch
 
 All in all. I wont be doing native dev again any time soon.
 
+<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/600-References">References ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
