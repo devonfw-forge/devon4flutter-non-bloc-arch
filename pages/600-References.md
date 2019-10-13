@@ -523,9 +523,9 @@
 
 </div>
 
-<div id="ref-u/robertpro01FlutterDevFlutterCode2018">
+<div id="ref-u/the_aceixFlutterDevFlutterCode2018">
 
-\[88\] u/robertpro01, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
+\[88\] u/the\_aceix, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
 
 </div>
 

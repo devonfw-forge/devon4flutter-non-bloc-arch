@@ -11,11 +11,11 @@ I want to start this chapter of with a great quote from Dart’s official style 
 
 > “A surprisingly important part of good code is good style. Consistent naming, ordering, and formatting helps code that is the same look the same.” [\[80\]](https://dart.dev/guides/language/effective-dart)
 
-This chapter will teach you some of the current best practices and conventions when wirting Dart [\[3\]](https://dart.dev/) code and Flutter [\[1\]](https://flutter.dev/) applications in general. That being said, the Dart team has published their own comprehensive guide [\[80\]](https://dart.dev/guides/language/effective-dart) on writing effective Dart. I will be highlighting some of the information of that guide here, but I will mainly be focusing on the aspects that are unique to Dart and might be a bit counter intuitive when coming from other languages and frameworks.
+This chapter will teach you some of the current best practices and conventions when wirting Dart [\[3\]](https://dart.dev/) code and Flutter [\[1\]](https://flutter.dev/) applications in general. That being said, the Dart team has published their own comprehensive guide [\[80\]](https://dart.dev/guides/language/effective-dart) on writing effective Dart. I will be highlighting some of the information in that guide here, but I will mainly be focusing on the aspects that are unique to Dart and might be a bit counter intuitive when coming from other languages and frameworks.
 
 ## Naming Conventions
 
-There is three types of naming schemes in Dart. The following table is a summarie of when to use which of those schemes:
+There is three types of naming schemes in Dart. The following table is a summary of when to use which of those schemes:
 
 | Nameing Scheme                 | When to use                                                                                               |
 | :----------------------------- | :-------------------------------------------------------------------------------------------------------- |
@@ -26,8 +26,8 @@ There is three types of naming schemes in Dart. The following table is a summari
 *Table 2: Nameing Convention [\[80\]](https://dart.dev/guides/language/effective-dart)*
 
 Most of those cases should look very familiar. But there are two things I want to highlight about constant values:
-Firstly, the Dart style guide discourages the use of all uppercase or *SCREENING\_CAPS*. In most other languages all uppercase is used for constant values. The Dart team argues that during development you often end up changing constant variables to no longer be constant. When using all uppercase this leads to a lot of renaming. So the convention in Dart is to use the same scheme for every variable.
-Secondly, the official style guide forbids the use of prefixed like “k” for constants or any other variation of Hungarian Notaion [\[81\]](https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598). They argue we are now able to see the type, scope, mutability, and other properties of our variables through the IDE and/or framework, and we no longer need to imbed such information into the name. It is iteresting to note that the official Flutter repository uses and encourages the use of a “k” prefix for constants in their style guide [\[82\]](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo). So I would argue that either approach is fine as long as you are consistent.
+Firstly, the Dart style guide discourages the use of all uppercase or *SCREENING\_CAPS*. In most other languages all uppercase is used for constant values. The Dart team argues that during development you often end up changing constant variables to no longer be constant. Using all uppercase for constant values thus leads to a lot of renaming. So the convention in Dart is to use the same scheme for every variable.
+Secondly, the official style guide forbids the use of prefixes like “k” for constants or any other variation of Hungarian Notaion [\[81\]](https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598). They argue we are now able to see the type, scope, mutability, and other properties of our variables through the IDE and/or framework, and we no longer need to imbed such information into the name. It is iteresting to note that the official Flutter repository uses and encourages the use of a “k” prefix for constants in their style guide [\[82\]](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo). So I would argue that either approach is fine as long as you are consistent.
 
 A few additional things to note about naming conventions in Dart [\[80\]](https://dart.dev/guides/language/effective-dart):
 
@@ -38,7 +38,7 @@ A few additional things to note about naming conventions in Dart [\[80\]](https:
 
 ## Doc Comments
 
-In the snippets up until now you might have noticed the us of `///` for comments. In Dart tripple-dash or “Doc Comments” are a replacement for the classical `/** ... */` bloc comment from other language. The Dart team argues, that Doc Comments don’t take up two additional lines when suing them as a block comment:
+In the snippets up until now you might have noticed the us of `///` for comments above classes, functions and member. In Dart tripple-dash or “Doc Comments” are a replacement for the classical `/** ... */` bloc comment from other language. The Dart team argues, that Doc Comments don’t take up two additional lines when using them as a block comment:
 
 ``` dart
 /**
@@ -49,7 +49,7 @@ In the snippets up until now you might have noticed the us of `///` for comments
 class Wisdom {...}
 ```
 
-*Code Snippet 43: Classic Block comment*
+*Code Snippet 43: Classic Block comment (5 lines)*
 
 ``` dart
 ///Holds one pice of supreme [Wisdom]
@@ -58,7 +58,7 @@ class Wisdom {...}
 class Wisdom {...}
 ```
 
-*Code Snippet 44: Tripple-Dash Block comment*
+*Code Snippet 44: Tripple-Dash Block comment (3 lines)*
 
 Wether you agree with that reasoning or not. You should definitely use them, because they can be used to auto generate a documentaion for your project with the Dartdoc tool [\[83\]](https://github.com/dart-lang/dartdoc) and they are shown as tooltips in your IDE:
 
@@ -66,9 +66,10 @@ Wether you agree with that reasoning or not. You should definitely use them, bec
 
 *Figure 26: Wisgen Wisdom Tool Tip [\[11\]](https://github.com/Fasust/wisgen)*
 
+So in short: Use `//` for inline comments, or to explain some specific code within a function. Use `///` to document the top level behavior of classes, variables, and function.
 Some additional things to note about Doc Comments in Dart are [\[80\]](https://dart.dev/guides/language/effective-dart):
 
-  - They should always start with a one sentence description of what the commented thing **dose**. Preferably starting with a third person verb like *Supplies*, *Holds*, *Models*.
+  - They should always start with a one sentence description of what the commented thing **dose**. Preferably starting with a present tense, verbs in third person like *Supplies*, *Holds*, *Models*.
   - That initial line should be followed by one empty line to make it stand out.
   - Highlight relevant classes, functions or members by surrounding them with *\[…\]*.
       - They will be linked in the auto-generated docs
@@ -114,7 +115,7 @@ One thing you might have already encountered when building an app with Flutter, 
 
 *Code Snippet 46: Flutter Gallery App [\[85\]](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart)*
 
-This phenomenon is none as “Bracket Hell” in the Flutter community \[86\]–\[88\]. And to a degree, this is just what Flutter code looks like. Snippet 46 is from one of Flutters official example projects. But we can still try to minimize the problem if we …
+This phenomenon is known as “Bracket Hell” in the Flutter community \[86\]–\[88\]. And to a degree, this is just what Flutter code looks like. Snippet 46 is from one of Flutters official example projects. But we can still try to minimize the problem if we …
 
 | ⚠ | Extract any *distinct enough* widget into its own class [\[86\]](https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/) |
 | - | :------------------------------------------------------------------------------------------------------------------------------------ |
@@ -230,7 +231,11 @@ class WisdomCard extends StatelessWidget {
 
 *Code Snippet 47: Wisgen Wisdom Card in one Widget [\[11\]](https://github.com/Fasust/wisgen)*
 
-And this is what it looks like if we extract the callback function and slit th Widget [\[29\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
+![Wisgen Wisdom Card](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-card.png)
+
+*Figure XXX: Wisgen Wisdom Card [\[11\]](https://github.com/Fasust/wisgen)*
+
+And this is what it looks like if we extract the callback function and slit the Widget [\[29\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
 
 ``` dart
 ///Displays a given [Wisdom].
@@ -382,7 +387,7 @@ class _LikeButton extends StatelessWidget {
 
 *Code Snippet 48: Wisgen Wisdom Card in four Widgets and with an extracted callback [\[11\]](https://github.com/Fasust/wisgen)*
 
-As you can see, splitting your code into multiple smaller Widgets, does lead to a lot more boiler plate. But it has both readability and performance advantages \[30\], \[86\]. Extracting Widgets into private functions removes the boiler plate, but has also no performance advantages.
+As you can see, splitting your code into multiple smaller Widgets, does lead to a lot more boiler plate. But it has both readability and performance advantages \[30\], \[86\]. Extracting Widgets into private functions removes the boiler plate, but also has no performance advantages.
 
 ## Directory Structure
 
