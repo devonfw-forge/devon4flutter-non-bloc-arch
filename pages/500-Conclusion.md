@@ -1,8 +1,9 @@
 Page Table of Contents
 - [Introduction](#introduction)
 - [Evaluation of the Guide](#evaluation-of-the-guide)
-- [Next Steps](#next-steps)
-- [My Thought on Flutter](#my-thought-on-flutter)
+- [Future of the Guide and Next Steps](#future-of-the-guide-and-next-steps)
+  - [Suggestion for Future Works](#suggestion-for-future-works)
+- [My Thoughts on Flutter](#my-thoughts-on-flutter)
 
 ## Introduction
 
@@ -17,13 +18,13 @@ I am pretty happy with how the Guide turned out. I managed to find a diverse ran
 
 All in all, I think I fulfilled the goal I set myself when when starting this guide. To bridge the gap between the basics of FLutter and clean, structured Flutter development. The result is a resource I would have liked to have when trying to bridge that gap myself.
 
-## Next Steps
+## Future of the Guide and Next Steps
 
-  - Find some use within Capgemini
-  - Bachelor Thesis
-      - Example Project Large Scale
-      - Building on the knowledge I obtained fro writing this
-  - Scientific research on topic (same as Tor paper) [\[5\]](http://doi.acm.org/10.1145/3241739)
+This Guide was commissioned by Capgemini Cologne [\[5\]](https://www.capgemini.com/us-en/). It is supposed to introduce their mobile developer to the Flutter Framework and help them evaluate if it is a valid option for future projects. It will also be the basis for my Bachelor Thesis I am starting this November. In my thesis I will create and document a large scale Flutter application for Capgemini. It is supposed to be an example project that other developers can use as a guideline for creating their own large scale Flutter applications. More specifically, Capgemini has used the “My Thai Star” App [\[6\]](https://github.com/devonfw/my-thai-star) as a reference for Angular [\[7\]](https://angular.io/). I will create a Flutter version of it.
+
+### Suggestion for Future Works
+
+One thing I and peers in the mobile development community [\[8\]](http://doi.acm.org/10.1145/3241739) would like to see is more scientific research on the Flutter Framework: Lagre scale benchmarking, usability tests, saleability tests, architecture evaluation and so on.
 
 ## My Thoughts on Flutter
 

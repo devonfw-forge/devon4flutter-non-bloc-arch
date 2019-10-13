@@ -25,9 +25,27 @@
 
 </div>
 
+<div id="ref-capgeminiCapgeminiHomePage2019">
+
+\[5\] Capgemini, “Capgemini - Home Page,” 2019. \[Online\]. Available: <https://www.capgemini.com/us-en/>. \[Accessed: 20-Sep-2019\]
+
+</div>
+
+<div id="ref-linaresMyThaiStar2019">
+
+\[6\] S. J. Linares, D. R. Gonzalez, and Contributors, *My Thai Star*. devonfw, 2019 \[Online\]. Available: <https://github.com/devonfw/my-thai-star>. \[Accessed: 13-Oct-2019\]
+
+</div>
+
+<div id="ref-googlellcAngular2016">
+
+\[7\] Google LLC, “Angular,” 2016. \[Online\]. Available: <https://angular.io/>. \[Accessed: 06-Oct-2019\]
+
+</div>
+
 <div id="ref-biorn-hansenSurveyTaxonomyCore2018">
 
-\[5\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
+\[8\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
