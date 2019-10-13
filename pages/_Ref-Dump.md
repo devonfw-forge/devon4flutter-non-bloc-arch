@@ -1,93 +1,9 @@
 
 <div id="refs" class="references">
 
-<div id="ref-dartteamEffectiveDart2019">
+<div id="ref-biorn-hansenSurveyTaxonomyCore2018">
 
-\[1\] Dart Team, “Effective Dart,” 2019. \[Online\]. Available: <https://dart.dev/guides/language/effective-dart>. \[Accessed: 28-Aug-2019\]
-
-</div>
-
-<div id="ref-dartteamDartProgrammingLanguage2019">
-
-\[2\] Dart Team, “Dart programming language,” 2019. \[Online\]. Available: <https://dart.dev/>. \[Accessed: 20-Sep-2019\]
-
-</div>
-
-<div id="ref-flutterdevteamFlutterFramework2018">
-
-\[3\] Flutter Dev Team, *The Flutter Framework*. Google LLC, 2018 \[Online\]. Available: <https://flutter.dev/>. \[Accessed: 20-Sep-2019\]
-
-</div>
-
-<div id="ref-oracleJavaJDK1996">
-
-\[4\] Oracle, *Java JDK*. Oracle, 1996 \[Online\]. Available: <https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>. \[Accessed: 26-Sep-2019\]
-
-</div>
-
-<div id="ref-wikipediaHungarianNotation2019">
-
-\[5\] Wikipedia, “Hungarian notation,” *Wikipedia*. 25-Jun-2019 \[Online\]. Available: <https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598>. \[Accessed: 12-Oct-2019\]
-
-</div>
-
-<div id="ref-flutterdevteamStyleGuideFlutter2018">
-
-\[6\] Flutter Dev Team, “Style Guide for Flutter repo,” *GitHub*, 2018. \[Online\]. Available: <https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo>. \[Accessed: 11-Oct-2019\]
-
-</div>
-
-<div id="ref-dartteamDartdocTool2019">
-
-\[7\] Dart Team, *Dartdoc tool*. Dart, 2019 \[Online\]. Available: <https://github.com/dart-lang/dartdoc>. \[Accessed: 12-Oct-2019\]
-
-</div>
-
-<div id="ref-faustWisgen2019">
-
-\[8\] S. Faust, *Wisgen*. Germany, 2019 \[Online\]. Available: <https://github.com/Fasust/wisgen>. \[Accessed: 20-Sep-2019\]
-
-</div>
-
-<div id="ref-gruberMarkdown2004">
-
-\[9\] J. Gruber and A. Swartz, “Markdown,” 2004. \[Online\]. Available: <https://daringfireball.net/projects/markdown/>. \[Accessed: 12-Oct-2019\]
-
-</div>
-
-<div id="ref-flutterdevteamOfficialFlutterExample2019">
-
-\[10\] Flutter Dev Team, “Official Flutter Example,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart>. \[Accessed: 12-Oct-2019\]
-
-</div>
-
-<div id="ref-krankkaPuttingBuildMethods2018">
-
-\[11\] I. Krankka, “Putting build methods on a diet,” *iirokrankka.com*, 2018. \[Online\]. Available: <https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/>. \[Accessed: 28-Aug-2019\]
-
-</div>
-
-<div id="ref-cluelessAmAlsoCreating2018">
-
-\[12\] Clueless, “I am also creating my application with Flutter.” *Medium*. \[Online\]. Available: <https://medium.com/@blusea231/i-am-also-creating-my-application-with-flutter-8f25db889312>. \[Accessed: 12-Oct-2019\]
-
-</div>
-
-<div id="ref-u/robertpro01FlutterDevFlutterCode2018">
-
-\[13\] u/robertpro01, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
-
-</div>
-
-<div id="ref-dartteamPerformanceBestPractices2018">
-
-\[14\] Dart Team, “Performance best practices,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing/best-practices>. \[Accessed: 11-Oct-2019\]
-
-</div>
-
-<div id="ref-suriArchitectYourFlutter2019">
-
-\[15\] S. Suri, “Architect your Flutter project using BLOC pattern,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>. \[Accessed: 09-Sep-2019\]
+\[1\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
