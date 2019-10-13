@@ -529,9 +529,45 @@
 
 </div>
 
+<div id="ref-ieeeIEEEXploreDigital1963">
+
+\[89\] IEEE, “IEEE Xplore Digital Library,” 1963. \[Online\]. Available: <https://ieeexplore.ieee.org/Xplore/home.jsp>. \[Accessed: 20-Sep-2018\]
+
+</div>
+
+<div id="ref-acmACMDigitalLibrary1947">
+
+\[90\] ACM, “ACM Digital Library,” 1947. \[Online\]. Available: <https://dl.acm.org/>. \[Accessed: 20-Sep-2018\]
+
+</div>
+
+<div id="ref-linaresMyThaiStar2019">
+
+\[91\] S. J. Linares, D. R. Gonzalez, and Contributors, *My Thai Star*. devonfw, 2019 \[Online\]. Available: <https://github.com/devonfw/my-thai-star>. \[Accessed: 13-Oct-2019\]
+
+</div>
+
 <div id="ref-biorn-hansenSurveyTaxonomyCore2018">
 
-\[89\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
+\[92\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
+
+</div>
+
+<div id="ref-sommerEvaluationCrossplatformFrameworks2013">
+
+\[93\] A. Sommer and S. Krusche, *Evaluation of cross-platform frameworks for mobile applications*. Gesellschaft für Informatik e.V., 2013 \[Online\]. Available: <http://dl.gi.de/handle/20.500.12116/17386>. \[Accessed: 13-Oct-2019\]
+
+</div>
+
+<div id="ref-flutterdevteamFlutterYouTube2019">
+
+\[94\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
+
+</div>
+
+<div id="ref-googlellcInjectRepo2019">
+
+\[95\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
