@@ -22,6 +22,14 @@ So, you’ve made it. This is the final chapter of the guide. I will use this ch
       - scope was ill defined
       - more Scientific papers as sources (if there where any)
 
+## Next Steps
+
+  - Find some use within Capgemini
+  - Bachelor Thesis
+      - Example Project Large Scale
+      - Building on the knowledge I obtained fro writing this
+  - Scientific research on topic (same as Tor paper) [\[1\]](http://doi.acm.org/10.1145/3241739)
+
 ## My Thought on Flutter
 
   - positive
@@ -37,14 +45,6 @@ So, you’ve made it. This is the final chapter of the guide. I will use this ch
       - injection requires interface dependency
 
 All in all. I wont be doing native dev again any time soon.
-
-## Next Steps
-
-  - Find some use within Capgemini
-  - Bachelor Thesis
-      - Example Project Large Scale
-      - Building on the knowledge I obtained fro writing this
-  - Scientific research on topic (same as Tor paper) [\[1\]](http://doi.acm.org/10.1145/3241739)
 
 # \_Ref-Dump
 
