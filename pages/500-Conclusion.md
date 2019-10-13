@@ -32,7 +32,7 @@ So, you’ve made it. This is the final chapter of the guide. I will use this ch
   - Bachelor Thesis
       - Example Project Large Scale
       - Building on the knowledge I obtained fro writing this
-  - Scientific research on topic (same as Tor paper) [\[1\]](http://doi.acm.org/10.1145/3241739)
+  - Scientific research on topic (same as Tor paper) [\[89\]](http://doi.acm.org/10.1145/3241739)
 
 ## My Thought on Flutter
 
