@@ -1793,7 +1793,7 @@ _Code Snippet 47: Wisgen Wisdom Card in one Widget [[@faustWisgen2019]](https://
 
 <img src="https://github.com/Fasust/flutter-guide/wiki//images/wisgen-card.png" height="350" alt="Wisgen Wisdom Card">
 
-_Figure XXX: Wisgen Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 27: Wisgen Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 And this is what it looks like if we extract the callback function and slit the Widget [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
 
@@ -1967,14 +1967,14 @@ lib
 |       └── ...
 └── main.dart
 ```
-_Figure 27: Possible Project Directory Structure_
+_Figure 28: Possible Project Directory Structure_
 
 I would also recommend splitting up the UI directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository and data directory into one, this also a perfectly valid option.
 
 # 500-Conclusion
 ## Introduction
 //Last Snip 48
-//Last Fig 27
+//Last Fig 28
 
 ## My Opinion of Flutter
 
