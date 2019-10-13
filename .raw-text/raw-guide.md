@@ -1791,7 +1791,7 @@ class WisdomCard extends StatelessWidget {
 ```
 _Code Snippet 47: Wisgen Wisdom Card in one Widget [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-[[https://github.com/Fasust/flutter-guide/wiki//images/wisgen-card.png | width=350px | alt=Wisgen Wisdom Card]]
+<img src="https://github.com/Fasust/flutter-guide/wiki//images/wisgen-card.png" width="350" alt="Wisgen Wisdom Card"">
 
 _Figure XXX: Wisgen Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
