@@ -4,8 +4,6 @@ Show Stats: dart .\tools\stats.dart .\.raw-text\gfm-guide.md
 Build & Split GFM IEEE: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md --csl=sources/ieee.csl ; dart .\tools\splitter.dart .\.raw-text\gfm-guide.md .\pages\
 
 Build & Split GFM Chicago: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md ; dart .\tools\splitter.dart .\.raw-text\gfm-guide.md .\pages\
-
-Build PDF: pandoc --wrap=preserve --filter pandoc-citeproc --csl=sources/ieee.csl --bibliography=sources/guide.bib --pdf-engine=xelatex --variable papersize=a4paper -s .raw-text/raw-guide.md -o paper.pdf
 ---
 [intro]: https://github.com/Fasust/flutter-guide/wiki
 [framework]: https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework

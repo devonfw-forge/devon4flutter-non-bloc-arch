@@ -26,7 +26,7 @@ So, you've made it. This is the final chapter of the guide. I will use this chap
   - Building on the knowledge I obtained fro writing this
 - Scientific research on topic (same as Tor paper) [[@biorn-hansenSurveyTaxonomyCore2018]](http://doi.acm.org/10.1145/3241739)
 
-## My Thought on Flutter
+## My Thoughts on Flutter
 - positive
   - very efficient and smooth rendering 
     - unlike other cross-plattform solutions
