@@ -1883,7 +1883,7 @@ class WisdomCard extends StatelessWidget {
 
 <img src="https://github.com/Fasust/flutter-guide/wiki//images/wisgen-card.png" height="350" alt="Wisgen Wisdom Card">
 
-*Figure XXX: Wisgen Wisdom Card [\[11\]](https://github.com/Fasust/wisgen)*
+*Figure 27: Wisgen Wisdom Card [\[11\]](https://github.com/Fasust/wisgen)*
 
 And this is what it looks like if we extract the callback function and slit the Widget [\[29\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
 
@@ -2058,7 +2058,7 @@ As of the writing of this guide there is not really any agreement or best practi
     |       └── ...
     └── main.dart
 
-*Figure 27: Possible Project Directory Structure*
+*Figure 28: Possible Project Directory Structure*
 
 I would also recommend splitting up the UI directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository and data directory into one, this also a perfectly valid option.
 
@@ -2067,7 +2067,7 @@ I would also recommend splitting up the UI directory into pages and widgets. Thi
 ## Introduction
 
 //Last Snip 48
-//Last Fig 27
+//Last Fig 28
 
 ## My Opinion of Flutter
 
