@@ -559,9 +559,9 @@
 
 </div>
 
-<div id="ref-flutterdevteamWhatFllutter2018">
+<div id="ref-flutterdevteamWhatFlutter2018">
 
-\[94\] Flutter Dev Team, “What is Fllutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
+\[94\] Flutter Dev Team, “What is Flutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
 
 </div>
 
