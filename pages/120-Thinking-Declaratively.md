@@ -6,7 +6,7 @@ Page Table of Contents
 
 ## Introduction
 
-If you come from the native mobile world and *imperative* frameworks like IOS [\[15\]](https://developer.apple.com/ios/) and Android [\[16\]](https://developer.android.com/), developing with Flutter [\[1\]](https://flutter.dev/) can take a while to get used to. Flutter, other then those frameworks mentioned above, is a *declarative* framework. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: *State* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
+If you come from the native mobile world and *imperative* frameworks like IOS [\[15\]](https://developer.apple.com/ios/) and Android [\[16\]](https://developer.android.com/), developing with Flutter [\[1\]](https://flutter.dev/) can take a while to get used to. Flutter, other then those frameworks mentioned above, is *declarative*. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: *State* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 
 ## Declarative Programming vs Imperative Programming
 
