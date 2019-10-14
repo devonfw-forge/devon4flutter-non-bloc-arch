@@ -34,7 +34,7 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
   - how Flutter apps are [structured][tree] on an abstract level and 
   - how [asynchrony][async] and communication with the web can be implemented.
 - A showcase of possible [architectural styles][statemng] you can use to build your app and
-  - And an [in-depth guide][bloc] on of those possibilities (BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE))
+  - And an [in-depth guide][bloc] on one of those possibilities (BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE))
 - How to [test][test] your app
 - Some [conventions and best practices][conventions] for Dart, and the Flutter Framework in general
 - My personal [evaluation of the framework][conclusion]
