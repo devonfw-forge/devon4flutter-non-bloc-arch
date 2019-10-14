@@ -10,7 +10,7 @@ Page Table of Contents
 
 ## Introduction
 
-Flutter [\[1\]](https://flutter.dev/) is a framework for cross-platform native development. But what exactly does that mean? It means that it promises Native App performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how Flutter achieves this is to compare it to other mobile development approaches.
+Flutter [\[1\]](https://flutter.dev/) is a framework for cross-platform native development. That means that it promises Native App performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how Flutter achieves this is to compare it to other mobile development approaches. This chapter will showcase how three of the most popular cross-platform approaches function and then compare those technics to the one Flutter uses. Lastly, I will highlight some of the unique feature that Flutters approach enables.
 
 ### Full Native Approach
 
