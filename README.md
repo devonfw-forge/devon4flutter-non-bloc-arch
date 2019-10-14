@@ -3,14 +3,6 @@
 > The Guide is published in the [Wiki of this repository](https://github.com/Fasust/flutter-guide/wiki). This Repository just hold a copy of the Wiki to make the commit history more readable and enable pull-requests. The README.md is a copy of the [Introduction chapter](https://github.com/Fasust/flutter-guide/wiki).
  
 # Introduction
-Page Table of Contents
-- [Introduction](#introduction)
-  - [The Goal of this Guide](#the-goal-of-this-guide)
-  - [Who is this Guide for?](#who-is-this-guide-for)
-  - [Topics that will be covered](#topics-that-will-be-covered)
-  - [Creation Context](#creation-context)
-  - [Structure](#structure)
-  - [My Sources](#my-sources)
 
 ## The Goal of this Guide
 
@@ -22,11 +14,16 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 
 ## Topics that will be covered
 
-  - A brief introduction to the Flutter Framework in general. How it works *under the hood* and its underlying structure.
-  - One possible architecture for your Flutter app and how to implement it (BLoC [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE))
-  - How to test your app
-  - Some conventions and best practices for Dart, BLoC and the Flutter Framework
-  - My personal opinion of the framework
+  - A brief introduction to the [Flutter Framework](https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework) in general:
+      - How the [underlying technology](https://github.com/Fasust/flutter-guide/wiki/110-Under-the-Hood) works,
+      - how it’s [programming style](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively) is little different from other frameworks,
+      - how Flutter apps are [structured](https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree) on an abstract level and
+      - how [asynchrony](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) and communication with the web can be implemented.
+  - A showcase of possible [architectural styles](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives) you can use to build your app and
+      - And an [in-depth guide](https://github.com/Fasust/flutter-guide/wiki/220-BLoC) to on of those possibilities (BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE))
+  - How to [test](https://github.com/Fasust/flutter-guide/wiki/300-Testing) your app
+  - Some [conventions and best practices](https://github.com/Fasust/flutter-guide/wiki/400-Conventions) for Dart, and the Flutter Framework in general
+  - My personal [evaluation of the framework](https://github.com/Fasust/flutter-guide/wiki/500-Conclusion)
 
 ## Creation Context
 

@@ -28,11 +28,16 @@ This guide aims to bridge the gap between the absolute Flutter [[@flutterdevteam
 For people with a basic knowledge of the Flutter Framework. I recommend following this tutorial by the Flutter team [[@flutterdevteamWriteYourFirst2018]](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first Flutter application. You should also have a basic understanding of the Dart programming language [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/). No worries, it is very similar to Java [[@oracleJavaJDK1996]](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), Kotlin [[@jetbrainsKotlinSDK2017]](https://kotlinlang.org/) and JavaScript [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine.
 
 ## Topics that will be covered 
-- A brief introduction to the Flutter Framework in general. How it works _under the hood_ and its underlying structure.
-- One possible architecture for your Flutter app and how to implement it (BLoC [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE))
-- How to test your app
-- Some conventions and best practices for Dart, BLoC and the Flutter Framework
-- My personal opinion of the framework
+- A brief introduction to the [Flutter Framework][framework] in general: 
+  - How the [underlying technology][under-hood] works, 
+  - how it's [programming style][declarative] is little different from other frameworks, 
+  - how Flutter apps are [structured][tree] on an abstract level and 
+  - how [asynchrony][async] and communication with the web can be implemented.
+- A showcase of possible [architectural styles][statemng] you can use to build your app and
+  - And an [in-depth guide][bloc] to on of those possibilities (BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE))
+- How to [test][test] your app
+- Some [conventions and best practices][conventions] for Dart, and the Flutter Framework in general
+- My personal [evaluation of the framework][conclusion]
 
 ## Creation Context
 This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [[@technicaluniversitycologneTechnicalUniversityCologne2019]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with Capgemini Cologne [[@capgeminiCapgeminiHomePage2019]](https://www.capgemini.com/us-en/). Capgemini released a guide on building an application in Angular [[@ambuludiCapgeminiAngularGuide2019]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
