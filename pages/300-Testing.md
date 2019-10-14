@@ -201,7 +201,7 @@ void main() {
 
 *Code Snippet 40: Wisgen Wisdom BLoC Tests with Mockito [\[11\]](https://github.com/Fasust/wisgen)*
 
-First we create our Mock classes. For this test we need a mock *Supplier-Repository* and a mock *Buildcontext* [\[31\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the *setUp()* function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the *test()* function, we tell our mock Repository to send a set of wisdom when it’s *fetch()* function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
+First we create our Mock classes. For this test we need a mock *Supplier-Repository* and a mock *Buildcontext* [\[32\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the *setUp()* function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the *test()* function, we tell our mock Repository to send a set of wisdom when it’s *fetch()* function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
 
 ## Equality in Dart
 

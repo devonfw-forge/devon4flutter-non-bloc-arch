@@ -235,7 +235,7 @@ class WisdomCard extends StatelessWidget {
 
 *Figure 27: Wisgen Wisdom Card [\[11\]](https://github.com/Fasust/wisgen)*
 
-And this is what it looks like if we extract the callback function and slit the Widget [\[29\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
+And this is what it looks like if we extract the callback function and slit the Widget [\[30\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
 
 ``` dart
 ///Displays a given [Wisdom].
@@ -387,7 +387,7 @@ class _LikeButton extends StatelessWidget {
 
 *Code Snippet 48: Wisgen Wisdom Card in four Widgets and with an extracted callback [\[11\]](https://github.com/Fasust/wisgen)*
 
-As you can see, splitting your code into multiple smaller Widgets, does lead to a lot more boiler plate. But it has both readability and performance advantages \[30\], \[86\]. Extracting Widgets into private functions removes the boiler plate, but also has no performance advantages.
+As you can see, splitting your code into multiple smaller Widgets, does lead to a lot more boiler plate. But it has both readability and performance advantages \[31\], \[86\]. Extracting Widgets into private functions removes the boiler plate, but also has no performance advantages.
 
 ## Directory Structure
 

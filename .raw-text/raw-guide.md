@@ -56,7 +56,7 @@ I am basing this guide on a combination of conference talks, blog articles by re
 
 # 100-The-Flutter-Framework
 ## Introduction
-This Chapter will give you a basic understanding of how the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) works as a whole. I will showcase the difference of Flutter to other Cross-Platform approaches and how Flutter works _under the hood_. You will also be introduced to the concepts of _State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) and Flutter's way of rendering an app as a tree of _Widgets_. In addition to this, you will gain an understanding of how Flutter Handels Asynchronous Programming. And Lastly, you will learn how to communicate with the Web within the Flutter Framework.
+This Chapter will give you a basic understanding of how the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) works as a whole. I will showcase the difference of Flutter to other Cross-Platform approaches and how Flutter works [_under the hood_][under-hood]. You will also be introduced to the concepts of [_State_][declarative] [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) and Flutter's way of rendering an app as a [tree of _Widgets_][tree] [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html). Lastly, you will gain an understanding of how Flutter handles [Asynchronous Programming][async] and communication with the Web.
 
 ## Contents of the Chapter
 * [Under The Hood][under-hood]

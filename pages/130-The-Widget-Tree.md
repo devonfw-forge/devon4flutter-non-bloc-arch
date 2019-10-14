@@ -11,17 +11,17 @@ Page Table of Contents
 
 ## Introduction
 
-This section will give you a better understanding of how programming in Flutter [\[1\]](https://flutter.dev/) actually works. You will learn what Widgets [\[27\]](https://flutter.dev/docs/development/ui/widgets-intro) are, what types of Widgets Flutter has and lastly what exactly the *Widget Tree* is.
+This section will give you a better understanding of how programming in Flutter [\[1\]](https://flutter.dev/) actually works. You will learn what Widgets [\[28\]](https://flutter.dev/docs/development/ui/widgets-intro) are, what types of Widgets Flutter has and lastly what exactly the *Widget Tree* is.
 
 ## Widgets in General
 
 One sentence you can simply not avoid when researching Flutter is:
 
-> “In Flutter, everything is a Widget.” [\[27\]](https://flutter.dev/docs/development/ui/widgets-intro)
+> “In Flutter, everything is a Widget.” [\[28\]](https://flutter.dev/docs/development/ui/widgets-intro)
 
 But that is not really helpful, is it? Personally, I like Didier Boelens definition of Flutter Widgets better:
 
-| 📙 | Widget | A visual component (or a component that interacts with the visual aspect of an application) [\[28\]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
+| 📙 | Widget | A visual component (or a component that interacts with the visual aspect of an application) [\[29\]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
 | - | ------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 Let’s have look at an example, this app displays an endless feed of Wisdoms combined with vaguely thought-provoking stock images:
@@ -55,10 +55,10 @@ Widget build(BuildContext context) {
 The \_Image class generates a Widget that contains the stock image. The \_Content() class generates a Widget that displays the wisdom text and the buttons on the card.
 Another important thing to note is that:
 
-| ⚠ | Widgets in Flutter are always immutable [\[27\]](https://flutter.dev/docs/development/ui/widgets-intro) |
+| ⚠ | Widgets in Flutter are always immutable [\[28\]](https://flutter.dev/docs/development/ui/widgets-intro) |
 | - | :------------------------------------------------------------------------------------------------------ |
 
-The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework [\[29\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html). To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods lightweight by making all Widgets immutable [\[30\]](https://flutter.dev/docs/testing/best-practices). This means that all variables in a Widget have to be declared as *final*. Which means they are initialized once and can not change over time.
+The build method of any given Widget can be called multiple times a second. And how often it is called exactly is never under your control, it is controlled by the Flutter Framework [\[30\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html). To make this rapid rebuilding of Widgets efficient, Flutter forces us developers to keep the build methods lightweight by making all Widgets immutable [\[31\]](https://flutter.dev/docs/testing/best-practices). This means that all variables in a Widget have to be declared as *final*. Which means they are initialized once and can not change over time.
 But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. As mentioned in the [previous chapter](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively), in Flutter such data is called *State* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). No worries, how Flutter handles mutable State will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
 
 ### The Widget Tree
@@ -71,12 +71,12 @@ When working with Flutter, you will inevitably stumble over the term *Widget Tre
 
 ### Buildcontext
 
-If you have previously built an App with Flutter, you have definitely encountered *BuildContext* [\[31\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build method in Flutter. But what exactly is *BuildContext*?
+If you have previously built an App with Flutter, you have definitely encountered *BuildContext* [\[32\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build method in Flutter. But what exactly is *BuildContext*?
 
-| 📙 | BuildContext | A reference to the location of a Widget within the tree structure of all the Widgets that have been built [\[28\]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
+| 📙 | BuildContext | A reference to the location of a Widget within the tree structure of all the Widgets that have been built [\[29\]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
 | - | ------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-The BuildContext contains information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget Tree. Accessing a Widgets *descendants* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** vice-versa [\[28\]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 9 could access its ancestor card Widget like this:
+The BuildContext contains information about each *ancestor* leading down to the Widget that the context belongs to. So it is an easy way for a Widget to access all its ancestors in the Widget Tree. Accessing a Widgets *descendants* through the BuildContext is possible, but not advised and inefficient. So in short: For a Widget at the bottom of the tree, it is very easy to get information from Widgets at the top of the tree but **not** vice-versa [\[29\]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 9 could access its ancestor card Widget like this:
 
 ``` dart
 Widget build(BuildContext context) {
@@ -101,7 +101,7 @@ There are three types of Widgets in the Flutter framework. I will now showcase t
 
 ### Stateless Widgets
 
-This is the most basic of the three and likely the one you’ll use the most when developing an app with Flutter. Stateless Widgets [\[29\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let’s have a look at an example. This is a simplified version of the card Widget from figure 8:
+This is the most basic of the three and likely the one you’ll use the most when developing an app with Flutter. Stateless Widgets [\[30\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) are initialized once with a set of parameters and those parameters will never change from there on out. Let’s have a look at an example. This is a simplified version of the card Widget from figure 8:
 
 ``` dart
 class WisdomCard extends StatelessWidget {
@@ -122,9 +122,9 @@ class WisdomCard extends StatelessWidget {
 
 As you can see, it has some const values for styling, a wisdom object that is passed into the constructor and a build method. The wisdom object contains the wisdom text and the hyperlink for the stock image.
 
-One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays can change [\[32\]](https://www.youtube.com/watch?v=wE7khGHVkYY).
+One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays can change [\[33\]](https://www.youtube.com/watch?v=wE7khGHVkYY).
 
-The Lifecycle of Stateless Widgets is very straight forward [\[28\]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956):
+The Lifecycle of Stateless Widgets is very straight forward [\[29\]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956):
 
 ``` dart
 class MyWidget extends StatelessWidget {
@@ -154,7 +154,7 @@ I have explained what State is in the Chapter [Thinking Declaratively](https://g
 | 📙 | State | Any data that can change over time [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) |
 | - | ----- | :------------------------------------------------------------------------------------------------------------ |
 
-A Stateful Widget [\[33\]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consists of two parts: An immutable Widget and a mutable State. The immutable Widget’s responsibility is to hold onto that State, the State itself has the mutable data and builds the actual Widget [\[34\]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let’s have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The *WisdomBloc* is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
+A Stateful Widget [\[13\]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consists of two parts: An immutable Widget and a mutable State. The immutable Widget’s responsibility is to hold onto that State, the State itself has the mutable data and builds the actual Widget [\[34\]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let’s have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The *WisdomBloc* is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
 ``` dart
 ///Immutable Widget

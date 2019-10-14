@@ -73,129 +73,129 @@
 
 </div>
 
+<div id="ref-flutterdevteamStatefulWidgetClass2018">
+
+\[13\] Flutter Dev Team, “StatefulWidget class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>. \[Accessed: 01-Oct-2019\]
+
+</div>
+
 <div id="ref-lelerWhatRevolutionaryFlutter2017">
 
-\[13\] W. Leler, “What’s Revolutionary about Flutter,” *hackernoon*, 2017. \[Online\]. Available: <https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514>. \[Accessed: 22-Sep-2019\]
+\[14\] W. Leler, “What’s Revolutionary about Flutter,” *hackernoon*, 2017. \[Online\]. Available: <https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514>. \[Accessed: 22-Sep-2019\]
 
 </div>
 
 <div id="ref-appleIOSSDK2010">
 
-\[14\] Apple, *iOS SDK*. Apple, 2010 \[Online\]. Available: <https://developer.apple.com/ios/>. \[Accessed: 25-Sep-2019\]
+\[15\] Apple, *iOS SDK*. Apple, 2010 \[Online\]. Available: <https://developer.apple.com/ios/>. \[Accessed: 25-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcAndroidSDK2008">
 
-\[15\] Google LLC, *Android SDK*. Google LLC, 2008 \[Online\]. Available: <https://developer.android.com/>. \[Accessed: 25-Sep-2019\]
+\[16\] Google LLC, *Android SDK*. Google LLC, 2008 \[Online\]. Available: <https://developer.android.com/>. \[Accessed: 25-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcHowFlutterDifferent2019">
 
-\[16\] *How is Flutter different for app development*. Google Developers Official Youtube Channel, 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be>. \[Accessed: 19-Sep-2019\]
+\[17\] *How is Flutter different for app development*. Google Developers Official Youtube Channel, 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be>. \[Accessed: 19-Sep-2019\]
 
 </div>
 
 <div id="ref-stollPlainEnglishWhat2018">
 
-\[17\] S. Stoll, “In plain English: So what the heck is Flutter and why is it a big deal?” *Medium*, 2018. \[Online\]. Available: <https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a>. \[Accessed: 22-Sep-2019\]
+\[18\] S. Stoll, “In plain English: So what the heck is Flutter and why is it a big deal?” *Medium*, 2018. \[Online\]. Available: <https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a>. \[Accessed: 22-Sep-2019\]
 
 </div>
 
 <div id="ref-adinugrohoReviewMultiplatformMobile2015">
 
-\[18\] T. Y. Adinugroho, Reina, and J. B. Gautama, “Review of Multi-platform Mobile Application Development Using WebView: Learning Management System on Mobile Platform,” *Procedia Computer Science*, vol. 59, pp. 291–297, Jan. 2015 \[Online\]. Available: <http://www.sciencedirect.com/science/article/pii/S1877050915020979>. \[Accessed: 25-Sep-2019\]
+\[19\] T. Y. Adinugroho, Reina, and J. B. Gautama, “Review of Multi-platform Mobile Application Development Using WebView: Learning Management System on Mobile Platform,” *Procedia Computer Science*, vol. 59, pp. 291–297, Jan. 2015 \[Online\]. Available: <http://www.sciencedirect.com/science/article/pii/S1877050915020979>. \[Accessed: 25-Sep-2019\]
 
 </div>
 
 <div id="ref-facebookReactNativeFramework2015">
 
-\[19\] Facebook, *React Native Framework*. Facebook, 2015 \[Online\]. Available: <https://facebook.github.io/react-native/>. \[Accessed: 22-Sep-2019\]
+\[20\] Facebook, *React Native Framework*. Facebook, 2015 \[Online\]. Available: <https://facebook.github.io/react-native/>. \[Accessed: 22-Sep-2019\]
 
 </div>
 
 <div id="ref-kolPerformanceLimitationsReact2017">
 
-\[20\] T. Kol, “Performance Limitations of React Native and How to Overcome Them,” 2017 \[Online\]. Available: <https://www.youtube.com/watch?v=psZLAHQXRsI>. \[Accessed: 22-Sep-2019\]
+\[21\] T. Kol, “Performance Limitations of React Native and How to Overcome Them,” 2017 \[Online\]. Available: <https://www.youtube.com/watch?v=psZLAHQXRsI>. \[Accessed: 22-Sep-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamFAQFlutter2019">
 
-\[21\] Flutter Dev Team, “FAQ - Flutter,” 2019. \[Online\]. Available: <https://flutter.dev/docs/resources/faq>. \[Accessed: 22-Sep-2019\]
+\[22\] Flutter Dev Team, “FAQ - Flutter,” 2019. \[Online\]. Available: <https://flutter.dev/docs/resources/faq>. \[Accessed: 22-Sep-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamHotReloadFlutter2019">
 
-\[22\] Flutter Dev Team, “Hot reload - Flutter,” 2019. \[Online\]. Available: <https://flutter.dev/docs/development/tools/hot-reload>. \[Accessed: 22-Sep-2019\]
+\[23\] Flutter Dev Team, “Hot reload - Flutter,” 2019. \[Online\]. Available: <https://flutter.dev/docs/development/tools/hot-reload>. \[Accessed: 22-Sep-2019\]
 
 </div>
 
 <div id="ref-mooreDartProductiveFast2019">
 
-\[23\] K. Moore and B. Nystrom, “Dart: Productive, Fast, Multi-Platform - Pick 3,” 09-May-2019 \[Online\]. Available: <https://www.youtube.com/watch?v=J5DQRPRBiFI>. \[Accessed: 04-Sep-2019\]
+\[24\] K. Moore and B. Nystrom, “Dart: Productive, Fast, Multi-Platform - Pick 3,” 09-May-2019 \[Online\]. Available: <https://www.youtube.com/watch?v=J5DQRPRBiFI>. \[Accessed: 04-Sep-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamIntroductionDeclarativeUI2019">
 
-\[24\] Flutter Dev Team, “Introduction to declarative UI,” 2019. \[Online\]. Available: <https://flutter.dev/docs/get-started/flutter-for/declarative>. \[Accessed: 24-Sep-2019\]
+\[25\] Flutter Dev Team, “Introduction to declarative UI,” 2019. \[Online\]. Available: <https://flutter.dev/docs/get-started/flutter-for/declarative>. \[Accessed: 24-Sep-2019\]
 
 </div>
 
 <div id="ref-bezerraDeclarativeProgramming2018">
 
-\[25\] *Declarative programming*. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=yGh0bjzj4IQ&t=632s>. \[Accessed: 25-Sep-2019\]
+\[26\] *Declarative programming*. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=yGh0bjzj4IQ&t=632s>. \[Accessed: 25-Sep-2019\]
 
 </div>
 
 <div id="ref-computerphileHTMLProgrammingLanguage2016">
 
-\[26\] *HTML IS a Programming Language (Imperative vs Declarative)*. University of Nottingham, 2016 \[Online\]. Available: <https://www.youtube.com/watch?v=4A2mWqLUpzw>. \[Accessed: 25-Sep-2019\]
+\[27\] *HTML IS a Programming Language (Imperative vs Declarative)*. University of Nottingham, 2016 \[Online\]. Available: <https://www.youtube.com/watch?v=4A2mWqLUpzw>. \[Accessed: 25-Sep-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamFlutterWidgets2019">
 
-\[27\] Flutter Dev Team, “Flutter Widgets,” 2019. \[Online\]. Available: <https://flutter.dev/docs/development/ui/widgets-intro>. \[Accessed: 25-Sep-2019\]
+\[28\] Flutter Dev Team, “Flutter Widgets,” 2019. \[Online\]. Available: <https://flutter.dev/docs/development/ui/widgets-intro>. \[Accessed: 25-Sep-2019\]
 
 </div>
 
 <div id="ref-boelensWidgetStateBuildContext2018">
 
-\[28\] D. Boelens, “Widget — State — BuildContext — InheritedWidget,” *Medium*, 2018. \[Online\]. Available: <https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956>. \[Accessed: 23-Sep-2019\]
+\[29\] D. Boelens, “Widget — State — BuildContext — InheritedWidget,” *Medium*, 2018. \[Online\]. Available: <https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956>. \[Accessed: 23-Sep-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamStatelessWidgetClass2018">
 
-\[29\] Flutter Dev Team, “StatelessWidget class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html>. \[Accessed: 01-Oct-2019\]
+\[30\] Flutter Dev Team, “StatelessWidget class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamPerformanceBestPractices2018">
 
-\[30\] Dart Team, “Performance best practices,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing/best-practices>. \[Accessed: 11-Oct-2019\]
+\[31\] Dart Team, “Performance best practices,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing/best-practices>. \[Accessed: 11-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamBuildContextClass2018">
 
-\[31\] Flutter Dev Team, “BuildContext class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/BuildContext-class.html>. \[Accessed: 01-Oct-2019\]
+\[32\] Flutter Dev Team, “BuildContext class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/BuildContext-class.html>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcHowCreateStateless2018">
 
-\[32\] *How to Create Stateless Widgets*, vol. Ep. 1. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=wE7khGHVkYY>. \[Accessed: 23-Sep-2019\]
-
-</div>
-
-<div id="ref-flutterdevteamStatefulWidgetClass2018">
-
-\[33\] Flutter Dev Team, “StatefulWidget class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html>. \[Accessed: 01-Oct-2019\]
+\[33\] *How to Create Stateless Widgets*, vol. Ep. 1. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=wE7khGHVkYY>. \[Accessed: 23-Sep-2019\]
 
 </div>
 
