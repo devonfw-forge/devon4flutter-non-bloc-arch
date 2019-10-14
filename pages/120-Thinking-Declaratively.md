@@ -6,11 +6,11 @@ Page Table of Contents
 
 ## Introduction
 
-If you come from the native mobile world and *imperative* frameworks like IOS [\[15\]](https://developer.apple.com/ios/) and Android [\[16\]](https://developer.android.com/), developing with Flutter [\[1\]](https://flutter.dev/) can take a while to get used to. Flutter, other then those frameworks mentioned above, is *declarative*. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: *State* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
+If you are coming from the native mobile world and *imperative* frameworks like IOS [\[15\]](https://developer.apple.com/ios/) and Android [\[16\]](https://developer.android.com/), developing with Flutter [\[1\]](https://flutter.dev/) can take a while to get used to. Flutter, other then those frameworks mentioned above, is *declarative*. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: *State* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 
 ## Declarative Programming vs Imperative Programming
 
-But what exactly is the difference between *declarative* and *imperative*? I will try to explain this using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” \[1\], \[12\], \[25\], \[26\]. Let’s look at an example:
+I will explain the difference between *declarative* and *imperative* using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” \[1\], \[12\], \[25\], \[26\]. Let’s look at a code example:
 
 ``` dart
 List numbers = [1,2,3,4,5];
@@ -19,16 +19,17 @@ for(int i = 0; i < numbers.length; i++){
 }
 ```
 
-*Code Snippet 1: Number List (Imperative)*
+*Code Snippet 1: Searching through a list (Imperative)*
 
-Here we want to print every entry in the list that is bigger than 3. We explicitly tell the framework to go through the List one by one and check each value. In the declarative version, we simply State how our result should look like, but not how to reach it:
+Here we want to print every entry in the list that is bigger than 3. We explicitly tell the framework to go through the list one by one and check each value.
+In the declarative version, we simply state how our result should look like, but not how to reach it:
 
 ``` dart
 List numbers = [1,2,3,4,5];
 print(numbers.where((num) => num > 3));
 ```
 
-*Code Snippet 2: Number List (Declarative)*
+*Code Snippet 2: Searching through a list (Declarative)*
 
 One important thing to note here is, that the difference between imperative and declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit more declarative. This is because you are then using functions that *describe* what they do and you no longer care how they do it [\[27\]](https://www.youtube.com/watch?v=4A2mWqLUpzw).
 
@@ -37,7 +38,7 @@ One important thing to note here is, that the difference between imperative and 
 
 ## Declarative Programming in Flutter
 
-Okay, now that we understand what declarative means, let’s take a look at Flutter specifically. This is a quote from Flutter’s official documentation:
+Okay, now that we understand what Declarative Programming is, let’s take a look at Flutter specifically. This is a quote from Flutter’s official documentation:
 
 > “Flutter is declarative. This means that Flutter builds its user interface to reflect the current State of your app” [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
@@ -45,14 +46,14 @@ Okay, now that we understand what declarative means, let’s take a look at Flut
 
 *Figure 7: UI = f(State) [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)*
 
-This means that you never imperatively or explicitly call a UI element to change it. You rather *declare* that the UI should look a certain way, given a certain *State* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). But what exactly is *State*?
+In Flutter, you never imperatively or explicitly call a UI element to change it. You rather *declare* that the UI should look a certain way, given a certain *State* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). But what exactly is *State*?
 
 | 📙 | State | Any data that can change over time [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) |
 | - | ----- | :------------------------------------------------------------------------------------------------------------ |
 
-Typical State examples: User Data, the position of a scroll bar, a favorite List
+Typical State examples are: User Data, a user’s scroll position within a list, a favorite list.
 
-Let’s have a look at a classic UI problem and how we would solve it imperatively in Android and compare it to Flutter’s declarative approach. let’s say we want to build a button that changes its color to red when it is pressed. In Android we find the button by its ID, attach a listener and tell that listener to change the background color when the button is pressed:
+Let’s have a look at a classic UI problem and how we would solve it imperatively in Android and compare it to Flutter’s declarative approach. let’s say we want to build a button that changes its color to red when it is pressed. In Android we find the button by its ID, attach a listener, and tell that listener to change the background color when the button is pressed:
 
 ``` java
 Button button = findViewById(R.id.button_id);

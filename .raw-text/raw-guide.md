@@ -130,10 +130,10 @@ _Figure 6: Hot Reload [[@flutterdevteamHotReloadFlutter2019]](https://flutter.de
 # 120-Thinking-Declaratively
 
 ## Introduction
-If you come from the native mobile world and _imperative_ frameworks like IOS [[@appleIOSSDK2010]](https://developer.apple.com/ios/) and Android [[@googlellcAndroidSDK2008]](https://developer.android.com/), developing with Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) can take a while to get used to. Flutter, other then those frameworks mentioned above, is _declarative_. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: _State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
+If you are coming from the native mobile world and _imperative_ frameworks like IOS [[@appleIOSSDK2010]](https://developer.apple.com/ios/) and Android [[@googlellcAndroidSDK2008]](https://developer.android.com/), developing with Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) can take a while to get used to. Flutter, other then those frameworks mentioned above, is _declarative_. This section will teach you how to think about developing apps declaratively and one of the most important concepts of Flutter: _State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt).
 
 ## Declarative Programming vs Imperative Programming
-But what exactly is the difference between _declarative_ and _imperative_? I will try to explain this using a metaphor: For a second, let's think of programming as _talking_ to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. "Imperium" (Latin) means "to command". A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. "Declaro" (Latin) means "to explain" [@flutterdevteamFlutterFramework2018; @flutterdevteamFlutterState2019; @flutterdevteamIntroductionDeclarativeUI2019; @bezerraDeclarativeProgramming2018]. Let's look at an example:
+I will explain the difference between _declarative_ and _imperative_ using a metaphor: For a second, let's think of programming as _talking_ to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. "Imperium" (Latin) means "to command". A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. "Declaro" (Latin) means "to explain" [@flutterdevteamFlutterFramework2018; @flutterdevteamFlutterState2019; @flutterdevteamIntroductionDeclarativeUI2019; @bezerraDeclarativeProgramming2018]. Let's look at a code example:
 
 ```dart
 List numbers = [1,2,3,4,5];
@@ -141,15 +141,16 @@ for(int i = 0; i < numbers.length; i++){
     if(numbers[i] > 3 ) print(numbers[i]);     
 }
 ```
-_Code Snippet 1: Number List (Imperative)_
+_Code Snippet 1: Searching through a list (Imperative)_
 
-Here we want to print every entry in the list that is bigger than 3. We explicitly tell the framework to go through the List one by one and check each value. In the declarative version, we simply State how our result should look like, but not how to reach it:
+Here we want to print every entry in the list that is bigger than 3. We explicitly tell the framework to go through the list one by one and check each value. 
+In the declarative version, we simply state how our result should look like, but not how to reach it:
 
 ```dart
 List numbers = [1,2,3,4,5];
 print(numbers.where((num) => num > 3));
 ```
-_Code Snippet 2: Number List (Declarative)_
+_Code Snippet 2: Searching through a list (Declarative)_
 
 One important thing to note here is, that the difference between imperative and declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit more declarative. This is because you are then using functions that _describe_ what they do and you no longer care how they do it [[@computerphileHTMLProgrammingLanguage2016]](https://www.youtube.com/watch?v=4A2mWqLUpzw).
 
@@ -157,7 +158,7 @@ One important thing to note here is, that the difference between imperative and 
 | --- | ---- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ## Declarative Programming in Flutter
-Okay, now that we understand what declarative means, let's take a look at Flutter specifically. This is a quote from Flutter's official documentation:
+Okay, now that we understand what Declarative Programming is, let's take a look at Flutter specifically. This is a quote from Flutter's official documentation:
 
 > "Flutter is declarative. This means that Flutter builds its user interface to reflect the current State of your app" [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
@@ -165,14 +166,14 @@ Okay, now that we understand what declarative means, let's take a look at Flutte
 
 _Figure 7: UI = f(State) [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
 
-This means that you never imperatively or explicitly call a UI element to change it. You rather _declare_ that the UI should look a certain way, given a certain _State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). But what exactly is _State_? 
+In Flutter, you never imperatively or explicitly call a UI element to change it. You rather _declare_ that the UI should look a certain way, given a certain _State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). But what exactly is _State_? 
 
 | 📙  | State | Any data that can change over time [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) |
 | --- | ----- | :--------------------------------------------------------------------------------------------------------------------------------------- |
 
-Typical State examples: User Data, the position of a scroll bar, a favorite List
+Typical State examples are: User Data, a user's scroll position within a list, a favorite list.
 
-Let's have a look at a classic UI problem and how we would solve it imperatively in Android and compare it to Flutter's declarative approach. let's say we want to build a button that changes its color to red when it is pressed. In Android we find the button by its ID, attach a listener and tell that listener to change the background color when the button is pressed:
+Let's have a look at a classic UI problem and how we would solve it imperatively in Android and compare it to Flutter's declarative approach. let's say we want to build a button that changes its color to red when it is pressed. In Android we find the button by its ID, attach a listener, and tell that listener to change the background color when the button is pressed:
 
 ```java
 Button button = findViewById(R.id.button_id);
@@ -212,7 +213,6 @@ _Code Snippet 4: Red button in Flutter (Declarative)_
 Is it not very inefficient to re-render the entire Widget every time we change the State? That was the first question I had when learning about this topic. But I was pleased to learn, that Flutter uses something called "RenderObjects" to improve performance similar to Reacts [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) virtual DOM.
 
 > "RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between States. The Flutter framework handles the rest." [[@flutterdevteamIntroductionDeclarativeUI2019]](https://flutter.dev/docs/get-started/flutter-for/declarative)
-
 
 # 130-The-Widget-Tree
 ## Introduction
