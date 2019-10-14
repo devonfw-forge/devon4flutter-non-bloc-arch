@@ -1,5 +1,6 @@
 Page Table of Contents
 - [Introduction](#introduction)
+- [Intro to BLoC](#intro-to-bloc)
 - [Advantages of BLoC](#advantages-of-bloc)
 - [Rules of the BLoC Pattern](#rules-of-the-bloc-pattern)
     - [Rules for the BLoCs](#rules-for-the-blocs)
