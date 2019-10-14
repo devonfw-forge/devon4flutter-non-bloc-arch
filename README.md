@@ -1,7 +1,7 @@
 ![Banner](https://github.com/Fasust/flutter-guide/wiki//images/banner.png)
 
 > The Guide is published in the [Wiki of this repository](https://github.com/Fasust/flutter-guide/wiki). This Repository just hold a copy of the Wiki to make the commit history more readable and enable pull-requests. The README.md is a copy of the [Introduction chapter](https://github.com/Fasust/flutter-guide/wiki).
- 
+
 # Introduction
 
 ## The Goal of this Guide
@@ -27,11 +27,11 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 
 ## Creation Context
 
-This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [\[8\]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). Capgemini released a guide on building an application in Angular [\[10\]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
+This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [\[8\]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). Capgemini released a guide on building an application with Angular [\[10\]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
 
 ## Structure
 
-The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [\[11\]](https://github.com/Fasust/wisgen), an example Flutter Application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/Fasust/flutter-guide/wiki/gfm-guide). It is all chapters of the guide combined into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
+The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [\[11\]](https://github.com/Fasust/wisgen), an example Flutter application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/Fasust/flutter-guide/wiki/gfm-guide). It is all chapters of the guide combined into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
 
 | Symbol | Meaning                  |
 | :----: | :----------------------- |
@@ -41,7 +41,4 @@ The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 
 
 ## My Sources
 
-I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in the chapter [*References*](https://github.com/Fasust/flutter-guide/wiki/600-References). To better understand all the theory, I also developed the Wisgen app [\[11\]](https://github.com/Fasust/wisgen) using the Flutter Framework and the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
-
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
-<p align="center"><a href="#">Back to Top</a></p>
+I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [*6 References*](https://github.com/Fasust/flutter-guide/wiki/600-References). To put that theoretical knowledge in to practice, I built the Wisgen application [\[11\]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
