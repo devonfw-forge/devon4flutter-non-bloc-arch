@@ -559,15 +559,21 @@
 
 </div>
 
+<div id="ref-flutterdevteamWhatFllutter2018">
+
+\[94\] Flutter Dev Team, “What is Fllutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
+
+</div>
+
 <div id="ref-flutterdevteamFlutterYouTube2019">
 
-\[94\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
+\[95\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcInjectRepo2019">
 
-\[95\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
+\[96\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
