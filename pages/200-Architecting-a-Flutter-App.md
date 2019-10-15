@@ -10,7 +10,7 @@ The Most central topic of architecting a Flutter app [\[1\]](https://flutter.dev
 
 ## State Management vs Architecture
 
-I want to differentiate these two terms. Within the Flutter community, *State Management* and *Architecture* are often used synonymously, but I think we should be careful to do so. State Management is, as the name indicates, managing the State of an application. This can be done with the help of a technology or a framework. Architecture, on the other hand, is the overarching structure of an app. A set of rules that an app conforms to. Any architecture for a Flutter application will have some sort of State Management, but State Management is not an architecture by itself. I just want you to keep this in mind for the following chapters.
+I want to differentiate these two terms. Within the Flutter community, *State Management* and *Architecture* are often used synonymously, but I think we should be careful to do so. State Management is, as the name indicates, managing the State of an application. This can be done with the help of a technology or a framework \[12\], \[55\]. Architecture, on the other hand, is the overarching structure of an app. A set of rules that an app conforms to [\[56\]](http://www.iso.org/cms/render/live/en/sites/isoorg/contents/data/standard/05/05/50508.html). Any architecture for a Flutter application will have some sort of State Management, but State Management is not an architecture by itself. I just want you to keep this in mind for the following chapters.
 
 ## Types of State
 
