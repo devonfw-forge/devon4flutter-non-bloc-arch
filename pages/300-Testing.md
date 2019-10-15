@@ -146,7 +146,7 @@ In this test, we create three wisdoms and add/remove them from the favorite BLoC
 
 ### Mockito
 
-As mentioned before, *Mockito* [\[76\]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC pattern forces us to make all plattform specific dependencies of our BLoCs injectable [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it’s Repository, we can inject a mock Repository into the BLoC. In this example, we use *Mockito* to test if our wisdom BLoC emits new wisdoms after receiving a fetch event:
+As mentioned before, *Mockito* [\[76\]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC pattern forces us to make all platform-specific dependencies of our BLoCs injectable [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it’s Repository, we can inject a mock Repository into the BLoC. In this example, we use *Mockito* to test if our wisdom BLoC emits new wisdoms after receiving a fetch event:
 
 ``` dart
 //Creating Mocks using Mockito

@@ -29,7 +29,7 @@ Whenever the favorite button on any card is pressed, several Widgets [\[28\]](ht
 
 ## Provider Package
 
-The Provider Package [\[53\]](https://pub.dev/packages/provider) is an open-source package for Flutter published by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions \[54\], \[55\] and Rousselet and the Flutter Team are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [\[36\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
+The Provider Package [\[53\]](https://pub.dev/packages/provider) is a State Management solution for Flutter published by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions \[54\], \[55\] and Rousselet and the Flutter Team are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [\[36\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
 
 As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their BuildContexts. This practice is called *“lifting State up”* and it is very common within declarative frameworks [\[56\]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
 
 *Code Snippet 23: Providing Favorites Globally [\[11\]](https://github.com/Fasust/wisgen)*
 
-Now we can consume the Favorite class from any of the dependance of the ChangeNotifierProvider Widget. Let’s look at the favorite button as an example. We use the *Consumer Widget* to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes.
+Now we can consume the Favorite class from any of the dependance of the ChangeNotifierProvider Widget. Let’s look at the favorite button as an example. We use the *Consumer Widget* to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes. The *wisdom* object is the wisdom displayed on the Card Widget.
 
 ``` dart
 ...
