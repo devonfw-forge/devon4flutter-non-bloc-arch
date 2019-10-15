@@ -6,7 +6,7 @@ Page Table of Contents
 
 ## Introduction
 
-The Most central topic of architecting a Flutter app [\[1\]](https://flutter.dev/) is *State Management* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** needs access to it, and **how** do they access it? This chapter aims to answer those questions. You will learn about the two types of State, you will be introduced to the three most popular [State Management solutions](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives) and you will learn one of those State Management solutions ([BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC) [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC State Management solution in a clean and scalable [four-layered architecture](https://github.com/Fasust/flutter-guide/wiki/220-BLoC).
+The Most central topic of architecting a Flutter app [\[1\]](https://flutter.dev/) is *State Management* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** needs access to it, and **how** do they access it? This chapter aims to answer those questions. You will learn about the two types of State, you will be introduced to the three most popular [State Management Solutions](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives) and you will learn one of those State Management Solutions ([BLoC](https://github.com/Fasust/flutter-guide/wiki/220-BLoC) [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC State Management Solution in a clean and scalable [four-layered architecture](https://github.com/Fasust/flutter-guide/wiki/220-BLoC).
 
 ## State Management vs Architecture
 
@@ -15,11 +15,11 @@ I want to differentiate these two terms. Within the Flutter community, *State Ma
 ## Types of State
 
 The Flutter documentation [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) differentiates between two types of State: *Ephemeral State* & *App State*.
-Ephemeral State is State that is only required in one location IE inside of one Widget. Examples would be: scroll position in a list, highlighting of selected elements or the color change of a pressed button. This is the type of State that we don’t need to worry about that much or in other words, there is no need for a fancy State Management solution for Ephemeral State. We can simply use a Stateful Widget with some variables and manage Ephemeral State that way [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). The more interesting type of State is App State. This is information that is required in multiple locations / by multiple Widgets. Examples would be user data, a list of favorites or a shopping cart. App State management is going to be the focus of this chapter.
+Ephemeral State is State that is only required in one location IE inside of one Widget. Examples would be: scroll position in a list, highlighting of selected elements or the color change of a pressed button. This is the type of State that we don’t need to worry about that much or in other words, there is no need for a fancy State Management Solution for Ephemeral State. We can simply use a Stateful Widget with some variables and manage Ephemeral State that way [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). The more interesting type of State is App State. This is information that is required in multiple locations/by multiple Widgets. Examples would be user data, a list of favorites or a shopping cart. App State management is going to be the focus of this chapter.
 
-![Ephemeral State vs App State Decision Tree](https://github.com/Fasust/flutter-guide/wiki//images/ephemeral-vs-app-state.png)
+![Ephemeral State vs App State decision tree](https://github.com/Fasust/flutter-guide/wiki//images/ephemeral-vs-app-state.png)
 
-*Figure 12: Ephemeral State vs App State Dession Tree [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt)*
+*Figure 12: Ephemeral State vs App State decision tree [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt)*
 
 ## Contents of this Chapter
 

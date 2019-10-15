@@ -29,13 +29,13 @@ Widget Tests are used to test small Widget Sub-Trees of your application. They r
 
 Integration/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and *“prone to braking”*[\[79\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
-![Flutter Test Comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
+![Flutter test comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
 
-*Figure 24: Flutter Test Comparison [\[80\]](https://flutter.dev/docs/testing)*
+*Figure 24: Flutter test comparison [\[80\]](https://flutter.dev/docs/testing)*
 
 ## Writing Unit Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[79\], \[80\]. The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[78\]](https://pub.dev/packages/test) and the mockito package [\[81\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[79\], \[80\]. The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[78\]](https://pub.dev/packages/test) and the *mockito* package [\[81\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
 ``` yaml
 dev_dependencies:
@@ -48,7 +48,7 @@ dev_dependencies:
 
 *flutter\_test* offers the core testing capabilities of Flutter. *mockito* is used to mock up dependencies. All out tests should sit in a directory named *“test”* on the root level of our app directory. If we want to place them somewhere else, we have to specify their location every time we want to run them.
 
-![Wisgen Test Directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
+![Wisgen test directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
 
 *Figure 25: Wisgen test directory [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -105,9 +105,9 @@ void main() {
     
     test('Initial State is an empty list', () {...}); //Snippet 38
 
-    test('Stream many events and see if the State is emitted in correct order', () {
+    test('Stream many Events and see if the State is emitted in correct order', () {
       //Set Up
-      Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
+      Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your pictures", type: "tech");
       Wisdom wisdom2 = Wisdom(id: 2, text: "Wash your ears", type: "Mum's Advice");
       Wisdom wisdom3 = Wisdom(id: 3, text: "Travel while you're young", type: "Grandma's Advice");
 
@@ -121,7 +121,7 @@ void main() {
       expect( 
           favoriteBloc.state,
           emitsInOrder([
-            List(), //BLoC Library BLoCs emit their initial State on creation
+            List(), //BLoC Library BLoCs emit their initial State on creation.
             List()..add(wisdom1),
             List()..add(wisdom1)..add(wisdom2),
             List()..add(wisdom2),
@@ -134,14 +134,14 @@ void main() {
 
 *Code Snippet 39: Wisgen Favorite BLoC Tests 2 [\[11\]](https://github.com/Fasust/wisgen)*
 
-In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We use the *emitsInOrder()* *matcher* to tell the framework that we are working with a Stream and looking for a specific set of events to be emitted in order [\[82\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other Stream matchers besides *emitsInOrder()* [\[83\]](https://pub.dev/packages/test#asynchronous-tests):
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding Events. We use the *emitsInOrder()* *matcher* to tell the framework that we are working with a Stream and looking for a specific set of Events to be emitted in order [\[82\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other Stream matchers besides *emitsInOrder()* [\[83\]](https://pub.dev/packages/test#asynchronous-tests):
 
-  - *emits()* matches a single data event.
-  - *emitsError()* matches a single error event.
-  - *emitsDone* matches a single done event.
+  - *emits()* matches a single data Event.
+  - *emitsError()* matches a single error Event.
+  - *emitsDone* matches a single done Event.
   - *emitsAnyOf()* consumes events matching one (or more) of several possible matchers.
   - *emitsInAnyOrder()* works like emitsInOrder(), but it allows the matchers to match in any order.
-  - *neverEmits()* matches a stream that finishes without matching an inner matcher.
+  - *neverEmits()* matches a Stream that finishes without matching an inner matcher.
   - And more [\[83\]](https://pub.dev/packages/test#asynchronous-tests)
 
 ### Mockito
@@ -189,7 +189,7 @@ void main() {
         IdleWisdomState(fetchedWisdom)
       ];
     
-      //Test ---
+      //Testing ---
       wisdomBloc.dispatch(FetchEvent(mockBuildContext));
 
       //Result ---
@@ -223,18 +223,18 @@ This can be an easy thing to trip over during testing, especially when comparing
 @immutable
 abstract class WisdomState extends Equatable {}
 
-///Broadcasted from [WisdomBloc] on Network Error.
+///Broadcasted from [WisdomBloc] on network error.
 class WisdomStateError extends WisdomState {
   final Exception exception;
   WisdomStateError(this.exception);
 
   @override
-  List<Object> get props => [exception];
+  List<Object> get props => [exception]; //compare based on exception.
 }
 
-///Gives Access to current list of [Wisdom] s in the [WisdomBloc].
+///Gives access to current list of [Wisdom]s in the [WisdomBloc].
 ///
-///When BLoC receives a [WisdomEventFetch] during this State, 
+///When the BLoC receives a [WisdomEventFetch] during this State, 
 ///it fetches more [Wisdom] from it [Supplier]. 
 ///When done it emits a new [IdleSate] with more [Wisdom].
 class WisdomStateIdle extends WisdomState {
@@ -242,7 +242,7 @@ class WisdomStateIdle extends WisdomState {
   WisdomStateIdle(this.wisdoms);
 
   @override
-  List<Object> get props => wisdoms;
+  List<Object> get props => wisdoms; //compare based on wisdoms.
 }
 ```
 

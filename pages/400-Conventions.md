@@ -40,7 +40,7 @@ A few additional things to note about naming conventions in Dart [\[85\]](https:
 
 ## Doc Comments
 
-In the snippets up until now you might have noticed the us of `///` for comments above classes, functions and member. In Dart triple-dash or “Doc Comments” are a replacement for the classical `/** ... */` bloc comment from other language. The Dart team argues, that Doc Comments don’t take up two additional lines when using them as a block comment:
+In the snippets up until now you might have noticed the us of `///` for comments above classes, functions and member. In Dart triple-dash or “Doc Comments” are a replacement for the classical `/** ... */` block comment from other language. The Dart team argues, that Doc Comments don’t take up two additional lines when using them as a block comment:
 
 ``` dart
 /**
@@ -64,7 +64,7 @@ class Wisdom {...}
 
 Wether you agree with that reasoning or not. You should definitely use them, because they can be used to auto generate a documentation for your project with the Dartdoc tool [\[88\]](https://github.com/dart-lang/dartdoc) and they are shown as tooltips in your IDE:
 
-![Wisdom Tool Tip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
+![Wisgen wisdom tool tip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
 
 *Figure 26: Wisgen wisdom tool tip [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -75,7 +75,7 @@ Some additional things to note about Doc Comments in Dart are [\[85\]](https://d
   - That initial line should be followed by one empty line to make it stand out.
   - Highlight relevant classes, functions or members by surrounding them with *\[…\]*.
       - They will be linked in the auto-generated docs
-  - Markdown [\[89\]](https://daringfireball.net/projects/markdown/) is supported for triple-dash comments, so consider adding code snippets as examples.
+  - Markdown [\[89\]](https://daringfireball.net/projects/markdown/) is supported for Doc Comments, so consider adding code snippets as examples.
   - Don’t document information that is already obvious by class name and parameter:
 
 <!-- end list -->
@@ -132,10 +132,10 @@ Let’s look at an example. This is what the *WisdomCard* in Wisgen would look l
 ``` dart
 ///Displays a given [Wisdom].
 ///
-///Images are Loaded from the given [Wisdom.imgUrl] once and then cashed.
+///Images are loaded from the given [Wisdom.imgUrl] once and then cashed.
 ///All [Wisdom]s displayed in a [WisdomCard] *have* to contain an imgUrl.
 ///The like button subscribes to the global [FavoriteBLoC] to change it's appearance
-///based on on its current State.
+///based on on the [FavoriteBLoC]s current State.
 ///The button also publishes [FavoriteEventAdd]/[FavoriteEventRemove] to 
 ///the [FavoriteBLoC] when it is pressed.
 class WisdomCard extends StatelessWidget {
@@ -237,15 +237,15 @@ class WisdomCard extends StatelessWidget {
 
 *Figure 27: Wisgen Wisdom Card [\[11\]](https://github.com/Fasust/wisgen)*
 
-And this is what it looks like if we extract the callback function and slit the Widget [\[32\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
+And this is what it looks like if we extract the callback function and split the Widget [\[32\]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
 
 ``` dart
 ///Displays a given [Wisdom].
 ///
-///Images are Loaded from the given [Wisdom.imgUrl] once and then cashed.
+///Images are loaded from the given [Wisdom.imgUrl] once and then cashed.
 ///All [Wisdom]s displayed in a [WisdomCard] *have* to contain an imgUrl.
-///The [_LikeButton] subscribes to the global [FavoriteBLoC] to change it's appearance
-///based on on its current State.
+///The like button subscribes to the global [FavoriteBLoC] to change it's appearance
+///based on on the [FavoriteBLoC]s current State.
 ///The button also publishes [FavoriteEventAdd]/[FavoriteEventRemove] to 
 ///the [FavoriteBLoC] when it is pressed.
 class WisdomCard extends StatelessWidget {
@@ -301,8 +301,7 @@ class _Image extends StatelessWidget {
   }
 }
 
-///Displays [Wisdom.text], [Wisdom.type], [Wisdom.id] and
-///a [_LikeButton].
+///Displays [Wisdom.text], [Wisdom.type], [Wisdom.id] and a [_LikeButton].
 class _Content extends StatelessWidget {
   static const double _smallPadding = 4;
   static const double _largePadding = 8;
@@ -343,7 +342,7 @@ class _Content extends StatelessWidget {
 
 }
 
-///Display if a given [Wisdom] is a favorite and gives the option 
+///Displays if a given [Wisdom] is a favorite and gives the option 
 ///to change that fact.
 class _LikeButton extends StatelessWidget {
   const _LikeButton({
@@ -359,7 +358,7 @@ class _LikeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 1,
-      //This is where we Subscribe to the FavoriteBLoC
+      //This is where we subscribe to the FavoriteBLoC
       child: BlocBuilder<FavoriteBloc, List<Wisdom>>(
         builder: (context, favorites) => IconButton(
           icon: Icon(favorites.contains(_wisdom)
@@ -373,8 +372,8 @@ class _LikeButton extends StatelessWidget {
     );
   }
 
-  ///Figures out if a Wisdom is already liked or not.
-  ///Then send corresponding Event.
+  ///Figures out if a [Wisdom] is already liked or not and 
+  ///then sends the corresponding Event to the [FavoriteBloc].
   void _onLike(BuildContext context, List<Wisdom> favorites) {
     final FavoriteBloc favoriteBloc = BlocProvider.of<FavoriteBloc>(context);
 
@@ -412,7 +411,7 @@ As of the writing of this guide there is not really any agreement or best practi
 
 *Figure 28: Possible Project Directory Structure*
 
-I would also recommend splitting up the UI directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository and data directory into one, this also a perfectly valid option.
+I would also recommend splitting up the UI directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository- and data-directory into one, this also a perfectly valid option.
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/500-Conclusion">Next Chapter: Conclusion ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

@@ -50,9 +50,9 @@ Flutter’s approach is to move the entire rendering process into the app. The r
 
 You might think that keeping an entire rendering engine inside an app would lead to huge APKs, but as of 2019, the compressed framework is only 4.3MB [\[24\]](https://flutter.dev/docs/resources/faq).
 
-![Flutter Framework Architecture](https://github.com/Fasust/flutter-guide/wiki//images/flutter-architecture.png)
+![Flutter Framework architecture](https://github.com/Fasust/flutter-guide/wiki//images/flutter-architecture.png)
 
-*Figure 5: Flutter Framework Architecture [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
+*Figure 5: Flutter Framework architecture [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
 | 🕐 | TLDR | Flutter uses its own engine instead of using the native one. The native environment only renders the finished frames. |
 | - | ---- | :-------------------------------------------------------------------------------------------------------------------- |

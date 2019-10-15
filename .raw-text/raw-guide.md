@@ -102,9 +102,9 @@ Flutter's approach is to move the entire rendering process into the app. The ren
 
 You might think that keeping an entire rendering engine inside an app would lead to huge APKs, but as of 2019, the compressed framework is only 4.3MB [[@flutterdevteamFAQFlutter2019]](https://flutter.dev/docs/resources/faq). 
 
-![Flutter Framework Architecture](https://github.com/Fasust/flutter-guide/wiki//images/flutter-architecture.png)
+![Flutter Framework architecture](https://github.com/Fasust/flutter-guide/wiki//images/flutter-architecture.png)
 
-_Figure 5: Flutter Framework Architecture [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
+_Figure 5: Flutter Framework architecture [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 | 🕐  | TLDR | Flutter uses its own engine instead of using the native one. The native environment only renders the finished frames. |
 | --- | ---- | :-------------------------------------------------------------------------------------------------------------------- |
@@ -112,10 +112,10 @@ _Figure 5: Flutter Framework Architecture [[@lelerWhatRevolutionaryFlutter2017]]
 ## Flutter Compiler
 One additional advantage of Flutter is that it comes with two different compilers. A JIT-Compiler (just in time) and an AOT-Compiler (ahead of time). The following table will showcase the advantage of each:
 
-| Compiler      | What is does                                                                                                                                                                                                                                                                                              | When it's used     |
-| :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- |
+| Compiler      | What is does                                                                                                                                                                                                                                                                                                | When it's used     |
+| :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- |
 | Just in Time  | Only re-compiles files that have changed. Preserves _App State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables _Hot Reload_ [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
-| Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                                                                        | For Release        |
+| Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                                                                          | For Release        |
 
 _Table 1: Flutter's 2 Compilers [@mooreDartProductiveFast2019; @googlellcHowFlutterDifferent2019]_
 
@@ -804,18 +804,18 @@ _Code Snippet 21: Wisgen AdviceSlips [[@faustWisgen2019]](https://github.com/Fas
 
 # 200-Architecting-a-Flutter-App
 ## Introduction
-The Most central topic of architecting a Flutter app [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/)  is _State Management_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** needs access to it, and **how** do they access it? This chapter aims to answer those questions. You will learn about the two types of State, you will be introduced to the three most popular [State Management solutions][statemng] and you will learn one of those State Management solutions ([BLoC][bloc] [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC State Management solution in a clean and scalable [four-layered architecture][bloc].
+The Most central topic of architecting a Flutter app [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/)  is _State Management_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). **Where** does my State sit, **who** needs access to it, and **how** do they access it? This chapter aims to answer those questions. You will learn about the two types of State, you will be introduced to the three most popular [State Management Solutions][statemng] and you will learn one of those State Management Solutions ([BLoC][bloc] [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)) in detail. You will also learn how to use the BLoC State Management Solution in a clean and scalable [four-layered architecture][bloc].
 
 ## State Management vs Architecture
 I want to differentiate these two terms. Within the Flutter community, _State Management_ and _Architecture_ are often used synonymously, but I think we should be careful to do so. State Management is, as the name indicates, managing the State of an application. This can be done with the help of a technology or a framework [@flutterdevteamFlutterState2019; @wikipediaStateManagement2019]. Architecture, on the other hand, is the overarching structure of an app. A set of rules that an app conforms to [[@isoISOIECIEEE2011]](http://www.iso.org/cms/render/live/en/sites/isoorg/contents/data/standard/05/05/50508.html). Any architecture for a Flutter application will have some sort of State Management, but State Management is not an architecture by itself. I just want you to keep this in mind for the following chapters.
 
 ## Types of State
 The Flutter documentation [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) differentiates between two types of State: _Ephemeral State_ & _App State_.
-Ephemeral State is State that is only required in one location IE inside of one Widget. Examples would be: scroll position in a list, highlighting of selected elements or the color change of a pressed button. This is the type of State that we don't need to worry about that much or in other words, there is no need for a fancy State Management solution for Ephemeral State. We can simply use a Stateful Widget with some variables and manage Ephemeral State that way [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). The more interesting type of State is App State. This is information that is required in multiple locations / by multiple Widgets. Examples would be user data, a list of favorites or a shopping cart. App State management is going to be the focus of this chapter.
+Ephemeral State is State that is only required in one location IE inside of one Widget. Examples would be: scroll position in a list, highlighting of selected elements or the color change of a pressed button. This is the type of State that we don't need to worry about that much or in other words, there is no need for a fancy State Management Solution for Ephemeral State. We can simply use a Stateful Widget with some variables and manage Ephemeral State that way [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). The more interesting type of State is App State. This is information that is required in multiple locations/by multiple Widgets. Examples would be user data, a list of favorites or a shopping cart. App State management is going to be the focus of this chapter.
 
-![Ephemeral State vs App State Decision Tree](https://github.com/Fasust/flutter-guide/wiki//images/ephemeral-vs-app-state.png)
+![Ephemeral State vs App State decision tree](https://github.com/Fasust/flutter-guide/wiki//images/ephemeral-vs-app-state.png)
 
-_Figure 12: Ephemeral State vs App State Dession Tree [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt)_
+_Figure 12: Ephemeral State vs App State decision tree [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt)_
 
 ## Contents of this Chapter
 
@@ -825,38 +825,37 @@ _Figure 12: Ephemeral State vs App State Dession Tree [[@flutterdevteamFlutterSt
 # 210-State-Management-Alternatives
 
 ## Introduction
-Other than many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or State Management solution on its developers. This open-ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community [[@eganFlutterArchitectureSamples2017]](https://fluttersamples.com/). Some of these approaches have even been endorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I decided to focus on the BLoC pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) for this guide. But I do want to showcase some alternatives and explain why exactly I ended up choosing BLoC.
+Other than many mobile development frameworks, Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) does not impose any kind of architecture or State Management Solution on its developers. This open-ended approach has lead to multiple State Management Solution and a hand full of architectural approaches spawning from the community [[@eganFlutterArchitectureSamples2017]](https://fluttersamples.com/). Some of these approaches have even been endorsed by the Flutter Team itself [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I decided to focus on the BLoC pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) for this guide. But I do want to showcase some alternatives and explain why exactly I ended up choosing BLoC.
 
 ## Example App State
-I will showcase the State Management solutions using one example of _App State_ from the Wisgen App [[@faustWisgen2019]](https://github.com/Fasust/wisgen). Wisgen gives the user the option to add wisdoms to a favorite list. This list/State is needed by 2 parties: 
+I will showcase the State Management Solutions using one example of _App State_ from the Wisgen App [[@faustWisgen2019]](https://github.com/Fasust/wisgen). Wisgen gives the user the option to add wisdoms to a favorite list. This list/State is needed by two parties: 
 
 1. The ListView on the favorite page, so it can display all favorites.
 2. The button on every wisdom card so it can add a new favorites to the list and show if a given wisdom is a favorite.
 
-![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
+![Wisgen favorites list and favorite in feed](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
 
-_Figure 13: Wisgen Favorites [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 13: Wisgen favorites list and favorite in feed [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Whenever the favorite button on any card is pressed, several Widgets [[@flutterdevteamFlutterWidgets2019]](https://flutter.dev/docs/development/ui/widgets-intro) have to update. This is a simplified version of the Wisgen Widget Tree. The red highlights show the Widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
 
-![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
+![Wisgen favorites WidgetTree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
 
-_Figure 14: Wisgen WidgetTree Favorites [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 14: Wisgen favorites WidgetTree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Provider Package
-The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is a State Management solution for Flutter published by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions [@hracekPragmaticStateManagement2019; @sullivanPragmaticStateManagement2019] and Rousselet and the Flutter Team are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
+The Provider Package [[@rousseletProviderFlutterPackage2018]](https://pub.dev/packages/provider) is a State Management Solution for Flutter published by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions [@hracekPragmaticStateManagement2019; @sullivanPragmaticStateManagement2019] and Rousselet and the Flutter Team are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [[@flutterdevteamInheritedWidgetClass2018]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
 
-As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their BuildContexts. This practice is called _"lifting State up"_ and it is very common within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
-
+As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their BuildContexts [[@flutterdevteamBuildContextClass2018]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). This practice is called _"lifting State up"_ and it is very common within declarative frameworks [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
 | 📙  | Lifting State up | Placing State at the lowest common ancestor of all Widgets that need access to it [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A) |
 | --- | ---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 The Provider Package is an easy way for us to lift State up. Let's look at our example from figure 14: The first common ancestor of all Widgets in need of the favorite list is _MaterialApp_. So we will need to lift the State up to the MaterialApp Widget and then have our other Widgets access it from there:
 
-![Wisgen WidgetTree Favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
+![Wisgen WidgetTree favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
 
-_Figure 15: Wisgen WidgetTree Favorites with Provider [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 15: Wisgen WidgetTree favorites with Provider [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 To minimize re-builds the Provider Package uses ChangeNotifiers [[@flutterdevteamChangeNotifierClass2018]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the provided Sate and get notified whenever the it changes. This is how an implementation of Wisgen's favorite list would look like using Provider. _Favorites_ is the class we will use to provide our favorite list globally. The _notifyListeners()_ function will trigger rebuilds on all Widgets that listen to it.
 
@@ -889,7 +888,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //Providing Favorites Globally
+    //Providing Favorite class globally
     return ChangeNotifierProvider(
       builder: (_) => Favorites(),
       child: MaterialApp(home: WisdomFeed()),
@@ -897,7 +896,7 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-_Code Snippet 23: Providing Favorites Globally [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 23: Providing Favorite class globally [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Now we can consume the Favorite class from any of the dependance of the ChangeNotifierProvider Widget. Let's look at the favorite button as an example. We use the _Consumer Widget_ to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes. The _wisdom_ object is the wisdom displayed on the Card Widget.
 
@@ -907,7 +906,7 @@ Now we can consume the Favorite class from any of the dependance of the ChangeNo
 Widget build(BuildContext context) {
   return Expanded(
     flex: 1,
-    child: Consumer<Favorites>( //Consuming Global instance of Favorites
+    child: Consumer<Favorites>( //Consuming global instance of Favorite class
       builder: (context, favorites, child) => IconButton(
         //Display Icon Button depending on current State
         icon: Icon(favorites.contains(wisdom)
@@ -917,7 +916,7 @@ Widget build(BuildContext context) {
             ? Colors.red 
             : Colors.grey,
         onPressed: () {
-          //Add/remove Wisdom to/from Favorites
+          //Add/remove wisdom to/from Favorite class
           if (favorites.contains(wisdom)) favorites.remove(wisdom);
           else favorites.add(wisdom);
         },
@@ -927,17 +926,17 @@ Widget build(BuildContext context) {
 }
 ...
 ```
-_Code Snippet 24: Consuming Provider in Favorite Button [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 24: Consuming Provider in favorite button [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Why I decided against it
-All in all, Provider is a great and easy solution to distribute State in a small Flutter application. But it is just that, a State Management solution and not an architecture [@hracekPragmaticStateManagement2019; @boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @sullivanPragmaticStateManagement2019]. Just the Provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because Provider is such an efficient and easy way to distribute State, the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) uses it as an underlying technology for their approach.
+All in all, Provider is a great and easy solution to distribute State in a small Flutter application. But it is just that, a State Management Solution and not an architecture [@hracekPragmaticStateManagement2019; @boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @sullivanPragmaticStateManagement2019]. Just the Provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because Provider is such an efficient and easy way to distribute State, the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) uses it as an underlying technology for their approach.
 
 ## Redux
-Redux [[@abramovRedux2015]](https://redux.js.org/) is State Management solution with an associated architectural pattern. It was originally built for React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [[@eganFlutterReduxPackage2017]](https://pub.dev/packages/flutter_redux). Redux uses a _Store_ as one central location for all Business Logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has _Reducer_ functions, that take in the previous State and an _Action_ and return a new State. [@boelensFlutterBLoCScopedModel2019; @doughtieArchitectingReactiveFlutter2017; @eganKeepItSimple2018] So in Wisgen, the Dataflow would look something like this:
+Redux [[@abramovRedux2015]](https://redux.js.org/) is State Management Solution with an associated architectural pattern. It was originally built for React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [[@eganFlutterReduxPackage2017]](https://pub.dev/packages/flutter_redux). Redux uses a _Store_ as one central location for all business logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has _Reducer_ functions, that take in the previous State and an _Action_ and return a new State. [@boelensFlutterBLoCScopedModel2019; @doughtieArchitectingReactiveFlutter2017; @eganKeepItSimple2018] So in Wisgen, the Dataflow would look something like this:
 
-![Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
+![Wisgen Redux dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
-_Figure 16: Wisgen Redux Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 16: Wisgen Redux dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Let's have a quick look at how an implementation of Redux would look like in Wisgen.
 Our possible _Actions_ are:
@@ -950,7 +949,7 @@ So this is what our _Action_ classes would look like:
 ```dart
 @immutable
 abstract class FavoriteAction {
-  //Wisdom related to action
+  //Wisdom related to Action
   final Wisdom _favorite;
   get favorite => _favorite;
 
@@ -967,7 +966,7 @@ class RemoveFavoriteAction extends FavoriteAction {
 ```
 _Code Snippet 25: Hypothetical Wisgen Redux Actions [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-This what the reducer function would look like:
+This what the Reducer function would look like:
 
 ```dart
 // take in old State and Action
@@ -990,7 +989,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //Create new Store from reducer function
+    //Create new Store from Reducer function
     favoriteStore = new Store<List<Wisdom>>(
       reducer: favoriteReducer, 
       initialState: new List(),
@@ -1009,7 +1008,7 @@ class MyApp extends StatelessWidget {
 ```
 _Code Snippet 27: Providing Redux Store globally in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Now the Favorite button from snippet 24 would be implemented like this:
+Now the favorite button from snippet 24 would be implemented like this:
 
 ```dart
 ...
@@ -1028,7 +1027,7 @@ Widget build(BuildContext context) {
             ? Colors.red 
             : Colors.grey,
         onPressed: () {
-          //Add/remove Wisdom to/from Favorites
+          //Add/remove wisdom to/from favorites
           if (favorites.contains(wisdom)) store.dispatch(AddFavoriteAction(wisdom));
           else store.dispatch(RemoveFavoriteAction(wisdom));
         },
@@ -1038,10 +1037,10 @@ Widget build(BuildContext context) {
 }
 ...
 ```
-_Code Snippet 28: Consuming Redux Store in Favorite Button [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 28: Consuming Redux Store in favorite button [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Why I decided against it
-I went back and forth on this decision a lot. Redux is a great State Management solution with some clear guidelines on how to integrate it into a Reactive application [[@abramovThreePrinciplesRedux2015]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three-layered architecture (View - Store - Data) [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) and Angular [[@googlellcAngular2016]](https://angular.io/) and I very much agree with this advice [[@boelensFlutterBLoCScopedModel2019]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
+I went back and forth on this decision a lot. Redux is a great State Management Solution with some clear guidelines on how to integrate it into a Reactive application [[@abramovThreePrinciplesRedux2015]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three-layered architecture (View - Store - Data) [[@eganKeepItSimple2018]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) and Angular [[@googlellcAngular2016]](https://angular.io/) and I very much agree with this advice [[@boelensFlutterBLoCScopedModel2019]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 
 1. It was publicly endorsed by the Flutter Team on multiple occasions [@sullivanBuildReactiveMobile2018; @hracekPragmaticStateManagement2019; @sullivanTechnicalDebtStreams2018; @soaresFlutterAngularDartCode2018; @flutterdevteamFlutterState2019]
 2. It also has clear architectural rules [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)
@@ -1052,7 +1051,7 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 # 220-BLoC
 
 ## Introduction
-BLoC is a State Management solution that implements an architectural pattern. It was designed by Paolo Soares in 2018 [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [[@flutterdevteamFlutterFramework2018]]([@flutterdevteamFlutterFramework2018]) and Angular Dart [[@googlellcAngularDart2018]](https://angulardart.dev/) applications. This chapter will give you an in-depth understanding of what the BLoC Pattern is and how it works. You will learn how to implement it using the BLoC Package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) by Felix Angelov. And Finally, you will learn how to use the BLoC Pattern to achieve a scalable four-layered architecture for your application.
+BLoC is an architectural pattern that functions as a State Management Solution. It was designed by Paolo Soares in 2018 [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [[@flutterdevteamFlutterFramework2018]]([@flutterdevteamFlutterFramework2018]) and Angular Dart [[@googlellcAngularDart2018]](https://angulardart.dev/) applications. This chapter will give you an in-depth understanding of what the BLoC Pattern is and how it works. You will learn how to implement it using the BLoC Package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) by Felix Angelov. And Finally, you will learn how to use the BLoC Pattern to achieve a scalable four-layered architecture for your application.
 
 ## Intro to BLoC
 When Soares designed the BLoC Pattern, he was working on applications in both Flutter and Angular Dart. He wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular Dart apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send _Events_ to BLoCs and display the UI based on the _State_ of the BLoCs. Soares defined, that UI and BLoCs should only communicate through Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a Stream of State [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State [@sullivanBuildReactiveMobile2018; @sullivanTechnicalDebtStreams2018; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018].
@@ -1060,12 +1059,12 @@ When Soares designed the BLoC Pattern, he was working on applications in both Fl
 | 📙  | BLoC | Business Logic Component [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE) |
 | --- | ---- | :---------------------------------------------------------------------------------------------------------- |
 
-| 🕐  | TLDR | The UI should be kept free of business logic. The UI Only publishes _Events_ to a BLoC and subscribes to a stream of _State_ emitted by a BLoC |
+| 🕐  | TLDR | The UI should be kept free of business logic. The UI only publishes _Events_ to a BLoC and subscribes to a Stream of _State_ emitted by a BLoC |
 | --- | ---- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 
-![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
+![Bloc turning input Events to a Stream of State](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
-_Figure 17: Bloc turning input events to a stream of State [[@sullivanBuildReactiveMobile2018]](https://www.youtube.com/watch?v=RS36gBEp8OI)_
+_Figure 17: Bloc turning input Events to a Stream of State [[@sullivanBuildReactiveMobile2018]](https://www.youtube.com/watch?v=RS36gBEp8OI)_
 
 ## Advantages of BLoC
 That's all well and good, but why should you care? An application that follows the rules defined by the BLoC pattern will...
@@ -1075,42 +1074,43 @@ That's all well and good, but why should you care? An application that follows t
 3. have a UI that can be changed without affecting the business Logic.
 4. have business logic that is easily testable.
 5. rely on few rebuilds, as the UI only rebuilds when the State related to that UI changes.
+6. have an App-Sate with very predictable transitions as the pattern enforces a single way for State to change throughout the entire application.
 
-[@boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018]
+[@boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018; @angelovBlocLibraryDart2019]
 
 ## Rules of the BLoC Pattern
 To gain those promised advantages, you will have to follow these 8 rules Soares defined for the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE):
 
 #### Rules for the BLoCs
 
-   1. Input/Outputs are simple **Sinks/Streams**
-   2. All **dependencies** must be **injectable** and platform agnostic
-   3. **No platform branching**
-      - No `if(IOS) then doThis()`
-   4. The actual implementation can be whatever you want if you follow 1-3
+   1. Input/Outputs are simple **Sinks/Streams** only.
+   2. All **dependencies** must be **injectable** and platform agnostic.
+   3. **No platform branching**.
+      - No `if(IOS) then doThis()`.
+   4. The actual implementation can be whatever you want if you follow 1-3.
 
 #### Rules for UI Classes
 
   1. Each _"Complex Enough"_ Widget has a related BLoC.
      - You will have to define what _"Complex Enough"_ means for your app.
   2. Widgets **do not format the inputs** they send to the BLoC.
-     - Because formating is Business Logic.
+     - Because formating is business logic.
   3. Widgets should display the BLoCs **State/output with as little formatting as possible**.
-     - Sometimes a little formatting is inevitable, but things like currency formating is business logic and should be done in the BLoC.
-  4. If you do have **platform branching**, It should be dependent on **a single BLoC bool State/output** emitted by a BLoC.
+     - Sometimes a little formatting is inevitable, but more complex things like currency formating is business logic and should be done in a BLoC.
+  4. If you do have **platform branching**, It should be dependent on **a single bool State/output** emitted by a BLoC.
 
-![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
+![What a BLoC looks like](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
 
-_Figure 18: How a BLoC looks like [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
+_Figure 18: What a BLoC looks like [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
 
 ## Implementation
-Alright, Now that you know what the BLoC pattern is, let's have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let's have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
+Alright, Now that you know what the BLoC Pattern is, let's have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let's have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
 
 ![Bloc and Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-bloc.PNG)
 
 _Figure 19: Bloc and Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-These are the Events that can be sent to the BLoC by the UI. Again, this is very similar to the _Actions_ in our Redux implementation:
+These are the _Events_ that can be sent to the BLoC by the UI. Again, this is very similar to the _Actions_ in our Redux implementation:
 
 ```dart
 @immutable
@@ -1136,7 +1136,7 @@ _Code Snippet 29: Favorite Events in Wisgen [[@faustWisgen2019]](https://github.
 Now the arguably most interesting part of an implementation of the BLoC Patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the _Events_ that will be sent to the BLoC and the type of the _State_ that will be emitted by the BLoC `Bloc<Event, State>`:
 
 ```dart
-///Responsible for keeping track of the Favorite List. 
+///Responsible for keeping track of the Favorite list. 
 ///
 ///Receives [FavoriteEvent] to add/remove favorite [Wisdom] objects 
 ///from its list.
@@ -1179,7 +1179,7 @@ class MyApp extends StatelessWidget {
 ```
 _Code Snippet 31: Providing a BLoC Globally in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Now we can access the BLoC from all descendance of the _BlocProvider_ Widget. This is the favorite button in Wisgen. It changes shape and color based on the State emitted by the FavoriteBLoC and it dispatches events to the BLoC to add and remove favorites. The _wisdom_ object is the wisdom displayed on the Card Widget.
+Now we can access the BLoC from all descendance of the _BlocProvider_ Widget. This is the favorite button in Wisgen. It changes shape and color based on the State emitted by the FavoriteBLoC and it dispatches Events to the BLoC to add and remove favorites. The _wisdom_ object is the wisdom displayed on the Card Widget.
 
 ```dart
 ...
@@ -1187,7 +1187,7 @@ Now we can access the BLoC from all descendance of the _BlocProvider_ Widget. Th
 Widget build(BuildContext context) {
   return Expanded(
     flex: 1,
-    //This is where we Subscribe to the FavoriteBLoC
+    //This is where we subscribe to the FavoriteBLoC
     child: BlocBuilder<FavoriteBloc, List<Wisdom>>(
       builder: (context, favorites) => IconButton(
         //Display Icon Button depending on current State
@@ -1202,7 +1202,7 @@ Widget build(BuildContext context) {
           //Grab FavoriteBloc through BuildContext
           FavoriteBloc favoriteBloc = BlocProvider.of<FavoriteBloc>(context);
           
-          //Add/remove Wisdom to/from Favorites (dispatch events)
+          //Add/remove Wisdom to/from favorites (dispatch events)
           if (favorites.contains(wisdom)) favoriteBloc.dispatch(RemoveFavoriteEvent(wisdom));
           else favoriteBloc.dispatch(AddFavoriteEvent(wisdom));  
         },
@@ -1217,19 +1217,19 @@ _Code Snippet 32: Accessing a BLoC in Wisgen [[@faustWisgen2019]](https://github
 ## Layered Architecure
 Now that we understand how to implement the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets' have a look at how we can use it to achieve a four-layered architecture with one way dependencies [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
 
-<img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Bloc Architecture with Layers">
+<img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Four-Layered BLoC architecture">
 
-_Figure 20: Four-Layered BLoC Architecture_
+_Figure 20: Four-Layered BLoC architecture_
 
 ### UI Layer
-This is the layer that our user directly interacts with. It is the Widget Tree of our Application, all Widgets of our app sit here. We need to keep this layer as _stupid_ as possible, No business logic and only minor formating.
+This is the layer that our user directly interacts with. It is the Widget Tree of our application, all Widgets of our app sit here. We need to keep this layer as _stupid_ as possible, No business logic and only minor formating.
 
 ### Business Logic Layer
-This is where all our BLoCs reside. All our business logic sits in this layer. The communication between this layer and the _UI Layer_ should be limited to sinks and streams:
+This is where all our BLoCs reside. All our business logic sits in this layer. The communication between this layer and the _UI Layer_ should be limited to _Sinks_ and _Streams_:
 
-![Widget BLoC Communication](https://github.com/Fasust/flutter-guide/wiki//images/widget-bloc-communication.PNG)
+![Widget BLoC communication](https://github.com/Fasust/flutter-guide/wiki//images/widget-bloc-communication.PNG)
 
-_Figure 21: Widget BLoC Communication_
+_Figure 21: Widget BLoC communication_
 
 For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community [@suriArchitectYourFlutter2019; @eganFlutterArchitectureSamples2017; @angelovBlocLibraryDart2019; @bizzottoWidgetAsyncBlocServicePracticalArchitecture2019] mostly uses the _Repository Patter_ [[@garlanIntroductionSoftwareArchitecture1994]](https://dl.acm.org/citation.cfm?id=865128) or as _"Uncle Bob"_ would say: _Boundary Objects_ [[@martinPrinciplesCleanArchitecture2015]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create _Repository_ interfaces for the BLoCs to depend on:
 
@@ -1252,37 +1252,36 @@ These are the actual implementations of our _Repositories_. Platform-specific th
 ## Architecture in Practice 
 To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) is build using the BLoC Pattern and a four-layered architecture.
 
-![Wisgen Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
+![Wisgen architecture with dependencies](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
 
-_Figure 22: Wisgen Architecture with Dependencies [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 22: Wisgen architecture with dependencies [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure 22. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the _Wisdom BLoC_ to fetch more data from its _Repository_. You can see the _Repository_ interface in snippet 33. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. When the Wisdom BLoC receives a response from it's Repository, it publishes the new wisdoms to its Stream [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified. 
+In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure 22. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This Event causes the _Wisdom BLoC_ to fetch more data from its _Repository_. You can see the _Repository_ interface in snippet 33. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. When the Wisdom BLoC receives a response from it's Repository, it publishes the new wisdoms to its Stream [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified. 
 
-![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
+![Wisgen dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
-_Figure 23: Wisgen Dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Figure 23: Wisgen dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 I already covered how the favorite list works in detail in this chapter, so I won't go over it again. The _Storage BLoC_ keeps a persistent copy of the favorite list on the device. It receives a _Load-Event_ once on start-up, loads the old favorite list from its _Storage_, and adds it to the _Favorite BLoC_ though _Add-Events_. It also listens to the _Favorite BLoC_ and updates the persistent copy of the favorite list every time the _Favorite Bloc_ emits a new State:
 
 ```dart
-///Gives access to the 2 events the [StorageBloc] can receive.
+///Gives access to the 2 Events the [StorageBloc] can receive.
 ///
-///It is an enum, because the 2 events both don't need to carry additional data.
+///It is an enum, because the 2 Events both don't need to carry additional data.
 ///[StorageEvent.load] tells the [StorageBloc] to load the 
 ///favorite list from its [Storage].
 ///[StorageEvent.wipe] tells the [StorageBloc] to wipe 
 ///any favorites on its [Storage].
 enum StorageEvent { load, wipe }
 
-///Responsible for keeping a persistent copy of the favorite list 
-///on its [Storage].
+///Responsible for keeping a persistent copy of the favorite list on its [Storage].
 ///
 ///It is injected with a [FavoriteBLoC] on creation.
 ///It subscribes to the [FavoriteBLoC] and writes the favorite list to 
 ///its [Storage] device every time a new State is emitted by the [FavoriteBLoC].
-///When the [StorageBLoC] receives a StorageEvent.load, it loads a list of [Wisdom]s 
+///When the [StorageBLoC] receives a [StorageEvent.load], it loads a list of [Wisdom]s 
 ///from a its [Storage] device and pipes it into the [FavoriteBLoC] though [FavoriteEventAdd]s
-///(This usually happens once on Start-up).
+///(This usually happens once on start-up).
 ///It's State is [dynamic] because it never needs to emit it.
 class StorageBloc extends Bloc<StorageEvent, dynamic> {
   Storage _storage = SharedPreferenceStorage();
@@ -1298,12 +1297,14 @@ class StorageBloc extends Bloc<StorageEvent, dynamic> {
   @override
   dynamic get initialState => dynamic;
 
+  ///Called every time a new [StorageEvent] comes in.
   @override
   Stream<dynamic> mapEventToState(StorageEvent event) async* {
     if (event == StorageEvent.load) await _load();
     if (event == StorageEvent.wipe) _storage.wipeStorage();
   }
 
+  ///Load the old favorite list form [Storgae].
   _load() async {
     List<Wisdom> loaded = await _storage.load();
 
@@ -1324,12 +1325,12 @@ _Code Snippet 34: Wisgen Storage BLoC [[@faustWisgen2019]](https://github.com/Fa
 _Storage_ is also a platform-agnostic interface and it looks like this:
 
 ```dart
-///Generic Repository for read/write Storage device
+///Generic Repository for read/write Storage device.
 abstract class Storage<T>{
   Future<T> load();
   save(T data);
 
-  ///Wipe the Storage Medium of all T
+  ///Wipe the Storage Medium of all T.
   wipeStorage();
 }
 ```
@@ -1339,9 +1340,9 @@ In Wisgen, I built an implementation of _Storage_ that communicates with Android
 
 ```dart
 ///[Storage] that gives access to Androids Shared Preferences 
-///(a small, local, persistent key value store).
+///(a small, local, persistent key-value-store).
 class SharedPreferenceStorage implements Storage<List<Wisdom>> {
-  ///Key is used to access Store
+  ///Key is used to access store.
   static const String _sharedPrefKey = "wisgen_storage";
 
   @override
@@ -1351,7 +1352,8 @@ class SharedPreferenceStorage implements Storage<List<Wisdom>> {
 
     if (strings == null || strings.isEmpty) return null;
 
-    //Decode all JSON Strings we fetched from the Preferences and add them to the Result
+    //Decode all JSON strings we fetched from the
+    //Preferences and add them to the result.
     List<Wisdom> wisdoms = List();
     strings.forEach((s) {
       Wisdom w = Wisdom.fromJson(jsonDecode(s));
@@ -1403,12 +1405,12 @@ Widget Tests are used to test small Widget Sub-Trees of your application. They r
 #### Integration Test (Driver Tests)
 Integration/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and _"prone to braking"_[[@hracekTestingFlutterApps2019]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
-![Flutter Test Comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
+![Flutter test comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
 
-_Figure 24: Flutter Test Comparison [[@flutterdevteamTestingFlutterApps2018]](https://flutter.dev/docs/testing)_
+_Figure 24: Flutter test comparison [[@flutterdevteamTestingFlutterApps2018]](https://flutter.dev/docs/testing)_
 
 ## Writing Unit Tests
-I will focus on _Unit Tests_ for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test [@hracekTestingFlutterApps2019; @flutterdevteamTestingFlutterApps2018]. The fact that they are quick to write and quick to execute makes up for their relatively low _confidence_. In addition to this, because we are using the BLoC Pattern, our UI shouldn't contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so _stupid_ we don't need to test it [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [[@dartteamTestDartPackage2019]](https://pub.dev/packages/test) and the mockito package [[@fibulwinterMockitoDartPackage2019]](https://pub.dev/packages/mockito) in our _pubspec.yaml_:
+I will focus on _Unit Tests_ for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test [@hracekTestingFlutterApps2019; @flutterdevteamTestingFlutterApps2018]. The fact that they are quick to write and quick to execute makes up for their relatively low _confidence_. In addition to this, because we are using the BLoC Pattern, our UI shouldn't contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so _stupid_ we don't need to test it [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [[@dartteamTestDartPackage2019]](https://pub.dev/packages/test) and the _mockito_ package [[@fibulwinterMockitoDartPackage2019]](https://pub.dev/packages/mockito) in our _pubspec.yaml_:
 
 ```yaml
 dev_dependencies:
@@ -1420,7 +1422,7 @@ _Code Snippet 37: Pubspec.yaml Test Imports_
 
 _flutter\_test_ offers the core testing capabilities of Flutter. _mockito_ is used to mock up dependencies. All out tests should sit in a directory named _"test"_ on the root level of our app directory. If we want to place them somewhere else, we have to specify their location every time we want to run them.
 
-![Wisgen Test Directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
+![Wisgen test directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
 
 _Figure 25: Wisgen test directory [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -1475,9 +1477,9 @@ void main() {
     
     test('Initial State is an empty list', () {...}); //Snippet 38
 
-    test('Stream many events and see if the State is emitted in correct order', () {
+    test('Stream many Events and see if the State is emitted in correct order', () {
       //Set Up
-      Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your Pictures", type: "tech");
+      Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your pictures", type: "tech");
       Wisdom wisdom2 = Wisdom(id: 2, text: "Wash your ears", type: "Mum's Advice");
       Wisdom wisdom3 = Wisdom(id: 3, text: "Travel while you're young", type: "Grandma's Advice");
 
@@ -1491,7 +1493,7 @@ void main() {
       expect( 
           favoriteBloc.state,
           emitsInOrder([
-            List(), //BLoC Library BLoCs emit their initial State on creation
+            List(), //BLoC Library BLoCs emit their initial State on creation.
             List()..add(wisdom1),
             List()..add(wisdom1)..add(wisdom2),
             List()..add(wisdom2),
@@ -1503,14 +1505,14 @@ void main() {
 ```
 _Code Snippet 39: Wisgen Favorite BLoC Tests 2 [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We use the _emitsInOrder()_ _matcher_ to tell the framework that we are working with a Stream and looking for a specific set of events to be emitted in order [[@angelovUnitTestingBloc2019]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other Stream matchers besides _emitsInOrder()_ [[@dartteamAsynchronoustestsTestDart2019]](https://pub.dev/packages/test#asynchronous-tests):
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding Events. We use the _emitsInOrder()_ _matcher_ to tell the framework that we are working with a Stream and looking for a specific set of Events to be emitted in order [[@angelovUnitTestingBloc2019]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other Stream matchers besides _emitsInOrder()_ [[@dartteamAsynchronoustestsTestDart2019]](https://pub.dev/packages/test#asynchronous-tests):
 
-- _emits()_ matches a single data event.
-- _emitsError()_ matches a single error event.
-- _emitsDone_ matches a single done event.
+- _emits()_ matches a single data Event.
+- _emitsError()_ matches a single error Event.
+- _emitsDone_ matches a single done Event.
 - _emitsAnyOf()_ consumes events matching one (or more) of several possible matchers.
 - _emitsInAnyOrder()_ works like emitsInOrder(), but it allows the matchers to match in any order.
-- _neverEmits()_ matches a stream that finishes without matching an inner matcher.
+- _neverEmits()_ matches a Stream that finishes without matching an inner matcher.
 - And more [[@dartteamAsynchronoustestsTestDart2019]](https://pub.dev/packages/test#asynchronous-tests)
 
 ### Mockito
@@ -1557,7 +1559,7 @@ void main() {
         IdleWisdomState(fetchedWisdom)
       ];
     
-      //Test ---
+      //Testing ---
       wisdomBloc.dispatch(FetchEvent(mockBuildContext));
 
       //Result ---
@@ -1589,18 +1591,18 @@ This can be an easy thing to trip over during testing, especially when comparing
 @immutable
 abstract class WisdomState extends Equatable {}
 
-///Broadcasted from [WisdomBloc] on Network Error.
+///Broadcasted from [WisdomBloc] on network error.
 class WisdomStateError extends WisdomState {
   final Exception exception;
   WisdomStateError(this.exception);
 
   @override
-  List<Object> get props => [exception];
+  List<Object> get props => [exception]; //compare based on exception.
 }
 
-///Gives Access to current list of [Wisdom] s in the [WisdomBloc].
+///Gives access to current list of [Wisdom]s in the [WisdomBloc].
 ///
-///When BLoC receives a [WisdomEventFetch] during this State, 
+///When the BLoC receives a [WisdomEventFetch] during this State, 
 ///it fetches more [Wisdom] from it [Supplier]. 
 ///When done it emits a new [IdleSate] with more [Wisdom].
 class WisdomStateIdle extends WisdomState {
@@ -1608,7 +1610,7 @@ class WisdomStateIdle extends WisdomState {
   WisdomStateIdle(this.wisdoms);
 
   @override
-  List<Object> get props => wisdoms;
+  List<Object> get props => wisdoms; //compare based on wisdoms.
 }
 ```
 _Code Snippet 42: Wisgen Wisdom States with Equatable [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
@@ -1651,7 +1653,7 @@ A few additional things to note about naming conventions in Dart [[@dartteamEffe
 - The last word in class- or variable-name should always be the most descriptive of what it is: `PageCount & DataSink` are better then `NumberOfPage & DataIn`
 
 ## Doc Comments
-In the snippets up until now you might have noticed the us of `///` for comments above classes, functions and member. In Dart triple-dash or "Doc Comments" are a replacement for the classical `/** ... */` bloc comment from other language. The Dart team argues, that Doc Comments don't take up two additional lines when using them as a block comment:
+In the snippets up until now you might have noticed the us of `///` for comments above classes, functions and member. In Dart triple-dash or "Doc Comments" are a replacement for the classical `/** ... */` block comment from other language. The Dart team argues, that Doc Comments don't take up two additional lines when using them as a block comment:
 
 ```dart
 /**
@@ -1673,7 +1675,7 @@ _Code Snippet 44: Triple-Dash block comment (3 lines)_
 
 Wether you agree with that reasoning or not. You should definitely use them, because they can be used to auto generate a documentation for your project with the Dartdoc tool [[@dartteamDartdocTool2019]](https://github.com/dart-lang/dartdoc) and they are shown as tooltips in your IDE:
 
-![Wisdom Tool Tip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
+![Wisgen wisdom tool tip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
 
 _Figure 26: Wisgen wisdom tool tip [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -1684,7 +1686,7 @@ Some additional things to note about Doc Comments in Dart are [[@dartteamEffecti
 - That initial line should be followed by one empty line to make it stand out.
 - Highlight relevant classes, functions or members by surrounding them with _\[...\]_.
   - They will be linked in the auto-generated docs
-- Markdown [[@gruberMarkdown2004]](https://daringfireball.net/projects/markdown/) is supported for triple-dash comments, so consider adding code snippets as examples.
+- Markdown [[@gruberMarkdown2004]](https://daringfireball.net/projects/markdown/) is supported for Doc Comments, so consider adding code snippets as examples.
 - Don't document information that is already obvious by class name and parameter:
 
 ```dart
@@ -1736,10 +1738,10 @@ Let's look at an example. This is what the _WisdomCard_ in Wisgen would look lik
 ```dart
 ///Displays a given [Wisdom].
 ///
-///Images are Loaded from the given [Wisdom.imgUrl] once and then cashed.
+///Images are loaded from the given [Wisdom.imgUrl] once and then cashed.
 ///All [Wisdom]s displayed in a [WisdomCard] *have* to contain an imgUrl.
 ///The like button subscribes to the global [FavoriteBLoC] to change it's appearance
-///based on on its current State.
+///based on on the [FavoriteBLoC]s current State.
 ///The button also publishes [FavoriteEventAdd]/[FavoriteEventRemove] to 
 ///the [FavoriteBLoC] when it is pressed.
 class WisdomCard extends StatelessWidget {
@@ -1840,15 +1842,15 @@ _Code Snippet 47: Wisgen WisdomCard in one Widget [[@faustWisgen2019]](https://g
 
 _Figure 27: Wisgen Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-And this is what it looks like if we extract the callback function and slit the Widget [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
+And this is what it looks like if we extract the callback function and split the Widget [[@flutterdevteamStatelessWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html) into Card, Image, Content and LikeButton:
 
 ```dart
 ///Displays a given [Wisdom].
 ///
-///Images are Loaded from the given [Wisdom.imgUrl] once and then cashed.
+///Images are loaded from the given [Wisdom.imgUrl] once and then cashed.
 ///All [Wisdom]s displayed in a [WisdomCard] *have* to contain an imgUrl.
-///The [_LikeButton] subscribes to the global [FavoriteBLoC] to change it's appearance
-///based on on its current State.
+///The like button subscribes to the global [FavoriteBLoC] to change it's appearance
+///based on on the [FavoriteBLoC]s current State.
 ///The button also publishes [FavoriteEventAdd]/[FavoriteEventRemove] to 
 ///the [FavoriteBLoC] when it is pressed.
 class WisdomCard extends StatelessWidget {
@@ -1904,8 +1906,7 @@ class _Image extends StatelessWidget {
   }
 }
 
-///Displays [Wisdom.text], [Wisdom.type], [Wisdom.id] and
-///a [_LikeButton].
+///Displays [Wisdom.text], [Wisdom.type], [Wisdom.id] and a [_LikeButton].
 class _Content extends StatelessWidget {
   static const double _smallPadding = 4;
   static const double _largePadding = 8;
@@ -1946,7 +1947,7 @@ class _Content extends StatelessWidget {
 
 }
 
-///Display if a given [Wisdom] is a favorite and gives the option 
+///Displays if a given [Wisdom] is a favorite and gives the option 
 ///to change that fact.
 class _LikeButton extends StatelessWidget {
   const _LikeButton({
@@ -1962,7 +1963,7 @@ class _LikeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 1,
-      //This is where we Subscribe to the FavoriteBLoC
+      //This is where we subscribe to the FavoriteBLoC
       child: BlocBuilder<FavoriteBloc, List<Wisdom>>(
         builder: (context, favorites) => IconButton(
           icon: Icon(favorites.contains(_wisdom)
@@ -1976,8 +1977,8 @@ class _LikeButton extends StatelessWidget {
     );
   }
 
-  ///Figures out if a Wisdom is already liked or not.
-  ///Then send corresponding Event.
+  ///Figures out if a [Wisdom] is already liked or not and 
+  ///then sends the corresponding Event to the [FavoriteBloc].
   void _onLike(BuildContext context, List<Wisdom> favorites) {
     final FavoriteBloc favoriteBloc = BlocProvider.of<FavoriteBloc>(context);
 
@@ -2014,12 +2015,11 @@ lib
 ```
 _Figure 28: Possible Project Directory Structure_
 
-I would also recommend splitting up the UI directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository and data directory into one, this also a perfectly valid option.
-
+I would also recommend splitting up the UI directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository- and data-directory into one, this also a perfectly valid option.
 
 # 500-Conclusion
 ## Introduction
-So, you've made it. This is the final chapter of the guide. I will use this chapter ro reflect on the guide, evaluate it's strengths and weaknesses, and highlight how I and this project will move foreword from here on out. I will also take this opportunity to share my personal opinion of the current state of the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/). That being said, the guide has already been quite opinionated up until now.
+So, you've made it. This is the final chapter of the guide. I will use this chapter to reflect on the guide, evaluate it's strengths and weaknesses, and highlight how I and this project will move foreword from here on out. I will also take this opportunity to share my personal opinion of the current state of the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/). That being said, the guide has already been quite opinionated up until now.
 
 ## Evaluation of the Guide
 I am pretty happy with how the guide turned out. I managed to find a diverse range of sources for most of the topics I wanted to cover. I kept close to the _informal_, _from developer for developer_-style of the original Angular guide [[@ambuludiCapgeminiAngularGuide2019]](https://github.com/devonfw/devon4ng) and I think it reads pretty well. The guide did end up being a bit longer then I planned (~50 A4 pages without figures and references). If I would write it again, I would choose a more narrow and clear scope for what the guide should include. For example, I might have excluded or shortened chapter [1 The Flutter Framework][framework] and instead focused even more on chapter [2 Architecting a Flutter App][architecture]. I would have also liked to include more scientific sources on Flutter. But as it is still such a new Framework, next to no scientific research has so far been conducted on it. As of the writing of this guide there has not been a single publication on the Flutter Framework though IEEE [[@ieeeIEEEXploreDigital1963]](https://ieeexplore.ieee.org/Xplore/home.jsp) or ACM [[@acmACMDigitalLibrary1947]](https://dl.acm.org/).
@@ -2027,7 +2027,7 @@ I am pretty happy with how the guide turned out. I managed to find a diverse ran
 All in all, I think I fulfilled the goal I set myself when starting this guide. To bridge the gap between the basics of Flutter and clean, structured Flutter development. The result is a resource I would have liked to have when trying to bridge that gap myself.
 
 ## Future of the Guide and Next Steps
-This guide was commissioned by Capgemini Cologne [[@capgeminiCapgeminiHomePage2019]](https://www.capgemini.com/us-en/). It is supposed to introduce their mobile developers to the Flutter Framework and help them evaluate if it is a valid option for future projects. It will also be the basis for the bachelor thesis I am starting this November. In my thesis I will create and document a large scale Flutter application for Capgemini. It is supposed to be an example project that other developers can use as a guideline for creating their own large scale Flutter applications. More specifically, Capgemini has used the "My Thai Star" App [[@linaresMyThaiStar2019]](https://github.com/devonfw/my-thai-star) as a reference project for Angular [[@googlellcAngular2016]](https://angular.io/). I will create a Flutter version of it. 
+This guide was commissioned by Capgemini Cologne [[@capgeminiCapgeminiHomePage2019]](https://www.capgemini.com/us-en/). It is supposed to introduce their mobile developers to the Flutter Framework and help them evaluate if it is a valid option for future projects. It will also be the basis for the Bachelor Thesis I am starting this November. In my Thesis I will create and document a large scale Flutter application for Capgemini. It is supposed to be an example project that other developers can use as a guideline for creating their own large scale Flutter applications. More specifically, Capgemini has used the "My Thai Star" app [[@linaresMyThaiStar2019]](https://github.com/devonfw/my-thai-star) as a reference project for Angular [[@googlellcAngular2016]](https://angular.io/). I will create a Flutter version of it. 
 
 ### Suggestion for Future Works
 One thing I and peers in the mobile development community [[@biorn-hansenSurveyTaxonomyCore2018]](http://doi.acm.org/10.1145/3241739) would like to see is more scientific research on the Flutter Framework: Lagre scale benchmarking, usability tests, scalability tests, architecture evaluation and so on.
