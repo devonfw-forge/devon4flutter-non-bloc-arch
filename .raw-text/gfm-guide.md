@@ -1460,7 +1460,7 @@ class SharedPreferenceStorage implements Storage<List<Wisdom>> {
 
 ## Introduction
 
-Testing has become an essential part of developing a large scale application and there is strong evidence that writing tests leads to a higher code quality [\[72\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifically, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+Testing has become an essential part of developing any large scale application and there is strong evidence that writing tests leads to a higher code quality [\[72\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifically, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 ## Types of Tests in Flutter
 
@@ -1476,7 +1476,7 @@ Widget Tests are used to test small Widget Sub-Trees of your application. They r
 
 #### Integration Test (Driver Tests)
 
-Integration Test/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and *“prone to braking”*[\[74\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+Integration/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and *“prone to braking”*[\[74\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
 ![Flutter Test Comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
 
@@ -1495,14 +1495,14 @@ dev_dependencies:
 
 *Code Snippet 37: Pubspec.yaml Test Imports*
 
-*flutter\_test* offers the core testing capabilities of Flutter. *mockito* is used to mock up dependencies. All out tests should sit in a directory names *“test”* on the root level of our app directory. If we want to place them somewhere else, we have to specify their location every time we want to run them.
+*flutter\_test* offers the core testing capabilities of Flutter. *mockito* is used to mock up dependencies. All out tests should sit in a directory named *“test”* on the root level of our app directory. If we want to place them somewhere else, we have to specify their location every time we want to run them.
 
 ![Wisgen Test Directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
 
-*Figure 25: Wisgen Test Directory [\[11\]](https://github.com/Fasust/wisgen)*
+*Figure 25: Wisgen test directory [\[11\]](https://github.com/Fasust/wisgen)*
 
-| ⚠ | All testfiles have to end with the postfix "\_test.dart" to be recognized by the framework [\[74\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
-| - | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ⚠ | All test files have to end with the postfix "\_test.dart" to be recognized by the framework [\[74\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
+| - | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 Now we can start writing our tests. For this example, I will test the favorite BLoC of Wisgen [\[11\]](https://github.com/Fasust/wisgen):
 
@@ -1535,7 +1535,7 @@ void main() {
 
 *Code Snippet 38: Wisgen Favorite BLoC Tests 1 [\[11\]](https://github.com/Fasust/wisgen)*
 
-We can use the *group()* function to group related tests together. This way the output of our tests is more neatly formated [\[74\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[77\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose of our BLoC. The *test()* function takes in a name and a callback with the actual test. In our test, we check if the state of the favorite BloC after initialization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`. We can run all our tests using the command `flutter test`.
+We can use the *group()* function to group related tests together. This way the output of our tests is more neatly formated [\[74\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[77\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose of our BLoC. The *test()* function takes in a name and a callback with the actual test. In our test, we check if the State of the favorite BloC after initialization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`. We can run all our tests using the command `flutter test`.
 
 ### Testing Streams
 
@@ -1547,12 +1547,12 @@ void main() {
   group('Favorite Bloc', () {
     FavoriteBloc favoriteBloc;
 
-    setUp((){...});
+    setUp((){...}); //Snippet 38
 
-    tearDown((){...});
+    tearDown((){...}); //Snippet 38
     
     
-    test('Initial State is an empty list', () {...});
+    test('Initial State is an empty list', () {...}); //Snippet 38
 
     test('Stream many events and see if the State is emitted in correct order', () {
       //Set Up
@@ -1583,7 +1583,7 @@ void main() {
 
 *Code Snippet 39: Wisgen Favorite BLoC Tests 2 [\[11\]](https://github.com/Fasust/wisgen)*
 
-In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We use the *emitsInOrder()* *matcher* to tell the framework that we are working with a stream and looking for a specific set of events to be emitted in order [\[77\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other stream matchers besides *emitsInOrder()* [\[78\]](https://pub.dev/packages/test#asynchronous-tests):
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We use the *emitsInOrder()* *matcher* to tell the framework that we are working with a Stream and looking for a specific set of events to be emitted in order [\[77\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other Stream matchers besides *emitsInOrder()* [\[78\]](https://pub.dev/packages/test#asynchronous-tests):
 
   - *emits()* matches a single data event.
   - *emitsError()* matches a single error event.
@@ -1595,7 +1595,7 @@ In this test, we create three wisdoms and add/remove them from the favorite BLoC
 
 ### Mockito
 
-As mentioned before, *Mockito* [\[76\]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC pattern forces us to make all platform-specific dependencies of our BLoCs injectable [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it’s Repository, we can inject a mock Repository into the BLoC. In this example, we use *Mockito* to test if our wisdom BLoC emits new wisdoms after receiving a fetch event:
+As mentioned before, *Mockito* [\[76\]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC Pattern forces us to make all platform-specific dependencies of our BLoCs injectable [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it’s Repository, we can inject a mock Repository into the BLoC. This way we can test one bit of logic at a time. In this example, we use *Mockito* to test if our wisdom BLoC emits new wisdoms after receiving a fetch event:
 
 ``` dart
 //Creating Mocks using Mockito
@@ -1650,7 +1650,7 @@ void main() {
 
 *Code Snippet 40: Wisgen Wisdom BLoC Tests with Mockito [\[11\]](https://github.com/Fasust/wisgen)*
 
-First we create our Mock classes. For this test we need a mock *Supplier-Repository* and a mock *Buildcontext* [\[32\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the *setUp()* function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the *test()* function, we tell our mock Repository to send a set of wisdom when it’s *fetch()* function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
+First we create our Mock classes. For this test we need a mock *Supplier-Repository* and a mock *BuildContext* [\[32\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the *setUp()* function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the *test()* function, we tell our mock Repository to send a list of three wisdoms when it’s *fetch()* function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
 
 ## Equality in Dart
 
@@ -1666,7 +1666,7 @@ print(wisdom1 == wisdom2); //false
 
 *Code Snippet 41: Equality in Flutter*
 
-This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the *Equatable* package in 2019 [\[79\]](https://pub.dev/packages/equatable#-example-tab-). It’s an easy way to overwrite how class equality is handled. If we make a class extend the *Equatable* class, we can set the properties it is compared by. We do this by overwriting it’s *props* attribute. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom they carry:
+This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the *Equatable* package in 2019 [\[79\]](https://pub.dev/packages/equatable#-example-tab-). It’s an easy way to overwrite how class equality is handled. If we make a class extend the *Equatable* class, we can set the properties it is compared by. We do this by overwriting its *props* attribute. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom they carry:
 
 ``` dart
 @immutable
