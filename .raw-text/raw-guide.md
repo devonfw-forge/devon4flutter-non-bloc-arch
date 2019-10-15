@@ -110,12 +110,12 @@ _Figure 5: Flutter Framework Architecture [[@lelerWhatRevolutionaryFlutter2017]]
 | --- | ---- | :-------------------------------------------------------------------------------------------------------------------- |
 
 ## Flutter Compiler
-One additional advantage of Flutter is that it comes with two different compilers. A JIT-Compiler (Just in time) and an AOT-Compiler (Ahead of Time). The following table will showcase the advantage of each:
+One additional advantage of Flutter is that it comes with two different compilers. A JIT-Compiler (just in time) and an AOT-Compiler (ahead of time). The following table will showcase the advantage of each:
 
 | Compiler      | What is does                                                                                                                                                                                                                                                                                              | When it's used     |
 | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- |
-| Just in Time  | Only re-compiles files that have changed. Preserves App State [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables _Hot Reload_ [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
-| Ahead of Time | Compiles all dependencies Ahead of time. The output app is faster.                                                                                                                                                                                                                                        | For Release        |
+| Just in Time  | Only re-compiles files that have changed. Preserves _App State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables _Hot Reload_ [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
+| Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                                                                        | For Release        |
 
 _Table 1: Flutter's 2 Compilers [@mooreDartProductiveFast2019; @googlellcHowFlutterDifferent2019]_
 
@@ -190,7 +190,7 @@ button.setOnClickListener(new View.OnClickListener() {
 ```
 _Code Snippet 3: Red button in Android (Imperative)_
 
-In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool "pressed"). We then declare that the _onPressed()_ function should update the app State and re-build the button:
+In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool "pressed"). We then declare that the _onPressed()_ function should update the App State and re-build the button:
 
 ```dart
 bool pressed = false; //State
@@ -229,13 +229,13 @@ But that is not really helpful, is it? Personally, I like Didier Boelens definit
 | 📙  | Widget | A visual component (or a component that interacts with the visual aspect of an application) [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
 | --- | ------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-Let's have look at an example, this is the Wisgen app [[@faustWisgen2019]](https://github.com/Fasust/wisgen), it displays an endless feed of Wisdoms combined with vaguely thought-provoking stock images:
+Let's have look at an example, this is the Wisgen app [[@faustWisgen2019]](https://github.com/Fasust/wisgen), it displays an endless feed of wisdoms combined with vaguely thought-provoking stock images:
 
 ![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widgets.png)
 
 _Figure 8: Wisgen Widgets [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-All UI-Components of the app are Widgets. From high-level stuff like the App-Bar and the ListView down to to the granular things like texts and buttons (I did not highlight every Widget on the screen to keep the figure from becoming overcrowded). In code, the build method of a card Widget would look something like this:
+All UI-Components of the app are Widgets. From high-level stuff like the AppBar and the ListView down to to the granular things like texts and buttons (I did not highlight every Widget on the screen to keep the figure from becoming overcrowded). In code, the build method of a card Widget would look something like this:
 
 ```dart
 @override
@@ -266,19 +266,19 @@ The build method of any given Widget can be called multiple times a second. And 
 But your app never consists out of exclusively immutable parts, does it? Variables need to change, data needs to be fetched and stored. Almost any app needs some sort of mutable data. As mentioned in the [previous chapter][declarative], in Flutter such data is called _State_ [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). No worries, how Flutter handles mutable State will be covered in the section [Stateful Widgets](#stateful-widgets) down below, so just keep on reading.
 
 ### The Widget Tree
-When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what is a Widget Tree? A UI in Flutter is nothing more than a tree of nested Widgets. Let's have a look at the Widget Tree of our example from Figure 8. Note the card Widgets on the right-hand side of the diagram. There you can see how the code from snippet 5 translates to Widgets in the Widget Tree.
+When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what is a Widget Tree? A UI in Flutter is nothing more than a tree of nested Widgets. Let's have a look at the Widget Tree of our example from figure 8. Note the card Widgets on the right-hand side of the diagram. There you can see how the code from snippet 5 translates to Widgets in the Widget Tree.
 
 ![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widget-tree.PNG)
 
 _Figure 9: Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### Buildcontext
-If you have previously built an App with Flutter, you have definitely encountered _BuildContext_ [[@flutterdevteamBuildContextClass2018]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build method in Flutter.
+If you have previously built an app with Flutter, you have definitely encountered _BuildContext_ [[@flutterdevteamBuildContextClass2018]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). It is passed in as a variable in every Widget build method in Flutter.
 
 | 📙  | BuildContext | A reference to the location of a Widget within the tree structure of all the Widgets that have been built [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956) |
 | --- | ------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-The BuildContext contains information about each *ancestor* leading down to the Widget that the context belongs to. It is an easy way for a Widget to access all its ancestors in the Widget Tree. Accessing a Widgets *descendants* through the BuildContext is possible, but not advised and inefficient. So in short: It s very easy for a Widget at the bottom of the tree to get information from Widgets at the top of the tree but **not** vice-versa [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from Figure 9 could access its ancestor card Widget like this:
+The BuildContext contains information about each *ancestor* leading down to the Widget that the BuildContext belongs to. It is an easy way for a Widget to access all its ancestors in the Widget Tree. Accessing a Widgets *descendants* through the BuildContext is possible, but not advised and inefficient. So in short: It s very easy for a Widget at the bottom of the tree to get information from Widgets at the top of the tree but **not** vice-versa [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956). For example, the image Widget from figure 9 could access its ancestor card Widget like this:
 
 ```dart
 Widget build(BuildContext context) {
@@ -317,7 +317,7 @@ class WisdomCard extends StatelessWidget {
 }
 
 ```
-_Code Snippet 7: Simplified Wisgen card Widget Class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 7: Simplified Wisgen card Widget class [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 As you can see, it has some constant values for styling, a wisdom object that is passed into the constructor and a build method. The wisdom object contains the wisdom text and the hyperlink to the stock image.
 
@@ -351,7 +351,7 @@ I explained what State is in the Chapter [Thinking Declaratively][declarative]. 
 | 📙  | State | Any data that can change over time [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) |
 | --- | ----- | :--------------------------------------------------------------------------------------------------------------------------------------- |
 
-A Stateful Widget [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consists of two parts: An immutable Widget and a mutable State. The immutable Widget's responsibility is to hold onto that State, the State itself has the mutable data and builds the actual Widget [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App][architecture].
+A Stateful Widget [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consists of two parts: An immutable Widget and a mutable State. The immutable Widget's responsibility is to hold onto that State, the State itself has the mutable data and builds the actual UI element [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App][architecture].
 
 ```dart
 ///Immutable Widget
@@ -362,11 +362,11 @@ class WisdomFeed extends StatefulWidget {
 
 ///Mutable State
 class WisdomFeedState extends State<WisdomFeed>{
-  WisdomBloc _wisdomBloc; //mutable/not final (!)
+  WisdomBloc _wisdomBloc; //Mutable / Not final (!)
 
   @override
   Widget build(BuildContext context) {
-    //this is where the actual Widget is build
+    //This is where the actual UI element/Widget is build
     ...
   }
 }
@@ -382,7 +382,7 @@ The Lifecycle of State Objects/StatefulWidgets is a little bit more complex. I w
 ```dart
 class MyWidget extends StatefulWidget {
 
-  ///Called Immediately when first building the StatefulWidget
+  ///Called immediately when first building the StatefulWidget
   @override
   State<StatefulWidget> createState() => MySate();
 }
@@ -392,20 +392,20 @@ class MySate extends State<MyWidget>{
   ///Called after constructor
   ///
   ///Called exactly once
-  ///Use this to subscribe to streams or for any initialization
+  ///Use this to subscribe to Streams or for any initialization
   @override
   initState(){...}
 
   ///Called multiple times a second
   ///
   ///Keep lightweight (!)
-  ///This is where the actual UI is build
+  ///This is where the actual UI element/Widget is build
   @override
   Widget build(BuildContext context){...}
 
   ///Called once before the State is disposed (app shut down)
   ///
-  ///Use this for your clean up and to unsubscribe from streams
+  ///Use this for your clean up and to unsubscribe from Streams
   @override
   dispose(){...}
 }
@@ -423,7 +423,7 @@ I will not go in detail on Inherited Widgets [[@flutterdevteamInheritedWidgetCla
 
 # 140-Asynchronous-Flutter
 ## Introduction
-Asynchronous Programming is an essential part of any modern application. There will always be network calls, user inputs or any number of other unpredictable events that an app has to wait for. Luckily Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) have a very good integration of Asynchronous Programming. This chapter will teach you the basics of Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). The latter of these tow will be especially important moving forward, as it one of the fundamental technologies used by the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). Throughout this chapter, I will be using the _HTTP package_ [[@dartteamHttpDartPackage2019]](https://pub.dev/packages/http) to make network requests. Communication with the Web is one of the most common use-cases for Asynchronous Programming, so I thought it would only be fitting.
+Asynchronous Programming is an essential part of any modern application. There will always be network calls, user inputs or any number of other unpredictable events that an app has to wait for. Luckily Dart [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) have a very good integration of Asynchronous Programming. This chapter will teach you the basics of Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) and Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams). The latter of these two will be especially important moving forward, as it one of the fundamental technologies used by the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE). Throughout this chapter, I will be using the _HTTP package_ [[@dartteamHttpDartPackage2019]](https://pub.dev/packages/http) to make network requests. Communication with the Web is one of the most common use-cases for Asynchronous Programming, so I thought it would only be fitting.
 
 ## Futures
 Futures [[@dartteamDartProgrammingLanguage2019]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScript's [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen _ApiSupplier_ class. It can make requests to the AdviceSlip API [[@kissAdviceSlipAPI2019]](https://api.adviceslip.com/) to fetch some new advice texts.
@@ -466,7 +466,7 @@ class ApiSupplier {
 _Code Snippet 12: Simplified Wisgen ApiSupplier (Futures with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ### async & await
-If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the _async & await_ keywords [[@dartteamAsynchronousProgrammingDart2018]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous code the same way we would if it was synchronous. Let's take the same example as in Snippet 11:
+If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the _async & await_ keywords [[@dartteamAsynchronousProgrammingDart2018]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous code the same way we would if it was synchronous. Let's take the same example as in snippet 11:
 
 ```dart
 import 'package:http/http.dart' as http;
@@ -481,9 +481,9 @@ class ApiSupplier {
   }
 }
 ```
-_Code Snippet 13: Simplified Wisgen ApiSupplier (Async) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 13: Simplified Wisgen ApiSupplier (Async & Await) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-We can use the _await_ keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the _http.Response_ has arrived and then proceeds to transform it into a Wisdom. If we want to use the _await_ keyword in a function, we have to mark the function as _async_. This forces the return type of the function to be a Future, because if we wait during the function, the function can not return instantly, thus it **has** to return a Future [[@googlellcAsyncAwait2019]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with _try/catch_:
+We can use the _await_ keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the _http.Response_ has arrived and then proceeds to transform it into a wisdom. If we want to use the _await_ keyword in a function, we have to mark the function as _async_. This forces the return type of the function to be a Future, because if we wait during the function, the function can not return instantly, thus it **has** to return a Future [[@googlellcAsyncAwait2019]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with _try/catch_:
 
 ```dart
 import 'package:http/http.dart' as http;
@@ -502,10 +502,10 @@ class ApiSupplier {
   }
 }
 ```
-_Code Snippet 14: Simplified Wisgen ApiSupplier (Async with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
+_Code Snippet 14: Simplified Wisgen ApiSupplier (Async & Await with Error) [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 ## Streams
-Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we'll use them heavily in the chapter [Architecting a Flutter app][architecture]. But what exactly are _Streams_? As Andrew Brogdon put's it in one of Google's official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of Streams as one continuous flow of data. Data can be put into the stream, other parties can subscribe/listen to a given stream and be notified once a new piece of data enters the stream.
+Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we'll use them heavily in the chapter [Architecting a Flutter app][architecture]. But what exactly are _Streams_? As Andrew Brogdon put's it in one of Google's official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of Streams as one continuous flow of data. Data can be put into the Stream, other parties can subscribe/listen to a given Stream and be notified once a new piece of data enters the Stream.
 
 ![Data Stream](https://github.com/Fasust/flutter-guide/wiki//images/stream.PNG)
 
@@ -562,7 +562,7 @@ class WisdomBloc {
     Wisdom fetchedWisdom = await _api.fetch();
     
 
-    //Appending the new Wisdoms to the current State
+    //Appending the new wisdoms to the current State
     List<Wisdom> newWisdoms = _oldWisdoms..add(fetchedWisdom);
 
     _wisdomSink.add(newWisdoms); //publish to stream
@@ -575,7 +575,7 @@ class WisdomBloc {
 ```
 _Code Snippet 17: Simplified Wisgen WisdomBLoC [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-First, we create a _StreamController_ and expose the Stream itself to enable the UI to subscribe to it. We also open up a private Sink, so we can easily add new wisdoms to the stream. Whenever the _publishMoreWisdom()_ function is called, the BLoC request a new wisdom from the API, waits until it is fetched, and then publishes it to the stream. Let's look at the UI side of things. This is a simplified version of the WisdomFeed in Wisgen:
+First, we create a _StreamController_ and expose the Stream itself to enable the UI to subscribe to it. We also open up a private Sink, so we can easily add new wisdoms to the Stream. Whenever the _publishMoreWisdom()_ function is called, the BLoC request a new wisdom from the API, waits until it is fetched, and then publishes it to the Stream. Let's look at the UI side of things. This is a simplified version of the WisdomFeed in Wisgen:
 
 ```dart
 class WisdomFeedState extends State<WisdomFeed> {
@@ -590,7 +590,7 @@ class WisdomFeedState extends State<WisdomFeed> {
   @override
   void initState() {
     _wisdomBloc = new WisdomBloc();    
-    _wisdomBloc.publishMoreWisdom(); //Dispatch Initial Events
+    _wisdomBloc.publishMoreWisdom(); //Dispatch initial event
 
     _scrollController.addListener(_onScroll);
     super.initState();
@@ -602,11 +602,11 @@ class WisdomFeedState extends State<WisdomFeed> {
       body: StreamBuilder(
         stream: _wisdomBloc.wisdomStream,
         builder: (context, AsyncSnapshot<List<Wisdom>> snapshot) {
-          //show Error message
+          //Show Error message
           if (snapshot.hasError) return ErrorText(state.exception); 
-          //loading animation
+          //Show loading animation
           if (snapshot.connectionState == ConnectionState.waiting) return LoadingSpinner(); 
-          //create listView of wisdoms
+          //Create ListView of wisdoms
           else return _listView(context, snapshot.data); 
         },
       ),
@@ -633,12 +633,12 @@ class WisdomFeedState extends State<WisdomFeed> {
     super.dispose();
   }
 
-  ///Dispatching fetch events to the BLoC when we reach the end of the List
+  ///Dispatching fetch events to the BLoC when we reach the end of the list
   void _onScroll() {
     final maxScroll = _scrollController.position.maxScrollExtent;
     final currentScroll = _scrollController.position.pixels;
     if (maxScroll - currentScroll <= _scrollThreshold) {
-      _wisdomBloc.publishMoreWisdom();
+      _wisdomBloc.publishMoreWisdom(); //Publish more wisdoms
     }
   }
   ...
@@ -650,11 +650,11 @@ Alright, let's go through this step by step:
 
 First, we initialize our WisdomBloc in the _initSate()_ method. This is also where we set up a ScrollController [[@flutterdevteamScrollControllerClass2018]](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). I won't go into the details here, but the controller enables us to call _publishMoreWisdom()_ on the WisdomBloc whenever we are near the end of our list. This way we get infinite scrolling. 
 
-In the _build()_ method, we use Flutter's _StreamBuilder_ Widget [[@flutterdevteamStreamBuilderClass2018]](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our Stream. We give it our Stream and it provides a builder method. This builder method receives a Snapshot containing the current State of the stream whenever the State of the Stream changes IE when new wisdom is added. We can use the snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive new wisdoms from our Stream through the Snapshot, we continue to the _listView()_ method. 
+In the _build()_ method, we use Flutter's _StreamBuilder_ Widget [[@flutterdevteamStreamBuilderClass2018]](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our Stream. We give it our Stream and it provides a builder method. This builder method receives a Snapshot containing the current State of the Stream whenever the State of the Stream changes IE when new wisdom is added. We can use the Snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive new wisdoms from our Stream through the Snapshot, we continue to the _listView()_ method. 
 
 Here we use the list of wisdoms to create a ListView containing cards that display wisdoms. You might have wondered why we Stream a list of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual wisdoms we would need to combine them into a list here. Streaming a complete list when using a StreamBuilder to create infinite scrolling is also the recommended approach by the Flutter Team [[@sullivanTechnicalDebtStreams2018]](https://www.youtube.com/watch?v=fahC3ky_zW0). 
 
-Finally, once the app is closed down, the _dispose()_ method is called and we dispose of our stream and ScrollController.
+Finally, once the app is closed down, the _dispose()_ method is called and we dispose of our Stream and ScrollController.
 
 ![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/Fasust/flutter-guide/wiki//images/wisdomBloc-stream.PNG)
 
@@ -670,7 +670,7 @@ Stream<List<Wisdom>> streamWisdoms() async* {
   //Appending the new wisdom to the current State
   List<Wisdom> newWisdoms = _oldWisdoms..add(fetchedWisdom);
 
-  yield newWisdoms; //publish to stream
+  yield newWisdoms; //Publish to Stream
 
   _oldWisdoms = newWisdoms;
 }
@@ -695,10 +695,10 @@ import 'package:http/http.dart' as http;
 ///[Supplier] that cashes [Wisdom]s it fetches from an API and
 ///then provides a given amount of random entries.
 ///
-///[Wisdom]s Supplies do not have an Image URL
+///[Wisdom]s Supplied do not have an Image URL
 class ApiSupplier implements Supplier<List<Wisdom>> {
-  ///Advice SLip API Query that requests all (~213) Text Entries from the API.
-  //////We fetch all entries at once and cash them locally to minimize network traffic.
+  ///Advice SLip API Query that requests all (~213) text entries from the API.
+  ///We fetch all entries at once and cash them locally to minimize network traffic.
   ///The Advice Slip API also does not provide the option to request a selected amount of entries.
   ///That's why I think this is the best approach.
   static const _adviceURI = 'https://api.adviceslip.com/advice/search/%20';
@@ -707,7 +707,7 @@ class ApiSupplier implements Supplier<List<Wisdom>> {
 
   @override
   Future<List<Wisdom>> fetch(int amount, BuildContext context) async {
-    //if the Cash is empty, request data from the API
+    //if the cash is empty, request data from the API
     if (_cash == null) _cash = await _loadData();
 
     List<Wisdom> res = List();
@@ -717,7 +717,7 @@ class ApiSupplier implements Supplier<List<Wisdom>> {
     return res;
   }
 
-  ///Fetches Data from API and coverts it to Wisdoms
+  ///Fetches Data from API and coverts it to wisdoms
   Future<List<Wisdom>> _loadData() async {
     http.Response response = await http.get(_adviceURI);
     AdviceSlips adviceSlips = AdviceSlips.fromJson(json.decode(response.body));
@@ -733,12 +733,12 @@ class ApiSupplier implements Supplier<List<Wisdom>> {
 ```
 _Code Snippet 20: Actual Wisgen ApiSupplier [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-The _AdviceSlips_ class was generated with a JSON to Dart converter [[@lecuonaJSONDartConverter2019]](https://javiercbk.github.io/json_to_dart/). The generated class has a fromJson function that makes it easy to populate it's data fields with the JSON response. I used this class instead of implementing a method in the _Wisdom_ class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
+The _AdviceSlips_ class was generated with a JSON to Dart converter [[@lecuonaJSONDartConverter2019]](https://javiercbk.github.io/json_to_dart/). The generated class has a _fromJson()_ function that makes it easy to populate it's data fields with the JSON response. I used this class instead of implementing a method in the _Wisdom_ class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don't need to read it all, I just want to give you an idea of how it looks like:
 
 ```dart
 import 'package:wisgen/models/wisdom.dart';
 
-///Generated Class to Handle JSON Input from AdviceSlip API.
+///Generated class to handle JSON input from AdviceSlip API.
 ///I used this tool: https://javiercbk.github.io/json_to_dart/.
 class AdviceSlips {
   String totalResults;
@@ -769,9 +769,9 @@ class AdviceSlips {
   }
 }
 
-///Generated Class to Handle JSON Input from AdviceSlip API.
+///Generated class to handle JSON input from AdviceSlip API.
 ///I used this tool: https://javiercbk.github.io/json_to_dart/.
-///A Slip can be converted directly into a Wisdom (this is a function I added myself)
+///A Slip can be converted directly into a Wisdom object (this is a function I added myself)
 class Slips {
   String advice;
   String slipId;
@@ -790,7 +790,7 @@ class Slips {
     return data;
   }
 
-  ///Not Generated
+  ///Not generated
   Wisdom toWisdom() {
     return Wisdom(
       id: int.parse(slipId),
