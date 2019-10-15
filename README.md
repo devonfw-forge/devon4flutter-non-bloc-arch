@@ -35,8 +35,8 @@ The guide is designed to be read in order, from chapter 0 (this one) to chapter 
 
 | Symbol | Meaning                  |
 | :----: | :----------------------- |
-|   📙    | Definition               |
-|   🕐    | Shortened version (TLDR) |
+|   📙   | Definition               |
+|   🕐   | Shortened version (TLDR) |
 |   ⚠    | Important                |
 
 ## My Sources
