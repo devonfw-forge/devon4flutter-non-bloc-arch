@@ -31,19 +31,19 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 - A brief introduction to the [Flutter Framework][framework] in general: 
   - How the [underlying technology][under-hood] works, 
   - how it's [programming style][declarative] is little different from other frameworks, 
-  - how Flutter apps are [structured][tree] on an abstract level and 
+  - how Flutter apps are [structured][tree] on an abstract level and,
   - how [asynchrony][async] and communication with the web can be implemented.
 - A showcase of possible [architectural styles][statemng] you can use to build your app and
-  - And an [in-depth guide][bloc] on one of those possibilities (BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE))
-- How to [test][test] your app
-- Some [conventions and best practices][conventions] for Dart, and the Flutter Framework in general
-- My personal [evaluation of the framework][conclusion]
+  - and an [in-depth guide][bloc] on one of those possibilities (BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE)).
+- How to [test][test] your app.
+- Some [conventions and best practices][conventions] for Dart, and the Flutter Framework in general.
+- My personal [evaluation of the framework][conclusion].
 
 ## Creation Context
 This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [[@technicaluniversitycologneTechnicalUniversityCologne2019]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with Capgemini Cologne [[@capgeminiCapgeminiHomePage2019]](https://www.capgemini.com/us-en/). Capgemini released a guide on building an application with Angular [[@ambuludiCapgeminiAngularGuide2019]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
 
 ## Structure
-The guide is designed to be read in order, from Chapter 0 (this one) to Chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen), an example Flutter application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/Fasust/flutter-guide/wiki/gfm-guide). It is all chapters of the guide combined into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
+The guide is designed to be read in order, from chapter 0 (this one) to chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen), an example Flutter application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/Fasust/flutter-guide/wiki/gfm-guide). It is all chapters of the guide combined into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
 
 | Symbol | Meaning                  |
 | :----: | :----------------------- |
@@ -56,7 +56,7 @@ I am basing this guide on a combination of conference talks, blog articles by re
 
 # 100-The-Flutter-Framework
 ## Introduction
-This Chapter will give you a basic understanding of how the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) works as a whole. I will showcase the difference of Flutter to other Cross-Platform approaches and how Flutter works [_under the hood_][under-hood]. You will also be introduced to the concepts of [_State_][declarative] [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) and Flutter's way of rendering an app as a [tree of _Widgets_][tree] [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html). Lastly, you will gain an understanding of how Flutter handles [Asynchronous Programming][async] and communication with the Web.
+This chapter will give you a basic understanding of how the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) works as a whole. I will showcase the difference of Flutter to other cross-platform approaches and how Flutter works [_under the hood_][under-hood]. You will also be introduced to the concepts of [_State_][declarative] [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) and Flutter's way of rendering an app as a [tree of _Widgets_][tree] [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html). Lastly, you will gain an understanding of how Flutter handles [Asynchronous Programming][async] and communication with the Web.
 
 ## Contents of the Chapter
 * [Under The Hood][under-hood]
@@ -67,7 +67,7 @@ This Chapter will give you a basic understanding of how the Flutter Framework [[
 # 110-Under-The-Hood
 
 ## Introduction
-Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) is a framework for cross-platform native development. That means that it promises Native app performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how Flutter achieves this is to compare it to other mobile development approaches. This chapter will showcase how three of the most popular cross-platform approaches function and then compare those technics to the one Flutter uses. Lastly, I will highlight some of the unique feature that Flutters approach enables.
+Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) is a framework for cross-platform native development. That means that it promises native app performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how Flutter achieves this is to compare it to other mobile development approaches. This chapter will showcase how three of the most popular cross-platform approaches function and then compare those technics to the one Flutter uses. Lastly, I will highlight some of the unique feature that Flutters approach enables.
 
 ### Full Native Approach
 ![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//images/native-rendering.png)
@@ -81,7 +81,7 @@ The classic way to build a mobile app would be to write native code for each pla
 
 _Figure 2: Embedded WebApp rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
-Embedded WebApps where the first approach to cross-platform development. For this approach, you build your application with HTML, CSS, and JavaScript and then render it through a native WebView [@googlellcHowFlutterDifferent2019; @lelerWhatRevolutionaryFlutter2017]. The problem here is, that developers are limited to the web technology stack and that communication between the app and native services always has to run through a _bridge_ [[@stollPlainEnglishWhat2018]](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a).
+Embedded WebApps where the first approach to cross-platform development. For this approach, you build your application with HTML [[@worldwidewebconsortiumw3cHTML1994]](https://www.w3.org/html/), CSS [[@worldwidewebconsortiumw3cCascadingStyleSheets1994]](https://www.w3.org/Style/CSS/Overview.de.html), and JavaScript [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) and then render it through a native WebView [@googlellcHowFlutterDifferent2019; @lelerWhatRevolutionaryFlutter2017]. The problem here is, that developers are limited to the web technology stack and that communication between the app and native services always has to run through a _bridge_ [[@stollPlainEnglishWhat2018]](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a).
 
 #### Bridges
 Bridges connect components with one another. These components can be built in the same or different programming languages [[@adinugrohoReviewMultiplatformMobile2015]](http://www.sciencedirect.com/science/article/pii/S1877050915020979).
@@ -1646,7 +1646,7 @@ Secondly, the official style guide forbids the use of prefixes like "k" for cons
 A few additional things to note about naming conventions in Dart [[@dartteamEffectiveDart2019]](https://dart.dev/guides/language/effective-dart):
 
 - A leading "_" is reserved to define a private scope, so you can't use it for other purposes then that.
-- Only capitalize the first letter of an Abbreviation For Example: `ApiSupplier`
+- Only capitalize the first letter of an abbreviation For Example: `ApiSupplier`
 - Whenever naming anything, ask your self: "Does each word in that name tell me something critical or prevent a name collision?”, If not, shorten it.
 - The last word in class- or variable-name should always be the most descriptive of what it is: `PageCount & DataSink` are better then `NumberOfPage & DataIn`
 
