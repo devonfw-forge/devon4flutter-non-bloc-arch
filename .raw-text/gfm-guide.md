@@ -869,16 +869,16 @@ Other than many mobile development frameworks, Flutter [\[1\]](https://flutter.d
 
 ## Example App State
 
-I will showcase the State Management solutions using one example of *App State* from the Wisgen App [\[11\]](https://github.com/Fasust/wisgen). We have a list of favorite wisdoms in the Wisgen App. This State is needed by 2 parties:
+I will showcase the State Management solutions using one example of *App State* from the Wisgen App [\[11\]](https://github.com/Fasust/wisgen). Wisgen gives the user the option to add wisdoms to a favorite list. This list/State is needed by 2 parties:
 
-1.  The ListView on the favorite page, so it can display all favorites
-2.  The button on every wisdom card so it can add a new favorite to the list and show if a given wisdom is a favorite.
+1.  The ListView on the favorite page, so it can display all favorites.
+2.  The button on every wisdom card so it can add a new favorites to the list and show if a given wisdom is a favorite.
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
 
 *Figure 13: Wisgen Favorites [\[11\]](https://github.com/Fasust/wisgen)*
 
-So whenever the favorite button on any card is pressed, several Widgets [\[28\]](https://flutter.dev/docs/development/ui/widgets-intro) have to update. This is a simplified version of the Wisgen Widget Tree, the red highlights show the Widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
+Whenever the favorite button on any card is pressed, several Widgets [\[28\]](https://flutter.dev/docs/development/ui/widgets-intro) have to update. This is a simplified version of the Wisgen Widget Tree. The red highlights show the Widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
 
 ![Wisgen WidgetTree Favorites](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
 
@@ -886,20 +886,20 @@ So whenever the favorite button on any card is pressed, several Widgets [\[28\]]
 
 ## Provider Package
 
-The Provider Package [\[53\]](https://pub.dev/packages/provider) is an open-source package for Flutter developed by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions \[54\], \[55\] and they are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [\[36\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
+The Provider Package [\[53\]](https://pub.dev/packages/provider) is an open-source package for Flutter published by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions \[54\], \[55\] and Rousselet and the Flutter Team are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [\[36\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
 
-As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their build contexts. This practice is called *“lifting State up”* and it is a common practice within declarative frameworks [\[56\]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
+As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their BuildContexts. This practice is called *“lifting State up”* and it is very common within declarative frameworks [\[56\]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
 | 📙 | Lifting State up | Placing State at the lowest common ancestor of all Widgets that need access to it [\[56\]](https://www.youtube.com/watch?v=zKXz3pUkw9A) |
 | - | ---------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
 
-The Provider Package is an easy way for us to lift State up. Let’s look at our example from figure 14: The first common ancestor of all Widgets in need of the favorite list is *MaterialApp*. So we will need to lift the State up to the MaterialApp and then have our Widgets access it from there:
+The Provider Package is an easy way for us to lift State up. Let’s look at our example from figure 14: The first common ancestor of all Widgets in need of the favorite list is *MaterialApp*. So we will need to lift the State up to the MaterialApp Widget and then have our other Widgets access it from there:
 
 ![Wisgen WidgetTree Favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
 
 *Figure 15: Wisgen WidgetTree Favorites with Provider [\[11\]](https://github.com/Fasust/wisgen)*
 
-To minimize re-builds the Provider Package uses ChangeNotifiers [\[57\]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the Sate and get notified whenever the State changes. This is how an implementation of Wisgen’s favorite list would look like using Provider: *Favorites* is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
+To minimize re-builds the Provider Package uses ChangeNotifiers [\[57\]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the provided Sate and get notified whenever the it changes. This is how an implementation of Wisgen’s favorite list would look like using Provider. *Favorites* is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
 
 ``` dart
 class Favorites with ChangeNotifier{
@@ -921,9 +921,9 @@ class Favorites with ChangeNotifier{
 }
 ```
 
-*Code Snippet 22: Hypothetical Favorites Class that would be exposed through the Provider Package [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 22: Hypothetical Favorites class that would be exposed through the Provider Package [\[11\]](https://github.com/Fasust/wisgen)*
 
-Here we expose our Favorite class globally above *MaterialApp* in the WidgetTree using the *ChangeNotifierProvider* Widget:
+Now we can expose our *Favorite* class above *MaterialApp* in the WidgetTree using the *ChangeNotifierProvider* Widget:
 
 ``` dart
 void main() => runApp(MyApp());
@@ -942,7 +942,7 @@ class MyApp extends StatelessWidget {
 
 *Code Snippet 23: Providing Favorites Globally [\[11\]](https://github.com/Fasust/wisgen)*
 
-This is how listening to the Favorite class looks like. We use the *Consumer Widget* to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes.
+Now we can consume the Favorite class from any of the dependance of the ChangeNotifierProvider Widget. Let’s look at the favorite button as an example. We use the *Consumer Widget* to get access to the favorite list and everything below the Consumer Widget will be rebuild when the favorites list changes.
 
 ``` dart
 ...
@@ -971,7 +971,7 @@ Widget build(BuildContext context) {
 ...
 ```
 
-*Code Snippet 24: Consuming Provider in Favorite Button of Wisdom Card [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 24: Consuming Provider in Favorite Button [\[11\]](https://github.com/Fasust/wisgen)*
 
 ### Why I decided against it
 
@@ -979,13 +979,19 @@ All in all, Provider is a great and easy solution to distribute State in a small
 
 ## Redux
 
-Redux [\[60\]](https://redux.js.org/) is an Architectural Pattern with a State Management solution. It was originally built for React [\[20\]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [\[61\]](https://pub.dev/packages/flutter_redux). In Redux, we use a *Store* as one central location for all our Business Logic. This Store is put at the very top of our Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the store (such as user input) and display the interface dependant on the Current State of the Store. The Store has *reducer* functions, that take in the previous State and an *action* and return a new State. \[56\], \[58\], \[62\] So in Wisgen, the Dataflow would look something like this:
+Redux [\[60\]](https://redux.js.org/) is State Management solution with an associated architectural pattern. It was originally built for React [\[20\]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [\[61\]](https://pub.dev/packages/flutter_redux). Redux uses a *Store* as one central location for all Business Logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has *Reducer* functions, that take in the previous State and an *Action* and return a new State. \[56\], \[58\], \[62\] So in Wisgen, the Dataflow would look something like this:
 
 ![Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
-*Figure 16: Wisgen Favorite List with Redux [\[11\]](https://github.com/Fasust/wisgen)*
+*Figure 16: Wisgen Redux Dataflow [\[11\]](https://github.com/Fasust/wisgen)*
 
-Our possible *actions* are adding a new wisdom and removing a wisdom. So this is what our Action classes would look like:
+Let’s have a quick look at how an implementation of Redux would look like in Wisgen.
+Our possible *Actions* are:
+
+1.  Adding a new wisdom to our favorites.
+2.  Removing a wisdom from our favorites.
+
+So this is what our *Action* classes would look like:
 
 ``` dart
 @immutable
@@ -1011,16 +1017,20 @@ class RemoveFavoriteAction extends FavoriteAction {
 This what the reducer function would look like:
 
 ``` dart
+// take in old State and Action
 List<Wisdom> favoriteReducer(List<Wisdom> state, FavoriteAction action) {
+  //Determine how to change the State
   if (action is AddFavoriteAction) state.add(action.favorite);
   if (action is RemoveFavoriteAction) state.remove(action.favorite);
+
+  //Return new State
   return state;
 }
 ```
 
 *Code Snippet 26: Hypothetical Wisgen Redux Reducer [\[11\]](https://github.com/Fasust/wisgen)*
 
-And this is how you would make the Store globally available:
+And this is how we would make the Store globally available:
 
 ``` dart
 void main() => runApp(MyApp());
@@ -1029,7 +1039,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Create new Store from reducer function
-    favoriteStore = new Store<List<Wisdom>>(favoriteReducer, initialState: new List());
+    favoriteStore = new Store<List<Wisdom>>(
+      reducer: favoriteReducer, 
+      initialState: new List(),
+    );
 
     //Provide Store globally
     return StoreProvider<List<Wisdom>>((
@@ -1037,6 +1050,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(home: WisdomFeed()),
     );
   }
+
+  //Snippet 26
+  List<Wisdom> favoriteReducer(List<Wisdom> state, FavoriteAction action) {...}
 }
 ```
 
@@ -1072,17 +1088,17 @@ Widget build(BuildContext context) {
 ...
 ```
 
-*Code Snippet 28: Consuming Redux Store in Favorite Button of Wisdom Card [\[11\]](https://github.com/Fasust/wisgen)*
+*Code Snippet 28: Consuming Redux Store in Favorite Button [\[11\]](https://github.com/Fasust/wisgen)*
 
 ### Why I decided against it
 
-I went back and forth on this decision a lot. Redux is a great State Management solution with some clear guidelines on how to integrate it into a Reactive application [\[63\]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean four-layered architecture (View - Store - Data) [\[56\]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [\[20\]](https://facebook.github.io/react-native/) and Angular [\[64\]](https://angular.io/) and I very much agree with this advice [\[58\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
+I went back and forth on this decision a lot. Redux is a great State Management solution with some clear guidelines on how to integrate it into a Reactive application [\[63\]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three-layered architecture (View - Store - Data) [\[56\]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [\[20\]](https://facebook.github.io/react-native/) and Angular [\[64\]](https://angular.io/) and I very much agree with this advice [\[58\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 
 1.  It was publicly endorsed by the Flutter Team on multiple occasions \[7\], \[12\], \[50\], \[54\], \[65\]
 2.  It also has clear architectural rules [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
-3.  It also enables the implementation of a clean four-layered architecture [\[66\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)
+3.  It also enables the implementation of a layered architecture [\[66\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)
 4.  It was developed by one of Flutter’s Engineers [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
-5.  We don’t end up with one giant store for the business logic out with multiple blocs with separate responsibilities [\[58\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
+5.  It dose not end up with one giant Store for the business logic. Instead we spread the business logic out into multiple BLoCs with separate responsibilities [\[58\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
 
 # 220-BLoC
 
