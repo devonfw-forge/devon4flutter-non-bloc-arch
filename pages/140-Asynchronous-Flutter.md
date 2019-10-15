@@ -12,7 +12,7 @@ Asynchronous Programming is an essential part of any modern application. There w
 
 ## Futures
 
-Futures [\[3\]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScript’s [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen *ApiSupplier* class. It can make requests to the AdviceSlip API [\[42\]](https://api.adviceslip.com/) to fetch some new advice texts.
+Futures [\[3\]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScript’s Promises [\[42\]](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen *ApiSupplier* class. It can make requests to the AdviceSlip API [\[43\]](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ``` dart
 import 'package:http/http.dart' as http;
@@ -33,7 +33,7 @@ class ApiSupplier {
 
 *Code Snippet 11: Simplified Wisgen ApiSupplier (Futures) [\[11\]](https://github.com/Fasust/wisgen)*
 
-We call *get()* on the HTTP module and give it the URL it should request. The *get()* method returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, `Future<http.Response> apiCall` is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the Future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* \[43\], \[44\]. We can also handle errors with the *catchError()* function:
+We call *get()* on the HTTP module and give it the URL it should request. The *get()* method returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, `Future<http.Response> apiCall` is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the Future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* \[44\], \[45\]. We can also handle errors with the *catchError()* function:
 
 ``` dart
 import 'package:http/http.dart' as http;
@@ -55,7 +55,7 @@ class ApiSupplier {
 
 ### async & await
 
-If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the *async & await* keywords [\[45\]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous code the same way we would if it was synchronous. Let’s take the same example as in snippet 11:
+If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the *async & await* keywords [\[46\]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous code the same way we would if it was synchronous. Let’s take the same example as in snippet 11:
 
 ``` dart
 import 'package:http/http.dart' as http;
@@ -73,7 +73,7 @@ class ApiSupplier {
 
 *Code Snippet 13: Simplified Wisgen ApiSupplier (Async & Await) [\[11\]](https://github.com/Fasust/wisgen)*
 
-We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a wisdom. If we want to use the *await* keyword in a function, we have to mark the function as *async*. This forces the return type of the function to be a Future, because if we wait during the function, the function can not return instantly, thus it **has** to return a Future [\[46\]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with *try/catch*:
+We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a wisdom. If we want to use the *await* keyword in a function, we have to mark the function as *async*. This forces the return type of the function to be a Future, because if we wait during the function, the function can not return instantly, thus it **has** to return a Future [\[47\]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with *try/catch*:
 
 ``` dart
 import 'package:http/http.dart' as http;
@@ -97,7 +97,7 @@ class ApiSupplier {
 
 ## Streams
 
-Streams [\[40\]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [\[47\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *Streams*? As Andrew Brogdon put’s it in one of Google’s official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [\[48\]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of Streams as one continuous flow of data. Data can be put into the Stream, other parties can subscribe/listen to a given Stream and be notified once a new piece of data enters the Stream.
+Streams [\[40\]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *Streams*? As Andrew Brogdon put’s it in one of Google’s official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [\[49\]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of Streams as one continuous flow of data. Data can be put into the Stream, other parties can subscribe/listen to a given Stream and be notified once a new piece of data enters the Stream.
 
 ![Data Stream](https://github.com/Fasust/flutter-guide/wiki//images/stream.PNG)
 
@@ -137,7 +137,7 @@ Important Side Note:
 | ⚠ | Streams in Dart are single subscription by default. So if you want multiple subscribers you need to initialize it like this: `StreamController streamController = new StreamController.broadcast();` |
 | - | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-Let’s have a look at a more complex example. In Wisgen, our wisdoms are delivered to the UI via a Stream. Whenever we run out of wisdoms to display, a request is sent to a class that fetches new wisdom form our API [\[42\]](https://api.adviceslip.com/) and publishes them in a stream. Once the API response comes in, the UI gets notified and receives the new list of wisdoms. This approach is part of the *BLoC Pattern* [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) and I will explain it in detail in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). For now, this is a simplified version of the class that is responsible for streaming wisdom:
+Let’s have a look at a more complex example. In Wisgen, our wisdoms are delivered to the UI via a Stream. Whenever we run out of wisdoms to display, a request is sent to a class that fetches new wisdom form our API [\[43\]](https://api.adviceslip.com/) and publishes them in a stream. Once the API response comes in, the UI gets notified and receives the new list of wisdoms. This approach is part of the *BLoC Pattern* [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) and I will explain it in detail in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). For now, this is a simplified version of the class that is responsible for streaming wisdom:
 
 ``` dart
 class WisdomBloc {
@@ -244,11 +244,11 @@ class WisdomFeedState extends State<WisdomFeed> {
 
 Alright, let’s go through this step by step:
 
-First, we initialize our WisdomBloc in the *initSate()* method. This is also where we set up a ScrollController [\[49\]](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled [\[50\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). I won’t go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc whenever we are near the end of our list. This way we get infinite scrolling.
+First, we initialize our WisdomBloc in the *initSate()* method. This is also where we set up a ScrollController [\[50\]](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled [\[51\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). I won’t go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc whenever we are near the end of our list. This way we get infinite scrolling.
 
-In the *build()* method, we use Flutter’s *StreamBuilder* Widget [\[51\]](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our Stream. We give it our Stream and it provides a builder method. This builder method receives a Snapshot containing the current State of the Stream whenever the State of the Stream changes IE when new wisdom is added. We can use the Snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive new wisdoms from our Stream through the Snapshot, we continue to the *listView()* method.
+In the *build()* method, we use Flutter’s *StreamBuilder* Widget [\[52\]](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our Stream. We give it our Stream and it provides a builder method. This builder method receives a Snapshot containing the current State of the Stream whenever the State of the Stream changes IE when new wisdom is added. We can use the Snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive new wisdoms from our Stream through the Snapshot, we continue to the *listView()* method.
 
-Here we use the list of wisdoms to create a ListView containing cards that display wisdoms. You might have wondered why we Stream a list of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual wisdoms we would need to combine them into a list here. Streaming a complete list when using a StreamBuilder to create infinite scrolling is also the recommended approach by the Flutter Team [\[52\]](https://www.youtube.com/watch?v=fahC3ky_zW0).
+Here we use the list of wisdoms to create a ListView containing cards that display wisdoms. You might have wondered why we Stream a list of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual wisdoms we would need to combine them into a list here. Streaming a complete list when using a StreamBuilder to create infinite scrolling is also the recommended approach by the Flutter Team [\[53\]](https://www.youtube.com/watch?v=fahC3ky_zW0).
 
 Finally, once the app is closed down, the *dispose()* method is called and we dispose of our Stream and ScrollController.
 
@@ -275,7 +275,7 @@ Stream<List<Wisdom>> streamWisdoms() async* {
 
 *Code Snippet 19: Simplified Wisgen WisdomBLoC with async\* [\[11\]](https://github.com/Fasust/wisgen)*
 
-This marks the end of my introduction to Streams. It can be a challenging topic wrap your head around at first so if you still feel like you want to learn more I can highly recommend this article by Didier Boelens [\[47\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8-minute tutorial video by the Flutter Team [\[48\]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
+This marks the end of my introduction to Streams. It can be a challenging topic wrap your head around at first so if you still feel like you want to learn more I can highly recommend this article by Didier Boelens [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8-minute tutorial video by the Flutter Team [\[49\]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
 ## Side Note on Communication with the Web
 
@@ -333,7 +333,7 @@ class ApiSupplier implements Supplier<List<Wisdom>> {
 
 *Code Snippet 20: Actual Wisgen ApiSupplier [\[11\]](https://github.com/Fasust/wisgen)*
 
-The *AdviceSlips* class was generated with a JSON to Dart converter [\[53\]](https://javiercbk.github.io/json_to_dart/). The generated class has a *fromJson()* function that makes it easy to populate it’s data fields with the JSON response. I used this class instead of implementing a method in the *Wisdom* class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don’t need to read it all, I just want to give you an idea of how it looks like:
+The *AdviceSlips* class was generated with a JSON to Dart converter [\[54\]](https://javiercbk.github.io/json_to_dart/). The generated class has a *fromJson()* function that makes it easy to populate it’s data fields with the JSON response. I used this class instead of implementing a method in the *Wisdom* class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don’t need to read it all, I just want to give you an idea of how it looks like:
 
 ``` dart
 import 'package:wisgen/models/wisdom.dart';

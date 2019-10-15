@@ -446,7 +446,7 @@ Asynchronous Programming is an essential part of any modern application. There w
 
 ## Futures
 
-Futures [\[3\]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScript’s [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) Promises before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen *ApiSupplier* class. It can make requests to the AdviceSlip API [\[42\]](https://api.adviceslip.com/) to fetch some new advice texts.
+Futures [\[3\]](https://dart.dev/) are the most basic way of dealing with asynchronous code in Flutter. If you have ever worked with JavaScript’s Promises [\[42\]](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) before, they are basically the exact same thing. Here is a small example: This is a simplified version of the Wisgen *ApiSupplier* class. It can make requests to the AdviceSlip API [\[43\]](https://api.adviceslip.com/) to fetch some new advice texts.
 
 ``` dart
 import 'package:http/http.dart' as http;
@@ -467,7 +467,7 @@ class ApiSupplier {
 
 *Code Snippet 11: Simplified Wisgen ApiSupplier (Futures) [\[11\]](https://github.com/Fasust/wisgen)*
 
-We call *get()* on the HTTP module and give it the URL it should request. The *get()* method returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, `Future<http.Response> apiCall` is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the Future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* \[43\], \[44\]. We can also handle errors with the *catchError()* function:
+We call *get()* on the HTTP module and give it the URL it should request. The *get()* method returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, `Future<http.Response> apiCall` is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the Future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* \[44\], \[45\]. We can also handle errors with the *catchError()* function:
 
 ``` dart
 import 'package:http/http.dart' as http;
@@ -489,7 +489,7 @@ class ApiSupplier {
 
 ### async & await
 
-If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the *async & await* keywords [\[45\]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous code the same way we would if it was synchronous. Let’s take the same example as in snippet 11:
+If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the *async & await* keywords [\[46\]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous code the same way we would if it was synchronous. Let’s take the same example as in snippet 11:
 
 ``` dart
 import 'package:http/http.dart' as http;
@@ -507,7 +507,7 @@ class ApiSupplier {
 
 *Code Snippet 13: Simplified Wisgen ApiSupplier (Async & Await) [\[11\]](https://github.com/Fasust/wisgen)*
 
-We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a wisdom. If we want to use the *await* keyword in a function, we have to mark the function as *async*. This forces the return type of the function to be a Future, because if we wait during the function, the function can not return instantly, thus it **has** to return a Future [\[46\]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with *try/catch*:
+We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a wisdom. If we want to use the *await* keyword in a function, we have to mark the function as *async*. This forces the return type of the function to be a Future, because if we wait during the function, the function can not return instantly, thus it **has** to return a Future [\[47\]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with *try/catch*:
 
 ``` dart
 import 'package:http/http.dart' as http;
@@ -531,7 +531,7 @@ class ApiSupplier {
 
 ## Streams
 
-Streams [\[40\]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [\[47\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *Streams*? As Andrew Brogdon put’s it in one of Google’s official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [\[48\]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of Streams as one continuous flow of data. Data can be put into the Stream, other parties can subscribe/listen to a given Stream and be notified once a new piece of data enters the Stream.
+Streams [\[40\]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we’ll use them heavily in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). But what exactly are *Streams*? As Andrew Brogdon put’s it in one of Google’s official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [\[49\]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of Streams as one continuous flow of data. Data can be put into the Stream, other parties can subscribe/listen to a given Stream and be notified once a new piece of data enters the Stream.
 
 ![Data Stream](https://github.com/Fasust/flutter-guide/wiki//images/stream.PNG)
 
@@ -571,7 +571,7 @@ Important Side Note:
 | ⚠ | Streams in Dart are single subscription by default. So if you want multiple subscribers you need to initialize it like this: `StreamController streamController = new StreamController.broadcast();` |
 | - | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-Let’s have a look at a more complex example. In Wisgen, our wisdoms are delivered to the UI via a Stream. Whenever we run out of wisdoms to display, a request is sent to a class that fetches new wisdom form our API [\[42\]](https://api.adviceslip.com/) and publishes them in a stream. Once the API response comes in, the UI gets notified and receives the new list of wisdoms. This approach is part of the *BLoC Pattern* [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) and I will explain it in detail in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). For now, this is a simplified version of the class that is responsible for streaming wisdom:
+Let’s have a look at a more complex example. In Wisgen, our wisdoms are delivered to the UI via a Stream. Whenever we run out of wisdoms to display, a request is sent to a class that fetches new wisdom form our API [\[43\]](https://api.adviceslip.com/) and publishes them in a stream. Once the API response comes in, the UI gets notified and receives the new list of wisdoms. This approach is part of the *BLoC Pattern* [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) and I will explain it in detail in the chapter [Architecting a Flutter app](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). For now, this is a simplified version of the class that is responsible for streaming wisdom:
 
 ``` dart
 class WisdomBloc {
@@ -678,11 +678,11 @@ class WisdomFeedState extends State<WisdomFeed> {
 
 Alright, let’s go through this step by step:
 
-First, we initialize our WisdomBloc in the *initSate()* method. This is also where we set up a ScrollController [\[49\]](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled [\[50\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). I won’t go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc whenever we are near the end of our list. This way we get infinite scrolling.
+First, we initialize our WisdomBloc in the *initSate()* method. This is also where we set up a ScrollController [\[50\]](https://api.flutter.dev/flutter/widgets/ScrollController-class.html) that we can use to determine how far down the list we have scrolled [\[51\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). I won’t go into the details here, but the controller enables us to call *publishMoreWisdom()* on the WisdomBloc whenever we are near the end of our list. This way we get infinite scrolling.
 
-In the *build()* method, we use Flutter’s *StreamBuilder* Widget [\[51\]](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our Stream. We give it our Stream and it provides a builder method. This builder method receives a Snapshot containing the current State of the Stream whenever the State of the Stream changes IE when new wisdom is added. We can use the Snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive new wisdoms from our Stream through the Snapshot, we continue to the *listView()* method.
+In the *build()* method, we use Flutter’s *StreamBuilder* Widget [\[52\]](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) to link our UI to our Stream. We give it our Stream and it provides a builder method. This builder method receives a Snapshot containing the current State of the Stream whenever the State of the Stream changes IE when new wisdom is added. We can use the Snapshot to determine when the UI needs to display a loading animation, an error message or the actual list. When we receive new wisdoms from our Stream through the Snapshot, we continue to the *listView()* method.
 
-Here we use the list of wisdoms to create a ListView containing cards that display wisdoms. You might have wondered why we Stream a list of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual wisdoms we would need to combine them into a list here. Streaming a complete list when using a StreamBuilder to create infinite scrolling is also the recommended approach by the Flutter Team [\[52\]](https://www.youtube.com/watch?v=fahC3ky_zW0).
+Here we use the list of wisdoms to create a ListView containing cards that display wisdoms. You might have wondered why we Stream a list of wisdoms and not just individual wisdoms. This ListView is the reason. If we where streaming individual wisdoms we would need to combine them into a list here. Streaming a complete list when using a StreamBuilder to create infinite scrolling is also the recommended approach by the Flutter Team [\[53\]](https://www.youtube.com/watch?v=fahC3ky_zW0).
 
 Finally, once the app is closed down, the *dispose()* method is called and we dispose of our Stream and ScrollController.
 
@@ -709,7 +709,7 @@ Stream<List<Wisdom>> streamWisdoms() async* {
 
 *Code Snippet 19: Simplified Wisgen WisdomBLoC with async\* [\[11\]](https://github.com/Fasust/wisgen)*
 
-This marks the end of my introduction to Streams. It can be a challenging topic wrap your head around at first so if you still feel like you want to learn more I can highly recommend this article by Didier Boelens [\[47\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8-minute tutorial video by the Flutter Team [\[48\]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
+This marks the end of my introduction to Streams. It can be a challenging topic wrap your head around at first so if you still feel like you want to learn more I can highly recommend this article by Didier Boelens [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/) or this 8-minute tutorial video by the Flutter Team [\[49\]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t)
 
 ## Side Note on Communication with the Web
 
@@ -767,7 +767,7 @@ class ApiSupplier implements Supplier<List<Wisdom>> {
 
 *Code Snippet 20: Actual Wisgen ApiSupplier [\[11\]](https://github.com/Fasust/wisgen)*
 
-The *AdviceSlips* class was generated with a JSON to Dart converter [\[53\]](https://javiercbk.github.io/json_to_dart/). The generated class has a *fromJson()* function that makes it easy to populate it’s data fields with the JSON response. I used this class instead of implementing a method in the *Wisdom* class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don’t need to read it all, I just want to give you an idea of how it looks like:
+The *AdviceSlips* class was generated with a JSON to Dart converter [\[54\]](https://javiercbk.github.io/json_to_dart/). The generated class has a *fromJson()* function that makes it easy to populate it’s data fields with the JSON response. I used this class instead of implementing a method in the *Wisdom* class because I did not want a direct dependency from my entity class to the AdviceSlip JSON structure. This is the generated class, you don’t need to read it all, I just want to give you an idea of how it looks like:
 
 ``` dart
 import 'package:wisgen/models/wisdom.dart';
@@ -865,7 +865,7 @@ Ephemeral State is State that is only required in one location IE inside of one 
 
 ## Introduction
 
-Other than many mobile development frameworks, Flutter [\[1\]](https://flutter.dev/) does not impose any kind of architecture or State Management solution on its developers. This open-ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community [\[54\]](https://fluttersamples.com/). Some of these approaches have even been endorsed by the Flutter Team itself [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I decided to focus on the BLoC pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) for this guide. But I do want to showcase some alternatives and explain why exactly I ended up choosing BLoC.
+Other than many mobile development frameworks, Flutter [\[1\]](https://flutter.dev/) does not impose any kind of architecture or State Management solution on its developers. This open-ended approach has lead to multiple State Management solution and a hand full of architectural approaches spawning from the community [\[55\]](https://fluttersamples.com/). Some of these approaches have even been endorsed by the Flutter Team itself [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). I decided to focus on the BLoC pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) for this guide. But I do want to showcase some alternatives and explain why exactly I ended up choosing BLoC.
 
 ## Example App State
 
@@ -886,11 +886,11 @@ Whenever the favorite button on any card is pressed, several Widgets [\[30\]](ht
 
 ## Provider Package
 
-The Provider Package [\[55\]](https://pub.dev/packages/provider) is a State Management solution for Flutter published by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions \[56\], \[57\] and Rousselet and the Flutter Team are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [\[38\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
+The Provider Package [\[56\]](https://pub.dev/packages/provider) is a State Management solution for Flutter published by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions \[57\], \[58\] and Rousselet and the Flutter Team are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [\[38\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
 
-As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their BuildContexts. This practice is called *“lifting State up”* and it is very common within declarative frameworks [\[58\]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
+As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their BuildContexts. This practice is called *“lifting State up”* and it is very common within declarative frameworks [\[59\]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
-| 📙 | Lifting State up | Placing State at the lowest common ancestor of all Widgets that need access to it [\[58\]](https://www.youtube.com/watch?v=zKXz3pUkw9A) |
+| 📙 | Lifting State up | Placing State at the lowest common ancestor of all Widgets that need access to it [\[59\]](https://www.youtube.com/watch?v=zKXz3pUkw9A) |
 | - | ---------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
 
 The Provider Package is an easy way for us to lift State up. Let’s look at our example from figure 14: The first common ancestor of all Widgets in need of the favorite list is *MaterialApp*. So we will need to lift the State up to the MaterialApp Widget and then have our other Widgets access it from there:
@@ -899,7 +899,7 @@ The Provider Package is an easy way for us to lift State up. Let’s look at our
 
 *Figure 15: Wisgen WidgetTree Favorites with Provider [\[11\]](https://github.com/Fasust/wisgen)*
 
-To minimize re-builds the Provider Package uses ChangeNotifiers [\[59\]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the provided Sate and get notified whenever the it changes. This is how an implementation of Wisgen’s favorite list would look like using Provider. *Favorites* is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
+To minimize re-builds the Provider Package uses ChangeNotifiers [\[60\]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the provided Sate and get notified whenever the it changes. This is how an implementation of Wisgen’s favorite list would look like using Provider. *Favorites* is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
 
 ``` dart
 class Favorites with ChangeNotifier{
@@ -975,11 +975,11 @@ Widget build(BuildContext context) {
 
 ### Why I decided against it
 
-All in all, Provider is a great and easy solution to distribute State in a small Flutter application. But it is just that, a State Management solution and not an architecture \[56\], \[57\], \[60\], \[61\]. Just the Provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because Provider is such an efficient and easy way to distribute State, the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) uses it as an underlying technology for their approach.
+All in all, Provider is a great and easy solution to distribute State in a small Flutter application. But it is just that, a State Management solution and not an architecture \[57\], \[58\], \[61\], \[62\]. Just the Provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because Provider is such an efficient and easy way to distribute State, the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) uses it as an underlying technology for their approach.
 
 ## Redux
 
-Redux [\[62\]](https://redux.js.org/) is State Management solution with an associated architectural pattern. It was originally built for React [\[22\]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [\[63\]](https://pub.dev/packages/flutter_redux). Redux uses a *Store* as one central location for all Business Logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has *Reducer* functions, that take in the previous State and an *Action* and return a new State. \[58\], \[60\], \[64\] So in Wisgen, the Dataflow would look something like this:
+Redux [\[63\]](https://redux.js.org/) is State Management solution with an associated architectural pattern. It was originally built for React [\[22\]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [\[64\]](https://pub.dev/packages/flutter_redux). Redux uses a *Store* as one central location for all Business Logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has *Reducer* functions, that take in the previous State and an *Action* and return a new State. \[59\], \[61\], \[65\] So in Wisgen, the Dataflow would look something like this:
 
 ![Wisgen Favorite List with Redux](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
@@ -1092,23 +1092,23 @@ Widget build(BuildContext context) {
 
 ### Why I decided against it
 
-I went back and forth on this decision a lot. Redux is a great State Management solution with some clear guidelines on how to integrate it into a Reactive application [\[65\]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three-layered architecture (View - Store - Data) [\[58\]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [\[22\]](https://facebook.github.io/react-native/) and Angular [\[66\]](https://angular.io/) and I very much agree with this advice [\[60\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
+I went back and forth on this decision a lot. Redux is a great State Management solution with some clear guidelines on how to integrate it into a Reactive application [\[66\]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three-layered architecture (View - Store - Data) [\[59\]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [\[22\]](https://facebook.github.io/react-native/) and Angular [\[67\]](https://angular.io/) and I very much agree with this advice [\[61\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 
-1.  It was publicly endorsed by the Flutter Team on multiple occasions \[7\], \[12\], \[52\], \[56\], \[67\]
+1.  It was publicly endorsed by the Flutter Team on multiple occasions \[7\], \[12\], \[53\], \[57\], \[68\]
 2.  It also has clear architectural rules [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
-3.  It also enables the implementation of a layered architecture [\[68\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)
+3.  It also enables the implementation of a layered architecture [\[69\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)
 4.  It was developed by one of Flutter’s Engineers [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
-5.  It dose not end up with one giant Store for the business logic. Instead we spread the business logic out into multiple BLoCs with separate responsibilities [\[60\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
+5.  It dose not end up with one giant Store for the business logic. Instead we spread the business logic out into multiple BLoCs with separate responsibilities [\[61\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
 
 # 220-BLoC
 
 ## Introduction
 
-BLoC is a State Management solution that implements an architectural pattern. It was designed by Paolo Soares in 2018 [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [\[1\]](%5B@flutterdevteamFlutterFramework2018%5D) and Angular Dart [\[69\]](https://angulardart.dev/) applications. This chapter will give you an in-depth understanding of what the BLoC Pattern is and how it works. You will learn how to implement it using the BLoC Package [\[39\]](https://felangel.github.io/bloc/#/) by Felix Angelov. And Finally, you will learn how to use the BLoC Pattern to achieve a scalable four-layered architecture for your application.
+BLoC is a State Management solution that implements an architectural pattern. It was designed by Paolo Soares in 2018 [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). Its original purpose was to enable code sharing between Flutter [\[1\]](%5B@flutterdevteamFlutterFramework2018%5D) and Angular Dart [\[70\]](https://angulardart.dev/) applications. This chapter will give you an in-depth understanding of what the BLoC Pattern is and how it works. You will learn how to implement it using the BLoC Package [\[39\]](https://felangel.github.io/bloc/#/) by Felix Angelov. And Finally, you will learn how to use the BLoC Pattern to achieve a scalable four-layered architecture for your application.
 
 ## Intro to BLoC
 
-When Soares designed the BLoC Pattern, he was working on applications in both Flutter and Angular Dart. He wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular Dart apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send *Events* to BLoCs and display the UI based on the *State* of the BLoCs. Soares defined, that UI and BLoCs should only communicate through Streams [\[40\]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a Stream of State [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State \[7\], \[47\], \[52\], \[67\].
+When Soares designed the BLoC Pattern, he was working on applications in both Flutter and Angular Dart. He wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular Dart apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send *Events* to BLoCs and display the UI based on the *State* of the BLoCs. Soares defined, that UI and BLoCs should only communicate through Streams [\[40\]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a Stream of State [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State \[7\], \[48\], \[53\], \[68\].
 
 | 📙 | BLoC | Business Logic Component [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) |
 | - | ---- | :---------------------------------------------------------------------------- |
@@ -1118,7 +1118,7 @@ When Soares designed the BLoC Pattern, he was working on applications in both Fl
 
 ![Bloc Architecture](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
 
-*Figure 17: Bloc turning input events to a stream of State [\[67\]](https://www.youtube.com/watch?v=RS36gBEp8OI)*
+*Figure 17: Bloc turning input events to a stream of State [\[68\]](https://www.youtube.com/watch?v=RS36gBEp8OI)*
 
 ## Advantages of BLoC
 
@@ -1130,7 +1130,7 @@ That’s all well and good, but why should you care? An application that follows
 4.  have business logic that is easily testable.
 5.  rely on few rebuilds, as the UI only rebuilds when the State related to that UI changes.
 
-\[7\], \[47\], \[60\], \[61\]
+\[7\], \[48\], \[61\], \[62\]
 
 ## Rules of the BLoC Pattern
 
@@ -1156,11 +1156,11 @@ To gain those promised advantages, you will have to follow these 8 rules Soares 
 
 ![Bloc Sink and Stream](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
 
-*Figure 18: How a BLoC looks like [\[47\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
+*Figure 18: How a BLoC looks like [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
 
 ## Implementation
 
-Alright, Now that you know what the BLoC pattern is, let’s have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [\[62\]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of *App State* as I did in the [previous chapter](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives): The favorite list in Wisgen [\[11\]](https://github.com/Fasust/wisgen). First, let’s have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
+Alright, Now that you know what the BLoC pattern is, let’s have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [\[63\]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of *App State* as I did in the [previous chapter](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives): The favorite list in Wisgen [\[11\]](https://github.com/Fasust/wisgen). First, let’s have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
 
 ![Bloc and Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-bloc.PNG)
 
@@ -1219,7 +1219,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
 
 *Code Snippet 30: Favorite BLoC in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
-As I mentioned before, the BLoC package for Flutter uses the Provider package [\[55\]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we learned in the chapter [State Management Alternatives](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives). By the rule of *“lifting State up”* we have to place the favorite BLoC at the lowest common ancestor of all Widgets that need access to it. So in our case at *MaterialApp*:
+As I mentioned before, the BLoC package for Flutter uses the Provider package [\[56\]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we learned in the chapter [State Management Alternatives](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives). By the rule of *“lifting State up”* we have to place the favorite BLoC at the lowest common ancestor of all Widgets that need access to it. So in our case at *MaterialApp*:
 
 ``` dart
 void main() => runApp(MyApp());
@@ -1276,7 +1276,7 @@ Widget build(BuildContext context) {
 
 ## Layered Architecure
 
-Now that we understand how to implement the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets’ have a look at how we can use it to achieve a four-layered architecture with one way dependencies [\[68\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
+Now that we understand how to implement the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets’ have a look at how we can use it to achieve a four-layered architecture with one way dependencies [\[69\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
 
 <img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Bloc Architecture with Layers">
 
@@ -1294,7 +1294,7 @@ This is where all our BLoCs reside. All our business logic sits in this layer. T
 
 *Figure 21: Widget BLoC Communication*
 
-For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community \[39\], \[54\], \[68\], \[70\] mostly uses the *Repository Patter* [\[71\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[72\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
+For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community \[39\], \[55\], \[69\], \[71\] mostly uses the *Repository Patter* [\[72\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[73\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
 
 ``` dart
 ///Generic Repository that fetches a given amount of T
@@ -1323,7 +1323,7 @@ To give you a better understanding of how this architecture works in practice, I
 
 *Figure 22: Wisgen Architecture with Dependencies [\[11\]](https://github.com/Fasust/wisgen)*
 
-In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure 22. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[50\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its *Repository*. You can see the *Repository* interface in snippet 33. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) if you want to remind yourself again. When the Wisdom BLoC receives a response from it’s Repository, it publishes the new wisdoms to its Stream [\[40\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
+In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure 22. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[51\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This event causes the *Wisdom BLoC* to fetch more data from its *Repository*. You can see the *Repository* interface in snippet 33. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) if you want to remind yourself again. When the Wisdom BLoC receives a response from it’s Repository, it publishes the new wisdoms to its Stream [\[40\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
 
 ![Wisgen Bloc Architecture Dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
 
@@ -1404,7 +1404,7 @@ abstract class Storage<T>{
 
 *Code Snippet 35: Wisgen platform-agnostic Repository: Storage [\[11\]](https://github.com/Fasust/wisgen)*
 
-In Wisgen, I built an implementation of *Storage* that communicates with Androids Shared Preferences [\[73\]](https://developer.android.com/reference/android/content/SharedPreferences) and saves the favorite list as a JSON:
+In Wisgen, I built an implementation of *Storage* that communicates with Androids Shared Preferences [\[74\]](https://developer.android.com/reference/android/content/SharedPreferences) and saves the favorite list as a JSON:
 
 ``` dart
 ///[Storage] that gives access to Androids Shared Preferences 
@@ -1460,31 +1460,31 @@ class SharedPreferenceStorage implements Storage<List<Wisdom>> {
 
 ## Introduction
 
-Testing has become an essential part of developing any large scale application and there is strong evidence that writing tests leads to a higher code quality [\[74\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifically, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+Testing has become an essential part of developing any large scale application and there is strong evidence that writing tests leads to a higher code quality [\[75\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifically, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 ## Types of Tests in Flutter
 
-Flutters official test library [\[75\]](https://pub.dev/packages/test) differentiates between three types of tests:
+Flutters official test library [\[76\]](https://pub.dev/packages/test) differentiates between three types of tests:
 
 #### Unit Tests
 
-Unit Test can be run very quickly. They can test any function of your app, that does not require the rendering of a Widget [\[76\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). Their main use-case is to test business logic or in our case: BLoCs [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+Unit Test can be run very quickly. They can test any function of your app, that does not require the rendering of a Widget [\[77\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). Their main use-case is to test business logic or in our case: BLoCs [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 #### Widget Tests
 
-Widget Tests are used to test small Widget Sub-Trees of your application. They run relatively quickly and can test the behavior of a given UI [\[76\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+Widget Tests are used to test small Widget Sub-Trees of your application. They run relatively quickly and can test the behavior of a given UI [\[77\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
 #### Integration Test (Driver Tests)
 
-Integration/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and *“prone to braking”*[\[76\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
+Integration/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and *“prone to braking”*[\[77\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
 ![Flutter Test Comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
 
-*Figure 24: Flutter Test Comparison [\[77\]](https://flutter.dev/docs/testing)*
+*Figure 24: Flutter Test Comparison [\[78\]](https://flutter.dev/docs/testing)*
 
 ## Writing Unit Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[76\], \[77\]. The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[75\]](https://pub.dev/packages/test) and the mockito package [\[78\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[77\], \[78\]. The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[76\]](https://pub.dev/packages/test) and the mockito package [\[79\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
 ``` yaml
 dev_dependencies:
@@ -1501,7 +1501,7 @@ dev_dependencies:
 
 *Figure 25: Wisgen test directory [\[11\]](https://github.com/Fasust/wisgen)*
 
-| ⚠ | All test files have to end with the postfix "\_test.dart" to be recognized by the framework [\[76\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
+| ⚠ | All test files have to end with the postfix "\_test.dart" to be recognized by the framework [\[77\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). |
 | - | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 Now we can start writing our tests. For this example, I will test the favorite BLoC of Wisgen [\[11\]](https://github.com/Fasust/wisgen):
@@ -1535,7 +1535,7 @@ void main() {
 
 *Code Snippet 38: Wisgen Favorite BLoC Tests 1 [\[11\]](https://github.com/Fasust/wisgen)*
 
-We can use the *group()* function to group related tests together. This way the output of our tests is more neatly formated [\[76\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[79\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose of our BLoC. The *test()* function takes in a name and a callback with the actual test. In our test, we check if the State of the favorite BloC after initialization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`. We can run all our tests using the command `flutter test`.
+We can use the *group()* function to group related tests together. This way the output of our tests is more neatly formated [\[77\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). *setUp()* is called once before every test, so it is perfect for initializing our BLoC [\[80\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). *tearDown()* is called after every test, so we can use it to dispose of our BLoC. The *test()* function takes in a name and a callback with the actual test. In our test, we check if the State of the favorite BloC after initialization is an empty list. *expect()* takes in the actual value and the value that is expected: `expect(actual, matcher)`. We can run all our tests using the command `flutter test`.
 
 ### Testing Streams
 
@@ -1583,7 +1583,7 @@ void main() {
 
 *Code Snippet 39: Wisgen Favorite BLoC Tests 2 [\[11\]](https://github.com/Fasust/wisgen)*
 
-In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We use the *emitsInOrder()* *matcher* to tell the framework that we are working with a Stream and looking for a specific set of events to be emitted in order [\[79\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other Stream matchers besides *emitsInOrder()* [\[80\]](https://pub.dev/packages/test#asynchronous-tests):
+In this test, we create three wisdoms and add/remove them from the favorite BLoC by sending the corresponding events. We use the *emitsInOrder()* *matcher* to tell the framework that we are working with a Stream and looking for a specific set of events to be emitted in order [\[80\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86). The Flutters test framework also offers many other Stream matchers besides *emitsInOrder()* [\[81\]](https://pub.dev/packages/test#asynchronous-tests):
 
   - *emits()* matches a single data event.
   - *emitsError()* matches a single error event.
@@ -1591,11 +1591,11 @@ In this test, we create three wisdoms and add/remove them from the favorite BLoC
   - *emitsAnyOf()* consumes events matching one (or more) of several possible matchers.
   - *emitsInAnyOrder()* works like emitsInOrder(), but it allows the matchers to match in any order.
   - *neverEmits()* matches a stream that finishes without matching an inner matcher.
-  - And more [\[80\]](https://pub.dev/packages/test#asynchronous-tests)
+  - And more [\[81\]](https://pub.dev/packages/test#asynchronous-tests)
 
 ### Mockito
 
-As mentioned before, *Mockito* [\[78\]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC Pattern forces us to make all platform-specific dependencies of our BLoCs injectable [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it’s Repository, we can inject a mock Repository into the BLoC. This way we can test one bit of logic at a time. In this example, we use *Mockito* to test if our wisdom BLoC emits new wisdoms after receiving a fetch event:
+As mentioned before, *Mockito* [\[79\]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC Pattern forces us to make all platform-specific dependencies of our BLoCs injectable [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it’s Repository, we can inject a mock Repository into the BLoC. This way we can test one bit of logic at a time. In this example, we use *Mockito* to test if our wisdom BLoC emits new wisdoms after receiving a fetch event:
 
 ``` dart
 //Creating Mocks using Mockito
@@ -1654,7 +1654,7 @@ First we create our Mock classes. For this test we need a mock *Supplier-Reposit
 
 ## Equality in Dart
 
-| ⚠ | By default, all comparisons in Dart work based on references and not base on values \[79\], \[81\] |
+| ⚠ | By default, all comparisons in Dart work based on references and not base on values \[80\], \[82\] |
 | - | :------------------------------------------------------------------------------------------------- |
 
 ``` dart
@@ -1666,7 +1666,7 @@ print(wisdom1 == wisdom2); //false
 
 *Code Snippet 41: Equality in Flutter*
 
-This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the *Equatable* package in 2019 [\[81\]](https://pub.dev/packages/equatable#-example-tab-). It’s an easy way to overwrite how class equality is handled. If we make a class extend the *Equatable* class, we can set the properties it is compared by. We do this by overwriting its *props* attribute. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom they carry:
+This can be an easy thing to trip over during testing, especially when comparing States emitted by BLoCs. Luckily, Felix Angelov released the *Equatable* package in 2019 [\[82\]](https://pub.dev/packages/equatable#-example-tab-). It’s an easy way to overwrite how class equality is handled. If we make a class extend the *Equatable* class, we can set the properties it is compared by. We do this by overwriting its *props* attribute. This is used in Wisgen to make the States of the wisdom BLoC compare based on the wisdom they carry:
 
 ``` dart
 @immutable
@@ -1699,7 +1699,7 @@ class WisdomStateIdle extends WisdomState {
 
 If we wouldn’t use Equatable, the test form snippet 40 could not functions properly, as two states carrying the same wisdom would still be considers different by the test framework.
 
-| 🕐 | TLDR | If you don’t want your classes to be compared base on their reference, use the Equatable package [\[81\]](https://pub.dev/packages/equatable#-example-tab-) |
+| 🕐 | TLDR | If you don’t want your classes to be compared base on their reference, use the Equatable package [\[82\]](https://pub.dev/packages/equatable#-example-tab-) |
 | - | ---- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 # 400-Conventions
@@ -1708,9 +1708,9 @@ If we wouldn’t use Equatable, the test form snippet 40 could not functions pro
 
 I want to start this chapter of with a great quote from Dart’s official style guide:
 
-> “A surprisingly important part of good code is good style. Consistent naming, ordering, and formatting helps code that is the same look the same.” [\[82\]](https://dart.dev/guides/language/effective-dart)
+> “A surprisingly important part of good code is good style. Consistent naming, ordering, and formatting helps code that is the same look the same.” [\[83\]](https://dart.dev/guides/language/effective-dart)
 
-This chapter will teach you some of the current best practices, conventions, and tips when writing Dart code [\[3\]](https://dart.dev/) and Flutter applications [\[1\]](https://flutter.dev/) in general. That being said, the Dart team has published their own comprehensive guide [\[82\]](https://dart.dev/guides/language/effective-dart) on writing effective Dart. I will be highlighting some of the information in that guide here, but I will mainly be focusing on the aspects that are unique to Dart and might be a bit counter intuitive when coming from other languages or frameworks.
+This chapter will teach you some of the current best practices, conventions, and tips when writing Dart code [\[3\]](https://dart.dev/) and Flutter applications [\[1\]](https://flutter.dev/) in general. That being said, the Dart team has published their own comprehensive guide [\[83\]](https://dart.dev/guides/language/effective-dart) on writing effective Dart. I will be highlighting some of the information in that guide here, but I will mainly be focusing on the aspects that are unique to Dart and might be a bit counter intuitive when coming from other languages or frameworks.
 
 ## Naming Conventions
 
@@ -1722,15 +1722,15 @@ There is three types of naming schemes in Dart. The following table is a summary
 | *UpperCamelCase*               | classes, enums, type definitions, and type parameters                                                     |
 | *lowerCamelCase*               | anything else: Class members, top-level definitions, variables, parameters, **constants**                 |
 
-*Table 2: Nameing Convention [\[82\]](https://dart.dev/guides/language/effective-dart)*
+*Table 2: Nameing Convention [\[83\]](https://dart.dev/guides/language/effective-dart)*
 
 There are two things I want to highlight about constant values in Dart:
 
 Firstly, the Dart style guide discourages the use of all uppercase or *SCREENING\_CAPS*. In most other languages all uppercase is used for constant values. The Dart team argues that during development you often end up changing constant variables to no longer be constant. Using all uppercase for constant values thus leads to a lot of renaming. So the convention in Dart is to use the same scheme for every variable.
 
-Secondly, the official style guide forbids the use of prefixes like “k” for constants or any other variation of Hungarian Notation [\[83\]](https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598). They argue that we are now able to see the type, scope, mutability, and other properties of our variables through our IDEs and/or frameworks, and we no longer need to imbed such information into the names of our variables. It is interesting to note that the official Flutter repository uses and encourages the use of a “k” prefix for constants in their style guide [\[84\]](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo). So I would argue that either approach is fine as long as you are consistent.
+Secondly, the official style guide forbids the use of prefixes like “k” for constants or any other variation of Hungarian Notation [\[84\]](https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598). They argue that we are now able to see the type, scope, mutability, and other properties of our variables through our IDEs and/or frameworks, and we no longer need to imbed such information into the names of our variables. It is interesting to note that the official Flutter repository uses and encourages the use of a “k” prefix for constants in their style guide [\[85\]](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo). So I would argue that either approach is fine as long as you are consistent.
 
-A few additional things to note about naming conventions in Dart [\[82\]](https://dart.dev/guides/language/effective-dart):
+A few additional things to note about naming conventions in Dart [\[83\]](https://dart.dev/guides/language/effective-dart):
 
   - A leading "\_" is reserved to define a private scope, so you can’t use it for other purposes then that.
   - Only capitalize the first letter of an abbreviation For Example: `ApiSupplier`
@@ -1761,20 +1761,20 @@ class Wisdom {...}
 
 *Code Snippet 44: Triple-Dash block comment (3 lines)*
 
-Wether you agree with that reasoning or not. You should definitely use them, because they can be used to auto generate a documentation for your project with the Dartdoc tool [\[85\]](https://github.com/dart-lang/dartdoc) and they are shown as tooltips in your IDE:
+Wether you agree with that reasoning or not. You should definitely use them, because they can be used to auto generate a documentation for your project with the Dartdoc tool [\[86\]](https://github.com/dart-lang/dartdoc) and they are shown as tooltips in your IDE:
 
 ![Wisdom Tool Tip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
 
 *Figure 26: Wisgen wisdom tool tip [\[11\]](https://github.com/Fasust/wisgen)*
 
 So in short: Use `//` for inline comments, or to explain some specific code within a function. Use `///` to document the top level behavior of classes, variables, and function.
-Some additional things to note about Doc Comments in Dart are [\[82\]](https://dart.dev/guides/language/effective-dart):
+Some additional things to note about Doc Comments in Dart are [\[83\]](https://dart.dev/guides/language/effective-dart):
 
   - They should always start with a one sentence description of what the commented thing **dose**. Preferably starting with a present tense, verbs in third person like *supplies*, *holds* or *models*.
   - That initial line should be followed by one empty line to make it stand out.
   - Highlight relevant classes, functions or members by surrounding them with *\[…\]*.
       - They will be linked in the auto-generated docs
-  - Markdown [\[86\]](https://daringfireball.net/projects/markdown/) is supported for triple-dash comments, so consider adding code snippets as examples.
+  - Markdown [\[87\]](https://daringfireball.net/projects/markdown/) is supported for triple-dash comments, so consider adding code snippets as examples.
   - Don’t document information that is already obvious by class name and parameter:
 
 <!-- end list -->
@@ -1814,16 +1814,16 @@ One thing you might have already encountered when building an app with Flutter, 
 ...
 ```
 
-*Code Snippet 46: Flutter Gallery App [\[87\]](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart)*
+*Code Snippet 46: Flutter Gallery App [\[88\]](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart)*
 
-This phenomenon is known as “Bracket Hell” in the Flutter community \[88\]–\[90\]. And to a degree, this is just what Flutter code looks like. Snippet 46 is from one of Flutters official example projects. But we can still try to minimize the problem if we …
+This phenomenon is known as “Bracket Hell” in the Flutter community \[89\]–\[91\]. And to a degree, this is just what Flutter code looks like. Snippet 46 is from one of Flutters official example projects. But we can still try to minimize the problem if we …
 
-| ⚠ | Extract any *distinct enough* Widget into its own class [\[88\]](https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/) |
+| ⚠ | Extract any *distinct enough* Widget into its own class [\[89\]](https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/) |
 | - | :------------------------------------------------------------------------------------------------------------------------------------ |
 
 and
 
-| ⚠ | Extract any *callback* into its own function [\[88\]](https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/) |
+| ⚠ | Extract any *callback* into its own function [\[89\]](https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/) |
 | - | :------------------------------------------------------------------------------------------------------------------------- |
 
 Let’s look at an example. This is what the *WisdomCard* in Wisgen would look like with one build method. You don’t need to read it all, just look at the top level *form* of the code:
@@ -2088,11 +2088,11 @@ class _LikeButton extends StatelessWidget {
 
 *Code Snippet 48: Wisgen Wisdom Card in four Widgets and with an extracted callback [\[11\]](https://github.com/Fasust/wisgen)*
 
-As you can see, splitting your code into multiple smaller Widgets, does lead to a lot more boiler plate. But it has both readability and performance advantages \[33\], \[88\]. Extracting Widgets into private functions removes the boiler plate, but also has no performance advantages.
+As you can see, splitting your code into multiple smaller Widgets, does lead to a lot more boiler plate. But it has both readability and performance advantages \[33\], \[89\]. Extracting Widgets into private functions removes the boiler plate, but also has no performance advantages.
 
 ## Directory Structure
 
-As of the writing of this guide there is not really any agreement or best practice regarding directory structure in the Flutter community. The closest thing I could find was a popular Blog post by Sagar Suri on Medium in 2019 [\[68\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). My recommendation would be very close to his. One directory per layer plus one directory for *model* classes, which are domain specific entities like *user* or *wisdom*:
+As of the writing of this guide there is not really any agreement or best practice regarding directory structure in the Flutter community. The closest thing I could find was a popular Blog post by Sagar Suri on Medium in 2019 [\[69\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1). My recommendation would be very close to his. One directory per layer plus one directory for *model* classes, which are domain specific entities like *user* or *wisdom*:
 
     lib
     |
@@ -2121,29 +2121,29 @@ So, you’ve made it. This is the final chapter of the guide. I will use this ch
 
 ## Evaluation of the Guide
 
-I am pretty happy with how the guide turned out. I managed to find a diverse range of sources for most of the topics I wanted to cover. I kept close to the *informal*, *from developer for developer*-style of the original Angular guide [\[10\]](https://github.com/devonfw/devon4ng) and I think it reads pretty well. The guide did end up being a bit longer then I planned (\~50 A4 pages without figures and references). If I would write it again, I would choose a more narrow and clear scope for what the guide should include. For example, I might have excluded or shortened chapter [1 The Flutter Framework](https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework) and instead focused even more on chapter [2 Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). I would have also liked to include more scientific sources on Flutter. But as it is still such a new Framework, next to no scientific research has so far been conducted on it. As of the writing of this guide there has not been a single publication on the Flutter Framework though IEEE [\[91\]](https://ieeexplore.ieee.org/Xplore/home.jsp) or ACM [\[92\]](https://dl.acm.org/).
+I am pretty happy with how the guide turned out. I managed to find a diverse range of sources for most of the topics I wanted to cover. I kept close to the *informal*, *from developer for developer*-style of the original Angular guide [\[10\]](https://github.com/devonfw/devon4ng) and I think it reads pretty well. The guide did end up being a bit longer then I planned (\~50 A4 pages without figures and references). If I would write it again, I would choose a more narrow and clear scope for what the guide should include. For example, I might have excluded or shortened chapter [1 The Flutter Framework](https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework) and instead focused even more on chapter [2 Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App). I would have also liked to include more scientific sources on Flutter. But as it is still such a new Framework, next to no scientific research has so far been conducted on it. As of the writing of this guide there has not been a single publication on the Flutter Framework though IEEE [\[92\]](https://ieeexplore.ieee.org/Xplore/home.jsp) or ACM [\[93\]](https://dl.acm.org/).
 
 All in all, I think I fulfilled the goal I set myself when starting this guide. To bridge the gap between the basics of Flutter and clean, structured Flutter development. The result is a resource I would have liked to have when trying to bridge that gap myself.
 
 ## Future of the Guide and Next Steps
 
-This guide was commissioned by Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). It is supposed to introduce their mobile developers to the Flutter Framework and help them evaluate if it is a valid option for future projects. It will also be the basis for the bachelor thesis I am starting this November. In my thesis I will create and document a large scale Flutter application for Capgemini. It is supposed to be an example project that other developers can use as a guideline for creating their own large scale Flutter applications. More specifically, Capgemini has used the “My Thai Star” App [\[93\]](https://github.com/devonfw/my-thai-star) as a reference project for Angular [\[66\]](https://angular.io/). I will create a Flutter version of it.
+This guide was commissioned by Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). It is supposed to introduce their mobile developers to the Flutter Framework and help them evaluate if it is a valid option for future projects. It will also be the basis for the bachelor thesis I am starting this November. In my thesis I will create and document a large scale Flutter application for Capgemini. It is supposed to be an example project that other developers can use as a guideline for creating their own large scale Flutter applications. More specifically, Capgemini has used the “My Thai Star” App [\[94\]](https://github.com/devonfw/my-thai-star) as a reference project for Angular [\[67\]](https://angular.io/). I will create a Flutter version of it.
 
 ### Suggestion for Future Works
 
-One thing I and peers in the mobile development community [\[94\]](http://doi.acm.org/10.1145/3241739) would like to see is more scientific research on the Flutter Framework: Lagre scale benchmarking, usability tests, scalability tests, architecture evaluation and so on.
+One thing I and peers in the mobile development community [\[95\]](http://doi.acm.org/10.1145/3241739) would like to see is more scientific research on the Flutter Framework: Lagre scale benchmarking, usability tests, scalability tests, architecture evaluation and so on.
 
 ## My Thoughts on Flutter
 
-I am guessing you could already pick up on my position regarding Flutter in the previous chapters. I am a Fan. The applications it produces run remarkably smooth and performance is usually one of the main drawbacks of cross-platform frameworks [\[95\]](http://dl.gi.de/handle/20.500.12116/17386). The trade-off used to be *less development cost* for *less performance*. With Flutter this is no longer the case.
+I am guessing you could already pick up on my position regarding Flutter in the previous chapters. I am a Fan. The applications it produces run remarkably smooth and performance is usually one of the main drawbacks of cross-platform frameworks [\[96\]](http://dl.gi.de/handle/20.500.12116/17386). The trade-off used to be *less development cost* for *less performance*. With Flutter this is no longer the case.
 
-I was originally not a fan of how State Management [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) in Flutter is handled. I am coming from native Android [\[16\]](https://developer.android.com/) development an the switch from imperative to declarative thinking took a little while for me. I now understand that the design of Flutter has one central goal: Maximize performance [\[96\]](https://flutter.dev/docs/resources/technical-overview). And the way that State is handled is a direct consequence of that goal. State Management also becomes a lot less of an issue once you start following a clearly defined architectural style. I had to build a few iterations of Wisgen [\[11\]](https://github.com/Fasust/wisgen) to figure this out for myself. But once I implemented it with BLoC [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), I began to understand how Flutter could work in a large scale application.
+I was originally not a fan of how State Management [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) in Flutter is handled. I am coming from native Android [\[16\]](https://developer.android.com/) development an the switch from imperative to declarative thinking took a little while for me. I now understand that the design of Flutter has one central goal: Maximize performance [\[97\]](https://flutter.dev/docs/resources/technical-overview). And the way that State is handled is a direct consequence of that goal. State Management also becomes a lot less of an issue once you start following a clearly defined architectural style. I had to build a few iterations of Wisgen [\[11\]](https://github.com/Fasust/wisgen) to figure this out for myself. But once I implemented it with BLoC [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), I began to understand how Flutter could work in a large scale application.
 
-Another great thing I noticed during the writing of this guide is how open the Flutter Team is towards the community. The Framework is completely open-source and many features have been implemented by developers outside of Google. The Flutter team is also very active on social media, with their own weekly podcast and Youtube channel [\[97\]](https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw).
+Another great thing I noticed during the writing of this guide is how open the Flutter Team is towards the community. The Framework is completely open-source and many features have been implemented by developers outside of Google. The Flutter team is also very active on social media, with their own weekly podcast and Youtube channel [\[98\]](https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw).
 
 One thing I don’t like about Flutter is how easy it is to write ugly code. I already touched on this topic in [the last chapter](https://github.com/Fasust/flutter-guide/wiki/400-Conventions). Having deeply nested code is, to a degree, unavoidable in Flutter. Splitting Widgets into smaller parts helps but adds a lot of boilerplate. I hope there will be a better solution to mitigate this problem in the future.
 
-Another thing I am not a fan of is dependency injection in Flutter. At the moment the only solution is to inject dependencies from the UI into the BLoC. This created an ugly dependency between UI- and Data-Layer. But Google is currently working on a solution for this, so the problem is known and will be addressed [\[98\]](https://github.com/google/inject.dart).
+Another thing I am not a fan of is dependency injection in Flutter. At the moment the only solution is to inject dependencies from the UI into the BLoC. This created an ugly dependency between UI- and Data-Layer. But Google is currently working on a solution for this, so the problem is known and will be addressed [\[99\]](https://github.com/google/inject.dart).
 
 All that being said, I wont be going back to native app development any time soon.
 
@@ -2397,345 +2397,351 @@ All that being said, I wont be going back to native app development any time soo
 
 </div>
 
+<div id="ref-mozillaJavaScriptPromise2016">
+
+\[42\] Mozilla and Contributors, “JavaScript Promise,” *MDN-Web-Dokumentation*, 2016. \[Online\]. Available: <https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise>. \[Accessed: 15-Oct-2019\]
+
+</div>
+
 <div id="ref-kissAdviceSlipAPI2019">
 
-\[42\] T. Kiss, “Advice Slip API,” 2019. \[Online\]. Available: <https://api.adviceslip.com/>. \[Accessed: 01-Oct-2019\]
+\[43\] T. Kiss, “Advice Slip API,” 2019. \[Online\]. Available: <https://api.adviceslip.com/>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcDartFutures2019">
 
-\[43\] *Dart Futures*, vol. Ep. 2. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=OTS-ap9_aXc>. \[Accessed: 01-Oct-2019\]
+\[44\] *Dart Futures*, vol. Ep. 2. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=OTS-ap9_aXc>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcIsolatesEventLoops2019">
 
-\[44\] *Isolates and Event Loops*, vol. Ep. 1. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=vl_AaCgudcY>. \[Accessed: 01-Oct-2019\]
+\[45\] *Isolates and Event Loops*, vol. Ep. 1. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=vl_AaCgudcY>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamAsynchronousProgrammingDart2018">
 
-\[45\] Dart Team, “Asynchronous programming in Dart,” 2018. \[Online\]. Available: <https://dart.dev/codelabs/async-await>. \[Accessed: 01-Oct-2019\]
+\[46\] Dart Team, “Asynchronous programming in Dart,” 2018. \[Online\]. Available: <https://dart.dev/codelabs/async-await>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcAsyncAwait2019">
 
-\[46\] *Async/Await*, vol. Ep. 4. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=SmTCmDMi4BY>. \[Accessed: 01-Oct-2019\]
+\[47\] *Async/Await*, vol. Ep. 4. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=SmTCmDMi4BY>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-boelensFlutterReactiveProgramming2018">
 
-\[47\] D. Boelens, “Flutter - Reactive Programming - Streams - BLoC,” *Didier Boelens*, 2018. \[Online\]. Available: <https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/>. \[Accessed: 12-Sep-2019\]
+\[48\] D. Boelens, “Flutter - Reactive Programming - Streams - BLoC,” *Didier Boelens*, 2018. \[Online\]. Available: <https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/>. \[Accessed: 12-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcDartStreams2019">
 
-\[48\] *Dart Streams*, vol. Ep. 3. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17>. \[Accessed: 01-Oct-2019\]
+\[49\] *Dart Streams*, vol. Ep. 3. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamScrollControllerClass2018">
 
-\[49\] Flutter Dev Team, “ScrollController class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/ScrollController-class.html>. \[Accessed: 03-Oct-2019\]
+\[50\] Flutter Dev Team, “ScrollController class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/ScrollController-class.html>. \[Accessed: 03-Oct-2019\]
 
 </div>
 
 <div id="ref-angelovFlutterInfiniteList2019">
 
-\[50\] F. Angelov and Contributors, “Flutter Infinite List BLoC Tutorial,” 2019. \[Online\]. Available: <https://felangel.github.io/bloc/#/flutterinfinitelisttutorial>. \[Accessed: 13-Sep-2019\]
+\[51\] F. Angelov and Contributors, “Flutter Infinite List BLoC Tutorial,” 2019. \[Online\]. Available: <https://felangel.github.io/bloc/#/flutterinfinitelisttutorial>. \[Accessed: 13-Sep-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamStreamBuilderClass2018">
 
-\[51\] Flutter Dev Team, “StreamBuilder class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html>. \[Accessed: 03-Oct-2019\]
+\[52\] Flutter Dev Team, “StreamBuilder class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html>. \[Accessed: 03-Oct-2019\]
 
 </div>
 
 <div id="ref-sullivanTechnicalDebtStreams2018">
 
-\[52\] *Technical Debt and Streams/BLoC*, vol. 4. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=fahC3ky_zW0>. \[Accessed: 09-Sep-2019\]
+\[53\] *Technical Debt and Streams/BLoC*, vol. 4. 2018 \[Online\]. Available: <https://www.youtube.com/watch?v=fahC3ky_zW0>. \[Accessed: 09-Sep-2019\]
 
 </div>
 
 <div id="ref-lecuonaJSONDartConverter2019">
 
-\[53\] J. Lecuona, *JSON to Dart converter*. Buenos Aires, Argentina, 2019 \[Online\]. Available: <https://javiercbk.github.io/json_to_dart/>. \[Accessed: 01-Oct-2019\]
+\[54\] J. Lecuona, *JSON to Dart converter*. Buenos Aires, Argentina, 2019 \[Online\]. Available: <https://javiercbk.github.io/json_to_dart/>. \[Accessed: 01-Oct-2019\]
 
 </div>
 
 <div id="ref-eganFlutterArchitectureSamples2017">
 
-\[54\] B. Egan and Contributors, “Flutter Architecture Samples,” *fluttersamples*, 2017. \[Online\]. Available: <https://fluttersamples.com/>. \[Accessed: 28-Aug-2019\]
+\[55\] B. Egan and Contributors, “Flutter Architecture Samples,” *fluttersamples*, 2017. \[Online\]. Available: <https://fluttersamples.com/>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-rousseletProviderFlutterPackage2018">
 
-\[55\] R. Rousselet and Flutter Dev Team, “Provider | Flutter Package,” *Dart packages*, 2018. \[Online\]. Available: <https://pub.dev/packages/provider>. \[Accessed: 06-Oct-2019\]
+\[56\] R. Rousselet and Flutter Dev Team, “Provider | Flutter Package,” *Dart packages*, 2018. \[Online\]. Available: <https://pub.dev/packages/provider>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-hracekPragmaticStateManagement2019">
 
-\[56\] *Pragmatic State Management Using Provider*, vol. 24. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=HrBiNHEqSYU>. \[Accessed: 09-Sep-2019\]
+\[57\] *Pragmatic State Management Using Provider*, vol. 24. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=HrBiNHEqSYU>. \[Accessed: 09-Sep-2019\]
 
 </div>
 
 <div id="ref-sullivanPragmaticStateManagement2019">
 
-\[57\] M. Sullivan and F. Hracek, “Pragmatic State Management in Flutter,” 09-May-2019 \[Online\]. Available: <https://www.youtube.com/watch?v=d_m5csmrf7I>. \[Accessed: 28-Aug-2019\]
+\[58\] M. Sullivan and F. Hracek, “Pragmatic State Management in Flutter,” 09-May-2019 \[Online\]. Available: <https://www.youtube.com/watch?v=d_m5csmrf7I>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-eganKeepItSimple2018">
 
-\[58\] B. Egan, “Keep it Simple, State: Architecture for Flutter Apps,” 25-Jan-2018 \[Online\]. Available: <https://www.youtube.com/watch?v=zKXz3pUkw9A>. \[Accessed: 28-Aug-2019\]
+\[59\] B. Egan, “Keep it Simple, State: Architecture for Flutter Apps,” 25-Jan-2018 \[Online\]. Available: <https://www.youtube.com/watch?v=zKXz3pUkw9A>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamChangeNotifierClass2018">
 
-\[59\] Flutter Dev Team, “ChangeNotifier class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html>. \[Accessed: 06-Oct-2019\]
+\[60\] Flutter Dev Team, “ChangeNotifier class,” 2018. \[Online\]. Available: <https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-boelensFlutterBLoCScopedModel2019">
 
-\[60\] D. Boelens, “Flutter - BLoC - ScopedModel - Redux - Comparison,” *Didier Boelens*, 2019. \[Online\]. Available: <https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/>. \[Accessed: 09-Sep-2019\]
+\[61\] D. Boelens, “Flutter - BLoC - ScopedModel - Redux - Comparison,” *Didier Boelens*, 2019. \[Online\]. Available: <https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/>. \[Accessed: 09-Sep-2019\]
 
 </div>
 
 <div id="ref-savjolovsFlutterAppArchitecture2019">
 
-\[61\] V. Savjolovs, “Flutter app architecture 101: Vanilla, Scoped Model, BLoC,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e>. \[Accessed: 28-Aug-2019\]
+\[62\] V. Savjolovs, “Flutter app architecture 101: Vanilla, Scoped Model, BLoC,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-abramovRedux2015">
 
-\[62\] D. Abramov, “Redux,” 2015. \[Online\]. Available: <https://redux.js.org/>. \[Accessed: 06-Oct-2019\]
+\[63\] D. Abramov, “Redux,” 2015. \[Online\]. Available: <https://redux.js.org/>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-eganFlutterReduxPackage2017">
 
-\[63\] B. Egan, “Flutter Redux Package,” *Dart packages*, 2017. \[Online\]. Available: <https://pub.dev/packages/flutter_redux>. \[Accessed: 06-Oct-2019\]
+\[64\] B. Egan, “Flutter Redux Package,” *Dart packages*, 2017. \[Online\]. Available: <https://pub.dev/packages/flutter_redux>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-doughtieArchitectingReactiveFlutter2017">
 
-\[64\] G. Doughtie, “Architecting the Reactive Flutter App,” 20-Nov-2017 \[Online\]. Available: <https://www.youtube.com/watch?v=n_5JULTrstU&feature=youtu.be>. \[Accessed: 29-Aug-2019\]
+\[65\] G. Doughtie, “Architecting the Reactive Flutter App,” 20-Nov-2017 \[Online\]. Available: <https://www.youtube.com/watch?v=n_5JULTrstU&feature=youtu.be>. \[Accessed: 29-Aug-2019\]
 
 </div>
 
 <div id="ref-abramovThreePrinciplesRedux2015">
 
-\[65\] D. Abramov, “Three Principles of Redux,” 2015. \[Online\]. Available: <https://redux.js.org/>. \[Accessed: 08-Oct-2019\]
+\[66\] D. Abramov, “Three Principles of Redux,” 2015. \[Online\]. Available: <https://redux.js.org/>. \[Accessed: 08-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcAngular2016">
 
-\[66\] Google LLC, “Angular,” 2016. \[Online\]. Available: <https://angular.io/>. \[Accessed: 06-Oct-2019\]
+\[67\] Google LLC, “Angular,” 2016. \[Online\]. Available: <https://angular.io/>. \[Accessed: 06-Oct-2019\]
 
 </div>
 
 <div id="ref-sullivanBuildReactiveMobile2018">
 
-\[67\] M. Sullivan and F. Hracek, “Build reactive mobile apps with Flutter,” 10-May-2018 \[Online\]. Available: <https://www.youtube.com/watch?v=RS36gBEp8OI>. \[Accessed: 04-Sep-2019\]
+\[68\] M. Sullivan and F. Hracek, “Build reactive mobile apps with Flutter,” 10-May-2018 \[Online\]. Available: <https://www.youtube.com/watch?v=RS36gBEp8OI>. \[Accessed: 04-Sep-2019\]
 
 </div>
 
 <div id="ref-suriArchitectYourFlutter2019">
 
-\[68\] S. Suri, “Architect your Flutter project using BLOC pattern,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>. \[Accessed: 09-Sep-2019\]
+\[69\] S. Suri, “Architect your Flutter project using BLOC pattern,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1>. \[Accessed: 09-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcAngularDart2018">
 
-\[69\] Google LLC, “AngularDart,” 2018. \[Online\]. Available: <https://angulardart.dev/>. \[Accessed: 07-Oct-2019\]
+\[70\] Google LLC, “AngularDart,” 2018. \[Online\]. Available: <https://angulardart.dev/>. \[Accessed: 07-Oct-2019\]
 
 </div>
 
 <div id="ref-bizzottoWidgetAsyncBlocServicePracticalArchitecture2019">
 
-\[70\] A. Bizzotto, “Widget-Async-Bloc-Service: A Practical Architecture for Flutter Apps,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/coding-with-flutter/widget-async-bloc-service-a-practical-architecture-for-flutter-apps-250a28f9251b>. \[Accessed: 10-Oct-2019\]
+\[71\] A. Bizzotto, “Widget-Async-Bloc-Service: A Practical Architecture for Flutter Apps,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/coding-with-flutter/widget-async-bloc-service-a-practical-architecture-for-flutter-apps-250a28f9251b>. \[Accessed: 10-Oct-2019\]
 
 </div>
 
 <div id="ref-garlanIntroductionSoftwareArchitecture1994">
 
-\[71\] D. Garlan and M. Shaw, “An Introduction to Software Architecture,” Carnegie Mellon University, Pittsburgh, PA, USA, 1994 \[Online\]. Available: <https://dl.acm.org/citation.cfm?id=865128>
+\[72\] D. Garlan and M. Shaw, “An Introduction to Software Architecture,” Carnegie Mellon University, Pittsburgh, PA, USA, 1994 \[Online\]. Available: <https://dl.acm.org/citation.cfm?id=865128>
 
 </div>
 
 <div id="ref-martinPrinciplesCleanArchitecture2015">
 
-\[72\] B. Martin, “The Principles of Clean Architecture,” 2015 \[Online\]. Available: <https://www.youtube.com/watch?v=o_TH-Y78tt4>. \[Accessed: 13-Sep-2019\]
+\[73\] B. Martin, “The Principles of Clean Architecture,” 2015 \[Online\]. Available: <https://www.youtube.com/watch?v=o_TH-Y78tt4>. \[Accessed: 13-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcSharedPreferences2011">
 
-\[73\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
+\[74\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-georgeInitialInvestigationTest2003">
 
-\[74\] B. George and L. Williams, “An Initial Investigation of Test Driven Development in Industry,” in *Proceedings of the 2003 ACM Symposium on Applied Computing*, Melbourne, Florida, 2003, pp. 1135–1139 \[Online\]. Available: <http://doi.acm.org/10.1145/952532.952753>. \[Accessed: 10-Oct-2019\]
+\[75\] B. George and L. Williams, “An Initial Investigation of Test Driven Development in Industry,” in *Proceedings of the 2003 ACM Symposium on Applied Computing*, Melbourne, Florida, 2003, pp. 1135–1139 \[Online\]. Available: <http://doi.acm.org/10.1145/952532.952753>. \[Accessed: 10-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamTestDartPackage2019">
 
-\[75\] Dart Team, “Test | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test>. \[Accessed: 09-Oct-2019\]
+\[76\] Dart Team, “Test | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-hracekTestingFlutterApps2019">
 
-\[76\] *Testing Flutter Apps - Making Sure Your Code Works*, vol. Ep. 21. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=bj-oMYyLZEY&>. \[Accessed: 09-Oct-2019\]
+\[77\] *Testing Flutter Apps - Making Sure Your Code Works*, vol. Ep. 21. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=bj-oMYyLZEY&>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamTestingFlutterApps2018">
 
-\[77\] Flutter Dev Team, “Testing Flutter apps,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing>. \[Accessed: 09-Oct-2019\]
+\[78\] Flutter Dev Team, “Testing Flutter apps,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-fibulwinterMockitoDartPackage2019">
 
-\[78\] D. Fibulwinter and Dart Team, “Mockito | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/mockito>. \[Accessed: 09-Oct-2019\]
+\[79\] D. Fibulwinter and Dart Team, “Mockito | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/mockito>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-angelovUnitTestingBloc2019">
 
-\[79\] F. Angelov, “Unit Testing with ‘Bloc’,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86>. \[Accessed: 09-Oct-2019\]
+\[80\] F. Angelov, “Unit Testing with ‘Bloc’,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamAsynchronoustestsTestDart2019">
 
-\[80\] Dart Team, “Asynchronous-tests with the test Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test#asynchronous-tests>. \[Accessed: 11-Oct-2019\]
+\[81\] Dart Team, “Asynchronous-tests with the test Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test#asynchronous-tests>. \[Accessed: 11-Oct-2019\]
 
 </div>
 
 <div id="ref-angelovEquatableDartPackage2019">
 
-\[81\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
+\[82\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamEffectiveDart2019">
 
-\[82\] Dart Team, “Effective Dart,” 2019. \[Online\]. Available: <https://dart.dev/guides/language/effective-dart>. \[Accessed: 28-Aug-2019\]
+\[83\] Dart Team, “Effective Dart,” 2019. \[Online\]. Available: <https://dart.dev/guides/language/effective-dart>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-wikipediaHungarianNotation2019">
 
-\[83\] Wikipedia, “Hungarian notation,” *Wikipedia*. 25-Jun-2019 \[Online\]. Available: <https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598>. \[Accessed: 12-Oct-2019\]
+\[84\] Wikipedia, “Hungarian notation,” *Wikipedia*. 25-Jun-2019 \[Online\]. Available: <https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamStyleGuideFlutter2018">
 
-\[84\] Flutter Dev Team, “Style Guide for Flutter repo,” *GitHub*, 2018. \[Online\]. Available: <https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo>. \[Accessed: 11-Oct-2019\]
+\[85\] Flutter Dev Team, “Style Guide for Flutter repo,” *GitHub*, 2018. \[Online\]. Available: <https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo>. \[Accessed: 11-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamDartdocTool2019">
 
-\[85\] Dart Team, *Dartdoc tool*. Dart, 2019 \[Online\]. Available: <https://github.com/dart-lang/dartdoc>. \[Accessed: 12-Oct-2019\]
+\[86\] Dart Team, *Dartdoc tool*. Dart, 2019 \[Online\]. Available: <https://github.com/dart-lang/dartdoc>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-gruberMarkdown2004">
 
-\[86\] J. Gruber and A. Swartz, “Markdown,” 2004. \[Online\]. Available: <https://daringfireball.net/projects/markdown/>. \[Accessed: 12-Oct-2019\]
+\[87\] J. Gruber and A. Swartz, “Markdown,” 2004. \[Online\]. Available: <https://daringfireball.net/projects/markdown/>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamOfficialFlutterExample2019">
 
-\[87\] Flutter Dev Team, “Official Flutter Example,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart>. \[Accessed: 12-Oct-2019\]
+\[88\] Flutter Dev Team, “Official Flutter Example,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-krankkaPuttingBuildMethods2018">
 
-\[88\] I. Krankka, “Putting build methods on a diet,” *iirokrankka.com*, 2018. \[Online\]. Available: <https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/>. \[Accessed: 28-Aug-2019\]
+\[89\] I. Krankka, “Putting build methods on a diet,” *iirokrankka.com*, 2018. \[Online\]. Available: <https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-cluelessAmAlsoCreating2018">
 
-\[89\] Clueless, “I am also creating my application with Flutter.” *Medium*. \[Online\]. Available: <https://medium.com/@blusea231/i-am-also-creating-my-application-with-flutter-8f25db889312>. \[Accessed: 12-Oct-2019\]
+\[90\] Clueless, “I am also creating my application with Flutter.” *Medium*. \[Online\]. Available: <https://medium.com/@blusea231/i-am-also-creating-my-application-with-flutter-8f25db889312>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-u/the_aceixFlutterDevFlutterCode2018">
 
-\[90\] u/the\_aceix, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
+\[91\] u/the\_aceix, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-ieeeIEEEXploreDigital1963">
 
-\[91\] IEEE, “IEEE Xplore Digital Library,” 1963. \[Online\]. Available: <https://ieeexplore.ieee.org/Xplore/home.jsp>. \[Accessed: 20-Sep-2018\]
+\[92\] IEEE, “IEEE Xplore Digital Library,” 1963. \[Online\]. Available: <https://ieeexplore.ieee.org/Xplore/home.jsp>. \[Accessed: 20-Sep-2018\]
 
 </div>
 
 <div id="ref-acmACMDigitalLibrary1947">
 
-\[92\] ACM, “ACM Digital Library,” 1947. \[Online\]. Available: <https://dl.acm.org/>. \[Accessed: 20-Sep-2018\]
+\[93\] ACM, “ACM Digital Library,” 1947. \[Online\]. Available: <https://dl.acm.org/>. \[Accessed: 20-Sep-2018\]
 
 </div>
 
 <div id="ref-linaresMyThaiStar2019">
 
-\[93\] S. J. Linares, D. R. Gonzalez, and Contributors, *My Thai Star*. devonfw, 2019 \[Online\]. Available: <https://github.com/devonfw/my-thai-star>. \[Accessed: 13-Oct-2019\]
+\[94\] S. J. Linares, D. R. Gonzalez, and Contributors, *My Thai Star*. devonfw, 2019 \[Online\]. Available: <https://github.com/devonfw/my-thai-star>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-biorn-hansenSurveyTaxonomyCore2018">
 
-\[94\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
+\[95\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-sommerEvaluationCrossplatformFrameworks2013">
 
-\[95\] A. Sommer and S. Krusche, *Evaluation of cross-platform frameworks for mobile applications*. Gesellschaft für Informatik e.V., 2013 \[Online\]. Available: <http://dl.gi.de/handle/20.500.12116/17386>. \[Accessed: 13-Oct-2019\]
+\[96\] A. Sommer and S. Krusche, *Evaluation of cross-platform frameworks for mobile applications*. Gesellschaft für Informatik e.V., 2013 \[Online\]. Available: <http://dl.gi.de/handle/20.500.12116/17386>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamWhatFlutter2018">
 
-\[96\] Flutter Dev Team, “What is Flutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
+\[97\] Flutter Dev Team, “What is Flutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamFlutterYouTube2019">
 
-\[97\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
+\[98\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcInjectRepo2019">
 
-\[98\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
+\[99\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
