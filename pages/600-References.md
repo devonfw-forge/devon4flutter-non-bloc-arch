@@ -589,21 +589,27 @@
 
 </div>
 
+<div id="ref-ebonePerformanceEvaluationCrossPlatform2018a">
+
+\[99\] A. Ebone, Y. Tan, and X. Jia, “A Performance Evaluation of Cross-Platform Mobile Application Development Approaches,” in *2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft)*, 2018, pp. 92–93. 
+
+</div>
+
 <div id="ref-flutterdevteamWhatFlutter2018">
 
-\[99\] Flutter Dev Team, “What is Flutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
+\[100\] Flutter Dev Team, “What is Flutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamFlutterYouTube2019">
 
-\[100\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
+\[101\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcInjectRepo2019">
 
-\[101\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
+\[102\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
