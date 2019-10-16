@@ -10,7 +10,7 @@ If you are coming from the native mobile world and *imperative* frameworks like 
 
 ## Declarative Programming vs Imperative Programming
 
-I will explain the difference between *declarative* and *imperative* using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” \[1\], \[12\], \[25\], \[26\]. Let’s look at a code example:
+I will explain the difference between *declarative* and *imperative* using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” \[1\], \[12\], \[27\], \[28\]. Let’s look at a code example:
 
 ``` dart
 List numbers = [1,2,3,4,5];
@@ -31,7 +31,7 @@ print(numbers.where((num) => num > 3));
 
 *Code Snippet 2: Searching through a list (Declarative)*
 
-One important thing to note here is, that the difference between imperative and declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit more declarative. This is because you are then using functions that *describe* what they do and you no longer care how they do it [\[27\]](https://www.youtube.com/watch?v=4A2mWqLUpzw).
+One important thing to note here is, that the difference between imperative and declarative is not black and white. One style might bleed over into the other. Prof. David Brailsford from the University of Nottingham argues that as soon as you start using libraries for your imperative projects, they become a tiny bit more declarative. This is because you are then using functions that *describe* what they do and you no longer care how they do it [\[29\]](https://www.youtube.com/watch?v=4A2mWqLUpzw).
 
 | 🕐 | TLDR | Imperative Programming is telling the framework **exactly** what you want it to do. Declarative Programming is describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. |
 | - | ---- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -71,7 +71,7 @@ button.setOnClickListener(new View.OnClickListener() {
 
 *Code Snippet 3: Red button in Android (Imperative)*
 
-In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool “pressed”). We then declare that the *onPressed()* function should update the app State and re-build the button:
+In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool “pressed”). We then declare that the *onPressed()* function should update the App State and re-build the button:
 
 ``` dart
 bool pressed = false; //State
@@ -93,9 +93,9 @@ Widget build(BuildContext context) {
 
 ## Efficiency of Re-Builds
 
-Is it not very inefficient to re-render the entire Widget every time we change the State? That was the first question I had when learning about this topic. But I was pleased to learn, that Flutter uses something called “RenderObjects” to improve performance similar to Reacts [\[20\]](https://facebook.github.io/react-native/) virtual DOM.
+Is it not very inefficient to re-render the entire Widget every time we change the State? That was the first question I had when learning about this topic. But I was pleased to learn, that Flutter uses something called “RenderObjects” to improve performance similar to Reacts [\[22\]](https://facebook.github.io/react-native/) virtual DOM.
 
-> “RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between States. The Flutter framework handles the rest.” [\[25\]](https://flutter.dev/docs/get-started/flutter-for/declarative)
+> “RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between States. The Flutter framework handles the rest.” [\[27\]](https://flutter.dev/docs/get-started/flutter-for/declarative)
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree">Next Chapter: The Widget Tree ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
