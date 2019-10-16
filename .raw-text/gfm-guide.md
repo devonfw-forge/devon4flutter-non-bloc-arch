@@ -16,7 +16,7 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
       - how Flutter apps are [structured](https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree) on an abstract level and,
       - how [asynchrony](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) and communication with the web can be implemented.
   - A showcase of possible [architectural styles](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives) you can use to build your app and
-      - and an [in-depth guide](https://github.com/Fasust/flutter-guide/wiki/220-BLoC) on one of those possibilities (BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)).
+      - an [in-depth guide](https://github.com/Fasust/flutter-guide/wiki/220-BLoC) on one of those possibilities (BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)).
   - How to [test](https://github.com/Fasust/flutter-guide/wiki/300-Testing) your app.
   - Some [conventions and best practices](https://github.com/Fasust/flutter-guide/wiki/400-Conventions) for Dart, and the Flutter Framework in general.
   - My personal [evaluation of the framework](https://github.com/Fasust/flutter-guide/wiki/500-Conclusion).
