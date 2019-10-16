@@ -3,6 +3,14 @@
 > The Guide is published in the [Wiki of this repository](https://github.com/Fasust/flutter-guide/wiki). This Repository just hold a copy of the Wiki to make the commit history more readable and enable pull-requests. The README.md is a copy of the [Introduction chapter](https://github.com/Fasust/flutter-guide/wiki).
 
 # Introduction
+Page Table of Contents
+- [Introduction](#introduction)
+  - [The Goal of this Guide](#the-goal-of-this-guide)
+  - [Who is this Guide for?](#who-is-this-guide-for)
+  - [Topics that will be covered](#topics-that-will-be-covered)
+  - [Creation Context](#creation-context)
+  - [Structure](#structure)
+  - [My Sources](#my-sources)
 
 ## The Goal of this Guide
 
@@ -41,7 +49,7 @@ The guide is designed to be read in order, from chapter 0 (this one) to chapter 
 
 ## My Sources
 
-I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [*6 References*](https://github.com/Fasust/flutter-guide/wiki/600-References). To put that theoretical knowledge in to practice, I built the Wisgen application [\[11\]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
+I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [*6 References*](https://github.com/Fasust/flutter-guide/wiki/600-References). To put that theoretical knowledge into practice, I built the Wisgen application [\[11\]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
 <p align="center"><a href="#">Back to Top</a></p>

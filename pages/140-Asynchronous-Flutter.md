@@ -73,7 +73,7 @@ class ApiSupplier {
 
 *Code Snippet 13: Simplified Wisgen ApiSupplier (Async & Await) [\[11\]](https://github.com/Fasust/wisgen)*
 
-We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a wisdom. If we want to use the *await* keyword in a function, we have to mark the function as *async*. This forces the return type of the function to be a Future, because if we wait during the function, the function can not return instantly, thus it **has** to return a Future [\[47\]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with *try/catch*:
+We can use the *await* keyword to tell Flutter to wait at on specific point until a Future is resolved. In this example, Flutter waits until the *http.Response* has arrived and then proceeds to transform it into a wisdom. If we want to use the *await* keyword in a function, we have to mark the function as *async*. This forces the return type of the function to be a Future because if we wait during the function, the function can not return instantly, thus it **has** to return a Future [\[47\]](https://www.youtube.com/watch?v=SmTCmDMi4BY). Error handling in async function can be done with *try/catch*:
 
 ``` dart
 import 'package:http/http.dart' as http;

@@ -51,7 +51,7 @@ In Flutter, you never imperatively or explicitly call a UI element to change it.
 | 📙 | State | Any data that can change over time [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) |
 | - | ----- | :------------------------------------------------------------------------------------------------------------ |
 
-Typical State examples are: User Data, a user’s scroll position within a list, a favorite list.
+Typical State examples are user data, a user’s scroll position within a list, a favorite list.
 
 Let’s have a look at a classic UI problem and how we would solve it imperatively in Android and compare it to Flutter’s declarative approach. let’s say we want to build a button that changes its color to red when it is pressed. In Android we find the button by its ID, attach a listener, and tell that listener to change the background color when the button is pressed:
 
@@ -71,7 +71,7 @@ button.setOnClickListener(new View.OnClickListener() {
 
 *Code Snippet 3: Red button in Android (Imperative)*
 
-In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool “pressed”). We then declare that the *onPressed()* function should update the App State and re-build the button:
+In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool “pressed”). We then declare that the *onPressed()* function should update the App State and rebuild the button:
 
 ``` dart
 bool pressed = false; //State
@@ -81,7 +81,7 @@ Widget build(BuildContext context) {
     return FlatButton(
         color: pressed ? Colors.red : Colors.blue,
         onPressed: () {
-            setState(){ // trigger re-build of the button
+            setState(){ // trigger rebuild of the button
                 pressed = !pressed;
             } 
         }

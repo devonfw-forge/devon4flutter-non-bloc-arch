@@ -10,7 +10,7 @@ Page Table of Contents
 
 ## Introduction
 
-Flutter [\[1\]](https://flutter.dev/) is a framework for cross-platform native development. That means that it promises native app performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how Flutter achieves this is to compare it to other mobile development approaches. This chapter will showcase how three of the most popular cross-platform approaches function and then compare those technics to the one Flutter uses. Lastly, I will highlight some of the unique feature that Flutters approach enables.
+Flutter [\[1\]](https://flutter.dev/) is a framework for cross-platform native development. That means that it promises native app performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how Flutter achieves this is to compare it to other mobile development approaches. This chapter will showcase how three of the most popular cross-platform approaches function and then compare those technics to the one Flutter uses. Lastly, I will highlight some of the unique features that Flutters approach enables.
 
 ### Full Native Approach
 
@@ -46,7 +46,7 @@ Apps build with reactive frameworks (like React Native [\[22\]](https://facebook
 
 *Figure 4: Flutter app rendering [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-Flutter’s approach is to move the entire rendering process into the app. The rendering runs through Flutter’s own engine and uses Flutter’s own Widgets. Flutter only needs a canvas to display the rendered frames on. Any user inputs on the canvas or system events happening on the device are forwarded to the Flutter app. This limits the *bridging* between app and native environment to frames and events which removes that potential bottleneck \[14\], \[17\], \[18\].
+Flutter’s approach is to move the entire rendering process into the app. The rendering runs through Flutter’s own engine and uses Flutter’s own Widgets. Flutter only needs a canvas to display the rendered frames on. Any user inputs on the canvas or system events happening on the device are forwarded to the Flutter app. This limits the *bridging* between the app and native environment to frames and events which removes that potential bottleneck \[14\], \[17\], \[18\].
 
 You might think that keeping an entire rendering engine inside an app would lead to huge APKs, but as of 2019, the compressed framework is only 4.3MB [\[24\]](https://flutter.dev/docs/resources/faq).
 
@@ -70,7 +70,7 @@ One additional advantage of Flutter is that it comes with two different compiler
 
 ## Hot Reload
 
-*Hot Reload* [\[25\]](https://flutter.dev/docs/development/tools/hot-reload) is a feature that Web developers are already very familiar with. It essentially means, that changes in the code are displayed in the running application near instantaneously. Thanks to its JIT Complier, The Flutter Framework is also able to provide this feature.
+*Hot Reload* [\[25\]](https://flutter.dev/docs/development/tools/hot-reload) is a feature that Web developers are already very familiar with. It essentially means that changes in the code are displayed in the running application near instantaneously. Thanks to its JIT Compiler, The Flutter Framework is also able to provide this feature.
 
 ![Hot Reload](https://github.com/Fasust/flutter-guide/wiki//images/hot-reload.gif)
 

@@ -47,7 +47,7 @@ The guide is designed to be read in order, from chapter 0 (this one) to chapter 
 
 ## My Sources
 
-I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [*6 References*](https://github.com/Fasust/flutter-guide/wiki/600-References). To put that theoretical knowledge in to practice, I built the Wisgen application [\[11\]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
+I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [*6 References*](https://github.com/Fasust/flutter-guide/wiki/600-References). To put that theoretical knowledge into practice, I built the Wisgen application [\[11\]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
 <p align="center"><a href="#">Back to Top</a></p>

@@ -42,7 +42,7 @@ The Provider Package is an easy way for us to lift State up. Let’s look at our
 
 *Figure 15: Wisgen WidgetTree favorites with Provider [\[11\]](https://github.com/Fasust/wisgen)*
 
-To minimize re-builds the Provider Package uses ChangeNotifiers [\[62\]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the provided Sate and get notified whenever the it changes. This is how an implementation of Wisgen’s favorite list would look like using Provider. *Favorites* is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
+To minimize re-builds the Provider Package uses ChangeNotifiers [\[62\]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the provided Sate and get notified whenever it changes. This is how an implementation of Wisgen’s favorite list would look like using Provider. “*Favorites*” is the class we will use to provide our favorite list globally. The *notifyListeners()* function will trigger rebuilds on all Widgets that listen to it.
 
 ``` dart
 class Favorites with ChangeNotifier{
@@ -241,7 +241,7 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 2.  It also has clear architectural rules [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
 3.  It also enables the implementation of a layered architecture [\[71\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)
 4.  It was developed by one of Flutter’s Engineers [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
-5.  It dose not end up with one giant Store for the business logic. Instead we spread the business logic out into multiple BLoCs with separate responsibilities [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
+5.  It does not end up with one giant Store for the business logic. Instead, we spread the business logic out into multiple BLoCs with separate responsibilities [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/220-BLoC">Next Chapter: BLoC ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

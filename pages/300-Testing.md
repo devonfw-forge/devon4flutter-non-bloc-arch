@@ -19,7 +19,7 @@ Flutters official test library [\[78\]](https://pub.dev/packages/test) different
 
 #### Unit Tests
 
-Unit Test can be run very quickly. They can test any function of your app, that does not require the rendering of a Widget [\[79\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). Their main use-case is to test business logic or in our case: BLoCs [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+Unit Tests can be run very quickly. They can test any function of your app, that does not require the rendering of a Widget [\[79\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&). Their main use-case is to test business logic or in our case: BLoCs [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 #### Widget Tests
 
@@ -35,7 +35,7 @@ Integration/Driver Tests run your entire application in a virtual machine or on 
 
 ## Writing Unit Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[79\], \[80\]. The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First we have to import the test library [\[78\]](https://pub.dev/packages/test) and the *mockito* package [\[81\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[79\], \[80\]. The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First, we have to import the test library [\[78\]](https://pub.dev/packages/test) and the *mockito* package [\[81\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
 ``` yaml
 dev_dependencies:
@@ -46,7 +46,7 @@ dev_dependencies:
 
 *Code Snippet 37: Pubspec.yaml Test Imports*
 
-*flutter\_test* offers the core testing capabilities of Flutter. *mockito* is used to mock up dependencies. All out tests should sit in a directory named *“test”* on the root level of our app directory. If we want to place them somewhere else, we have to specify their location every time we want to run them.
+*flutter\_test* offers the core testing capabilities of Flutter. *mockito* is used to mock up dependencies. All our tests should sit in a directory named *“test”* on the root level of our app directory. If we want to place them somewhere else, we have to specify their location every time we want to run them.
 
 ![Wisgen test directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
 
@@ -105,7 +105,7 @@ void main() {
     
     test('Initial State is an empty list', () {...}); //Snippet 38
 
-    test('Stream many Events and see if the State is emitted in correct order', () {
+    test('Stream many Events and see if the State is emitted in the correct order', () {
       //Set Up
       Wisdom wisdom1 = Wisdom(id: 1, text: "Back up your pictures", type: "tech");
       Wisdom wisdom2 = Wisdom(id: 2, text: "Wash your ears", type: "Mum's Advice");
@@ -146,7 +146,7 @@ In this test, we create three wisdoms and add/remove them from the favorite BLoC
 
 ### Mockito
 
-As mentioned before, *Mockito* [\[81\]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC Pattern forces us to make all platform-specific dependencies of our BLoCs injectable [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with it’s Repository, we can inject a mock Repository into the BLoC. This way we can test one bit of logic at a time. In this example, we use *Mockito* to test if our wisdom BLoC emits new wisdoms after receiving a fetch event:
+As mentioned before, *Mockito* [\[81\]](https://pub.dev/packages/mockito) can be used to mock dependencies. The BLoC Pattern forces us to make all platform-specific dependencies of our BLoCs injectable [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). This comes in very handy when testing BLoCs. For example, the wisdom BLoC of Wisgen fetches data from a given Repository. Instead of testing the Wisdom BLoC in combination with its Repository, we can inject a mock Repository into the BLoC. This way we can test one bit of logic at a time. In this example, we use *Mockito* to test if our wisdom BLoC emits new wisdoms after receiving a fetch event:
 
 ``` dart
 //Creating Mocks using Mockito
@@ -201,7 +201,7 @@ void main() {
 
 *Code Snippet 40: Wisgen Wisdom BLoC Tests with Mockito [\[11\]](https://github.com/Fasust/wisgen)*
 
-First we create our Mock classes. For this test we need a mock *Supplier-Repository* and a mock *BuildContext* [\[34\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the *setUp()* function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the *test()* function, we tell our mock Repository to send a list of three wisdoms when it’s *fetch()* function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
+First, we create our Mock classes. For this test, we need a mock *Supplier-Repository* and a mock *BuildContext* [\[34\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). In the *setUp()* function, we initialize our BLoC and our mocks and inject the mock Repository into our BLoC. In the *test()* function, we tell our mock Repository to send a list of three wisdoms when its *fetch()* function is called. Now we can send a fetch event to the BLoC, and check if it emits the correct states in order.
 
 ## Equality in Dart
 
@@ -248,7 +248,7 @@ class WisdomStateIdle extends WisdomState {
 
 *Code Snippet 42: Wisgen Wisdom States with Equatable [\[11\]](https://github.com/Fasust/wisgen)*
 
-If we wouldn’t use Equatable, the test form snippet 40 could not functions properly, as two states carrying the same wisdom would still be considers different by the test framework.
+If we wouldn’t use Equatable, the test form snippet 40 could not functions properly, as two states carrying the same wisdom would still be considered different by the test framework.
 
 | 🕐 | TLDR | If you don’t want your classes to be compared base on their reference, use the Equatable package [\[84\]](https://pub.dev/packages/equatable#-example-tab-) |
 | - | ---- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
