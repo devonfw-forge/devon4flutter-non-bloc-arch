@@ -4,7 +4,7 @@ Page Table of Contents
   - [Embedded WebApp Approach](#embedded-webapp-approach)
     - [Bridges](#bridges)
   - [Reactive View Approach](#reactive-view-approach)
-  - [Flutters Approach](#flutters-approach)
+  - [Flutter’s Approach](#flutters-approach)
 - [Flutter Compiler](#flutter-compiler)
 - [Hot Reload](#hot-reload)
 

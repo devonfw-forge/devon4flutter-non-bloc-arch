@@ -1,9 +1,9 @@
 Page Table of Contents
 - [Introduction](#introduction)
 - [Futures](#futures)
-  - [Async & Await](#async--await)
+  - [async & await](#async--await)
 - [Streams](#streams)
-  - [Async\* & yield](#async--yield)
+  - [async\* & yield](#async--yield)
 - [Side Note on Communication with the Web](#side-note-on-communication-with-the-web)
 
 ## Introduction
