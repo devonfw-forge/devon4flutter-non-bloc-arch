@@ -321,7 +321,7 @@ _Code Snippet 7: Simplified Wisgen card Widget class [[@faustWisgen2019]](https:
 
 As you can see, it has some constant values for styling, a wisdom object that is passed into the constructor and a build method. The wisdom object contains the wisdom text and the hyperlink to the stock image.
 
-One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays can change [[@googlellcHowCreateStateless2018]](https://www.youtube.com/watch?v=wE7khGHVkYY).
+One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. In snippet 7 for example, we could still manipulate the _\_wisdom_ object as long as it's reference stays the same. We could change its text, switch its stock image or alter any number of its member fields. The _WisdomCard_ remains immutable and Stateless while the wisdom it displays can change [[@googlellcHowCreateStateless2018]](https://www.youtube.com/watch?v=wE7khGHVkYY).
 
 The Lifecycle of Stateless Widgets is very straight forward [[@boelensWidgetStateBuildContext2018]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956):
 
