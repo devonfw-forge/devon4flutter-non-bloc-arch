@@ -12,7 +12,7 @@ Page Table of Contents
 
 ## The Goal of this Guide
 
-This guide aims to bridge the gap between the absolute Flutter [\[1\]](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it *properly*. Or at least show you one possible way to make large scale Flutter projects clean and manageable.
+This guide aims to bridge the gap between the absolute Flutter [\[1\]](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it *properly*. Or at least show you one possible way to make large-scale Flutter projects clean and manageable.
 
 ## Who is this Guide for?
 
