@@ -13,6 +13,7 @@ const tldrMarker = 'TLDR';
 const importantMarker = '⚠';
 const chpMarker = "\n# ";
 
+///Displays relevant stats of an input Markdown file
 main(List<String> arguments) async {
   File input = File(arguments[0]);
   String text = await input.readAsString();
@@ -25,7 +26,7 @@ main(List<String> arguments) async {
       codeMarker.allMatches(text).length.toString() +
       '\nTLDRs:\t\t\t' +
       tldrMarker.allMatches(text).length.toString() +
-      '\n⚠ Importants:\t\t' +
+      '\n⚠ Important:\t\t' +
       importantMarker.allMatches(text).length.toString() +
       '\nDefinitions:\t\t' +
       defMarker.allMatches(text).length.toString() +
