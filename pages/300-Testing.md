@@ -11,7 +11,7 @@ Page Table of Contents
 
 ## Introduction
 
-Testing has become an essential part of developing any large scale application and there is strong evidence that writing tests leads to a higher code quality [\[77\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifically, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+Testing has become an essential part of developing any large-scale application and there is strong evidence that writing tests leads to a higher code quality [\[77\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifically, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 ## Types of Tests in Flutter
 

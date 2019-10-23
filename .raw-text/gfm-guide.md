@@ -2,7 +2,7 @@
 
 ## The Goal of this Guide
 
-This guide aims to bridge the gap between the absolute Flutter [\[1\]](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it *properly*. Or at least show you one possible way to make large scale Flutter projects clean and manageable.
+This guide aims to bridge the gap between the absolute Flutter [\[1\]](https://flutter.dev/) basics and clean, structured Flutter development. It should bring you from the basics of knowing how to build an app with Flutter to an understanding of how to do it *properly*. Or at least show you one possible way to make large-scale Flutter projects clean and manageable.
 
 ## Who is this Guide for?
 
@@ -332,7 +332,7 @@ class WisdomCard extends StatelessWidget {
 
 As you can see, it has some constant values for styling, a wisdom object that is passed into the constructor and a build method. The wisdom object contains the wisdom text and the hyperlink to the stock image.
 
-One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. A ListView Widget is also a Stateless for example. It has a final reference to a list. Things can be added or removed from that list without the reference in the ListView Widget changing. So the ListView remains immutable and Stateless while the things it displays can change [\[35\]](https://www.youtube.com/watch?v=wE7khGHVkYY).
+One thing I want to point out here is that even if all fields are final in a StatelessWidget, it can still change to a degree. In snippet 7 for example, we could still manipulate the *\_wisdom* object as long as it’s reference stays the same. We could change its text, switch its stock image or alter any number of its member fields. The *WisdomCard* remains immutable and Stateless while the wisdom it displays can change [\[35\]](https://www.youtube.com/watch?v=wE7khGHVkYY).
 
 The Lifecycle of Stateless Widgets is very straight forward [\[31\]](https://medium.com/flutter-community/widget-state-buildcontext-inheritedwidget-898d671b7956):
 
@@ -979,7 +979,7 @@ All in all, Provider is a great and easy solution to distribute State in a small
 
 ## Redux
 
-Redux [\[65\]](https://redux.js.org/) is State Management Solution with an associated architectural pattern. It was originally built for React [\[22\]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [\[66\]](https://pub.dev/packages/flutter_redux). Redux uses a *Store* as one central location for all business logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has *Reducer* functions, that take in the previous State and an *Action* and return a new State. \[61\], \[63\], \[67\] So in Wisgen, the Dataflow would look something like this:
+Redux [\[65\]](https://redux.js.org/) is State Management Solution with an associated architectural pattern. It was originally built for React [\[22\]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [\[66\]](https://pub.dev/packages/flutter_redux). Redux uses a *Store* as one central location for all business logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has *Reducer* functions, that take in the previous State and an *Action* and return a new State \[61\], \[63\], \[67\]. So in Wisgen, the Dataflow would look something like this:
 
 ![Wisgen Redux dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
@@ -1463,7 +1463,7 @@ class SharedPreferenceStorage implements Storage<List<Wisdom>> {
 
 ## Introduction
 
-Testing has become an essential part of developing any large scale application and there is strong evidence that writing tests leads to a higher code quality [\[77\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifically, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
+Testing has become an essential part of developing any large-scale application and there is strong evidence that writing tests leads to a higher code quality [\[77\]](http://doi.acm.org/10.1145/952532.952753). This chapter aims to give you a brief introduction to how testing in Flutter [\[1\]](https://flutter.dev/) works and more specifically, how to test an app that implements the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE).
 
 ## Types of Tests in Flutter
 
@@ -2129,17 +2129,17 @@ All in all, I think I fulfilled the goal I set myself when starting this guide. 
 
 ## Future of the Guide and Next Steps
 
-This guide was commissioned by Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). It is supposed to introduce their mobile developers to the Flutter Framework and help them evaluate if it is a valid option for future projects. It will also be the basis for the Bachelor Thesis I am starting this November. In my Thesis, I will create and document a large scale Flutter application for Capgemini. It is supposed to be an example project that other developers can use as a guideline for creating their own large scale Flutter applications. More specifically, Capgemini has used the “My Thai Star” app [\[96\]](https://github.com/devonfw/my-thai-star) as a reference project for Angular [\[69\]](https://angular.io/). I will create a Flutter version of it.
+This guide was commissioned by Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). It is supposed to introduce their mobile developers to the Flutter Framework and help them evaluate if it is a valid option for future projects. It will also be the basis for the Bachelor Thesis I am starting this November. In my Thesis, I will create and document a large-scale Flutter application for Capgemini. It is supposed to be an example project that other developers can use as a guideline for creating their own large-scale Flutter applications. More specifically, Capgemini has used the “My Thai Star” app [\[96\]](https://github.com/devonfw/my-thai-star) as a reference project for Angular [\[69\]](https://angular.io/). I will create a Flutter version of it.
 
 ### Suggestion for Future Works
 
-One thing I and peers in the mobile development community [\[97\]](http://doi.acm.org/10.1145/3241739) would like to see is more scientific research on the Flutter Framework: Lagre scale benchmarking, usability tests, scalability tests, architecture evaluation and so on.
+One thing I and peers in the mobile development community [\[97\]](http://doi.acm.org/10.1145/3241739) would like to see is more scientific research on the Flutter Framework: Large-scale benchmarking, usability tests, scalability tests, architecture evaluation and so on.
 
 ## My Thoughts on Flutter
 
 I am guessing you could already pick up on my position regarding Flutter in the previous chapters. I am a Fan. The applications it produces run remarkably smooth and performance is usually one of the main drawbacks of cross-platform frameworks \[98\], \[99\]. The trade-off used to be *less development cost* for *less performance*. With Flutter this is no longer the case.
 
-I was originally not a fan of how State Management [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) in Flutter is handled. I am coming from native Android [\[16\]](https://developer.android.com/) development and the switch from imperative to declarative thinking took a little while for me. I now understand that the design of Flutter has one central goal: Maximize performance [\[100\]](https://flutter.dev/docs/resources/technical-overview). And the way that State is handled is a direct consequence of that goal. State Management also becomes a lot less of an issue once you start following a clearly defined architectural style. I had to build a few iterations of Wisgen [\[11\]](https://github.com/Fasust/wisgen) to figure this out for myself. But once I implemented it with BLoC [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), I began to understand how Flutter could work in a large scale application.
+I was originally not a fan of how State Management [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) in Flutter is handled. I am coming from native Android [\[16\]](https://developer.android.com/) development and the switch from imperative to declarative thinking took a little while for me. I now understand that the design of Flutter has one central goal: Maximize performance [\[100\]](https://flutter.dev/docs/resources/technical-overview). And the way that State is handled is a direct consequence of that goal. State Management also becomes a lot less of an issue once you start following a clearly defined architectural style. I had to build a few iterations of Wisgen [\[11\]](https://github.com/Fasust/wisgen) to figure this out for myself. But once I implemented it with BLoC [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), I began to understand how Flutter could work in a large-scale application.
 
 Another great thing I noticed during the writing of this guide is how open the Flutter Team is towards the community. The Framework is completely open-source and many features have been implemented by developers outside of Google. The Flutter team is also very active on social media, with its own weekly podcast and Youtube channel [\[101\]](https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw).
 

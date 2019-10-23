@@ -1,5 +1,13 @@
 import 'dart:io';
 
+///Splits a Markdown file by its top-level headings '#' and writes their contents 
+///into files with the same name.
+///
+///[First argument]: Input file
+///[Second argument]: Dir of output files
+///"000-Introduction" file name is overwritten to "Home.md".
+///Preserves the content of the destination file before the first ['## ']
+///Preserves the content of the destination file after the first ['<p align=']
 main(List<String> arguments) async {
   File input = File(arguments[0]);
   String outputPrefix = arguments[1];
