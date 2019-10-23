@@ -54,6 +54,9 @@ The guide is designed to be read in order, from chapter 0 (this one) to chapter 
 ## My Sources 
 I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [_6 References_][refs]. To put that theoretical knowledge into practice, I built the Wisgen application [[@faustWisgen2019]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
 
+## The Creation Process
+If your in interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/Fasust/flutter-guide/wiki/Meta-Documentation.pdf).
+
 # 100-The-Flutter-Framework
 ## Introduction
 This chapter will give you a basic understanding of how the Flutter Framework [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) works as a whole. I will showcase the difference of Flutter to other cross-platform approaches and how Flutter works [_under the hood_][under-hood]. You will also be introduced to the concepts of [_State_][declarative] [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) and Flutter's way of rendering an app as a [tree of _Widgets_][tree] [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html). Lastly, you will gain an understanding of how Flutter handles [Asynchronous Programming][async] and communication with the Web.
