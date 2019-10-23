@@ -2129,7 +2129,7 @@ All in all, I think I fulfilled the goal I set myself when starting this guide. 
 
 ## Future of the Guide and Next Steps
 
-This guide was commissioned by Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). It is supposed to introduce their mobile developers to the Flutter Framework and help them evaluate if it is a valid option for future projects. It will also be the basis for the Bachelor Thesis I am starting this November. In my Thesis, I will create and document a large scale Flutter application for Capgemini. It is supposed to be an example project that other developers can use as a guideline for creating their own large scale Flutter applications. More specifically, Capgemini has used the “My Thai Star” app [\[96\]](https://github.com/devonfw/my-thai-star) as a reference project for Angular [\[69\]](https://angular.io/). I will create a Flutter version of it.
+This guide was commissioned by Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). It is supposed to aid their mobile developers when building large-scale application using the Flutter Framework. It will also be the basis for the Bachelor Thesis I am starting this November. In my Thesis, I will create and document a large scale Flutter application for Capgemini. It is supposed to be an example project that other developers can use as a guideline for creating their own large scale Flutter applications. More specifically, Capgemini has used the “My Thai Star” app [\[96\]](https://github.com/devonfw/my-thai-star) as a reference project for Angular [\[69\]](https://angular.io/). I will create a Flutter version of it.
 
 ### Suggestion for Future Works
 
