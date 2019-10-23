@@ -2,9 +2,9 @@ Page Table of Contents
 - [Introduction](#introduction)
 - [Example App State](#example-app-state)
 - [Provider Package](#provider-package)
-  - [Why I decided against it](#why-i-decided-against-it)
+  - [Why I Decided Against it](#why-i-decided-against-it)
 - [Redux](#redux)
-  - [Why I decided against it](#why-i-decided-against-it-1)
+  - [Why I Decided Against it](#why-i-decided-against-it-1)
 
 ## Introduction
 
@@ -116,7 +116,7 @@ Widget build(BuildContext context) {
 
 *Code Snippet 24: Consuming Provider in favorite button [\[11\]](https://github.com/Fasust/wisgen)*
 
-### Why I decided against it
+### Why I Decided Against it
 
 All in all, Provider is a great and easy solution to distribute State in a small Flutter application. But it is just that, a State Management Solution and not an architecture \[59\], \[60\], \[63\], \[64\]. Just the Provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because Provider is such an efficient and easy way to distribute State, the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) uses it as an underlying technology for their approach.
 
@@ -233,7 +233,7 @@ Widget build(BuildContext context) {
 
 *Code Snippet 28: Consuming Redux Store in favorite button [\[11\]](https://github.com/Fasust/wisgen)*
 
-### Why I decided against it
+### Why I Decided Against it
 
 I went back and forth on this decision a lot. Redux is a great State Management Solution with some clear guidelines on how to integrate it into a Reactive application [\[68\]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three-layered architecture (View - Store - Data) [\[61\]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [\[22\]](https://facebook.github.io/react-native/) and Angular [\[69\]](https://angular.io/) and I very much agree with this advice [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 

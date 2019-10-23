@@ -5,7 +5,7 @@ Page Table of Contents
 - [Introduction](#introduction)
   - [The Goal of this Guide](#the-goal-of-this-guide)
   - [Who is this Guide for?](#who-is-this-guide-for)
-  - [Topics that will be covered](#topics-that-will-be-covered)
+  - [Topics that will be Covered](#topics-that-will-be-covered)
   - [Creation Context](#creation-context)
   - [Structure](#structure)
   - [My Sources](#my-sources)
@@ -18,7 +18,7 @@ This guide aims to bridge the gap between the absolute Flutter [\[1\]](https://f
 
 For people with a basic knowledge of the Flutter Framework. I recommend following this tutorial by the Flutter team [\[2\]](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first Flutter application. You should also have a basic understanding of the Dart programming language [\[3\]](https://dart.dev/). No worries, it is very similar to Java [\[4\]](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), Kotlin [\[5\]](https://kotlinlang.org/) and JavaScript [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine.
 
-## Topics that will be covered
+## Topics that will be Covered
 
   - A brief introduction to the [Flutter Framework](https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework) in general:
       - How the [underlying technology](https://github.com/Fasust/flutter-guide/wiki/110-Under-the-Hood) works,

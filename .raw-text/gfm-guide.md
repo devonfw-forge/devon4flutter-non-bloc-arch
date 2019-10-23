@@ -8,7 +8,7 @@ This guide aims to bridge the gap between the absolute Flutter [\[1\]](https://f
 
 For people with a basic knowledge of the Flutter Framework. I recommend following this tutorial by the Flutter team [\[2\]](https://flutter.dev/docs/get-started/codelab). It will walk you through developing your first Flutter application. You should also have a basic understanding of the Dart programming language [\[3\]](https://dart.dev/). No worries, it is very similar to Java [\[4\]](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), Kotlin [\[5\]](https://kotlinlang.org/) and JavaScript [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm). So if you know 1 or 2 of those languages you should be fine.
 
-## Topics that will be covered
+## Topics that will be Covered
 
   - A brief introduction to the [Flutter Framework](https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework) in general:
       - How the [underlying technology](https://github.com/Fasust/flutter-guide/wiki/110-Under-the-Hood) works,
@@ -305,7 +305,7 @@ Widget build(BuildContext context) {
 
 Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree: **Downwards**. You want to place information that is required by multiple Widgets above them in the tree, so they can both easily access it through their BuildContext. Keep this in mind, for now, I will explain this in more detail in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
-## The three types of Widgets
+## The Three Types of Widgets
 
 There are three types of Widgets in the Flutter Framework. I will now showcase their differences, their lifecycles, and their respective use-cases.
 
@@ -487,7 +487,7 @@ class ApiSupplier {
 
 *Code Snippet 12: Simplified Wisgen ApiSupplier (Futures with Error) [\[11\]](https://github.com/Fasust/wisgen)*
 
-### async & await
+### Async & Await
 
 If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the *async & await* keywords [\[46\]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous code the same way we would if it was synchronous. Let’s take the same example as in snippet 11:
 
@@ -690,7 +690,7 @@ Finally, once the app is closed down, the *dispose()* method is called and we di
 
 *Figure 11: Streaming Wisdom from BLoC to WisdomFeed [\[11\]](https://github.com/Fasust/wisgen)*
 
-### async\* & yield
+### Async\* & Yield
 
 Streams have two keywords that are very similar to the *async & await* of Futures: *async\* & yield* [\[40\]](https://dart.dev/tutorials/language/streams). If we mark a function as *async\** the return type **has** to be a Stream. In an async\* function we get access to the async keyword (which we already know) and the yield keyword, which is very similar to a return, only that yield does not terminate the function but instead adds a value to the Stream. This is what an implementation of the WisdomBloc from snippet 17 could look like with async\*:
 
@@ -973,7 +973,7 @@ Widget build(BuildContext context) {
 
 *Code Snippet 24: Consuming Provider in favorite button [\[11\]](https://github.com/Fasust/wisgen)*
 
-### Why I decided against it
+### Why I Decided Against it
 
 All in all, Provider is a great and easy solution to distribute State in a small Flutter application. But it is just that, a State Management Solution and not an architecture \[59\], \[60\], \[63\], \[64\]. Just the Provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because Provider is such an efficient and easy way to distribute State, the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) uses it as an underlying technology for their approach.
 
@@ -1090,7 +1090,7 @@ Widget build(BuildContext context) {
 
 *Code Snippet 28: Consuming Redux Store in favorite button [\[11\]](https://github.com/Fasust/wisgen)*
 
-### Why I decided against it
+### Why I Decided Against it
 
 I went back and forth on this decision a lot. Redux is a great State Management Solution with some clear guidelines on how to integrate it into a Reactive application [\[68\]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three-layered architecture (View - Store - Data) [\[61\]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [\[22\]](https://facebook.github.io/react-native/) and Angular [\[69\]](https://angular.io/) and I very much agree with this advice [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 

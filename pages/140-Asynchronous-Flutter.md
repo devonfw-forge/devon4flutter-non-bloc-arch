@@ -1,9 +1,9 @@
 Page Table of Contents
 - [Introduction](#introduction)
 - [Futures](#futures)
-  - [async & await](#async--await)
+  - [Async & Await](#async--await)
 - [Streams](#streams)
-  - [async\* & yield](#async--yield)
+  - [Async\* & Yield](#async--yield)
 - [Side Note on Communication with the Web](#side-note-on-communication-with-the-web)
 
 ## Introduction
@@ -53,7 +53,7 @@ class ApiSupplier {
 
 *Code Snippet 12: Simplified Wisgen ApiSupplier (Futures with Error) [\[11\]](https://github.com/Fasust/wisgen)*
 
-### async & await
+### Async & Await
 
 If you have ever worked with Promises or Futures before, you know that this can get really ugly really quickly: callbacks nested in callbacks. Luckily Dart supports the *async & await* keywords [\[46\]](https://dart.dev/codelabs/async-await), which give us the ability to structure our asynchronous code the same way we would if it was synchronous. Let’s take the same example as in snippet 11:
 
@@ -256,7 +256,7 @@ Finally, once the app is closed down, the *dispose()* method is called and we di
 
 *Figure 11: Streaming Wisdom from BLoC to WisdomFeed [\[11\]](https://github.com/Fasust/wisgen)*
 
-### async\* & yield
+### Async\* & Yield
 
 Streams have two keywords that are very similar to the *async & await* of Futures: *async\* & yield* [\[40\]](https://dart.dev/tutorials/language/streams). If we mark a function as *async\** the return type **has** to be a Stream. In an async\* function we get access to the async keyword (which we already know) and the yield keyword, which is very similar to a return, only that yield does not terminate the function but instead adds a value to the Stream. This is what an implementation of the WisdomBloc from snippet 17 could look like with async\*:
 

@@ -3,7 +3,7 @@ Page Table of Contents
 - [Widgets in General](#widgets-in-general)
   - [The Widget Tree](#the-widget-tree)
   - [Buildcontext](#buildcontext)
-- [The three types of Widgets](#the-three-types-of-widgets)
+- [The Three Types of Widgets](#the-three-types-of-widgets)
   - [Stateless Widgets](#stateless-widgets)
   - [Stateful Widgets](#stateful-widgets)
   - [When to use Stateless & When to use Stateful](#when-to-use-stateless--when-to-use-stateful)
@@ -95,7 +95,7 @@ Widget build(BuildContext context) {
 
 Alright, but what does that mean for me as a Flutter developer? It is important to understand how data in Flutter flows through the Widget Tree: **Downwards**. You want to place information that is required by multiple Widgets above them in the tree, so they can both easily access it through their BuildContext. Keep this in mind, for now, I will explain this in more detail in the chapter [Architecting a Flutter App](https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App).
 
-## The three types of Widgets
+## The Three Types of Widgets
 
 There are three types of Widgets in the Flutter Framework. I will now showcase their differences, their lifecycles, and their respective use-cases.
 
