@@ -7,9 +7,9 @@ Page Table of Contents
   - [Who is this Guide for?](#who-is-this-guide-for)
   - [Topics that will be Covered](#topics-that-will-be-covered)
   - [Creation Context](#creation-context)
-    - [Creation Process](#creation-process)
   - [Structure](#structure)
   - [My Sources](#my-sources)
+  - [Creation Process](#creation-process)
 
 ## The Goal of this Guide
 
@@ -36,10 +36,6 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 
 This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [\[8\]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). Capgemini released a guide on building an application with Angular [\[10\]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
 
-### Creation Process
-
-If your in interested in how this guide was created, how an example application was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/Fasust/flutter-guide/blob/master/Meta-Documentation.pdf).
-
 ## Structure
 
 The guide is designed to be read in order, from chapter 0 (this one) to chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [\[11\]](https://github.com/Fasust/wisgen), an example Flutter application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/Fasust/flutter-guide/wiki/gfm-guide). It is all chapters of the guide combined into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
@@ -53,6 +49,10 @@ The guide is designed to be read in order, from chapter 0 (this one) to chapter 
 ## My Sources
 
 I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [*6 References*](https://github.com/Fasust/flutter-guide/wiki/600-References). To put that theoretical knowledge into practice, I built the Wisgen application [\[11\]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
+
+## Creation Process
+
+If your in interested in how this guide was created, how an example application was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/Fasust/flutter-guide/blob/master/Meta-Documentation.pdf).
 
 <p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
 <p align="center"><a href="#">Back to Top</a></p>
