@@ -27,7 +27,7 @@ This guide was written by a student in the Bachelor of Science Program “Comput
 
 ### Creation Process
 
-If your in interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/Fasust/flutter-guide/blob/master/Meta-Documentation.pdf).
+If your in interested in how this guide was created, how an example application was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/Fasust/flutter-guide/blob/master/Meta-Documentation.pdf).
 
 ## Structure
 
