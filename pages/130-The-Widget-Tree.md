@@ -177,7 +177,7 @@ class WisdomFeedState extends State<WisdomFeed>{
 
 *Code Snippet 9: Simplified Wisgen WisdomFeed [\[11\]](https://github.com/Fasust/wisgen)*
 
-If you are anything like me, you will ask yourself: “why is this split into 2 parts? The StatefulWidget is not really doing anything.” Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true is to have the StatefulWidget hold onto the State but not actually be the State \[36\], \[37\].
+If you are anything like me, you will ask yourself: “why is this split into 2 parts? The StatefulWidget is not really doing anything.” Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true is to have the StatefulWidget hold onto the State but not actually be the State [\[36\]](https://www.youtube.com/watch?v=AqCMFXEmf3w), [\[37\]](https://flutterbyexample.com//stateful-widget-lifecycle).
 
 State objects have a long lifespan in Flutter. They will stick around during rebuilds or even if the Widget that they are linked to gets replaced [\[36\]](https://www.youtube.com/watch?v=AqCMFXEmf3w). So in this example, no matter how often the WisdomFeed gets rebuild and no matter if the user switches pages, the cashed list of wisdoms (WisdomBloc) will stay the same until the app is shut down.
 

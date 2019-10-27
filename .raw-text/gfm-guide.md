@@ -68,7 +68,7 @@ Flutter [\[1\]](https://flutter.dev/) is a framework for cross-platform native d
 
 *Figure 1: Native app rendering [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-The classic way to build a mobile app would be to write native code for each platform you want to support. I.E. One for IOS [\[15\]](https://developer.apple.com/ios/), one for Android [\[16\]](https://developer.android.com/) and so on. In this approach, your app will be written in a platform-specific language and render through platform-specific Widgets and a platform-specific engine. During the development, you have direct access to platform-specific services and sensors \[14\], \[17\], \[18\]. But you will have to build the same app multiple times, which multiplies your workload by however many platforms you want to support.
+The classic way to build a mobile app would be to write native code for each platform you want to support. I.E. One for IOS [\[15\]](https://developer.apple.com/ios/), one for Android [\[16\]](https://developer.android.com/) and so on. In this approach, your app will be written in a platform-specific language and render through platform-specific Widgets and a platform-specific engine. During the development, you have direct access to platform-specific services and sensors [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514), [\[17\]](https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be), [\[18\]](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a). But you will have to build the same app multiple times, which multiplies your workload by however many platforms you want to support.
 
 ### Embedded WebApp Approach
 
@@ -76,7 +76,7 @@ The classic way to build a mobile app would be to write native code for each pla
 
 *Figure 2: Embedded WebApp rendering [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-Embedded WebApps where the first approach to cross-platform development. For this approach, you build your application with HTML [\[19\]](https://www.w3.org/html/), CSS [\[20\]](https://www.w3.org/Style/CSS/Overview.de.html), and JavaScript [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) and then render it through a native WebView \[14\], \[17\]. The problem here is, that developers are limited to the web technology stack and that communication between the app and native services always has to run through a *bridge* [\[18\]](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a).
+Embedded WebApps where the first approach to cross-platform development. For this approach, you build your application with HTML [\[19\]](https://www.w3.org/html/), CSS [\[20\]](https://www.w3.org/Style/CSS/Overview.de.html), and JavaScript [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm) and then render it through a native WebView [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514), [\[17\]](https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be). The problem here is, that developers are limited to the web technology stack and that communication between the app and native services always has to run through a *bridge* [\[18\]](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a).
 
 #### Bridges
 
@@ -88,7 +88,7 @@ Bridges connect components with one another. These components can be built in th
 
 *Figure 3: Reactive app rendering [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-Apps build with reactive frameworks (like React Native [\[22\]](https://facebook.github.io/react-native/)) are mostly written in a platform-independent language like JavaScript [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm). The JavaScript code then sends information on how UI components should be displayed to the native environment. This communication always runs through a *bridge*. So we end up with native Widgets that are controller through JavaScript. The main problem here is that the communication through the *bridge* can be a bottleneck that can lead to performance issues \[14\], \[17\], \[18\], \[23\].
+Apps build with reactive frameworks (like React Native [\[22\]](https://facebook.github.io/react-native/)) are mostly written in a platform-independent language like JavaScript [\[6\]](https://www.ecma-international.org/publications/standards/Ecma-262.htm). The JavaScript code then sends information on how UI components should be displayed to the native environment. This communication always runs through a *bridge*. So we end up with native Widgets that are controller through JavaScript. The main problem here is that the communication through the *bridge* can be a bottleneck that can lead to performance issues [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514), [\[17\]](https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be), [\[18\]](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a), [\[23\]](https://www.youtube.com/watch?v=psZLAHQXRsI).
 
 ### Flutter’s Approach
 
@@ -96,7 +96,7 @@ Apps build with reactive frameworks (like React Native [\[22\]](https://facebook
 
 *Figure 4: Flutter app rendering [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
-Flutter’s approach is to move the entire rendering process into the app. The rendering runs through Flutter’s own engine and uses Flutter’s own Widgets. Flutter only needs a canvas to display the rendered frames on. Any user inputs on the canvas or system events happening on the device are forwarded to the Flutter app. This limits the *bridging* between the app and native environment to frames and events which removes that potential bottleneck \[14\], \[17\], \[18\].
+Flutter’s approach is to move the entire rendering process into the app. The rendering runs through Flutter’s own engine and uses Flutter’s own Widgets. Flutter only needs a canvas to display the rendered frames on. Any user inputs on the canvas or system events happening on the device are forwarded to the Flutter app. This limits the *bridging* between the app and native environment to frames and events which removes that potential bottleneck [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514), [\[17\]](https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be), [\[18\]](https://medium.com/flutter-community/in-plain-english-so-what-the-heck-is-flutter-and-why-is-it-a-big-deal-7a6dc926b34a).
 
 You might think that keeping an entire rendering engine inside an app would lead to huge APKs, but as of 2019, the compressed framework is only 4.3MB [\[24\]](https://flutter.dev/docs/resources/faq).
 
@@ -116,7 +116,7 @@ One additional advantage of Flutter is that it comes with two different compiler
 | Just in Time  | Only re-compiles files that have changed. Preserves *App State* [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) during rebuilds. Enables *Hot Reload* [\[25\]](https://flutter.dev/docs/development/tools/hot-reload). | During Development |
 | Ahead of Time | Compiles all dependencies ahead of time. The output app is faster.                                                                                                                                                                                | For Release        |
 
-*Table 1: Flutter’s 2 Compilers \[17\], \[26\]*
+*Table 1: Flutter’s 2 Compilers [\[17\]](https://www.youtube.com/watch?v=l-YO9CmaSUM&feature=youtu.be), [\[26\]](https://www.youtube.com/watch?v=J5DQRPRBiFI)*
 
 ## Hot Reload
 
@@ -134,7 +134,7 @@ If you are coming from the native mobile world and *imperative* frameworks like 
 
 ## Declarative Programming vs Imperative Programming
 
-I will explain the difference between *declarative* and *imperative* using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” \[1\], \[12\], \[27\], \[28\]. Let’s look at a code example:
+I will explain the difference between *declarative* and *imperative* using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” [\[1\]](https://flutter.dev/), [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt), [\[27\]](https://flutter.dev/docs/get-started/flutter-for/declarative), [\[28\]](https://www.youtube.com/watch?v=yGh0bjzj4IQ&t=632s). Let’s look at a code example:
 
 ``` dart
 List numbers = [1,2,3,4,5];
@@ -391,7 +391,7 @@ class WisdomFeedState extends State<WisdomFeed>{
 
 *Code Snippet 9: Simplified Wisgen WisdomFeed [\[11\]](https://github.com/Fasust/wisgen)*
 
-If you are anything like me, you will ask yourself: “why is this split into 2 parts? The StatefulWidget is not really doing anything.” Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true is to have the StatefulWidget hold onto the State but not actually be the State \[36\], \[37\].
+If you are anything like me, you will ask yourself: “why is this split into 2 parts? The StatefulWidget is not really doing anything.” Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true is to have the StatefulWidget hold onto the State but not actually be the State [\[36\]](https://www.youtube.com/watch?v=AqCMFXEmf3w), [\[37\]](https://flutterbyexample.com//stateful-widget-lifecycle).
 
 State objects have a long lifespan in Flutter. They will stick around during rebuilds or even if the Widget that they are linked to gets replaced [\[36\]](https://www.youtube.com/watch?v=AqCMFXEmf3w). So in this example, no matter how often the WisdomFeed gets rebuild and no matter if the user switches pages, the cashed list of wisdoms (WisdomBloc) will stay the same until the app is shut down.
 
@@ -471,7 +471,7 @@ class ApiSupplier {
 
 *Code Snippet 11: Simplified Wisgen ApiSupplier (Futures) [\[11\]](https://github.com/Fasust/wisgen)*
 
-We call *get()* on the HTTP module and give it the URL it should request. The *get()* method returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, `Future<http.Response> apiCall` is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the Future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* \[44\], \[45\]. We can also handle errors with the *catchError()* function:
+We call *get()* on the HTTP module and give it the URL it should request. The *get()* method returns a Future. A Future object is a reference to an event that will take place at some point in the *future*. We can give it a callback function with *then()*, that will execute once that event is resolved. The callback we define will get access to the result of the Future IE it’s type: `Future<Type>`. So here, `Future<http.Response> apiCall` is a reference to when the API call will be resolved. Once the call is complete, *then()* will be called and we get access to the *http.Response*. We tell the Future to transform the Response into a wisdom object and return the result, by adding this instruction as a callback to *then()* [\[44\]](https://www.youtube.com/watch?v=OTS-ap9_aXc), [\[45\]](https://www.youtube.com/watch?v=vl_AaCgudcY). We can also handle errors with the *catchError()* function:
 
 ``` dart
 import 'package:http/http.dart' as http;
@@ -849,7 +849,7 @@ The Most central topic of architecting a Flutter app [\[1\]](https://flutter.dev
 
 ## State Management vs Architecture
 
-I want to differentiate these two terms. Within the Flutter community, *State Management* and *Architecture* are often used synonymously, but I think we should be careful to do so. State Management is, as the name indicates, managing the State of an application. This can be done with the help of a technology or a framework \[12\], \[55\]. Architecture, on the other hand, is the overarching structure of an app. A set of rules that an app conforms to [\[56\]](http://www.iso.org/cms/render/live/en/sites/isoorg/contents/data/standard/05/05/50508.html). Any architecture for a Flutter application will have some sort of State Management, but State Management is not an architecture by itself. I just want you to keep this in mind for the following chapters.
+I want to differentiate these two terms. Within the Flutter community, *State Management* and *Architecture* are often used synonymously, but I think we should be careful to do so. State Management is, as the name indicates, managing the State of an application. This can be done with the help of a technology or a framework [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt), [\[55\]](https://en.wikipedia.org/w/index.php?title=State_management&oldid=914027862). Architecture, on the other hand, is the overarching structure of an app. A set of rules that an app conforms to [\[56\]](http://www.iso.org/cms/render/live/en/sites/isoorg/contents/data/standard/05/05/50508.html). Any architecture for a Flutter application will have some sort of State Management, but State Management is not an architecture by itself. I just want you to keep this in mind for the following chapters.
 
 ## Types of State
 
@@ -890,7 +890,7 @@ Whenever the favorite button on any card is pressed, several Widgets [\[30\]](ht
 
 ## Provider Package
 
-The Provider Package [\[58\]](https://pub.dev/packages/provider) is a State Management Solution for Flutter published by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions \[59\], \[60\] and Rousselet and the Flutter Team are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [\[38\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
+The Provider Package [\[58\]](https://pub.dev/packages/provider) is a State Management Solution for Flutter published by Remi Rousselet in 2018. It has since then been endorsed by the Flutter Team on multiple occasions [\[59\]](https://www.youtube.com/watch?v=HrBiNHEqSYU), [\[60\]](https://www.youtube.com/watch?v=d_m5csmrf7I) and Rousselet and the Flutter Team are now devolving it in cooperation. The package is basically a prettier interface for Inherited Widgets [\[38\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html). You can use Provider to expose State from a Widget at the top of the tree to any number of Widgets below it in the tree.
 
 As a quick reminder: Data in Flutter always flows **downwards**. If you want to access data from multiple locations within your Widget Tree, you have to place it at one of their common ancestors so they can both access it through their BuildContexts [\[34\]](https://api.flutter.dev/flutter/widgets/BuildContext-class.html). This practice is called *“lifting State up”* and it is very common within declarative frameworks [\[61\]](https://www.youtube.com/watch?v=zKXz3pUkw9A).
 
@@ -979,11 +979,11 @@ Widget build(BuildContext context) {
 
 ### Why I Decided Against it
 
-All in all, Provider is a great and easy solution to distribute State in a small Flutter application. But it is just that, a State Management Solution and not an architecture \[59\], \[60\], \[63\], \[64\]. Just the Provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because Provider is such an efficient and easy way to distribute State, the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) uses it as an underlying technology for their approach.
+All in all, Provider is a great and easy solution to distribute State in a small Flutter application. But it is just that, a State Management Solution and not an architecture [\[59\]](https://www.youtube.com/watch?v=HrBiNHEqSYU), [\[60\]](https://www.youtube.com/watch?v=d_m5csmrf7I), [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/), [\[64\]](https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e). Just the Provider package alone with no pattern to follow or an architecture to obey will not lead to a clean and manageable application. But no worries, I did not teach you about the package for nothing. Because Provider is such an efficient and easy way to distribute State, the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) uses it as an underlying technology for their approach.
 
 ## Redux
 
-Redux [\[65\]](https://redux.js.org/) is State Management Solution with an associated architectural pattern. It was originally built for React [\[22\]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [\[66\]](https://pub.dev/packages/flutter_redux). Redux uses a *Store* as one central location for all business logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has *Reducer* functions, that take in the previous State and an *Action* and return a new State. \[61\], \[63\], \[67\] So in Wisgen, the Dataflow would look something like this:
+Redux [\[65\]](https://redux.js.org/) is State Management Solution with an associated architectural pattern. It was originally built for React [\[22\]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [\[66\]](https://pub.dev/packages/flutter_redux). Redux uses a *Store* as one central location for all business logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has *Reducer* functions, that take in the previous State and an *Action* and return a new State. [\[61\]](https://www.youtube.com/watch?v=zKXz3pUkw9A), [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/), [\[67\]](https://www.youtube.com/watch?v=n_5JULTrstU&feature=youtu.be) So in Wisgen, the Dataflow would look something like this:
 
 ![Wisgen Redux dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
 
@@ -1098,7 +1098,7 @@ Widget build(BuildContext context) {
 
 I went back and forth on this decision a lot. Redux is a great State Management Solution with some clear guidelines on how to integrate it into a Reactive application [\[68\]](https://redux.js.org/introduction/three-principles). It also enables the implementation of a clean three-layered architecture (View - Store - Data) [\[61\]](https://www.youtube.com/watch?v=zKXz3pUkw9A). Didier Boelens recommends to just stick to a Redux architecture if you are already familiar with its approach from other cross-platform development frameworks like React [\[22\]](https://facebook.github.io/react-native/) and Angular [\[69\]](https://angular.io/) and I very much agree with this advice [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/). I have previously never worked with Redux and I decided to use BLoC over Redux because:
 
-1.  It was publicly endorsed by the Flutter Team on multiple occasions \[7\], \[12\], \[53\], \[59\], \[70\]
+1.  It was publicly endorsed by the Flutter Team on multiple occasions [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt), [\[53\]](https://www.youtube.com/watch?v=fahC3ky_zW0), [\[59\]](https://www.youtube.com/watch?v=HrBiNHEqSYU), [\[70\]](https://www.youtube.com/watch?v=RS36gBEp8OI)
 2.  It also has clear architectural rules [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
 3.  It also enables the implementation of a layered architecture [\[71\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)
 4.  It was developed by one of Flutter’s Engineers [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
@@ -1112,7 +1112,7 @@ BLoC is an architectural pattern that functions as a State Management Solution. 
 
 ## Intro to BLoC
 
-When Soares designed the BLoC Pattern, he was working on applications in both Flutter and Angular Dart. He wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular Dart apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send *Events* to BLoCs and display the UI based on the *State* of the BLoCs. Soares defined, that UI and BLoCs should only communicate through Streams [\[40\]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a Stream of State [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State \[7\], \[48\], \[53\], \[70\].
+When Soares designed the BLoC Pattern, he was working on applications in both Flutter and Angular Dart. He wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular Dart apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send *Events* to BLoCs and display the UI based on the *State* of the BLoCs. Soares defined, that UI and BLoCs should only communicate through Streams [\[40\]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a Stream of State [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/), [\[53\]](https://www.youtube.com/watch?v=fahC3ky_zW0), [\[70\]](https://www.youtube.com/watch?v=RS36gBEp8OI).
 
 | 📙 | BLoC | Business Logic Component [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) |
 | - | ---- | :---------------------------------------------------------------------------- |
@@ -1135,7 +1135,7 @@ That’s all well and good, but why should you care? An application that follows
 5.  rely on few rebuilds, as the UI only rebuilds when the State related to that UI changes.
 6.  have an App-Sate with very predictable transitions as the pattern enforces a single way for State to change throughout the entire application.
 
-\[7\], \[39\], \[48\], \[63\], \[64\]
+[\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), [\[39\]](https://felangel.github.io/bloc/#/), [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/), [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/), [\[64\]](https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e)
 
 ## Rules of the BLoC Pattern
 
@@ -1299,7 +1299,7 @@ This is where all our BLoCs reside. All our business logic sits in this layer. T
 
 *Figure 21: Widget BLoC communication*
 
-For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community \[39\], \[57\], \[71\], \[73\] mostly uses the *Repository Patter* [\[74\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[75\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
+For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community [\[39\]](https://felangel.github.io/bloc/#/), [\[57\]](https://fluttersamples.com/), [\[71\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1), [\[73\]](https://medium.com/coding-with-flutter/widget-async-bloc-service-a-practical-architecture-for-flutter-apps-250a28f9251b) mostly uses the *Repository Patter* [\[74\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[75\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
 
 ``` dart
 ///Generic Repository that fetches a given amount of T
@@ -1491,7 +1491,7 @@ Integration/Driver Tests run your entire application in a virtual machine or on 
 
 ## Writing Unit Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[79\], \[80\]. The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First, we have to import the test library [\[78\]](https://pub.dev/packages/test) and the *mockito* package [\[81\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test [\[79\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&), [\[80\]](https://flutter.dev/docs/testing). The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First, we have to import the test library [\[78\]](https://pub.dev/packages/test) and the *mockito* package [\[81\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
 ``` yaml
 dev_dependencies:
@@ -1661,7 +1661,7 @@ First, we create our Mock classes. For this test, we need a mock *Supplier-Repos
 
 ## Equality in Dart
 
-| ⚠ | By default, all comparisons in Dart work based on references and not base on values \[82\], \[84\] |
+| ⚠ | By default, all comparisons in Dart work based on references and not base on values [\[82\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86), [\[84\]](https://pub.dev/packages/equatable#-example-tab-) |
 | - | :------------------------------------------------------------------------------------------------- |
 
 ``` dart
@@ -2094,7 +2094,7 @@ class _LikeButton extends StatelessWidget {
 
 *Code Snippet 48: Wisgen Wisdom Card in four Widgets and with an extracted callback [\[11\]](https://github.com/Fasust/wisgen)*
 
-As you can see, splitting your code into multiple smaller Widgets does lead to a lot more boilerplate. But it has both readability and performance advantages \[33\], \[91\]. Extracting Widgets into private functions removes the boilerplate, but also has no performance advantages.
+As you can see, splitting your code into multiple smaller Widgets does lead to a lot more boilerplate. But it has both readability and performance advantages [\[33\]](https://flutter.dev/docs/testing/best-practices), [\[91\]](https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/). Extracting Widgets into private functions removes the boilerplate, but also has no performance advantages.
 
 ## Directory Structure
 
@@ -2141,7 +2141,7 @@ One thing I and peers in the mobile development community [\[97\]](http://doi.ac
 
 ## My Thoughts on Flutter
 
-I am guessing you could already pick up on my position regarding Flutter in the previous chapters. I am a Fan. The applications it produces run remarkably smooth and performance is usually one of the main drawbacks of cross-platform frameworks \[98\], \[99\]. The trade-off used to be *less development cost* for *less performance*. With Flutter this is no longer the case.
+I am guessing you could already pick up on my position regarding Flutter in the previous chapters. I am a Fan. The applications it produces run remarkably smooth and performance is usually one of the main drawbacks of cross-platform frameworks [\[98\]](http://dl.gi.de/handle/20.500.12116/17386), [\[99\]](https://ieeexplore.ieee.org/document/8543442). The trade-off used to be *less development cost* for *less performance*. With Flutter this is no longer the case.
 
 I was originally not a fan of how State Management [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) in Flutter is handled. I am coming from native Android [\[16\]](https://developer.android.com/) development and the switch from imperative to declarative thinking took a little while for me. I now understand that the design of Flutter has one central goal: Maximize performance [\[100\]](https://flutter.dev/docs/resources/technical-overview). And the way that State is handled is a direct consequence of that goal. State Management also becomes a lot less of an issue once you start following a clearly defined architectural style. I had to build a few iterations of Wisgen [\[11\]](https://github.com/Fasust/wisgen) to figure this out for myself. But once I implemented it with BLoC [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), I began to understand how Flutter could work in a large scale application.
 
@@ -2747,7 +2747,7 @@ All that being said, I won’t be going back to native app development any time 
 
 <div id="ref-ebonePerformanceEvaluationCrossPlatform2018">
 
-\[99\] A. Ebone, Y. Tan, and X. Jia, “A Performance Evaluation of Cross-Platform Mobile Application Development Approaches,” in *2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft)*, 2018, pp. 92–93. 
+\[99\] A. Ebone, Y. Tan, and X. Jia, “A Performance Evaluation of Cross-Platform Mobile Application Development Approaches,” in *2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft)*, 2018, pp. 92–93. \[Online\]. Available: <https://ieeexplore.ieee.org/document/8543442>. \[Accessed: 16-Oct-2019\]
 
 </div>
 

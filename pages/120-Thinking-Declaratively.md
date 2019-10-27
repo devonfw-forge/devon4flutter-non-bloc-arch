@@ -10,7 +10,7 @@ If you are coming from the native mobile world and *imperative* frameworks like 
 
 ## Declarative Programming vs Imperative Programming
 
-I will explain the difference between *declarative* and *imperative* using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” \[1\], \[12\], \[27\], \[28\]. Let’s look at a code example:
+I will explain the difference between *declarative* and *imperative* using a metaphor: For a second, let’s think of programming as *talking* to the underlying framework. In this context, an imperative approach is telling the framework **exactly** what you want it to do. “Imperium” (Latin) means “to command”. A declarative approach, on the other hand, would be describing to the framework what kind of result you want to get and then letting the framework decide on how to achieve that result. “Declaro” (Latin) means “to explain” [\[1\]](https://flutter.dev/), [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt), [\[27\]](https://flutter.dev/docs/get-started/flutter-for/declarative), [\[28\]](https://www.youtube.com/watch?v=yGh0bjzj4IQ&t=632s). Let’s look at a code example:
 
 ``` dart
 List numbers = [1,2,3,4,5];

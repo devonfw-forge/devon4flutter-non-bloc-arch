@@ -591,7 +591,7 @@
 
 <div id="ref-ebonePerformanceEvaluationCrossPlatform2018">
 
-\[99\] A. Ebone, Y. Tan, and X. Jia, “A Performance Evaluation of Cross-Platform Mobile Application Development Approaches,” in *2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft)*, 2018, pp. 92–93. 
+\[99\] A. Ebone, Y. Tan, and X. Jia, “A Performance Evaluation of Cross-Platform Mobile Application Development Approaches,” in *2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft)*, 2018, pp. 92–93. \[Online\]. Available: <https://ieeexplore.ieee.org/document/8543442>. \[Accessed: 16-Oct-2019\]
 
 </div>
 
