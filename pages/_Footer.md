@@ -1,1 +1,3 @@
-<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License Agreement" style="border-width:0" src="http://i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This Guide</span> is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons License (Attribution-NoDerivatives 4.0 International)</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License Agreement" style="border-width:0" src="http://i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a>
+<br/>This Guide is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons License (Attribution-NoDerivatives 4.0 International)</a>
+<br/><i>Author: <a rel="author" href="https://github.com/Fasust">Sebastian Faust</a></i>.
