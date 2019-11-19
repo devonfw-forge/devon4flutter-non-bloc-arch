@@ -5,19 +5,19 @@ Build & Split GFM IEEE: pandoc --wrap=preserve --filter pandoc-citeproc --biblio
 
 Build & Split GFM Chicago: pandoc --wrap=preserve --filter pandoc-citeproc --bibliography=sources/guide.bib -f markdown -t gfm .raw-text/raw-guide.md -o .raw-text/gfm-guide.md ; dart .\tools\splitter.dart .\.raw-text\gfm-guide.md .\pages\
 ---
-[intro]: https://github.com/Fasust/flutter-guide/wiki
-[framework]: https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework
-[under-hood]: https://github.com/Fasust/flutter-guide/wiki/110-Under-the-Hood
-[declarative]: https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively
-[tree]: https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree
-[async]: https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter
-[architecture]: https://github.com/Fasust/flutter-guide/wiki/200-Architecting-a-Flutter-App
-[statemng]: https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives
-[bloc]: https://github.com/Fasust/flutter-guide/wiki/220-BLoC
-[test]: https://github.com/Fasust/flutter-guide/wiki/300-Testing
-[conventions]: https://github.com/Fasust/flutter-guide/wiki/400-Conventions
-[conclusion]: https://github.com/Fasust/flutter-guide/wiki/500-Conclusion
-[refs]: https://github.com/Fasust/flutter-guide/wiki/600-References
+[intro]: https://github.com/devonfw-forge/devonfw4flutter/wiki
+[framework]: https://github.com/devonfw-forge/devonfw4flutter/wiki/100-The-Flutter-Framework
+[under-hood]: https://github.com/devonfw-forge/devonfw4flutter/wiki/110-Under-the-Hood
+[declarative]: https://github.com/devonfw-forge/devonfw4flutter/wiki/120-Thinking-Declaratively
+[tree]: https://github.com/devonfw-forge/devonfw4flutter/wiki/130-The-Widget-Tree
+[async]: https://github.com/devonfw-forge/devonfw4flutter/wiki/140-Asynchronous-Flutter
+[architecture]: https://github.com/devonfw-forge/devonfw4flutter/wiki/200-Architecting-a-Flutter-App
+[statemng]: https://github.com/devonfw-forge/devonfw4flutter/wiki/210-State-Management-Alternatives
+[bloc]: https://github.com/devonfw-forge/devonfw4flutter/wiki/220-BLoC
+[test]: https://github.com/devonfw-forge/devonfw4flutter/wiki/300-Testing
+[conventions]: https://github.com/devonfw-forge/devonfw4flutter/wiki/400-Conventions
+[conclusion]: https://github.com/devonfw-forge/devonfw4flutter/wiki/500-Conclusion
+[refs]: https://github.com/devonfw-forge/devonfw4flutter/wiki/600-References
 
 # 000-Introduction
 
@@ -43,7 +43,7 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [[@technicaluniversitycologneTechnicalUniversityCologne2019]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with Capgemini Cologne [[@capgeminiCapgeminiHomePage2019]](https://www.capgemini.com/us-en/). Capgemini released a guide on building an application with Angular [[@ambuludiCapgeminiAngularGuide2019]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
 
 ## Structure
-The guide is designed to be read in order, from chapter 0 (this one) to chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen), an example Flutter application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/Fasust/flutter-guide/wiki/gfm-guide). It is all chapters of the guide combined into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
+The guide is designed to be read in order, from chapter 0 (this one) to chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen), an example Flutter application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/devonfw-forge/devonfw4flutter/wiki/gfm-guide). It is all chapters of the guide combined into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
 
 | Symbol | Meaning                  |
 | :----: | :----------------------- |
@@ -55,7 +55,7 @@ The guide is designed to be read in order, from chapter 0 (this one) to chapter 
 I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [_6 References_][refs]. To put that theoretical knowledge into practice, I built the Wisgen application [[@faustWisgen2019]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
 
 ## Creation Process
-If your in interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/Fasust/flutter-guide/blob/master/Meta-Documentation.pdf).
+If your in interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/devonfw-forge/devonfw4flutter/blob/master/Meta-Documentation.pdf).
 
 # 100-The-Flutter-Framework
 ## Introduction
@@ -73,14 +73,14 @@ This chapter will give you a basic understanding of how the Flutter Framework [[
 Flutter [[@flutterdevteamFlutterFramework2018]](https://flutter.dev/) is a framework for cross-platform native development. That means that it promises native app performance while still compiling apps for multiple platforms from a single codebase. The best way to understand how Flutter achieves this is to compare it to other mobile development approaches. This chapter will showcase how three of the most popular cross-platform approaches function and then compare those technics to the one Flutter uses. Lastly, I will highlight some of the unique features that Flutters approach enables.
 
 ### Full Native Approach
-![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//images/native-rendering.png)
+![Native app rendering](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/native-rendering.png)
 
 _Figure 1: Native app rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 The classic way to build a mobile app would be to write native code for each platform you want to support. I.E. One for IOS [[@appleIOSSDK2010]](https://developer.apple.com/ios/), one for Android [[@googlellcAndroidSDK2008]](https://developer.android.com/) and so on. In this approach, your app will be written in a platform-specific language and render through platform-specific Widgets and a platform-specific engine. During the development, you have direct access to platform-specific services and sensors [@googlellcHowFlutterDifferent2019; @stollPlainEnglishWhat2018; @lelerWhatRevolutionaryFlutter2017]. But you will have to build the same app multiple times, which multiplies your workload by however many platforms you want to support.
 
 ### Embedded WebApp Approach
-![Embedded WebApp rendering](https://github.com/Fasust/flutter-guide/wiki//images/webview-rendering.png)
+![Embedded WebApp rendering](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/webview-rendering.png)
 
 _Figure 2: Embedded WebApp rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
@@ -90,14 +90,14 @@ Embedded WebApps where the first approach to cross-platform development. For thi
 Bridges connect components with one another. These components can be built in the same or different programming languages [[@adinugrohoReviewMultiplatformMobile2015]](http://www.sciencedirect.com/science/article/pii/S1877050915020979).
 
 ### Reactive View Approach
-![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//images/reactive-rendering.png)
+![Reactive app rendering](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/reactive-rendering.png)
 
 _Figure 3: Reactive app rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
 Apps build with reactive frameworks (like React Native [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/)) are mostly written in a platform-independent language like JavaScript [[@ecmaJavaScriptECMAStandard1997]](https://www.ecma-international.org/publications/standards/Ecma-262.htm). The JavaScript code then sends information on how UI components should be displayed to the native environment. This communication always runs through a _bridge_. So we end up with native Widgets that are controller through JavaScript. The main problem here is that the communication through the _bridge_ can be a bottleneck that can lead to performance issues [@googlellcHowFlutterDifferent2019; @stollPlainEnglishWhat2018; @lelerWhatRevolutionaryFlutter2017; @kolPerformanceLimitationsReact2017].
 
 ### Flutter's Approach
-![Flutter app rendering](https://github.com/Fasust/flutter-guide/wiki//images/flutter-rendering.png)
+![Flutter app rendering](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/flutter-rendering.png)
 
 _Figure 4: Flutter app rendering [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
@@ -105,7 +105,7 @@ Flutter's approach is to move the entire rendering process into the app. The ren
 
 You might think that keeping an entire rendering engine inside an app would lead to huge APKs, but as of 2019, the compressed framework is only 4.3MB [[@flutterdevteamFAQFlutter2019]](https://flutter.dev/docs/resources/faq). 
 
-![Flutter Framework architecture](https://github.com/Fasust/flutter-guide/wiki//images/flutter-architecture.png)
+![Flutter Framework architecture](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/flutter-architecture.png)
 
 _Figure 5: Flutter Framework architecture [[@lelerWhatRevolutionaryFlutter2017]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)_
 
@@ -125,7 +125,7 @@ _Table 1: Flutter's 2 Compilers [@mooreDartProductiveFast2019; @googlellcHowFlut
 ## Hot Reload
 _Hot Reload_ [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload) is a feature that Web developers are already very familiar with. It essentially means that changes in the code are displayed in the running application near instantaneously. Thanks to its JIT Compiler, The Flutter Framework is also able to provide this feature.
 
-![Hot Reload](https://github.com/Fasust/flutter-guide/wiki//images/hot-reload.gif)
+![Hot Reload](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/hot-reload.gif)
 
 _Figure 6: Hot Reload [[@flutterdevteamHotReloadFlutter2019]](https://flutter.dev/docs/development/tools/hot-reload)_
 
@@ -165,7 +165,7 @@ Okay, now that we understand what Declarative Programming is, let's take a look 
 
 > "Flutter is declarative. This means that Flutter builds its user interface to reflect the current State of your app" [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
-![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//images/ui-equals-function-of-state.png)
+![UI = f(State)](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/ui-equals-function-of-state.png)
 
 _Figure 7: UI = f(State) [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)_
 
@@ -234,7 +234,7 @@ But that is not really helpful, is it? Personally, I like Didier Boelens definit
 
 Let's have look at an example, this is the Wisgen app [[@faustWisgen2019]](https://github.com/Fasust/wisgen), it displays an endless feed of wisdoms combined with vaguely thought-provoking stock images:
 
-![Wisgen Widgets](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widgets.png)
+![Wisgen Widgets](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-widgets.png)
 
 _Figure 8: Wisgen Widgets [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -271,7 +271,7 @@ But your app never consists out of exclusively immutable parts, does it? Variabl
 ### The Widget Tree
 When working with Flutter, you will inevitably stumble over the term _Widget Tree_, but what is a Widget Tree? A UI in Flutter is nothing more than a tree of nested Widgets. Let's have a look at the Widget Tree of our example from figure 8. Note the card Widgets on the right-hand side of the diagram. There you can see how the code from snippet 5 translates to Widgets in the Widget Tree.
 
-![Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-widget-tree.PNG)
+![Wisgen Widget Tree](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-widget-tree.PNG)
 
 _Figure 9: Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -510,7 +510,7 @@ _Code Snippet 14: Simplified Wisgen ApiSupplier (Async & Await with Error) [[@fa
 ## Streams
 Streams [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) are one of the core technologies behind reactive programming [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/). And we'll use them heavily in the chapter [Architecting a Flutter app][architecture]. But what exactly are _Streams_? As Andrew Brogdon put's it in one of Google's official Dart tutorials, Streams are to Future what Iterables are to synchronous data types [[@googlellcDartStreams2019]](https://www.youtube.com/watch?v=nQBpOIHE4eE&list=PLjxrf2q8roU2HdJQDjJzOeO6J3FoFLWr2&index=17&t=345s). You can think of Streams as one continuous flow of data. Data can be put into the Stream, other parties can subscribe/listen to a given Stream and be notified once a new piece of data enters the Stream.
 
-![Data Stream](https://github.com/Fasust/flutter-guide/wiki//images/stream.PNG)
+![Data Stream](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/stream.PNG)
 
 _Figure 10: Data Stream_
 
@@ -659,7 +659,7 @@ Here we use the list of wisdoms to create a ListView containing cards that displ
 
 Finally, once the app is closed down, the _dispose()_ method is called and we dispose of our Stream and ScrollController.
 
-![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/Fasust/flutter-guide/wiki//images/wisdomBloc-stream.PNG)
+![Streaming Wisdom from BLoC to WisdomFeed](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisdomBloc-stream.PNG)
 
 _Figure 11: Streaming Wisdom from BLoC to WisdomFeed [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -816,7 +816,7 @@ I want to differentiate these two terms. Within the Flutter community, _State Ma
 The Flutter documentation [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) differentiates between two types of State: _Ephemeral State_ & _App State_.
 Ephemeral State is State that is only required in one location IE inside of one Widget. Examples would be: scroll position in a list, highlighting of selected elements or the color change of a pressed button. This is the type of State that we don't need to worry about that much or in other words, there is no need for a fancy State Management Solution for Ephemeral State. We can simply use a Stateful Widget with some variables and manage Ephemeral State that way [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt). The more interesting type of State is App State. This is information that is required in multiple locations/by multiple Widgets. Examples would be user data, a list of favorites or a shopping cart. App State management is going to be the focus of this chapter.
 
-![Ephemeral State vs App State decision tree](https://github.com/Fasust/flutter-guide/wiki//images/ephemeral-vs-app-state.png)
+![Ephemeral State vs App State decision tree](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/ephemeral-vs-app-state.png)
 
 _Figure 12: Ephemeral State vs App State decision tree [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt)_
 
@@ -836,13 +836,13 @@ I will showcase the State Management Solutions using one example of _App State_ 
 1. The ListView on the favorite page, so it can display all favorites.
 2. The button on every wisdom card so it can add a new favorites to the list and show if a given wisdom is a favorite.
 
-![Wisgen favorites list and favorite in feed](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
+![Wisgen favorites list and favorite in feed](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-fav-mock.png)
 
 _Figure 13: Wisgen favorites list and favorite in feed [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 Whenever the favorite button on any card is pressed, several Widgets [[@flutterdevteamFlutterWidgets2019]](https://flutter.dev/docs/development/ui/widgets-intro) have to update. This is a simplified version of the Wisgen Widget Tree. The red highlights show the Widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
 
-![Wisgen favorites WidgetTree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
+![Wisgen favorites WidgetTree](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-pagetree-fav.PNG)
 
 _Figure 14: Wisgen favorites WidgetTree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -856,7 +856,7 @@ As a quick reminder: Data in Flutter always flows **downwards**. If you want to 
 
 The Provider Package is an easy way for us to lift State up. Let's look at our example from figure 14: The first common ancestor of all Widgets in need of the favorite list is _MaterialApp_. So we will need to lift the State up to the MaterialApp Widget and then have our other Widgets access it from there:
 
-![Wisgen WidgetTree favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
+![Wisgen WidgetTree favorites with Provider](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-pagetree-provider.PNG)
 
 _Figure 15: Wisgen WidgetTree favorites with Provider [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -937,7 +937,7 @@ All in all, Provider is a great and easy solution to distribute State in a small
 ## Redux
 Redux [[@abramovRedux2015]](https://redux.js.org/) is State Management Solution with an associated architectural pattern. It was originally built for React [[@facebookReactNativeFramework2015]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [[@eganFlutterReduxPackage2017]](https://pub.dev/packages/flutter_redux). Redux uses a _Store_ as one central location for all business logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has _Reducer_ functions, that take in the previous State and an _Action_ and return a new State. [@boelensFlutterBLoCScopedModel2019; @doughtieArchitectingReactiveFlutter2017; @eganKeepItSimple2018] So in Wisgen, the Dataflow would look something like this:
 
-![Wisgen Redux dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
+![Wisgen Redux dataflow](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-redux.PNG)
 
 _Figure 16: Wisgen Redux dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -1065,7 +1065,7 @@ When Soares designed the BLoC Pattern, he was working on applications in both Fl
 | 🕐  | TLDR | The UI should be kept free of business logic. The UI only publishes _Events_ to a BLoC and subscribes to a Stream of _State_ emitted by a BLoC |
 | --- | ---- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 
-![Bloc turning input Events to a Stream of State](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
+![Bloc turning input Events to a Stream of State](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/bloc-architecture.png)
 
 _Figure 17: Bloc turning input Events to a Stream of State [[@sullivanBuildReactiveMobile2018]](https://www.youtube.com/watch?v=RS36gBEp8OI)_
 
@@ -1102,14 +1102,14 @@ To gain those promised advantages, you will have to follow these 8 rules Soares 
      - Sometimes a little formatting is inevitable, but more complex things like currency formating is business logic and should be done in a BLoC.
   4. If you do have **platform branching**, It should be dependent on **a single bool State/output** emitted by a BLoC.
 
-![What a BLoC looks like](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
+![What a BLoC looks like](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/bloc-sink-stream.png)
 
 _Figure 18: What a BLoC looks like [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
 
 ## Implementation
 Alright, Now that you know what the BLoC Pattern is, let's have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let's have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
 
-![Bloc and Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-bloc.PNG)
+![Bloc and Wisgen Widget Tree](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-pagetree-bloc.PNG)
 
 _Figure 19: Bloc and Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -1220,7 +1220,7 @@ _Code Snippet 32: Accessing a BLoC in Wisgen [[@faustWisgen2019]](https://github
 ## Layered Architecture
 Now that we understand how to implement the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets' have a look at how we can use it to achieve a four-layered architecture with one-way dependencies [[@suriArchitectYourFlutter2019]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
 
-<img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Four-Layered BLoC architecture">
+<img src="https://github.com/devonfw-forge/devonfw4flutter/wiki//images/bloc-my-layers.png" height="500" alt="Four-Layered BLoC architecture">
 
 _Figure 20: Four-Layered BLoC architecture_
 
@@ -1230,7 +1230,7 @@ This is the layer that our user directly interacts with. It is the Widget Tree o
 ### Business Logic Layer
 This is where all our BLoCs reside. All our business logic sits in this layer. The communication between this layer and the _UI Layer_ should be limited to _Sinks_ and _Streams_:
 
-![Widget BLoC communication](https://github.com/Fasust/flutter-guide/wiki//images/widget-bloc-communication.PNG)
+![Widget BLoC communication](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/widget-bloc-communication.PNG)
 
 _Figure 21: Widget BLoC communication_
 
@@ -1255,13 +1255,13 @@ These are the actual implementations of our _Repositories_. Platform-specific th
 ## Architecture in Practice 
 To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen) is built using the BLoC Pattern and a four-layered architecture.
 
-![Wisgen architecture with dependencies](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
+![Wisgen architecture with dependencies](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen_depencies.PNG)
 
 _Figure 22: Wisgen architecture with dependencies [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
 In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure 22. The _Wisdom Feed_ displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a _Request-Event_ to the Wisdom BLoC [[@angelovFlutterInfiniteList2019]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This Event causes the _Wisdom BLoC_ to fetch more data from its _Repository_. You can see the _Repository_ interface in snippet 33. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter][async] if you want to remind yourself again. When the Wisdom BLoC receives a response from its Repository, it publishes the new wisdoms to its Stream [[@dartteamDartStreams2019]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified. 
 
-![Wisgen dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
+![Wisgen dataflow](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-dataflow.png)
 
 _Figure 23: Wisgen dataflow [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -1408,7 +1408,7 @@ Widget Tests are used to test small Widget Sub-Trees of your application. They r
 #### Integration Test (Driver Tests)
 Integration/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and _"prone to braking"_[[@hracekTestingFlutterApps2019]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
-![Flutter test comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
+![Flutter test comparison](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/test-comp.PNG)
 
 _Figure 24: Flutter test comparison [[@flutterdevteamTestingFlutterApps2018]](https://flutter.dev/docs/testing)_
 
@@ -1425,7 +1425,7 @@ _Code Snippet 37: Pubspec.yaml Test Imports_
 
 _flutter\_test_ offers the core testing capabilities of Flutter. _mockito_ is used to mock up dependencies. All our tests should sit in a directory named _"test"_ on the root level of our app directory. If we want to place them somewhere else, we have to specify their location every time we want to run them.
 
-![Wisgen test directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
+![Wisgen test directory](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-test-dir.PNG)
 
 _Figure 25: Wisgen test directory [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -1678,7 +1678,7 @@ _Code Snippet 44: Triple-Dash block comment (3 lines)_
 
 Whether you agree with that reasoning or not. You should definitely use them because they can be used to auto-generate a documentation for your project with the Dartdoc tool [[@dartteamDartdocTool2019]](https://github.com/dart-lang/dartdoc) and they are shown as tooltips in your IDE:
 
-![Wisgen wisdom tooltip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
+![Wisgen wisdom tooltip](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisdom-tool-tip.png)
 
 _Figure 26: Wisgen wisdom tooltip [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
@@ -1841,7 +1841,7 @@ class WisdomCard extends StatelessWidget {
 ```
 _Code Snippet 47: Wisgen WisdomCard in one Widget [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-<img src="https://github.com/Fasust/flutter-guide/wiki//images/wisgen-card.png" height="350" alt="Wisgen Wisdom Card">
+<img src="https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-card.png" height="350" alt="Wisgen Wisdom Card">
 
 _Figure 27: Wisgen Wisdom Card [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 

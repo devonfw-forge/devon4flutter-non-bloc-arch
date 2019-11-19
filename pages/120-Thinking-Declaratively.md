@@ -42,7 +42,7 @@ Okay, now that we understand what Declarative Programming is, let’s take a loo
 
 > “Flutter is declarative. This means that Flutter builds its user interface to reflect the current State of your app” [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)
 
-![UI = f(State)](https://github.com/Fasust/flutter-guide/wiki//images/ui-equals-function-of-state.png)
+![UI = f(State)](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/ui-equals-function-of-state.png)
 
 *Figure 7: UI = f(State) [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative)*
 
@@ -97,5 +97,5 @@ Is it not very inefficient to re-render the entire Widget every time we change t
 
 > “RenderObjects persist between frames and Flutter’s lightweight Widgets tell the framework to mutate the RenderObjects between States. The Flutter framework handles the rest.” [\[27\]](https://flutter.dev/docs/get-started/flutter-for/declarative)
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree">Next Chapter: The Widget Tree ></a></p>
+<p align="right"><a href="https://github.com/devonfw-forge/devonfw4flutter/wiki/130-The-Widget-Tree">Next Chapter: The Widget Tree ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

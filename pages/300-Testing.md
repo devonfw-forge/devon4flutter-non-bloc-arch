@@ -29,7 +29,7 @@ Widget Tests are used to test small Widget Sub-Trees of your application. They r
 
 Integration/Driver Tests run your entire application in a virtual machine or on a physical device. They can test user-journeys and complete use-cases. They are very slow and *“prone to braking”*[\[79\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&).
 
-![Flutter test comparison](https://github.com/Fasust/flutter-guide/wiki//images/test-comp.PNG)
+![Flutter test comparison](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/test-comp.PNG)
 
 *Figure 24: Flutter test comparison [\[80\]](https://flutter.dev/docs/testing)*
 
@@ -48,7 +48,7 @@ dev_dependencies:
 
 *flutter\_test* offers the core testing capabilities of Flutter. *mockito* is used to mock up dependencies. All our tests should sit in a directory named *“test”* on the root level of our app directory. If we want to place them somewhere else, we have to specify their location every time we want to run them.
 
-![Wisgen test directory](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-test-dir.PNG)
+![Wisgen test directory](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-test-dir.PNG)
 
 *Figure 25: Wisgen test directory [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -253,5 +253,5 @@ If we wouldn’t use Equatable, the test form snippet 40 could not functions pro
 | 🕐 | TLDR | If you don’t want your classes to be compared base on their reference, use the Equatable package [\[84\]](https://pub.dev/packages/equatable#-example-tab-) |
 | - | ---- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/400-Conventions">Next Chapter: Conventions ></a></p>
+<p align="right"><a href="https://github.com/devonfw-forge/devonfw4flutter/wiki/400-Conventions">Next Chapter: Conventions ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

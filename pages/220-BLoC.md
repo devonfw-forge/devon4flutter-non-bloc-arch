@@ -27,7 +27,7 @@ When Soares designed the BLoC Pattern, he was working on applications in both Fl
 | 🕐 | TLDR | The UI should be kept free of business logic. The UI only publishes *Events* to a BLoC and subscribes to a Stream of *State* emitted by a BLoC |
 | - | ---- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 
-![Bloc turning input Events to a Stream of State](https://github.com/Fasust/flutter-guide/wiki//images/bloc-architecture.png)
+![Bloc turning input Events to a Stream of State](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/bloc-architecture.png)
 
 *Figure 17: Bloc turning input Events to a Stream of State [\[70\]](https://www.youtube.com/watch?v=RS36gBEp8OI)*
 
@@ -66,15 +66,15 @@ To gain those promised advantages, you will have to follow these 8 rules Soares 
       - Sometimes a little formatting is inevitable, but more complex things like currency formating is business logic and should be done in a BLoC.
 4.  If you do have **platform branching**, It should be dependent on **a single bool State/output** emitted by a BLoC.
 
-![What a BLoC looks like](https://github.com/Fasust/flutter-guide/wiki//images/bloc-sink-stream.png)
+![What a BLoC looks like](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/bloc-sink-stream.png)
 
 *Figure 18: What a BLoC looks like [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)*
 
 ## Implementation
 
-Alright, Now that you know what the BLoC Pattern is, let’s have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [\[65\]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of *App State* as I did in the [previous chapter](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives): The favorite list in Wisgen [\[11\]](https://github.com/Fasust/wisgen). First, let’s have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
+Alright, Now that you know what the BLoC Pattern is, let’s have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [\[65\]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of *App State* as I did in the [previous chapter](https://github.com/devonfw-forge/devonfw4flutter/wiki/210-State-Management-Alternatives): The favorite list in Wisgen [\[11\]](https://github.com/Fasust/wisgen). First, let’s have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
 
-![Bloc and Wisgen Widget Tree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-bloc.PNG)
+![Bloc and Wisgen Widget Tree](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-pagetree-bloc.PNG)
 
 *Figure 19: Bloc and Wisgen Widget Tree [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -131,7 +131,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, List<Wisdom>> {
 
 *Code Snippet 30: Favorite BLoC in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
-As I mentioned before, the BLoC package for Flutter uses the Provider package [\[58\]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we learned in the chapter [State Management Alternatives](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives). By the rule of *“lifting State up”*, we have to place the favorite BLoC at the lowest common ancestor of all Widgets that need access to it. So in our case at *MaterialApp*:
+As I mentioned before, the BLoC package for Flutter uses the Provider package [\[58\]](https://pub.dev/packages/provider). This means that we can provide our BLoC to the rest of our Widget Tree in the same way we learned in the chapter [State Management Alternatives](https://github.com/devonfw-forge/devonfw4flutter/wiki/210-State-Management-Alternatives). By the rule of *“lifting State up”*, we have to place the favorite BLoC at the lowest common ancestor of all Widgets that need access to it. So in our case at *MaterialApp*:
 
 ``` dart
 void main() => runApp(MyApp());
@@ -190,7 +190,7 @@ Widget build(BuildContext context) {
 
 Now that we understand how to implement the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), lets’ have a look at how we can use it to achieve a four-layered architecture with one-way dependencies [\[71\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1):
 
-<img src="https://github.com/Fasust/flutter-guide/wiki//images/bloc-my-layers.png" height="500" alt="Four-Layered BLoC architecture">
+<img src="https://github.com/devonfw-forge/devonfw4flutter/wiki//images/bloc-my-layers.png" height="500" alt="Four-Layered BLoC architecture">
 
 *Figure 20: Four-Layered BLoC architecture*
 
@@ -202,7 +202,7 @@ This is the layer that our user directly interacts with. It is the Widget Tree o
 
 This is where all our BLoCs reside. All our business logic sits in this layer. The communication between this layer and the *UI Layer* should be limited to *Sinks* and *Streams*:
 
-![Widget BLoC communication](https://github.com/Fasust/flutter-guide/wiki//images/widget-bloc-communication.PNG)
+![Widget BLoC communication](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/widget-bloc-communication.PNG)
 
 *Figure 21: Widget BLoC communication*
 
@@ -231,13 +231,13 @@ These are the actual implementations of our *Repositories*. Platform-specific th
 
 To give you a better understanding of how this architecture works in practice, I will walk you through how Wisgen [\[11\]](https://github.com/Fasust/wisgen) is built using the BLoC Pattern and a four-layered architecture.
 
-![Wisgen architecture with dependencies](https://github.com/Fasust/flutter-guide/wiki//images/wisgen_depencies.PNG)
+![Wisgen architecture with dependencies](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen_depencies.PNG)
 
 *Figure 22: Wisgen architecture with dependencies [\[11\]](https://github.com/Fasust/wisgen)*
 
-In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure 22. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[51\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This Event causes the *Wisdom BLoC* to fetch more data from its *Repository*. You can see the *Repository* interface in snippet 33. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) if you want to remind yourself again. When the Wisdom BLoC receives a response from its Repository, it publishes the new wisdoms to its Stream [\[40\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
+In the UI Layer, we have all the Widgets that make up Wisgen. Three of those actually consume State from the BLoC Layer, so those are the only ones I put in figure 22. The *Wisdom Feed* displays an infinite list of wisdoms. Whenever the user scrolls close to the bottom of the list, the Wisdom Feed sends a *Request-Event* to the Wisdom BLoC [\[51\]](https://felangel.github.io/bloc/#/flutterinfinitelisttutorial). This Event causes the *Wisdom BLoC* to fetch more data from its *Repository*. You can see the *Repository* interface in snippet 33. This way the Wisdom BLoC just knows it can fetch some data with its Repository and it does not care where the data comes from or how the data is fetched. In our case, the Repository could be implemented to either load some wisdoms from a local list or fetch some wisdoms from an API. I already covered the implementation of the API Repository class in the chapter [Asynchronous Flutter](https://github.com/devonfw-forge/devonfw4flutter/wiki/140-Asynchronous-Flutter) if you want to remind yourself again. When the Wisdom BLoC receives a response from its Repository, it publishes the new wisdoms to its Stream [\[40\]](https://dart.dev/tutorials/language/streams) and all listening Widgets will be notified.
 
-![Wisgen dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-dataflow.png)
+![Wisgen dataflow](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-dataflow.png)
 
 *Figure 23: Wisgen dataflow [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -370,5 +370,5 @@ class SharedPreferenceStorage implements Storage<List<Wisdom>> {
 
 *Code Snippet 36: Wisgen’s Storage implementation for SharedPreferences [\[11\]](https://github.com/Fasust/wisgen)*
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/300-Testing">Next Chapter: Testing ></a></p>
+<p align="right"><a href="https://github.com/devonfw-forge/devonfw4flutter/wiki/300-Testing">Next Chapter: Testing ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

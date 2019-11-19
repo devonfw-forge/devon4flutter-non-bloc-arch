@@ -17,13 +17,13 @@ I will showcase the State Management Solutions using one example of *App State* 
 1.  The ListView on the favorite page, so it can display all favorites.
 2.  The button on every wisdom card so it can add a new favorites to the list and show if a given wisdom is a favorite.
 
-![Wisgen favorites list and favorite in feed](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-fav-mock.png)
+![Wisgen favorites list and favorite in feed](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-fav-mock.png)
 
 *Figure 13: Wisgen favorites list and favorite in feed [\[11\]](https://github.com/Fasust/wisgen)*
 
 Whenever the favorite button on any card is pressed, several Widgets [\[30\]](https://flutter.dev/docs/development/ui/widgets-intro) have to update. This is a simplified version of the Wisgen Widget Tree. The red highlights show the Widgets that need access to the favorite list, the heart shows a possible location from where a new favorite could be added.
 
-![Wisgen favorites WidgetTree](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-fav.PNG)
+![Wisgen favorites WidgetTree](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-pagetree-fav.PNG)
 
 *Figure 14: Wisgen favorites WidgetTree [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -38,7 +38,7 @@ As a quick reminder: Data in Flutter always flows **downwards**. If you want to 
 
 The Provider Package is an easy way for us to lift State up. Let’s look at our example from figure 14: The first common ancestor of all Widgets in need of the favorite list is *MaterialApp*. So we will need to lift the State up to the MaterialApp Widget and then have our other Widgets access it from there:
 
-![Wisgen WidgetTree favorites with Provider](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-pagetree-provider.PNG)
+![Wisgen WidgetTree favorites with Provider](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-pagetree-provider.PNG)
 
 *Figure 15: Wisgen WidgetTree favorites with Provider [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -124,7 +124,7 @@ All in all, Provider is a great and easy solution to distribute State in a small
 
 Redux [\[65\]](https://redux.js.org/) is State Management Solution with an associated architectural pattern. It was originally built for React [\[22\]](https://facebook.github.io/react-native/) in 2015 by Dan Abramov. It was late ported to Flutter by Brian Egan in 2017 [\[66\]](https://pub.dev/packages/flutter_redux). Redux uses a *Store* as one central location for all business logic. This Store is put at the very top of the Widget Tree and then globally provided to all Widgets using an Inherited Widget. We extract as much logic from the UI as possible. It should only send actions to the Store (such as user inputs) and display the UI dependant on the current State of the Store. The Store has *Reducer* functions, that take in the previous State and an *Action* and return a new State. [\[61\]](https://www.youtube.com/watch?v=zKXz3pUkw9A), [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/), [\[67\]](https://www.youtube.com/watch?v=n_5JULTrstU&feature=youtu.be) So in Wisgen, the Dataflow would look something like this:
 
-![Wisgen Redux dataflow](https://github.com/Fasust/flutter-guide/wiki//images/wisgen-redux.PNG)
+![Wisgen Redux dataflow](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-redux.PNG)
 
 *Figure 16: Wisgen Redux dataflow [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -243,5 +243,5 @@ I went back and forth on this decision a lot. Redux is a great State Management 
 4.  It was developed by one of Flutter’s Engineers [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)
 5.  It does not end up with one giant Store for the business logic. Instead, we spread the business logic out into multiple BLoCs with separate responsibilities [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/)
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/220-BLoC">Next Chapter: BLoC ></a></p>
+<p align="right"><a href="https://github.com/devonfw-forge/devonfw4flutter/wiki/220-BLoC">Next Chapter: BLoC ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

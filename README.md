@@ -1,6 +1,6 @@
-![Banner](https://github.com/Fasust/flutter-guide/wiki//images/banner.png)
+![Banner](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/banner.png)
 
-> The Guide is published in the [Wiki of this repository](https://github.com/Fasust/flutter-guide/wiki). This Repository just hold a copy of the Wiki to make the commit history more readable. The README.md is a copy of the [Introduction chapter](https://github.com/Fasust/flutter-guide/wiki).
+> The Guide is published in the [Wiki of this repository](https://github.com/devonfw-forge/devonfw4flutter/wiki). This Repository just hold a copy of the Wiki to make the commit history more readable. The README.md is a copy of the [Introduction chapter](https://github.com/devonfw-forge/devonfw4flutter/wiki).
 
 # Introduction
 Page Table of Contents
@@ -23,16 +23,16 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 
 ## Topics that will be Covered
 
-  - A brief introduction to the [Flutter Framework](https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework) in general:
-      - How the [underlying technology](https://github.com/Fasust/flutter-guide/wiki/110-Under-the-Hood) works,
-      - how it’s [programming style](https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively) is little different from other frameworks,
-      - how Flutter apps are [structured](https://github.com/Fasust/flutter-guide/wiki/130-The-Widget-Tree) on an abstract level and,
-      - how [asynchrony](https://github.com/Fasust/flutter-guide/wiki/140-Asynchronous-Flutter) and communication with the web can be implemented.
-  - A showcase of possible [architectural styles](https://github.com/Fasust/flutter-guide/wiki/210-State-Management-Alternatives) you can use to build your app and
-      - an [in-depth guide](https://github.com/Fasust/flutter-guide/wiki/220-BLoC) on one of those possibilities (BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)).
-  - How to [test](https://github.com/Fasust/flutter-guide/wiki/300-Testing) your app.
-  - Some [conventions and best practices](https://github.com/Fasust/flutter-guide/wiki/400-Conventions) for Dart, and the Flutter Framework in general.
-  - My personal [evaluation of the framework](https://github.com/Fasust/flutter-guide/wiki/500-Conclusion).
+  - A brief introduction to the [Flutter Framework](https://github.com/devonfw-forge/devonfw4flutter/wiki/100-The-Flutter-Framework) in general:
+      - How the [underlying technology](https://github.com/devonfw-forge/devonfw4flutter/wiki/110-Under-the-Hood) works,
+      - how it’s [programming style](https://github.com/devonfw-forge/devonfw4flutter/wiki/120-Thinking-Declaratively) is little different from other frameworks,
+      - how Flutter apps are [structured](https://github.com/devonfw-forge/devonfw4flutter/wiki/130-The-Widget-Tree) on an abstract level and,
+      - how [asynchrony](https://github.com/devonfw-forge/devonfw4flutter/wiki/140-Asynchronous-Flutter) and communication with the web can be implemented.
+  - A showcase of possible [architectural styles](https://github.com/devonfw-forge/devonfw4flutter/wiki/210-State-Management-Alternatives) you can use to build your app and
+      - an [in-depth guide](https://github.com/devonfw-forge/devonfw4flutter/wiki/220-BLoC) on one of those possibilities (BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)).
+  - How to [test](https://github.com/devonfw-forge/devonfw4flutter/wiki/300-Testing) your app.
+  - Some [conventions and best practices](https://github.com/devonfw-forge/devonfw4flutter/wiki/400-Conventions) for Dart, and the Flutter Framework in general.
+  - My personal [evaluation of the framework](https://github.com/devonfw-forge/devonfw4flutter/wiki/500-Conclusion).
 
 ## Creation Context
 
@@ -40,7 +40,7 @@ This guide was written by a student in the Bachelor of Science Program “Comput
 
 ## Structure
 
-The guide is designed to be read in order, from chapter 0 (this one) to chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [\[11\]](https://github.com/Fasust/wisgen), an example Flutter application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/Fasust/flutter-guide/wiki/gfm-guide). It is all chapters of the guide combined into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
+The guide is designed to be read in order, from chapter 0 (this one) to chapter 5. Code examples throughout the chapters will mainly be taken from Wisgen [\[11\]](https://github.com/Fasust/wisgen), an example Flutter application that was specifically built for the purposes of this guide. If you want to search for any specific terms in the guide, you can use [this page](https://github.com/devonfw-forge/devonfw4flutter/wiki/gfm-guide). It is all chapters of the guide combined into one page. There is going to be a few common symbols throughout the guide, this is what they stand for:
 
 | Symbol | Meaning                  |
 | :----: | :----------------------- |
@@ -50,11 +50,11 @@ The guide is designed to be read in order, from chapter 0 (this one) to chapter 
 
 ## My Sources
 
-I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [*6 References*](https://github.com/Fasust/flutter-guide/wiki/600-References). To put that theoretical knowledge into practice, I built the Wisgen application [\[11\]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
+I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [*6 References*](https://github.com/devonfw-forge/devonfw4flutter/wiki/600-References). To put that theoretical knowledge into practice, I built the Wisgen application [\[11\]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
 
 ## Creation Process
 
-If your in interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/Fasust/flutter-guide/blob/master/Meta-Documentation.pdf).
+If your in interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/devonfw-forge/devonfw4flutter/blob/master/Meta-Documentation.pdf).
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
+<p align="right"><a href="https://github.com/devonfw-forge/devonfw4flutter/wiki/100-The-Flutter-Framework">Next Chapter: The Flutter Framework ></a></p>
 <p align="center"><a href="#">Back to Top</a></p>

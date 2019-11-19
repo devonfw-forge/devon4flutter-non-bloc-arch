@@ -14,7 +14,7 @@ Flutter [\[1\]](https://flutter.dev/) is a framework for cross-platform native d
 
 ### Full Native Approach
 
-![Native app rendering](https://github.com/Fasust/flutter-guide/wiki//images/native-rendering.png)
+![Native app rendering](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/native-rendering.png)
 
 *Figure 1: Native app rendering [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -22,7 +22,7 @@ The classic way to build a mobile app would be to write native code for each pla
 
 ### Embedded WebApp Approach
 
-![Embedded WebApp rendering](https://github.com/Fasust/flutter-guide/wiki//images/webview-rendering.png)
+![Embedded WebApp rendering](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/webview-rendering.png)
 
 *Figure 2: Embedded WebApp rendering [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -34,7 +34,7 @@ Bridges connect components with one another. These components can be built in th
 
 ### Reactive View Approach
 
-![Reactive app rendering](https://github.com/Fasust/flutter-guide/wiki//images/reactive-rendering.png)
+![Reactive app rendering](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/reactive-rendering.png)
 
 *Figure 3: Reactive app rendering [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -42,7 +42,7 @@ Apps build with reactive frameworks (like React Native [\[22\]](https://facebook
 
 ### Flutter’s Approach
 
-![Flutter app rendering](https://github.com/Fasust/flutter-guide/wiki//images/flutter-rendering.png)
+![Flutter app rendering](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/flutter-rendering.png)
 
 *Figure 4: Flutter app rendering [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -50,7 +50,7 @@ Flutter’s approach is to move the entire rendering process into the app. The r
 
 You might think that keeping an entire rendering engine inside an app would lead to huge APKs, but as of 2019, the compressed framework is only 4.3MB [\[24\]](https://flutter.dev/docs/resources/faq).
 
-![Flutter Framework architecture](https://github.com/Fasust/flutter-guide/wiki//images/flutter-architecture.png)
+![Flutter Framework architecture](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/flutter-architecture.png)
 
 *Figure 5: Flutter Framework architecture [\[14\]](https://hackernoon.com/whats-revolutionary-about-flutter-946915b09514)*
 
@@ -72,9 +72,9 @@ One additional advantage of Flutter is that it comes with two different compiler
 
 *Hot Reload* [\[25\]](https://flutter.dev/docs/development/tools/hot-reload) is a feature that Web developers are already very familiar with. It essentially means that changes in the code are displayed in the running application near instantaneously. Thanks to its JIT Compiler, The Flutter Framework is also able to provide this feature.
 
-![Hot Reload](https://github.com/Fasust/flutter-guide/wiki//images/hot-reload.gif)
+![Hot Reload](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/hot-reload.gif)
 
 *Figure 6: Hot Reload [\[25\]](https://flutter.dev/docs/development/tools/hot-reload)*
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/120-Thinking-Declaratively">Next Chapter: Thinking Declaratively ></a></p>
+<p align="right"><a href="https://github.com/devonfw-forge/devonfw4flutter/wiki/120-Thinking-Declaratively">Next Chapter: Thinking Declaratively ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>

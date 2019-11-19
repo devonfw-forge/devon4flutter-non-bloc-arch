@@ -64,7 +64,7 @@ class Wisdom {...}
 
 Whether you agree with that reasoning or not. You should definitely use them because they can be used to auto-generate a documentation for your project with the Dartdoc tool [\[88\]](https://github.com/dart-lang/dartdoc) and they are shown as tooltips in your IDE:
 
-![Wisgen wisdom tooltip](https://github.com/Fasust/flutter-guide/wiki//images/wisdom-tool-tip.png)
+![Wisgen wisdom tooltip](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisdom-tool-tip.png)
 
 *Figure 26: Wisgen wisdom tooltip [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -233,7 +233,7 @@ class WisdomCard extends StatelessWidget {
 
 *Code Snippet 47: Wisgen WisdomCard in one Widget [\[11\]](https://github.com/Fasust/wisgen)*
 
-<img src="https://github.com/Fasust/flutter-guide/wiki//images/wisgen-card.png" height="350" alt="Wisgen Wisdom Card">
+<img src="https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-card.png" height="350" alt="Wisgen Wisdom Card">
 
 *Figure 27: Wisgen Wisdom Card [\[11\]](https://github.com/Fasust/wisgen)*
 
@@ -413,5 +413,5 @@ As of the writing of this guide, there is not really any agreement or best pract
 
 I would also recommend splitting up the UI directory into pages and widgets. This way you have the highest level of your interface in one place. Suri combines the repository- and data-directory into one, this also a perfectly valid option.
 
-<p align="right"><a href="https://github.com/Fasust/flutter-guide/wiki/500-Conclusion">Next Chapter: Conclusion ></a></p>
+<p align="right"><a href="https://github.com/devonfw-forge/devonfw4flutter/wiki/500-Conclusion">Next Chapter: Conclusion ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
