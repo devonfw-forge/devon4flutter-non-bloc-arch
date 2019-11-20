@@ -23,20 +23,20 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 
 ## Topics that will be Covered
 
-  - A brief introduction to the [Flutter Framework](https://github.com/devonfw-forge/devonfw4flutter/wiki/100-The-Flutter-Framework) in general:
-      - How the [underlying technology](https://github.com/devonfw-forge/devonfw4flutter/wiki/110-Under-the-Hood) works,
-      - how it’s [programming style](https://github.com/devonfw-forge/devonfw4flutter/wiki/120-Thinking-Declaratively) is little different from other frameworks,
-      - how Flutter apps are [structured](https://github.com/devonfw-forge/devonfw4flutter/wiki/130-The-Widget-Tree) on an abstract level and,
-      - how [asynchrony](https://github.com/devonfw-forge/devonfw4flutter/wiki/140-Asynchronous-Flutter) and communication with the web can be implemented.
-  - A showcase of possible [architectural styles](https://github.com/devonfw-forge/devonfw4flutter/wiki/210-State-Management-Alternatives) you can use to build your app and
-      - an [in-depth guide](https://github.com/devonfw-forge/devonfw4flutter/wiki/220-BLoC) on one of those possibilities (BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)).
-  - How to [test](https://github.com/devonfw-forge/devonfw4flutter/wiki/300-Testing) your app.
-  - Some [conventions and best practices](https://github.com/devonfw-forge/devonfw4flutter/wiki/400-Conventions) for Dart, and the Flutter Framework in general.
-  - My personal [evaluation of the framework](https://github.com/devonfw-forge/devonfw4flutter/wiki/500-Conclusion).
+- A brief introduction to the [Flutter Framework](https://github.com/devonfw-forge/devonfw4flutter/wiki/100-The-Flutter-Framework) in general:
+    - How the [underlying technology](https://github.com/devonfw-forge/devonfw4flutter/wiki/110-Under-the-Hood) works,
+    - how it’s [programming style](https://github.com/devonfw-forge/devonfw4flutter/wiki/120-Thinking-Declaratively) is little different from other frameworks,
+    - how Flutter apps are [structured](https://github.com/devonfw-forge/devonfw4flutter/wiki/130-The-Widget-Tree) on an abstract level and,
+    - how [asynchrony](https://github.com/devonfw-forge/devonfw4flutter/wiki/140-Asynchronous-Flutter) and communication with the web can be implemented.
+- A showcase of possible [architectural styles](https://github.com/devonfw-forge/devonfw4flutter/wiki/210-State-Management-Alternatives) you can use to build your app and
+    - an [in-depth guide](https://github.com/devonfw-forge/devonfw4flutter/wiki/220-BLoC) on one of those possibilities (BLoC Pattern [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE)).
+- How to [test](https://github.com/devonfw-forge/devonfw4flutter/wiki/300-Testing) your app.
+- Some [conventions and best practices](https://github.com/devonfw-forge/devonfw4flutter/wiki/400-Conventions) for Dart, and the Flutter Framework in general.
+- My personal [evaluation of the framework](https://github.com/devonfw-forge/devonfw4flutter/wiki/500-Conclusion).
 
 ## Creation Context
 
-This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [\[8\]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). Capgemini released a guide on building an application with Angular [\[10\]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
+This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [\[8\]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with DevonFw [\[9\]](https://devonfw.com/index.html). DevonFw released a guide on building an application with Angular [\[10\]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
 
 ## Structure
 
