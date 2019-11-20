@@ -388,7 +388,7 @@ class _LikeButton extends StatelessWidget {
 
 *Code Snippet 48: Wisgen Wisdom Card in four Widgets and with an extracted callback [\[11\]](https://github.com/Fasust/wisgen)*
 
-As you can see, splitting your code into multiple smaller Widgets does lead to a lot more boilerplate. But it has both readability and performance advantages [\[33\]](https://flutter.dev/docs/testing/best-practices), [\[91\]](https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/). Extracting Widgets into private functions removes the boilerplate, but also has no performance advantages.
+As you can see, splitting your code into multiple smaller Widgets does lead to a lot more boilerplate. But it has both readability and performance advantages \[33\], \[91\]. Extracting Widgets into private functions removes the boilerplate, but also has no performance advantages.
 
 ## Directory Structure
 

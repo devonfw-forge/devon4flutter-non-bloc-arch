@@ -35,7 +35,7 @@ Integration/Driver Tests run your entire application in a virtual machine or on 
 
 ## Writing Unit Tests
 
-I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test [\[79\]](https://www.youtube.com/watch?v=bj-oMYyLZEY&), [\[80\]](https://flutter.dev/docs/testing). The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First, we have to import the test library [\[78\]](https://pub.dev/packages/test) and the *mockito* package [\[81\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
+I will focus on *Unit Tests* for this guide. The Flutter Team recommends that the majority of Flutter tests should be Unit Test \[79\], \[80\]. The fact that they are quick to write and quick to execute makes up for their relatively low *confidence*. In addition to this, because we are using the BLoC Pattern, our UI shouldn’t contain that much testable code anyways. Or to paraphrase the BLoC pattern creator: We keep our UI so *stupid* we don’t need to test it [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE). First, we have to import the test library [\[78\]](https://pub.dev/packages/test) and the *mockito* package [\[81\]](https://pub.dev/packages/mockito) in our *pubspec.yaml*:
 
 ``` yaml
 dev_dependencies:
@@ -205,7 +205,7 @@ First, we create our Mock classes. For this test, we need a mock *Supplier-Repos
 
 ## Equality in Dart
 
-| ⚠ | By default, all comparisons in Dart work based on references and not base on values [\[82\]](https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86), [\[84\]](https://pub.dev/packages/equatable#-example-tab-) |
+| ⚠ | By default, all comparisons in Dart work based on references and not base on values \[82\], \[84\] |
 | - | :------------------------------------------------------------------------------------------------- |
 
 ``` dart

@@ -19,7 +19,7 @@ BLoC is an architectural pattern that functions as a State Management Solution. 
 
 ## Intro to BLoC
 
-When Soares designed the BLoC Pattern, he was working on applications in both Flutter and Angular Dart. He wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular Dart apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send *Events* to BLoCs and display the UI based on the *State* of the BLoCs. Soares defined, that UI and BLoCs should only communicate through Streams [\[40\]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a Stream of State [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/), [\[53\]](https://www.youtube.com/watch?v=fahC3ky_zW0), [\[70\]](https://www.youtube.com/watch?v=RS36gBEp8OI).
+When Soares designed the BLoC Pattern, he was working on applications in both Flutter and Angular Dart. He wanted a pattern that enabled him to hook up the same business logic to both Flutter and Angular Dart apps. His idea was to remove business logic from the UI as much as possible and extract it into its own classes, into BLoCs (Business Logic Components). The UI should only send *Events* to BLoCs and display the UI based on the *State* of the BLoCs. Soares defined, that UI and BLoCs should only communicate through Streams [\[40\]](https://dart.dev/tutorials/language/streams). This way the developer would not need to worry about manually telling the UI to redraw. The UI can simply subscribe to a Stream of State [\[12\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) emitted by a BLoC and change based on the incoming State \[7\], \[48\], \[53\], \[70\].
 
 | 📙 | BLoC | Business Logic Component [\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE) |
 | - | ---- | :---------------------------------------------------------------------------- |
@@ -42,7 +42,7 @@ That’s all well and good, but why should you care? An application that follows
 5.  rely on few rebuilds, as the UI only rebuilds when the State related to that UI changes.
 6.  have an App-Sate with very predictable transitions as the pattern enforces a single way for State to change throughout the entire application.
 
-[\[7\]](https://www.youtube.com/watch?v=PLHln7wHgPE), [\[39\]](https://felangel.github.io/bloc/#/), [\[48\]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/), [\[63\]](https://www.didierboelens.com/2019/04/bloc---scopedmodel---redux---comparison/), [\[64\]](https://medium.com/flutter-community/flutter-app-architecture-101-vanilla-scoped-model-bloc-7eff7b2baf7e)
+\[7\], \[39\], \[48\], \[63\], \[64\]
 
 ## Rules of the BLoC Pattern
 
@@ -206,7 +206,7 @@ This is where all our BLoCs reside. All our business logic sits in this layer. T
 
 *Figure 21: Widget BLoC communication*
 
-For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community [\[39\]](https://felangel.github.io/bloc/#/), [\[57\]](https://fluttersamples.com/), [\[71\]](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1), [\[73\]](https://medium.com/coding-with-flutter/widget-async-bloc-service-a-practical-architecture-for-flutter-apps-250a28f9251b) mostly uses the *Repository Patter* [\[74\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[75\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
+For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community \[39\], \[57\], \[71\], \[73\] mostly uses the *Repository Patter* [\[74\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[75\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
 
 ``` dart
 ///Generic Repository that fetches a given amount of T

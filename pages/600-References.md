@@ -49,15 +49,15 @@
 
 </div>
 
-<div id="ref-capgeminiCapgeminiHomePage2019">
+<div id="ref-capgeminiDevonfw2019">
 
-\[9\] Capgemini, “Capgemini - Home Page,” 2019. \[Online\]. Available: <https://www.capgemini.com/us-en/>. \[Accessed: 20-Sep-2019\]
+\[9\] Capgemini, “Devonfw,” 2019. \[Online\]. Available: <https://devonfw.com/index.html>. \[Accessed: 13-Nov-2019\]
 
 </div>
 
-<div id="ref-ambuludiCapgeminiAngularGuide2019">
+<div id="ref-ambuludiDevonFwAngularGuide2019">
 
-\[10\] J. A. Ambuludi, S. J. Linares, and Contributors, “Capgemini Angular Guide,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/devonfw/devon4ng>. \[Accessed: 20-Sep-2019\]
+\[10\] J. A. Ambuludi, S. J. Linares, and Contributors, “DevonFw Angular Guide,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/devonfw/devon4ng>. \[Accessed: 20-Sep-2019\]
 
 </div>
 
@@ -571,45 +571,51 @@
 
 </div>
 
+<div id="ref-capgeminiCapgeminiHomePage2019">
+
+\[96\] Capgemini, “Capgemini - Home Page,” 2019. \[Online\]. Available: <https://www.capgemini.com/us-en/>. \[Accessed: 20-Sep-2019\]
+
+</div>
+
 <div id="ref-linaresMyThaiStar2019">
 
-\[96\] S. J. Linares, D. R. Gonzalez, and Contributors, *My Thai Star*. devonfw, 2019 \[Online\]. Available: <https://github.com/devonfw/my-thai-star>. \[Accessed: 13-Oct-2019\]
+\[97\] S. J. Linares, D. R. Gonzalez, and Contributors, *My Thai Star*. devonfw, 2019 \[Online\]. Available: <https://github.com/devonfw/my-thai-star>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-biorn-hansenSurveyTaxonomyCore2018">
 
-\[97\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
+\[98\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-sommerEvaluationCrossplatformFrameworks2013">
 
-\[98\] A. Sommer and S. Krusche, *Evaluation of cross-platform frameworks for mobile applications*. Gesellschaft für Informatik e.V., 2013 \[Online\]. Available: <http://dl.gi.de/handle/20.500.12116/17386>. \[Accessed: 13-Oct-2019\]
+\[99\] A. Sommer and S. Krusche, *Evaluation of cross-platform frameworks for mobile applications*. Gesellschaft für Informatik e.V., 2013 \[Online\]. Available: <http://dl.gi.de/handle/20.500.12116/17386>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-ebonePerformanceEvaluationCrossPlatform2018">
 
-\[99\] A. Ebone, Y. Tan, and X. Jia, “A Performance Evaluation of Cross-Platform Mobile Application Development Approaches,” in *2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft)*, 2018, pp. 92–93. \[Online\]. Available: <https://ieeexplore.ieee.org/document/8543442>. \[Accessed: 16-Oct-2019\]
+\[100\] A. Ebone, Y. Tan, and X. Jia, “A Performance Evaluation of Cross-Platform Mobile Application Development Approaches,” in *2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft)*, 2018, pp. 92–93 \[Online\]. Available: <https://ieeexplore.ieee.org/document/8543442>
 
 </div>
 
 <div id="ref-flutterdevteamWhatFlutter2018">
 
-\[100\] Flutter Dev Team, “What is Flutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
+\[101\] Flutter Dev Team, “What is Flutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamFlutterYouTube2019">
 
-\[101\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
+\[102\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcInjectRepo2019">
 
-\[102\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
+\[103\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
 
 </div>
 

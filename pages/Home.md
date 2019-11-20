@@ -34,7 +34,7 @@ For people with a basic knowledge of the Flutter Framework. I recommend followin
 
 ## Creation Context
 
-This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [\[8\]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with Capgemini Cologne [\[9\]](https://www.capgemini.com/us-en/). Capgemini released a guide on building an application with Angular [\[10\]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
+This guide was written by a student in the Bachelor of Science Program “Computer Science and Media Technology” at Technical University Cologne [\[8\]](https://www.th-koeln.de/en/homepage_26.php), and it was created for one of the modules in that Bachelor. In addition to this, the guide was written in collaboration with DevonFw [\[9\]](https://devonfw.com/index.html). DevonFw released a guide on building an application with Angular [\[10\]](https://github.com/devonfw/devon4ng) in May of 2019, this guide is meant to be the Flutter version of that.
 
 ## Structure
 
