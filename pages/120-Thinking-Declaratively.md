@@ -71,7 +71,7 @@ button.setOnClickListener(new View.OnClickListener() {
 
 *Code Snippet 3: Red button in Android (Imperative)*
 
-In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool “pressed”). We then declare that the *onPressed()* function should update the App State and rebuild the button:
+In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-State (here the bool “pressed”). We then declare that the *onPressed()* function should update the App State and rebuild the button:
 
 ``` dart
 bool pressed = false; //State

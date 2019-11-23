@@ -40,7 +40,7 @@ That’s all well and good, but why should you care? An application that follows
 3.  have a UI that can be changed without affecting the business Logic.
 4.  have easily testable business logic.
 5.  rely on few rebuilds, as the UI only rebuilds when the State related to that UI changes.
-6.  have an App-Sate with very predictable transitions as the pattern enforces a single way for State to change throughout the entire application.
+6.  have an App-State with very predictable transitions as the pattern enforces a single way for State to change throughout the entire application.
 
 \[7\], \[39\], \[48\], \[63\], \[64\]
 

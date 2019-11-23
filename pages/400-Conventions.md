@@ -132,7 +132,7 @@ Let’s look at an example. This is what the *WisdomCard* in Wisgen would look l
 ``` dart
 ///Displays a given [Wisdom].
 ///
-///Images are loaded from the given [Wisdom.imgUrl] once and then cashed.
+///Images are loaded from the given [Wisdom.imgUrl] once and then cached.
 ///All [Wisdom]s displayed in a [WisdomCard] *have* to contain an imgUrl.
 ///The like button subscribes to the global [FavoriteBLoC] to change its appearance
 ///based on on the [FavoriteBLoC]s current State.
@@ -242,7 +242,7 @@ And this is what it looks like if we extract the callback function and split the
 ``` dart
 ///Displays a given [Wisdom].
 ///
-///Images are loaded from the given [Wisdom.imgUrl] once and then cashed.
+///Images are loaded from the given [Wisdom.imgUrl] once and then cached.
 ///All [Wisdom]s displayed in a [WisdomCard] *have* to contain an imgUrl.
 ///The like button subscribes to the global [FavoriteBLoC] to change its appearance
 ///based on on the [FavoriteBLoC]s current State.

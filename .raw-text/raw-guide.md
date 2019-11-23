@@ -193,7 +193,7 @@ button.setOnClickListener(new View.OnClickListener() {
 ```
 _Code Snippet 3: Red button in Android (Imperative)_
 
-In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-Sate (here the bool "pressed"). We then declare that the _onPressed()_ function should update the App State and rebuild the button:
+In Flutter, on the other hand, we never call the UI element directly, we instead declare that the button background should be red or blue depending on the App-State (here the bool "pressed"). We then declare that the _onPressed()_ function should update the App State and rebuild the button:
 
 ```dart
 bool pressed = false; //State
@@ -354,7 +354,7 @@ I explained what State is in the Chapter [Thinking Declaratively][declarative]. 
 | 📙  | State | Any data that can change over time [[@flutterdevteamFlutterState2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt) |
 | --- | ----- | :--------------------------------------------------------------------------------------------------------------------------------------- |
 
-A Stateful Widget [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consists of two parts: An immutable Widget and a mutable State. The immutable Widget's responsibility is to hold onto that State, the State itself has the mutable data and builds the actual UI element [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The _WisdomBloc_ is responsible for generating and cashing wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App][architecture].
+A Stateful Widget [[@flutterdevteamStatefulWidgetClass2018]](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) always consists of two parts: An immutable Widget and a mutable State. The immutable Widget's responsibility is to hold onto that State, the State itself has the mutable data and builds the actual UI element [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). Let's have a look at an example. This is a simplified version of the WisdomFeed from Figure 8. The _WisdomBloc_ is responsible for generating and caching wisdoms that are then displayed in the Feed. More on that in the chapter [Architecting a Flutter App][architecture].
 
 ```dart
 ///Immutable Widget
@@ -378,7 +378,7 @@ _Code Snippet 9: Simplified Wisgen WisdomFeed [[@faustWisgen2019]](https://githu
 
 If you are anything like me, you will ask yourself: "why is this split into 2 parts? The StatefulWidget is not really doing anything." Well, The Flutter Team wants to keep Widgets **always** immutable. The only way to keep this statement universally true is to have the StatefulWidget hold onto the State but not actually be the State [@googlellcHowStatefulWidgets2018; @windmillStatefulWidgetLifecycle2019].
 
-State objects have a long lifespan in Flutter. They will stick around during rebuilds or even if the Widget that they are linked to gets replaced [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). So in this example, no matter how often the WisdomFeed gets rebuild and no matter if the user switches pages, the cashed list of wisdoms (WisdomBloc) will stay the same until the app is shut down.
+State objects have a long lifespan in Flutter. They will stick around during rebuilds or even if the Widget that they are linked to gets replaced [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). So in this example, no matter how often the WisdomFeed gets rebuild and no matter if the user switches pages, the cached list of wisdoms (WisdomBloc) will stay the same until the app is shut down.
 
 The Lifecycle of State Objects/StatefulWidgets is a little bit more complex. I will only showcase a boiled-down version here. It contains all the methods you'll need for this guide. You can read the full Lifecycle here: Lifecycle of StatefulWidgets [[@windmillStatefulWidgetLifecycle2019]](https://flutterbyexample.com//stateful-widget-lifecycle).
 
@@ -390,7 +390,7 @@ class MyWidget extends StatefulWidget {
   State<StatefulWidget> createState() => MySate();
 }
 
-class MySate extends State<MyWidget>{
+class MyState extends State<MyWidget>{
   
   ///Called after constructor
   ///
@@ -695,27 +695,27 @@ import 'package:wisgen/models/wisdom.dart';
 import 'package:wisgen/repositories/supplier.dart';
 import 'package:http/http.dart' as http;
 
-///[Supplier] that cashes [Wisdom]s it fetches from an API and
+///[Supplier] that caches [Wisdom]s it fetches from an API and
 ///then provides a given amount of random entries.
 ///
 ///[Wisdom]s Supplied do not have an Image URL
 class ApiSupplier implements Supplier<List<Wisdom>> {
   ///Advice SLip API Query that requests all (~213) text entries from the API.
-  ///We fetch all entries at once and cash them locally to minimize network traffic.
+  ///We fetch all entries at once and cache them locally to minimize network traffic.
   ///The Advice Slip API also does not provide the option to request a selected amount of entries.
   ///That's why I think this is the best approach.
   static const _adviceURI = 'https://api.adviceslip.com/advice/search/%20';
-  List<Wisdom> _cash;
+  List<Wisdom> _cache;
   final Random _random = Random();
 
   @override
   Future<List<Wisdom>> fetch(int amount, BuildContext context) async {
-    //if the cash is empty, request data from the API
-    if (_cash == null) _cash = await _loadData();
+    //if the cache is empty, request data from the API
+    if (_cache == null) _cache = await _loadData();
 
     List<Wisdom> res = List();
     for (int i = 0; i < amount; i++) {
-      res.add(_cash[_random.nextInt(_cash.length)]);
+      res.add(_cache[_random.nextInt(_cache.length)]);
     }
     return res;
   }
@@ -860,7 +860,7 @@ The Provider Package is an easy way for us to lift State up. Let's look at our e
 
 _Figure 15: Wisgen WidgetTree favorites with Provider [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-To minimize re-builds the Provider Package uses ChangeNotifiers [[@flutterdevteamChangeNotifierClass2018]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the provided Sate and get notified whenever it changes. This is how an implementation of Wisgen's favorite list would look like using Provider. "_Favorites_" is the class we will use to provide our favorite list globally. The _notifyListeners()_ function will trigger rebuilds on all Widgets that listen to it.
+To minimize re-builds the Provider Package uses ChangeNotifiers [[@flutterdevteamChangeNotifierClass2018]](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html). This way Widgets can subscribe/listen to the provided State and get notified whenever it changes. This is how an implementation of Wisgen's favorite list would look like using Provider. "_Favorites_" is the class we will use to provide our favorite list globally. The _notifyListeners()_ function will trigger rebuilds on all Widgets that listen to it.
 
 ```dart
 class Favorites with ChangeNotifier{
@@ -1077,7 +1077,7 @@ That's all well and good, but why should you care? An application that follows t
 3. have a UI that can be changed without affecting the business Logic.
 4. have easily testable business logic.
 5. rely on few rebuilds, as the UI only rebuilds when the State related to that UI changes.
-6. have an App-Sate with very predictable transitions as the pattern enforces a single way for State to change throughout the entire application.
+6. have an App-State with very predictable transitions as the pattern enforces a single way for State to change throughout the entire application.
 
 [@boelensFlutterBLoCScopedModel2019; @savjolovsFlutterAppArchitecture2019; @soaresFlutterAngularDartCode2018; @boelensFlutterReactiveProgramming2018; @angelovBlocLibraryDart2019]
 
@@ -1741,7 +1741,7 @@ Let's look at an example. This is what the _WisdomCard_ in Wisgen would look lik
 ```dart
 ///Displays a given [Wisdom].
 ///
-///Images are loaded from the given [Wisdom.imgUrl] once and then cashed.
+///Images are loaded from the given [Wisdom.imgUrl] once and then cached.
 ///All [Wisdom]s displayed in a [WisdomCard] *have* to contain an imgUrl.
 ///The like button subscribes to the global [FavoriteBLoC] to change its appearance
 ///based on on the [FavoriteBLoC]s current State.
@@ -1850,7 +1850,7 @@ And this is what it looks like if we extract the callback function and split the
 ```dart
 ///Displays a given [Wisdom].
 ///
-///Images are loaded from the given [Wisdom.imgUrl] once and then cashed.
+///Images are loaded from the given [Wisdom.imgUrl] once and then cached.
 ///All [Wisdom]s displayed in a [WisdomCard] *have* to contain an imgUrl.
 ///The like button subscribes to the global [FavoriteBLoC] to change its appearance
 ///based on on the [FavoriteBLoC]s current State.
