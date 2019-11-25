@@ -72,13 +72,13 @@ To gain those promised advantages, you will have to follow these 8 rules Soares 
 
 ## Implementation
 
-Alright, Now that you know what the BLoC Pattern is, let’s have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [\[65\]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of *App State* as I did in the [previous chapter](https://github.com/devonfw-forge/devonfw4flutter/wiki/210-State-Management-Alternatives): The favorite list in Wisgen [\[11\]](https://github.com/Fasust/wisgen). First, let’s have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
+Alright, Now that you know what the BLoC Pattern is, let’s have a look at how it looks in practice. I am using the BLoC package [\[39\]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch and because it was publicly endorsed by the Flutter Team [\[73\]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#bloc--rx). I am going to use the same example of *App State* as I did in the [previous chapter](https://github.com/devonfw-forge/devonfw4flutter/wiki/210-State-Management-Alternatives): The favorite list in Wisgen [\[11\]](https://github.com/Fasust/wisgen). First, let’s have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
 
 ![Bloc and Wisgen Widget Tree](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-pagetree-bloc.PNG)
 
 *Figure 19: Bloc and Wisgen Widget Tree [\[11\]](https://github.com/Fasust/wisgen)*
 
-These are the “*Events*” that can be sent to the BLoC by the UI. Again, this is very similar to the *Actions* in our Redux implementation:
+These are the “*Events*” that can be sent to the BLoC by the UI. It is a common practice to use inheriting classes for *Events*. This way we can communicate intent though the name of the class and add some data for the *Event* to carry in it’s members. This approach of implementing *Events* is very similar to Redux’s *Actions* [\[65\]](https://redux.js.org/).
 
 ``` dart
 @immutable
@@ -206,7 +206,7 @@ This is where all our BLoCs reside. All our business logic sits in this layer. T
 
 *Figure 21: Widget BLoC communication*
 
-For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community \[39\], \[57\], \[71\], \[73\] mostly uses the *Repository Patter* [\[74\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[75\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
+For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community \[39\], \[57\], \[71\], \[74\] mostly uses the *Repository Patter* [\[75\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[76\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
 
 ``` dart
 ///Generic Repository that fetches a given amount of T
@@ -317,7 +317,7 @@ abstract class Storage<T>{
 
 *Code Snippet 35: Wisgen platform-agnostic Repository: Storage [\[11\]](https://github.com/Fasust/wisgen)*
 
-In Wisgen, I built an implementation of *Storage* that communicates with Androids Shared Preferences [\[76\]](https://developer.android.com/reference/android/content/SharedPreferences) and saves the favorite list as a JSON:
+In Wisgen, I built an implementation of *Storage* that communicates with Androids Shared Preferences [\[77\]](https://developer.android.com/reference/android/content/SharedPreferences) and saves the favorite list as a JSON:
 
 ``` dart
 ///[Storage] that gives access to Androids Shared Preferences 

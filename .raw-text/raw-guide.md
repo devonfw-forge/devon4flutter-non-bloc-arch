@@ -1107,13 +1107,13 @@ To gain those promised advantages, you will have to follow these 8 rules Soares 
 _Figure 18: What a BLoC looks like [[@boelensFlutterReactiveProgramming2018]](https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/)_
 
 ## Implementation
-Alright, Now that you know what the BLoC Pattern is, let's have a look at how it looks in practice. You will see some strong similarities to the implementation of Redux [[@abramovRedux2015]](https://redux.js.org/) here. That is just because the two patterns are very similar in general. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch. I am going to use the same example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let's have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
+Alright, Now that you know what the BLoC Pattern is, let's have a look at how it looks in practice. I am using the BLoC package [[@angelovBlocLibraryDart2019]](https://felangel.github.io/bloc/#/) for Flutter by Felix Angelov, as it removes a lot of the boilerplate code we would have to write if we would implement our own BLoCs from scratch and because it was publicly endorsed by the Flutter Team [[@flutterdevteamStateManagementRecommendations2019]](https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#bloc--rx). I am going to use the same example of _App State_ as I did in the [previous chapter][statemng]: The favorite list in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen). First, let's have a look at how the Bloc Pattern will interact with Wisgen on a more abstract scale:
 
 ![Bloc and Wisgen Widget Tree](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/wisgen-pagetree-bloc.PNG)
 
 _Figure 19: Bloc and Wisgen Widget Tree [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-These are the "_Events_" that can be sent to the BLoC by the UI. Again, this is very similar to the _Actions_ in our Redux implementation:
+These are the "_Events_" that can be sent to the BLoC by the UI. It is a common practice to use inheriting classes for _Events_. This way we can communicate intent though the name of the class and add some data for the _Event_ to carry in it's members. This approach of implementing _Events_ is very similar to Redux's _Actions_ [[@abramovRedux2015]](https://redux.js.org/).
 
 ```dart
 @immutable

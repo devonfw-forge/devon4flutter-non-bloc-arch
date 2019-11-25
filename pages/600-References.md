@@ -433,189 +433,195 @@
 
 </div>
 
+<div id="ref-flutterdevteamStateManagementRecommendations2019">
+
+\[73\] Flutter Dev Team, “State Management Recommendations,” 2019. \[Online\]. Available: <https://flutter.dev/docs/development/data-and-backend/state-mgmt/options>. \[Accessed: 25-Nov-2019\]
+
+</div>
+
 <div id="ref-bizzottoWidgetAsyncBlocServicePracticalArchitecture2019">
 
-\[73\] A. Bizzotto, “Widget-Async-Bloc-Service: A Practical Architecture for Flutter Apps,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/coding-with-flutter/widget-async-bloc-service-a-practical-architecture-for-flutter-apps-250a28f9251b>. \[Accessed: 10-Oct-2019\]
+\[74\] A. Bizzotto, “Widget-Async-Bloc-Service: A Practical Architecture for Flutter Apps,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/coding-with-flutter/widget-async-bloc-service-a-practical-architecture-for-flutter-apps-250a28f9251b>. \[Accessed: 10-Oct-2019\]
 
 </div>
 
 <div id="ref-garlanIntroductionSoftwareArchitecture1994">
 
-\[74\] D. Garlan and M. Shaw, “An Introduction to Software Architecture,” Carnegie Mellon University, Pittsburgh, PA, USA, 1994 \[Online\]. Available: <https://dl.acm.org/citation.cfm?id=865128>
+\[75\] D. Garlan and M. Shaw, “An Introduction to Software Architecture,” Carnegie Mellon University, Pittsburgh, PA, USA, 1994 \[Online\]. Available: <https://dl.acm.org/citation.cfm?id=865128>
 
 </div>
 
 <div id="ref-martinPrinciplesCleanArchitecture2015">
 
-\[75\] B. Martin, “The Principles of Clean Architecture,” 2015 \[Online\]. Available: <https://www.youtube.com/watch?v=o_TH-Y78tt4>. \[Accessed: 13-Sep-2019\]
+\[76\] B. Martin, “The Principles of Clean Architecture,” 2015 \[Online\]. Available: <https://www.youtube.com/watch?v=o_TH-Y78tt4>. \[Accessed: 13-Sep-2019\]
 
 </div>
 
 <div id="ref-googlellcSharedPreferences2011">
 
-\[76\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
+\[77\] Google LLC, “SharedPreferences,” *Android Developers*, 2011. \[Online\]. Available: <https://developer.android.com/reference/android/content/SharedPreferences>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-georgeInitialInvestigationTest2003">
 
-\[77\] B. George and L. Williams, “An Initial Investigation of Test Driven Development in Industry,” in *Proceedings of the 2003 ACM Symposium on Applied Computing*, Melbourne, Florida, 2003, pp. 1135–1139 \[Online\]. Available: <http://doi.acm.org/10.1145/952532.952753>. \[Accessed: 10-Oct-2019\]
+\[78\] B. George and L. Williams, “An Initial Investigation of Test Driven Development in Industry,” in *Proceedings of the 2003 ACM Symposium on Applied Computing*, Melbourne, Florida, 2003, pp. 1135–1139 \[Online\]. Available: <http://doi.acm.org/10.1145/952532.952753>. \[Accessed: 10-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamTestDartPackage2019">
 
-\[78\] Dart Team, “Test | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test>. \[Accessed: 09-Oct-2019\]
+\[79\] Dart Team, “Test | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-hracekTestingFlutterApps2019">
 
-\[79\] *Testing Flutter Apps - Making Sure Your Code Works*, vol. Ep. 21. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=bj-oMYyLZEY&>. \[Accessed: 09-Oct-2019\]
+\[80\] *Testing Flutter Apps - Making Sure Your Code Works*, vol. Ep. 21. 2019 \[Online\]. Available: <https://www.youtube.com/watch?v=bj-oMYyLZEY&>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamTestingFlutterApps2018">
 
-\[80\] Flutter Dev Team, “Testing Flutter apps,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing>. \[Accessed: 09-Oct-2019\]
+\[81\] Flutter Dev Team, “Testing Flutter apps,” 2018. \[Online\]. Available: <https://flutter.dev/docs/testing>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-fibulwinterMockitoDartPackage2019">
 
-\[81\] D. Fibulwinter and Dart Team, “Mockito | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/mockito>. \[Accessed: 09-Oct-2019\]
+\[82\] D. Fibulwinter and Dart Team, “Mockito | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/mockito>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-angelovUnitTestingBloc2019">
 
-\[82\] F. Angelov, “Unit Testing with ‘Bloc’,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86>. \[Accessed: 09-Oct-2019\]
+\[83\] F. Angelov, “Unit Testing with ‘Bloc’,” *Medium*, 2019. \[Online\]. Available: <https://medium.com/flutter-community/unit-testing-with-bloc-b94de9655d86>. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamAsynchronoustestsTestDart2019">
 
-\[83\] Dart Team, “Asynchronous-tests with the test Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test#asynchronous-tests>. \[Accessed: 11-Oct-2019\]
+\[84\] Dart Team, “Asynchronous-tests with the test Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/test#asynchronous-tests>. \[Accessed: 11-Oct-2019\]
 
 </div>
 
 <div id="ref-angelovEquatableDartPackage2019">
 
-\[84\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
+\[85\] F. Angelov, “Equatable | Dart Package,” *Dart packages*, 2019. \[Online\]. Available: <https://pub.dev/packages/equatable#-example-tab->. \[Accessed: 09-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamEffectiveDart2019">
 
-\[85\] Dart Team, “Effective Dart,” 2019. \[Online\]. Available: <https://dart.dev/guides/language/effective-dart>. \[Accessed: 28-Aug-2019\]
+\[86\] Dart Team, “Effective Dart,” 2019. \[Online\]. Available: <https://dart.dev/guides/language/effective-dart>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-wikipediaHungarianNotation2019">
 
-\[86\] Wikipedia, “Hungarian notation,” *Wikipedia*. 25-Jun-2019 \[Online\]. Available: <https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598>. \[Accessed: 12-Oct-2019\]
+\[87\] Wikipedia, “Hungarian notation,” *Wikipedia*. 25-Jun-2019 \[Online\]. Available: <https://en.wikipedia.org/w/index.php?title=Hungarian_notation&oldid=903388598>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamStyleGuideFlutter2018">
 
-\[87\] Flutter Dev Team, “Style Guide for Flutter repo,” *GitHub*, 2018. \[Online\]. Available: <https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo>. \[Accessed: 11-Oct-2019\]
+\[88\] Flutter Dev Team, “Style Guide for Flutter repo,” *GitHub*, 2018. \[Online\]. Available: <https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo>. \[Accessed: 11-Oct-2019\]
 
 </div>
 
 <div id="ref-dartteamDartdocTool2019">
 
-\[88\] Dart Team, *Dartdoc tool*. Dart, 2019 \[Online\]. Available: <https://github.com/dart-lang/dartdoc>. \[Accessed: 12-Oct-2019\]
+\[89\] Dart Team, *Dartdoc tool*. Dart, 2019 \[Online\]. Available: <https://github.com/dart-lang/dartdoc>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-gruberMarkdown2004">
 
-\[89\] J. Gruber and A. Swartz, “Markdown,” 2004. \[Online\]. Available: <https://daringfireball.net/projects/markdown/>. \[Accessed: 12-Oct-2019\]
+\[90\] J. Gruber and A. Swartz, “Markdown,” 2004. \[Online\]. Available: <https://daringfireball.net/projects/markdown/>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamOfficialFlutterExample2019">
 
-\[90\] Flutter Dev Team, “Official Flutter Example,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart>. \[Accessed: 12-Oct-2019\]
+\[91\] Flutter Dev Team, “Official Flutter Example,” *GitHub*, 2019. \[Online\]. Available: <https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/gallery/home.dart>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-krankkaPuttingBuildMethods2018">
 
-\[91\] I. Krankka, “Putting build methods on a diet,” *iirokrankka.com*, 2018. \[Online\]. Available: <https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/>. \[Accessed: 28-Aug-2019\]
+\[92\] I. Krankka, “Putting build methods on a diet,” *iirokrankka.com*, 2018. \[Online\]. Available: <https://iirokrankka.com/2018/06/18/putting-build-methods-on-a-diet/>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-cluelessAmAlsoCreating2018">
 
-\[92\] Clueless, “I am also creating my application with Flutter.” *Medium*. \[Online\]. Available: <https://medium.com/@blusea231/i-am-also-creating-my-application-with-flutter-8f25db889312>. \[Accessed: 12-Oct-2019\]
+\[93\] Clueless, “I am also creating my application with Flutter.” *Medium*. \[Online\]. Available: <https://medium.com/@blusea231/i-am-also-creating-my-application-with-flutter-8f25db889312>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-u/the_aceixFlutterDevFlutterCode2018">
 
-\[93\] u/the\_aceix, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
+\[94\] u/the\_aceix, “R/FlutterDev - Is Flutter code style ugly ?” *reddit*, 2018. \[Online\]. Available: <https://www.reddit.com/r/FlutterDev/comments/9ei0dn/is_flutter_code_style_ugly/>. \[Accessed: 12-Oct-2019\]
 
 </div>
 
 <div id="ref-ieeeIEEEXploreDigital1963">
 
-\[94\] IEEE, “IEEE Xplore Digital Library,” 1963. \[Online\]. Available: <https://ieeexplore.ieee.org/Xplore/home.jsp>. \[Accessed: 20-Sep-2018\]
+\[95\] IEEE, “IEEE Xplore Digital Library,” 1963. \[Online\]. Available: <https://ieeexplore.ieee.org/Xplore/home.jsp>. \[Accessed: 20-Sep-2018\]
 
 </div>
 
 <div id="ref-acmACMDigitalLibrary1947">
 
-\[95\] ACM, “ACM Digital Library,” 1947. \[Online\]. Available: <https://dl.acm.org/>. \[Accessed: 20-Sep-2018\]
+\[96\] ACM, “ACM Digital Library,” 1947. \[Online\]. Available: <https://dl.acm.org/>. \[Accessed: 20-Sep-2018\]
 
 </div>
 
 <div id="ref-capgeminiCapgeminiHomePage2019">
 
-\[96\] Capgemini, “Capgemini - Home Page,” 2019. \[Online\]. Available: <https://www.capgemini.com/us-en/>. \[Accessed: 20-Sep-2019\]
+\[97\] Capgemini, “Capgemini - Home Page,” 2019. \[Online\]. Available: <https://www.capgemini.com/us-en/>. \[Accessed: 20-Sep-2019\]
 
 </div>
 
 <div id="ref-linaresMyThaiStar2019">
 
-\[97\] S. J. Linares, D. R. Gonzalez, and Contributors, *My Thai Star*. devonfw, 2019 \[Online\]. Available: <https://github.com/devonfw/my-thai-star>. \[Accessed: 13-Oct-2019\]
+\[98\] S. J. Linares, D. R. Gonzalez, and Contributors, *My Thai Star*. devonfw, 2019 \[Online\]. Available: <https://github.com/devonfw/my-thai-star>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-biorn-hansenSurveyTaxonomyCore2018">
 
-\[98\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
+\[99\] A. Biørn-Hansen, T.-M. Grønli, and G. Ghinea, “A Survey and Taxonomy of Core Concepts and Research Challenges in Cross-Platform Mobile Development,” *ACM Comput. Surv.*, vol. 51, no. 5, pp. 108:1–108:34, Nov. 2018 \[Online\]. Available: <http://doi.acm.org/10.1145/3241739>. \[Accessed: 28-Aug-2019\]
 
 </div>
 
 <div id="ref-sommerEvaluationCrossplatformFrameworks2013">
 
-\[99\] A. Sommer and S. Krusche, *Evaluation of cross-platform frameworks for mobile applications*. Gesellschaft für Informatik e.V., 2013 \[Online\]. Available: <http://dl.gi.de/handle/20.500.12116/17386>. \[Accessed: 13-Oct-2019\]
+\[100\] A. Sommer and S. Krusche, *Evaluation of cross-platform frameworks for mobile applications*. Gesellschaft für Informatik e.V., 2013 \[Online\]. Available: <http://dl.gi.de/handle/20.500.12116/17386>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-ebonePerformanceEvaluationCrossPlatform2018">
 
-\[100\] A. Ebone, Y. Tan, and X. Jia, “A Performance Evaluation of Cross-Platform Mobile Application Development Approaches,” in *2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft)*, 2018, pp. 92–93 \[Online\]. Available: <https://ieeexplore.ieee.org/document/8543442>
+\[101\] A. Ebone, Y. Tan, and X. Jia, “A Performance Evaluation of Cross-Platform Mobile Application Development Approaches,” in *2018 IEEE/ACM 5th International Conference on Mobile Software Engineering and Systems (MOBILESoft)*, 2018, pp. 92–93 \[Online\]. Available: <https://ieeexplore.ieee.org/document/8543442>
 
 </div>
 
 <div id="ref-flutterdevteamWhatFlutter2018">
 
-\[101\] Flutter Dev Team, “What is Flutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
+\[102\] Flutter Dev Team, “What is Flutter,” 2018. \[Online\]. Available: <https://flutter.dev/docs/resources/technical-overview>. \[Accessed: 14-Oct-2019\]
 
 </div>
 
 <div id="ref-flutterdevteamFlutterYouTube2019">
 
-\[102\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
+\[103\] Flutter Dev Team, “Flutter - YouTube,” 2019. \[Online\]. Available: <https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
 <div id="ref-googlellcInjectRepo2019">
 
-\[103\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
+\[104\] Google LLC, *Inject Repo*. Google, 2019 \[Online\]. Available: <https://github.com/google/inject.dart>. \[Accessed: 13-Oct-2019\]
 
 </div>
 
