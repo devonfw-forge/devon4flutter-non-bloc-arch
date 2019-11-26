@@ -78,7 +78,7 @@ Alright, Now that you know what the BLoC Pattern is, let’s have a look at how 
 
 *Figure 19: Bloc and Wisgen Widget Tree [\[11\]](https://github.com/Fasust/wisgen)*
 
-These are the “*Events*” that can be sent to the BLoC by the UI. It is a common practice to use inheriting classes for *Events*. This way we can communicate intent though the name of the class and add some data for the *Event* to carry in it’s members. This approach of implementing *Events* is very similar to Redux’s *Actions* [\[65\]](https://redux.js.org/).
+These are the “*Events*” that can be sent to the BLoC by the UI. It is a common practice to use inheriting classes for *Events*. This way we can communicate intent through the name of the class and add some data for the *Event* to carry in its members. This approach of implementing *Events* is very similar to Redux’s *Actions* [\[65\]](https://redux.js.org/).
 
 ``` dart
 @immutable
