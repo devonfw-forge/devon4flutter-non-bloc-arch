@@ -1,6 +1,6 @@
 ![Banner](https://github.com/devonfw-forge/devonfw4flutter/wiki//images/banner.png)
 
-> The Guide is published in the [Wiki of this repository](https://github.com/devonfw-forge/devonfw4flutter/wiki). This Repository just hold a copy of the Wiki to make the commit history more readable. The README.md is a copy of the [Introduction chapter](https://github.com/devonfw-forge/devonfw4flutter/wiki).
+> The guide is published in the [Wiki of this repository](https://github.com/devonfw-forge/devonfw4flutter/wiki). This repository just holds a copy of the Wiki to make the commit history more readable. The _README.md_ is a copy of the [introduction chapter](https://github.com/devonfw-forge/devonfw4flutter/wiki).
 
 # Introduction
 Page Table of Contents
