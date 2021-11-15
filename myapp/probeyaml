@@ -1,0 +1,60 @@
+openapi: 3.0.1
+info:
+ title: CounterApiExample
+ description: This is just an example of the counter app
+ version: "1.1.1"
+ x-rootpackage: "com.flutter"
+paths:
+ /counter:
+   x-component: countermanagement
+   get:
+     tags:
+       - CounterService
+     description: "Get the current value of the counter"
+     operationId: getCounter
+     responses:
+       "200":
+         description: "the counter's current value"
+         content:
+           application/json:
+             schema:
+               $ref: "#/components/schemas/Counter"
+   delete:
+     tags:
+       - CounterService
+     description: "Reset the counter"
+     operationId: resetCounter
+     responses:
+       "200":
+         description: "the counter's current value"
+         content:
+           application/json:
+             schema:
+               $ref: "#/components/schemas/Counter"
+   post:
+     tags:
+       - CounterService
+     description: "Increase the current value of the counter by an amount"
+     operationId: incCounter
+     requestBody:
+       required: true
+       content:
+         application/json:
+           schema:
+             $ref: "#/components/schemas/Counter"
+     responses:
+       "200":
+         description: "the counters current value"
+         content:
+           application/json:
+             schema:
+               $ref: "#/components/schemas/Counter"
+components:
+ schemas:
+   Counter:
+     x-component: counter
+     required:
+       - amount
+     properties:
+       amount:
+         type: integer

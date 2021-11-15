@@ -1,60 +1,296 @@
-openapi: 3.0.1
+openapi: 3.0.0
+servers:
+  - url: 'https://localhost:8081/server/services/rest'
+    description: Flutter Employee App Example
 info:
- title: CounterApiExample
- description: This is just an example of the counter app
- version: "1.1.1"
- x-rootpackage: "com.flutter"
+  title: devonfw Example
+  description: Example of a API definition
+  version: 1.0.0
+  x-rootpackage: com.example.domain.myapp
 paths:
- /counter:
-   x-component: countermanagement
-   get:
-     tags:
-       - CounterService
-     description: "Get the current value of the counter"
-     operationId: getCounter
-     responses:
-       "200":
-         description: "the counter's current value"
-         content:
-           application/json:
-             schema:
-               $ref: "#/components/schemas/Counter"
-   delete:
-     tags:
-       - CounterService
-     description: "Reset the counter"
-     operationId: resetCounter
-     responses:
-       "200":
-         description: "the counter's current value"
-         content:
-           application/json:
-             schema:
-               $ref: "#/components/schemas/Counter"
-   post:
-     tags:
-       - CounterService
-     description: "Increase the current value of the counter by an amount"
-     operationId: incCounter
-     requestBody:
-       required: true
-       content:
-         application/json:
-           schema:
-             $ref: "#/components/schemas/Counter"
-     responses:
-       "200":
-         description: "the counters current value"
-         content:
-           application/json:
-             schema:
-               $ref: "#/components/schemas/Counter"
+  /employeemanagement/v1/employee/{id}:
+    delete:
+        parameters:
+          - name: id
+            in: path
+            required: true
+            schema:
+              type: integer
+              format: int64
+              minimum: 0
+              maximum: 50
+        responses:
+          '200':
+            description: Any
+          '404':
+            description: Not found
+        tags:
+         - deleteEmployee
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 0
+            maximum: 50
+      responses:
+        '200':
+          description: Any
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeDetailResponseDtoSchema'
+            text/plain:
+              schema:
+                type: string
+        '404':
+          description: Not found
+      tags:
+       - getEmployee
+  /employeemanagement/v1/employee/search/:
+    post:
+      responses:
+        '200':
+          description: Any
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeListResponseDtoSchema'
+        '404':
+          description: Not found
+      requestBody:
+        $ref: '#/components/requestBodies/EmployeeListRequestDtoBody'
+      tags:
+       - searchCriteria
+  /employeemanagement/v1/employee/:
+    post:
+       responses:
+         '200':
+           description: Any
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/EmployeeInsertResponseDtoSchema'
+         '404':
+           description: Not found
+       requestBody:
+         $ref: '#/components/requestBodies/EmployeeInsertRequestDtoBody'
+       tags:
+        - insertEmployee
 components:
- schemas:
-   Counter:
-     x-component: counter
-     required:
-       - amount
-     properties:
-       amount:
-         type: integer
+    schemas:
+        PageableSortDtoSchema:
+          x-component: employeemanagement
+          description: Entity definition of PageSort
+          type: object
+          properties:
+            property:
+              type: string
+              maxLength: 100
+              minLength: 3
+            direction:
+              type: string
+              maxLength: 100
+              minLength: 3
+          required:
+            - property
+            - direction
+        PageableDtoSchema:
+          x-component: employeemanagement
+          description: Entity definition of Pageable
+          type: object
+          properties:
+            pageSize:
+              type: integer
+              format: int64
+              uniqueItems: true
+            pageNumber:
+              type: integer
+              format: int64
+              uniqueItems: true
+            sort:
+              type: array
+              uniqueItems: true
+              items:
+                $ref: '#/components/schemas/PageableSortDtoSchema'
+          required:
+            - property
+            - direction
+        EmployeeListRequestDtoSchema:
+          x-component: employeemanagement
+          description: Entity definiton of Employee
+          type: object
+          properties:
+            employeeId:
+              type: string
+              maxLength: 30
+              minLength: 3
+              uniqueItems: true
+            name:
+              type: string
+              maxLength: 30
+              minLength: 3
+              uniqueItems: true
+            surname :
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+            email:
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+            pageable:
+              type: object
+              uniqueItems: true
+              items:
+                $ref: '#/components/schemas/PageableDtoSchema'
+          required:
+            - employeeId
+        EmployeeListResponseDtoSchema:
+          x-component: employeemanagement
+          description: Entity definiton of Employee
+          type: object
+          properties:
+            content:
+              type: array
+              uniqueItems: true
+              items:
+                $ref: '#/components/schemas/EmployeeListContentResponseDtoSchema'
+            pageable:
+              type: object
+              uniqueItems: true
+              items:
+                $ref: '#/components/schemas/PageableDtoSchema'
+            totalElements:
+              type: integer
+              format: int64
+              uniqueItems: true
+        EmployeeInsertResponseDtoSchema:
+          x-component: employeemanagement
+          description: Entity definiton of Employee
+          type: object
+          properties:
+            modificationCounter:
+              type: integer
+              format: int64
+              uniqueItems: true
+            id:
+              type: integer
+              format: int64
+              uniqueItems: true
+            name:
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+            surname:
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+            email:
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+        EmployeeListContentResponseDtoSchema:
+          x-component: employeemanagement
+          description: Entity definiton of Employee
+          type: object
+          properties:
+            modificationCounter:
+              type: integer
+              format: int64
+              uniqueItems: true
+            id:
+              type: integer
+              format: int64
+              uniqueItems: true
+            employeeId:
+              type: integer
+              format: int64
+              uniqueItems: true
+            name:
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+            surname:
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+            email:
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+        EmployeeInsertRequestDtoSchema:
+          x-component: employeemanagement
+          description: Entity definiton of Employee
+          type: object
+          properties:
+            name:
+              type: string
+              maxLength: 30
+              minLength: 3
+              uniqueItems: true
+            surname :
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+            email:
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+        EmployeeDetailResponseDtoSchema:
+          x-component: employeemanagement
+          description: Entity definiton of Employee
+          type: object
+          properties:
+            modificationCounter:
+              type: integer
+              format: int64
+              uniqueItems: true
+            id:
+              type: integer
+              format: int64
+              uniqueItems: true
+            employeeId:
+              type: integer
+              format: int64
+              uniqueItems: true
+            name:
+              type: string
+              maxLength: 30
+              minLength: 3
+              uniqueItems: true
+            surname :
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+            email:
+              type: string
+              maxLength: 100
+              minLength: 3
+              uniqueItems: true
+    requestBodies:
+        EmployeeListRequestDtoBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeListRequestDtoSchema'
+          required: true
+        EmployeeInsertRequestDtoBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeInsertRequestDtoSchema'
