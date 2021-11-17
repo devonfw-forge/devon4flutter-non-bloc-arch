@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(employee_dialog LANGUAGES CXX)
+project(employee_dialog1 LANGUAGES CXX)
 
-set(BINARY_NAME "employee_dialog")
+set(BINARY_NAME "employee_dialog1")
 
 cmake_policy(SET CMP0063 NEW)
 
