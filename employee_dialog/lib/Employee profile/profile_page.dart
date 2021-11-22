@@ -49,10 +49,8 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget buildName(Employee employee) => Container(
-
       width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.22,
-
       child: Column(
       children: [
         Text(
@@ -60,19 +58,14 @@ class _ProfilePageState extends State<ProfilePage> {
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         ),
         const SizedBox(height: 5),
-
         Column(
-
           children: <Widget>[
-
            ListTile(
               title: Container(
                   child: Text(employee.profession.toString(), textAlign: TextAlign.center)),
-
            ),
             ListTile(
               title: Text(employee.country.toString(), textAlign: TextAlign.center),
-
             ),
           ],
         )
