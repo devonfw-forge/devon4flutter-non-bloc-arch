@@ -1,0 +1,78 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.employee_dialog1"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="30" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\debug\AndroidManifest.xml:6:5-66
+14-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\debug\AndroidManifest.xml:6:22-64
+15
+16    <application
+16-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:3:4-31:19
+17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+17-->[androidx.core:core:1.1.0] C:\Users\tdalmaz\.gradle\caches\transforms-2\files-2.1\2e94107f30f39be366a17347c2bf100b\core-1.1.0\AndroidManifest.xml:24:18-86
+18        android:debuggable="true"
+19        android:icon="@mipmap/ic_launcher"
+19-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:5:9-43
+20        android:label="employee_dialog1" >
+20-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:4:9-41
+21        <activity
+21-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:6:9-25:20
+22            android:name="com.example.employee_dialog1.MainActivity"
+22-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:7:13-41
+23            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+23-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:10:13-163
+24            android:hardwareAccelerated="true"
+24-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:11:13-47
+25            android:launchMode="singleTop"
+25-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:8:13-43
+26            android:theme="@style/LaunchTheme"
+26-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:9:13-47
+27            android:windowSoftInputMode="adjustResize" >
+27-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:12:13-55
+28
+29            <!--
+30                 Specifies an Android theme to apply to this Activity as soon as
+31                 the Android process has started. This theme is visible to the user
+32                 while the Flutter UI initializes. After that, this theme continues
+33                 to determine the Window background behind the Flutter UI.
+34            -->
+35            <meta-data
+35-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:17:13-20:17
+36                android:name="io.flutter.embedding.android.NormalTheme"
+36-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:18:15-70
+37                android:resource="@style/NormalTheme" />
+37-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:19:15-52
+38
+39            <intent-filter>
+39-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:21:13-24:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:22:17-68
+40-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:22:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:23:17-76
+42-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:23:27-74
+43            </intent-filter>
+44        </activity>
+45        <!--
+46             Don't delete the meta-data below.
+47             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+48        -->
+49        <meta-data
+49-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:28:9-30:33
+50            android:name="flutterEmbedding"
+50-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:29:13-44
+51            android:value="2" />
+51-->C:\Projekte\devonfw\workspaces\main\devonfw4flutter\update_employee_dialog\android\app\src\main\AndroidManifest.xml:30:13-30
+52    </application>
+53
+54</manifest>

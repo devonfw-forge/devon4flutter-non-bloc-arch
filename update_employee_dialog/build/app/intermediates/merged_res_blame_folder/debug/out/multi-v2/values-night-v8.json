@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Projekte\\devonfw\\workspaces\\main\\devonfw4flutter\\update_employee_dialog\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "C:\\Projekte\\devonfw\\workspaces\\main\\devonfw4flutter\\update_employee_dialog\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "175,829",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "471,995"
+                    },
+                    "to": {
+                        "startLines": "2,7",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,352",
+                        "endLines": "6,9",
+                        "endColumns": "12,12",
+                        "endOffsets": "347,516"
+                    }
+                }
+            ]
+        }
+    ]
+}
