@@ -1,19 +1,14 @@
-import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+//import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:employee/Employee%20profile/edit_profile_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'employee.dart';
 import 'employee_preferences.dart';
 import '../Widgets/appbar_widget.dart';
 import '../Widgets/profile_widget.dart';
-import 'edit_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  final Employee employee;
-
-  const ProfilePage({
-    Key? key,
-    required this.employee,
-  }) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   _ProfilePageState createState() {
@@ -24,7 +19,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final employee = EmployeePreferences.myEmployee;
+    final employee = EmployeePreferences.getEmployee();
+
     return Scaffold(
       appBar: buildAppBar(context),
       body: SingleChildScrollView(
@@ -40,7 +36,13 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: MediaQuery.of(context).size.height * 0.30,
                       child: ProfileWidget(
                         imagePath: employee.imagePath,
-                        onClicked: () {},
+                        onClicked: () async {
+                          await Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => const EditProfilePage()),
+                          );
+                          setState(() {});
+                        },
                       )),
                   const SizedBox(height: 24),
                   buildName(employee),
@@ -83,8 +85,8 @@ class _ProfilePageState extends State<ProfilePage> {
             height: MediaQuery.of(context).size.height * 0.3,
             child: ListView(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text("Contact",
                       textAlign: TextAlign.left,
                       style:

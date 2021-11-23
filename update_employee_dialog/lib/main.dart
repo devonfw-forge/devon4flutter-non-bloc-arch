@@ -2,15 +2,17 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:employee/Employee profile/employee_preferences.dart';
 import 'package:employee/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+//import 'package:flutter/services.dart';
 import 'Employee profile/profile_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+  await EmployeePreferences.init();
+
+  // await SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]);
 
   runApp(const MyApp());
 }
@@ -32,8 +34,7 @@ class MyApp extends StatelessWidget {
                   debugShowCheckedModeBanner: false,
                   theme: ThemeProvider.of(context),
                   title: title,
-                  home: const ProfilePage(
-                      employee: EmployeePreferences.myEmployee),
+                  home: const ProfilePage(),
                 )));
   }
 }
