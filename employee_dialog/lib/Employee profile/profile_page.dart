@@ -13,7 +13,7 @@ class ProfilePage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ProfilePageState createState(){
+  _ProfilePageState createState() {
     return _ProfilePageState();
   }
 }
@@ -26,80 +26,78 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: buildAppBar(context),
       body: SingleChildScrollView(
-        // physics: const BouncingScrollPhysics(),
-        child: Container (
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height,
-            child: Column (
-            children: [
-          Container(
+          // physics: const BouncingScrollPhysics(),
+          child: Container(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.28,
-              child: ProfileWidget(
-            imagePath: employee.imagePath,
-            onClicked: () {},
-          )),
-          const SizedBox(height: 24),
-          buildName(employee),
-          const SizedBox(height: 5),
-          buildContact(employee),
-        ],
-      ))),
+              height: MediaQuery.of(context).size.height,
+              child: Column(
+                children: [
+                  Container(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height * 0.28,
+                      child: ProfileWidget(
+                        imagePath: employee.imagePath,
+                        onClicked: () {},
+                      )),
+                  const SizedBox(height: 24),
+                  buildName(employee),
+                  const SizedBox(height: 5),
+                  buildContact(employee),
+                ],
+              ))),
     );
   }
 
-  Widget buildName(Employee employee) => Container(
-
+  Widget buildName(Employee employee) => SizedBox(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.22,
-
-      child: Column(
-      children: [
+      height: MediaQuery.of(context).size.height *
+          0.18, // Abstand zwischen Detail und Contact
+      child: Column(children: [
         Text(
           employee.name,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         ),
         const SizedBox(height: 5),
-
         Column(
-
           children: <Widget>[
-
-           ListTile(
-              title: Container(
-                  child: Text(employee.profession.toString(), textAlign: TextAlign.center)),
-
-           ),
             ListTile(
-              title: Text(employee.country.toString(), textAlign: TextAlign.center),
-
-            ),
+                title: Column(
+              children: [
+                Text(employee.profession.toString()),
+                Text(employee.country.toString()),
+              ],
+            ))
           ],
         )
-      ]
-  ));
+      ]));
 
   Widget buildContact(Employee employee) => Container(
-    padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1),
-    child: SizedBox(
-      height: MediaQuery.of(context).size.height * 0.3,
-      child:
-        ListView(
-          children: <Widget>[
-            ListTile(
-              leading: const Icon(Icons.phone),
-              title: Text(employee.phone.toString()),
-            ),
-            ListTile(
-              leading: const Icon(Icons.email),
-              title: Text(employee.email.toString()),
-            ),
-            ListTile(
-              leading: const Icon(Icons.map),
-              title: Text(employee.location.toString()),
-            ),
-          ],
-        )
-    ),
-  );
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.1),
+        child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            child: ListView(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Text("Contact",
+                      textAlign: TextAlign.left,
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.phone),
+                  title: Text(employee.phone.toString()),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.email),
+                  title: Text(employee.email.toString()),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.location_on),
+                  title: Text(employee.location.toString()),
+                ),
+              ],
+            )),
+      );
 }
