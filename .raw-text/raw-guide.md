@@ -55,7 +55,7 @@ The guide is designed to be read in order, from chapter 0 (this one) to chapter 
 I am basing this guide on a combination of conference talks, blog articles by respected Flutter developers, the official documentation, scientific papers that cover cross-platform mobile development in general and many other sources. All sources used in the guide are listed in chapter [_6 References_][refs]. To put that theoretical knowledge into practice, I built the Wisgen application [[@faustWisgen2019]](https://github.com/Fasust/wisgen) using the Flutter Framework, the BLoC Pattern [[@soaresFlutterAngularDartCode2018]](https://www.youtube.com/watch?v=PLHln7wHgPE), and a four-layered architecture.
 
 ## Creation Process
-If your in interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/devonfw-forge/devonfw4flutter/blob/master/Meta-Documentation.pdf).
+If you are interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/devonfw-forge/devonfw4flutter/blob/master/Meta-Documentation.pdf).
 
 # 100-The-Flutter-Framework
 ## Introduction
@@ -1136,7 +1136,7 @@ class FavoriteEventRemove extends FavoriteEvent {
 ```
 _Code Snippet 29: Favorite Events in Wisgen [[@faustWisgen2019]](https://github.com/Fasust/wisgen)_
 
-Now the arguably most interesting part of an implementation of the BLoC Patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the _Events_ that will be sent to the BLoC and the type of the _State_ that will be emitted by the BLoC `Bloc<Event, State>`:
+Now the arguably most interesting part of an implementation of the BLoC Pattern, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the _Events_ that will be sent to the BLoC and the type of the _State_ that will be emitted by the BLoC `Bloc<Event, State>`:
 
 ```dart
 ///Responsible for keeping track of the Favorite list. 

@@ -41,7 +41,7 @@ I am basing this guide on a combination of conference talks, blog articles by re
 
 ## Creation Process
 
-If your in interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/devonfw-forge/devonfw4flutter/blob/master/Meta-Documentation.pdf).
+If you are interested in how this guide was created, how Wisgen was built, how a bridge between a citation software and Markdown was realized, or any other details about the creation process, check out the [Meta-Documentation](https://github.com/devonfw-forge/devonfw4flutter/blob/master/Meta-Documentation.pdf).
 
 # 100-The-Flutter-Framework
 
@@ -1195,7 +1195,7 @@ class FavoriteEventRemove extends FavoriteEvent {
 
 *Code Snippet 29: Favorite Events in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
-Now the arguably most interesting part of an implementation of the BLoC Patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the *Events* that will be sent to the BLoC and the type of the *State* that will be emitted by the BLoC `Bloc<Event, State>`:
+Now the arguably most interesting part of an implementation of the BLoC Pattern, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the *Events* that will be sent to the BLoC and the type of the *State* that will be emitted by the BLoC `Bloc<Event, State>`:
 
 ``` dart
 ///Responsible for keeping track of the Favorite list. 
@@ -1299,7 +1299,7 @@ This is where all our BLoCs reside. All our business logic sits in this layer. T
 
 *Figure 21: Widget BLoC communication*
 
-For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community \[39\], \[57\], \[71\], \[74\] mostly uses the *Repository Patter* [\[75\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[76\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
+For this Layer, all platform-specific dependencies should be injectable. To achieve this, the Flutter community \[39\], \[57\], \[71\], \[74\] mostly uses the *Repository Pattern* [\[75\]](https://dl.acm.org/citation.cfm?id=865128) or as *“Uncle Bob”* would say: *Boundary Objects* [\[76\]](https://www.youtube.com/watch?v=o_TH-Y78tt4). Even if this pattern is not an explicit part of BLoC, I personally think it is a very clean solution. Instead of having BLoCs directly depend on platform-specific interfaces, we create *Repository* interfaces for the BLoCs to depend on:
 
 ``` dart
 ///Generic Repository that fetches a given amount of T

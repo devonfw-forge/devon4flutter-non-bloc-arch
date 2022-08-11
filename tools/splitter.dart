@@ -8,6 +8,8 @@ import 'dart:io';
 ///"000-Introduction" file name is overwritten to "Home.md".
 ///Preserves the content of the destination file before the first ['## ']
 ///Preserves the content of the destination file after the first ['<p align=']
+/// e.g.
+/// dart ./tools/splitter.dart ./.raw-text/gfm-guide.md ./pages/
 main(List<String> arguments) async {
   File input = File(arguments[0]);
   String outputPrefix = arguments[1];
@@ -30,7 +32,7 @@ List<String> getSectionHeaders(List<String> lines) {
 }
 
 List<String> splitSections(List<String> lines, List sectionsHeader) {
-  List<String> sections = List();
+  List<String> sections = [];
   String currentSection = '';
   for (int i = 0; i < lines.length; i++) {
     bool lastLine = (i == lines.length - 1);
@@ -50,7 +52,7 @@ List<String> splitSections(List<String> lines, List sectionsHeader) {
   return sections;
 }
 
-writeFile(String header, String section, String outputPrefix) async {
+Future<void> writeFile(String header, String section, String outputPrefix) async {
   File out = File(outputPrefix + header + '.md');
 
   //Preserving Header and Footer
@@ -85,7 +87,7 @@ writeFile(String header, String section, String outputPrefix) async {
 }
 
 List<String> cleanHeaders(List<String> headers) {
-  List<String> clean = List();
+  List<String> clean = [];
   headers.forEach((h) => clean.add(h.replaceFirst('# ', '')));
 
   if (clean.contains("000-Introduction")) {
