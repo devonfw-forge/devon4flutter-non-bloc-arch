@@ -102,7 +102,7 @@ class FavoriteEventRemove extends FavoriteEvent {
 
 *Code Snippet 29: Favorite Events in Wisgen [\[11\]](https://github.com/Fasust/wisgen)*
 
-Now the arguably most interesting part of an implementation of the BLoC Patter, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the *Events* that will be sent to the BLoC and the type of the *State* that will be emitted by the BLoC `Bloc<Event, State>`:
+Now the arguably most interesting part of an implementation of the BLoC Pattern, the BLoC class itself. We extend the BLoC class provided by the Flutter BLoC package. It takes in the type of the *Events* that will be sent to the BLoC and the type of the *State* that will be emitted by the BLoC `Bloc<Event, State>`:
 
 ``` dart
 ///Responsible for keeping track of the Favorite list. 
