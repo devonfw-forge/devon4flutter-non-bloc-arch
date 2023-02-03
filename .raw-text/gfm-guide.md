@@ -1267,8 +1267,8 @@ Widget build(BuildContext context) {
           FavoriteBloc favoriteBloc = BlocProvider.of<FavoriteBloc>(context);
           
           //Add/remove Wisdom to/from favorites (dispatch events)
-          if (favorites.contains(wisdom)) favoriteBloc.dispatch(RemoveFavoriteEvent(wisdom));
-          else favoriteBloc.dispatch(AddFavoriteEvent(wisdom));  
+          if (favorites.contains(wisdom)) favoriteBloc.dispatch(FavoriteEventRemove(wisdom));
+          else favoriteBloc.dispatch(FavoriteEventAdd(wisdom));  
         },
       ),
     ),
