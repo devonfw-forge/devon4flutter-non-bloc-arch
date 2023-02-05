@@ -219,7 +219,7 @@
 
 <div id="ref-windmillStatefulWidgetLifecycle2019">
 
-\[37\] E. Windmill and Contributors, “Stateful Widget Lifecycle,” *flutterbyexample*, 2019. \[Online\]. Available: <https://flutterbyexample.com//stateful-widget-lifecycle>. \[Accessed: 01-Oct-2019\]
+\[37\] E. Windmill and Contributors, “Stateful Widget Lifecycle,” *flutterbyexample*, 2019. \[Online\]. Available: <https://flutterbyexample.com/lesson/stateful-widget-lifecycle>. \[Accessed: 01-Oct-2019\]
 
 </div>
 

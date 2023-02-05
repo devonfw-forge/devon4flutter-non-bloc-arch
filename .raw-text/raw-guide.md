@@ -380,7 +380,7 @@ If you are anything like me, you will ask yourself: "why is this split into 2 pa
 
 State objects have a long lifespan in Flutter. They will stick around during rebuilds or even if the Widget that they are linked to gets replaced [[@googlellcHowStatefulWidgets2018]](https://www.youtube.com/watch?v=AqCMFXEmf3w). So in this example, no matter how often the WisdomFeed gets rebuild and no matter if the user switches pages, the cached list of wisdoms (WisdomBloc) will stay the same until the app is shut down.
 
-The Lifecycle of State Objects/StatefulWidgets is a little bit more complex. I will only showcase a boiled-down version here. It contains all the methods you'll need for this guide. You can read the full Lifecycle here: Lifecycle of StatefulWidgets [[@windmillStatefulWidgetLifecycle2019]](https://flutterbyexample.com//stateful-widget-lifecycle).
+The Lifecycle of State Objects/StatefulWidgets is a little bit more complex. I will only showcase a boiled-down version here. It contains all the methods you'll need for this guide. You can read the full Lifecycle here: Lifecycle of StatefulWidgets [[@windmillStatefulWidgetLifecycle2019]](https://flutterbyexample.com/lesson/stateful-widget-lifecycle).
 
 ```dart
 class MyWidget extends StatefulWidget {
