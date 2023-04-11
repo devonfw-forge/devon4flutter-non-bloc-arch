@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration file for logback -->
+<configuration>
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+      <includeContext>false</includeContext>
+      <includeMdcKeyName>correlationId</includeMdcKeyName>
+      <fieldNames>
+        <timestamp>timestamp</timestamp>
+        <version>[ignore]</version>
+        <levelValue>[ignore]</levelValue>
+      </fieldNames>
+      <customFields>{"appname":"myapp"}</customFields>
+      <timeZone>UTC</timeZone>
+    </encoder>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+
+  <!-- Minimize infrastructure debug logs -->
+  <logger name="com.netflix" level="INFO"/>
+  <logger name="org.apache" level="INFO"/>
+  <logger name="com.github.dozermapper" level="INFO"/>
+  <logger name="org.flywaydb" level="INFO"/>
+  <logger name="org.hibernate" level="INFO"/>
+  <logger name="org.springframework" level="INFO"/>
+  <logger name="org.springframework.cloud.netflix.zuul" level="WARN"/>
+  <logger name="com.ulisesbocchio.jasyptspringboot.EnableEncryptablePropertySourcesPostProcessor" level="WARN"/>
+  <logger name="org.springframework.security.web.csrf.CsrfFilter" level="DEBUG"/>
+</configuration>

@@ -1,0 +1,3 @@
+INSERT INTO EMPLOYEE (id, modificationCounter, employeeid, name, surname,email) VALUES (1, 1, 1, 'John','Doe','john.doe@example.com');
+INSERT INTO EMPLOYEE (id, modificationCounter, employeeid, name, surname,email) VALUES (2, 2, 2, 'Tom','Smith', 'tom.smith@example.com');
+INSERT INTO EMPLOYEE (id, modificationCounter, employeeid, name, surname,email) VALUES (3, 3, 3, 'Joe','Schmoe', 'joe.schmoe@example.com');
