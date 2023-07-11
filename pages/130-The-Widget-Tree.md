@@ -132,7 +132,7 @@ class MyWidget extends StatelessWidget {
   ///Called first
   ///
   ///Use for initialization if needed
-  MyClass({ Key key }) : super(key: key);
+  MyWidget({ Key key }) : super(key: key);
 
   ///Called multiple times a second
   ///
