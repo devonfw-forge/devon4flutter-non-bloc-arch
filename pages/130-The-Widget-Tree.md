@@ -226,7 +226,7 @@ Keep in mind, to improve performance, you always want to rely on as few Stateful
 
 ### Inherited Widgets
 
-I will not go in detail on Inherited Widgets [\[38\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) here. When using the BLoC library [\[39\]](https://felangel.github.io/bloc/#/), which I will teach you in the chapter [Architecting a Flutter-App](https://github.com/devonfw-forge/devonfw4flutter/wiki/200-Architecting-a-Flutter-App), you will most likely never create an Inherited Widgets yourself. But in short: They are a way to expose data from the top of the Widget Tree to all their descendants. And they are used as the underlying technology of the BLoC library.
+I will not go in detail on Inherited Widgets [\[38\]](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) here. When using the BLoC library [\[39\]](https://felangel.github.io/bloc/#/), which I will teach you in the chapter [Architecting a Flutter-App](https://github.com/devonfw-forge/devonfw4flutter/wiki/200-Architecting-a-Flutter-App), you will most likely never create Inherited Widgets yourself. But in short: they are a way to expose data from the top of the Widget Tree to all their descendants. And they are used as the underlying technology of the BLoC library.
 
 <p align="right"><a href="https://github.com/devonfw-forge/devonfw4flutter/wiki/140-Asynchronous-Flutter">Next Chapter: Asynchronous Flutter ></a></p>
 <p align="center"><a href="#">Back to Top</a></center></p>
