@@ -188,7 +188,7 @@ class MyWidget extends StatefulWidget {
 
   ///Called immediately when first building the StatefulWidget
   @override
-  State<StatefulWidget> createState() => MySate();
+  State<StatefulWidget> createState() => MyState();
 }
 
 class MyState extends State<MyWidget>{
